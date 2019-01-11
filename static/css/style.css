@@ -1,0 +1,71 @@
+
+.list-group-item {
+  background: transparent;
+  border: none;
+  padding: 5px 0px;
+}
+
+/*
+  ========================================
+  Footer
+  ========================================
+*/
+
+footer {
+  background-color: #333;
+  border-top: 1px solid #E7E7E7;
+  margin-top: 15px;
+  padding: 15px 0 30px;
+}
+
+.neuromat-footer {
+  color: #fff;
+  background: #333;
+  border-radius: 3px;
+}
+
+.footer-content-align {
+  text-align: center;
+  margin-top:20px;
+}
+
+.neuromat-footer h4 {
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.neuromat-footer span {
+  background-color: #ffffff;
+  color: #333;
+  padding: 5px;
+  margin-right: 5px;
+  font-size: 23px;
+  border-radius: 3px;
+}
+
+.neuromat-footer .fa-facebook{
+    padding: 5px 8px;
+}
+
+.neuromat-footer a {
+  color: #ffffff;
+}
+
+.neuromat-footer a:hover, .neuromat-footer a:active {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.fapesp-icon {
+  margin-bottom: -5px;
+}
+
+.footer-license {
+  float: right;
+}
+
+.footer-license p {
+  font-size: 13px;
+  margin: 15px 10px;
+}
+
