@@ -161,6 +161,14 @@ sup {
   top: -.5em;
 }
 
+
+a.white {
+  color: #FFF;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+
 a {
   color: #78C2AD;
   text-decoration: none;
@@ -4505,6 +4513,15 @@ input[type="button"].btn-block {
   padding-bottom: 0.5rem;
 }
 
+.navbar-text-neuro {
+  font-style: italic;
+  font-size: 11px;
+  color: #aaa !important;
+  line-height: 100%;
+  padding-top: 5px;
+  margin:15px 20px 0 5px;
+}
+
 .navbar-collapse {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
@@ -8140,7 +8157,7 @@ button.bg-dark:focus {
 
 .fixed-top {
   position: fixed;
-  top: 0;
+  top: 20px;
   right: 0;
   left: 0;
   z-index: 1030;

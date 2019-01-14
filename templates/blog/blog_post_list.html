@@ -68,17 +68,18 @@
     {# Categoria do post #}
     {% block blog_post_list_post_metainfo %}
         {% editable blog_post.publish_date %}
-            <h6 class="post-meta">
+            <span class="badge badge-info">
                 {% with blog_post.categories.all as categories %}
                     {% if categories %}
                         {% for category in categories %}
-                            <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+                            <a class="white" href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
-            </h6>
+            </span>
         {% endeditable %}
     {% endblock %}
+
 
     {# Imagem thumbnail #}
     {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
