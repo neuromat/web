@@ -1,0 +1,12 @@
+{% load blog_tags keyword_tags mezzanine_tags i18n staticfiles %}
+
+<form enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% blocktrans %}Stay informed on our latest news!{% endblocktrans %}
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+        <input type="email" class="form-control" name="email_field" placeholder="E-mail" required="" id="id_email_field" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <button class="btn btn-success" id="id_submit" name="submit" value="Subscribe" type="submit">Subscribe</button>
+</form>
