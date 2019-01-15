@@ -5,7 +5,8 @@
 */
 
 .navbar-default {
-  background-color: #333;
+  background-color: #ffffff;
+  border-color: #ffffff;;
 }
 
 /* Logo NeuroMat */
@@ -17,12 +18,12 @@
   margin-top: 20px;
   margin-right: 10px;
   font-size: 40px;
-  color: #ffffff;
+  color: #333;
 }
 
 .top-neuromat:hover,.top-neuromat:focus  {
     text-decoration: none;
-    color: #999;
+    color: #000;
 }
 
 /* Texto ao lado do logo */
@@ -31,9 +32,9 @@
   display: inline-block;
   width: 34%; /* TODO: make relative, try does not use magic number */
   margin-top: 5px;
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid #333;
   padding-left: 10px;
-  color: #ffffff;
+  color: #333;
   line-height: 20px;
 }
 
