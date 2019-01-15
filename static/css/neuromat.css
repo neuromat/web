@@ -10420,6 +10420,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .btn, .btn:hover {
   color: #fff;
+  background-color: #333333;
+  /* original #fff */
 }
 
 .btn-light, .btn-light:hover {
