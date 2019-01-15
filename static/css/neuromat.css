@@ -64,10 +64,10 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-size: 1.5rem; /*@ale : aumentar a fonte do texto principal */
   font-weight: 400;
   line-height: 1.5;
-  color: #888;
+  color: #3e3e3e;
   text-align: left;
   background-color: #fff;
 }
@@ -4475,7 +4475,7 @@ input[type="button"].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 3rem;
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -4507,18 +4507,18 @@ input[type="button"].btn-block {
   float: none;
 }
 
-.navbar-text {
+.navbar-textOLD {
   display: inline-block;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.navbar-text-neuro {
+.navbar-text {
   font-style: italic;
-  font-size: 11px;
+  font-size: 18px;
   color: #aaa !important;
   line-height: 100%;
-  padding-top: 5px;
+  padding-top: 3px;
   margin:15px 20px 0 5px;
 }
 

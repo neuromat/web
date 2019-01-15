@@ -11,12 +11,17 @@
         <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
 
 
-        <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-        <link rel="stylesheet" href="{% static "css/neuromat.css" %}">
-         <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+        {#  <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">#}
+        {#  <link rel="stylesheet" href="{% static "css/neuromat.css" %}">#}
+        {#  <link rel="stylesheet" href="{% static "css/style.css" %}">#}
+
+
 
         {% ifinstalled mezzanine.blog %}
             <link rel="stylesheet" href="{% static "css/neuromat.css" %}">
+            <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+            <link rel="stylesheet" href="{% static "css/style.css" %}">
             <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
             <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
         {% endifinstalled %}
@@ -25,6 +30,7 @@
             <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
             <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
 {#            <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">#}
+            <link rel="stylesheet" href="{% static "css/neuromat.css" %}">
             <link rel="stylesheet" href="{% static "css/style.css" %}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
             {% block extra_css %}{% endblock %}
@@ -50,10 +56,14 @@
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
+                    <!--
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">{% trans "Toggle Navigation" %}</span>
                         <span class="icon-bar"></span>
                     </button>
+                    -->
+
+
                     {% block navbar_title %}
                         {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
                         {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>{% endif %}
@@ -69,9 +79,11 @@
 
 
 
-        <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-menu-superior">
+        <div class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-menu-superior">
         <div class="container">
-
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav">
 
@@ -139,7 +151,7 @@
 
         </div>
 
-            <img src="../../../static/img/pt-br.png"> <small><font color="white">&nbsp;português | <img src="../../../static/img/en.png">&nbsp;english</font></small>
+            <img src="../../../static/img/pt-br.png">&nbsp;<small><a class="white" href="http://neuromat.numec.prp.usp.br/pt-br">PORTUGUÊS</a> | <img src="../../../static/img/en.png">&nbsp;<a class="white" href="http://neuromat.numec.prp.usp.br">ENGLISH</a></small>
 
 
       </div>
@@ -215,19 +227,27 @@
                                 </div>
 
 
-                                <!--
+
                                 <div class="card bg-light mb-3" style="max-width: 25rem;">
                                   <div class="card-header"><b>Siga-nos no Facebook</b></div>
                                   <div class="card-body">
-                                          <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fneuromathematics&amp;width=205&amp;height=270&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:205px; height:270px;" allowtransparency="true"></iframe>
+                                          <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fneuromathematics&amp;width=205&amp;height=240&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:205px; height:205px;" allowtransparency="true"></iframe>
                                   </div>
                                 </div>
-                                -->
+
 
                                 <div class="card text-white bg-info mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Financiamento</b></div>
+                                  <div class="card-header"><b>Rede NeuroMat de Parkinson</b></div>
                                   <div class="card-body">
-                                    <p class="card-text"><img src="../../../static/img/logo-fapesp.png" alt=""></p>
+                                      <div align="center"><p class="card-text"><img src="../../../static/img/logo_amparo.png" height="130" width="130" alt=""></p></div>
+                                  </div>
+                                </div>
+
+                                <div class="card text-white bg-primary mb-3" style="...">
+                                    <div class="card-header"><b>Iniciativa NeuroMat para a Lesão do Plexo Braquial</b></div>
+                                  <div class="card-body">
+                                    <div align="center"><p class="card-text"><img src="../../../static/img/logoabraco.png" height="130" width="130" alt=""></p></div>
+
                                   </div>
                                 </div>
 
