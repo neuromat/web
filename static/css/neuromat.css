@@ -170,9 +170,18 @@ a.white {
 
 
 a {
-  color: #78C2AD;
+  color: #0a7c5c;
   text-decoration: none;
   background-color: transparent;
+}
+
+/* criado @le */
+a.titulo {
+  font-weight: bold;
+  color: #0a7c5c;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 2.0rem;
 }
 
 a:hover {
