@@ -11,13 +11,6 @@
         <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
 
 
-
-        {#  <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">#}
-        {#  <link rel="stylesheet" href="{% static "css/neuromat.css" %}">#}
-        {#  <link rel="stylesheet" href="{% static "css/style.css" %}">#}
-
-
-
         {% ifinstalled mezzanine.blog %}
             <link rel="stylesheet" href="{% static "css/neuromat.css" %}">
             <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
@@ -53,7 +46,9 @@
 
     <body id="{% block body_id %}body{% endblock %}">
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        {#  ---------- top Menu ----------------------------------------------------- #}
+        {#  <div class="navbar navbar-default navbar-fixed-top" role="navigation">#}
+        <div class="navbar navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     {% block navbar_title %}
@@ -66,7 +61,7 @@
         </div>
 
 
-
+        {# -------------------- Menu Superior ------------------------- #}
         <div class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-menu-superior">
         <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +73,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><b>Sobre</b></a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Quem somos</a>
+                <a class="dropdown-item" href="http://127.0.0.1:8000/who-we-are/">Quem somos</a>
                 <a class="dropdown-item" href="#">O Projeto</a>
                 <a class="dropdown-item" href="#">Equipe</a>
                 <a class="dropdown-item" href="#">Relatórios</a>
@@ -142,35 +137,40 @@
             <img src="../../../static/img/pt-br.png">&nbsp;<small><a class="white" href="http://neuromat.numec.prp.usp.br/pt-br">PORTUGUÊS</a> | <img src="../../../static/img/en.png">&nbsp;<a class="white" href="http://neuromat.numec.prp.usp.br">ENGLISH</a></small>
 
 
-      </div>
         </div>
+        </div>
+
+        {# -------------------- Fim do Menu Superior ------------------------- #}
 
 
         <!---- IMAGEM HOME -->
-
-
         <div class="container">
         <img src="../../../static/img/neuromat.png" width="100%"><br><br>
         </div>
-
         <!-- FIM DA IMAGEM HOME -->
 
         <div class="container">
 
-            <div class="navbar-collapse collapse">
-                {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
-            </div>
+            {#  <div class="navbar-collapse collapse">#}
+               {#  {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}#}
+            {# </div> #}
 
-{#            <div class="row">#}
-{#                <ul class="breadcrumb">#}
-{#                    {% spaceless %}#}
-{#                        {% block breadcrumb_menu %}{% endblock %}#}
-{#                    {% endspaceless %}#}
-{#                </ul>#}
-{#            </div>#}
+            {# <div class="row"> #}
+              {# <ul class="breadcrumb">#}
+                   {# {% spaceless %  #}
+                     {#  {% block breadcrumb_menu %}{% endblock %} #}
+                   {#{% endspaceless %} #}
+             {# </ul> #}
+            {# </div>#}
 
             <div class="row">
                 <div class="col-md-9 middle">
+                    <h1>
+                    {% block title %}
+                        {% editable page.title %}{{ page.title }}{% endeditable %}
+                    {% endblock %}
+                    </h1>
+                    <br>
                     {% block main %}{% endblock %}
                 </div>
                 <div class="col-md-3 right">
@@ -179,9 +179,6 @@
                             {#   {% block right_panel %}{% endblock %}#}
 
                             <!-- Parte Lateral Direita -->
-
-
-
 
                                 <div class="card mb-3">
                                 <h3 class="card-header"><b>NeuroCineMat</b></h3>
@@ -193,8 +190,8 @@
                                 <p class="card-text">Participe e veja outros vídeos interessantes</p>
                               </div>
                               <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="#">Assine o Canal</a></li>
-                                <li class="list-group-item"><a href="#">Outros episódios</a></li>
+                                <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Assine o Canal</a></li>
+                                <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Outros episódios</a></li>
                               </ul>
                                 </div>
 
@@ -220,7 +217,7 @@
                                                 <button type="submit" class="btn btn-primary">OK</button>
                                               </fieldset>
                                             </form>
-                                             <p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Edições Anteriores</a></p>
+                                             <p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Edições Anteriores</a></p>
                                          </div>
                                 </div>
 
