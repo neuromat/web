@@ -30,6 +30,11 @@
             {% block extra_js %}{% endblock %}
         {% endcompress %}
 
+        <!-- Simple javascript notifications -->
+        <link href="{% static 'toastr/toastr.css' %}" rel="stylesheet"/>
+        <script src="{% static 'toastr/toastr.js' %}"></script>
+        <script src="{% static 'toastr/toastr_messages.js' %}"></script>
+
         <!--[if lt IE 9]>
         <script src="{% static "js/html5shiv.js" %}"></script>
         <script src="{% static "js/respond.min.js" %}"></script>
@@ -39,6 +44,28 @@
     </head>
 
     <body id="{% block body_id %}body{% endblock %}">
+        {% if messages %}
+            {% for message in messages %}
+
+                {% if message.tags == "success" %}
+                    <script>showSuccessMessage('{{ message }}')</script>
+                {% endif %}
+
+                {% if message.tags == "warning" %}
+                    <script>showWarningMessage('{{ message }}')</script>
+                {% endif %}
+
+                {% if message.tags == "error" %}
+                    <script>showErrorMessage('{{ message }}')</script>
+                {% endif %}
+
+                {% if message.tags == "info" %}
+                    <script>showInfoMessage('{{ message }}')</script>
+                {% endif %}
+
+            {% endfor %}
+        {% endif %}
+
         {% include 'top.html' %}
 
         <div class="container body-neuromat">
