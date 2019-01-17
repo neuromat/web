@@ -31,3 +31,9 @@ def previous_issues(request, template_name="previous_issues.html"):
     previous_issues_list = Newsletter.objects.all()
     context = {'previous_issues_list': previous_issues_list}
     return render(request, template_name, context)
+
+
+def newsletter(request, newsletter_number, template_name="newsletter.html"):
+    content = Newsletter.objects.get(number=newsletter_number)
+    context = {'content': content}
+    return render(request, template_name, context)

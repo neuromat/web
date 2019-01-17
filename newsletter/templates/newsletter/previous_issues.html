@@ -3,7 +3,7 @@
 
 {% block main %}
     {% for item in previous_issues_list %}
-        <h2>Newsletter #{{ item.number }}</h2>
+        <h2><a href="{% url 'newsletter' item.number %}" style="color: black">Newsletter #{{ item.number }}</a></h2>
         <p><em>{{ item.date|date:"F Y" }}</em> - {% trans "Topics" %}:</p>
         <ul>
             {% if item.featured.all %}

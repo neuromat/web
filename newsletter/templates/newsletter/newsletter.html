@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <h2>Newsletter #{{ content.number }}</h2>
+
+    <div style="padding-top: 10px; ; background-color: #080808; background-size: 600px; border-radius: 2px;" align="center">
+        <h1 style="font-size: 40px; margin: 2px; color: #00f02e; font-family: Arial, sans-serif; letter-spacing: 2px;"> Neuro<span style=" color: #01edc0;">Mat</span></h1>
+        <p style="font-size: 16px; margin: 6px;  color: #FFFFFF;">{% blocktrans %}Research, Innovation and Dissemination Center for Neuromathematics{% endblocktrans %}</p>
+        <p style="font-size: 20px; font-weight: bold; color: #FFFFFF; padding-bottom: 7px;">Newsletter - Nº {{ content.number }} | {{ content.date|date:"F Y" }}</p>
+    </div>
+
+    {% if content.featured.all %}
+        {% for featured in content.featured.all %}
+            <h4>{{ featured.title }}</h4>
+            <p>{{ featured.description_from_content|safe }}</p>
+            <p><a href="/blog/{{ featured.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
+        {% endfor %}
+        <hr class="my-hr">
+    {% endif %}
+
+    {% if content.publication.all %}
+        <h4>{% trans "Last NeuroMat scientific publications" %}</h4>
+        <hr class="my-hr">
+    {% endif %}
+
+    {% if content.in_the_media.all %}
+        <h4>{% trans "NeuroMat in the media" %}</h4>
+        <hr class="my-hr">
+    {% endif %}
+
+    {% if content.opportunity.all %}
+        <h4>{% trans "NeuroMat opportunities" %}</h4>
+        <hr class="my-hr">
+    {% endif %}
+
+    <h4>{% trans "Follow our initiatives" %}</h4>
+    <table align="center">
+        <tbody>
+            <tr>
+                <td style="border:0; padding:0.75em 1em; width:300px; vertical-align: top;" align="center">
+                     <a href="https://amparo.numec.prp.usp.br/" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
+                        <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/sites/default/files/logo_amparo.png">
+                        <p style="font-size:13px;">NeuroMat Parkinson Network</p>
+                    </a>
+                </td>
+                <td style="border:0;padding:0.75em 1em;width:300px; vertical-align: top;" align="center">
+                    <a href="http://abraco.numec.prp.usp.br" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
+                        <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/sites/default/files/logoabraco.png">
+                        <p style="font-size:13px;">NeuroMat Brachial Plexus Injury Initiative</p>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="my-hr">
+    <h4>{% trans "NeuroMat Facebook Highlights" %}</h4>
+
+
+    <hr class="my-hr">
+    <h4>{% trans "On NeuroMat" %}</h4>
+    <p>NeuroMat is a research center established in 2013 at the University of São Paulo that is dedicated to integrating mathematical modeling and theoretical neuroscience. Among the core missions of NeuroMat are the creation of a new mathematical system to understanding neural data and the development of neuroscientific open-source computational tools. The research center is headed by Prof. Antonio Galves, from USP's Institute of Mathematics and Statistics, and is funded by the São Paulo Research Foundation (FAPESP). To receive monthly updates on NeuroMat's work or pertaining news, please subscribe to NeuroMat's newsletter: <a href="https://neuromat.numec.prp.usp.br/newsletter/subscriptions" target="_blank" style="color: #009271;">neuromat.numec.prp.usp.br/newsletter/subscriptions</a></p>
+    <p>For more information or press inquiries on NeuroMat, please contact us at: <a href="mailto:comunicacao@numec.prp.usp.br" style="color: #009271;">comunicacao@numec.prp.usp.br</a></p>
+    <p>NeuroMat's website: <a href="https://neuromat.numec.prp.usp.br" target="_blank" style="text-decoration: none; color: #009271;">neuromat.numec.prp.usp.br</a></p>
+    <p>Like us on Facebook: <a href="https://www.facebook.com/neuromathematics/" target="_blank" style="text-decoration: none; color: #009271;">www.facebook.com/neuromathematics.</a> On this FB page we post updates on Neuromathematics, related news, forthcoming events and other pertaining information.</p>
+
+    <hr class="my-hr">
+    <h4>{% trans "Previous issues of the NeuroMat Newsletter (features)" %}</h4>
+
+{% endblock %}
+
+{% block right_panel %}
+    {% include "blog/includes/filter_panel.html" %}
+{% endblock %}

@@ -3,13 +3,14 @@ from django.contrib.messages import get_messages
 from django.core.urlresolvers import reverse, resolve
 from django.utils.timezone import now
 
-from newsletter.views import subscription, previous_issues
-from newsletter.models import Subscription
+from newsletter.views import subscription, previous_issues, newsletter
+from newsletter.models import Subscription, Newsletter
 
 
 class NewsletterTest(TestCase):
     def setUp(self):
         Subscription.objects.create(email='fulano@exemplo.com', status=True, status_date=now())
+        Newsletter.objects.create(number='1')
 
     def test_subscription_url_resolves_subscription_view(self):
         view = resolve('/newsletter/subscription')
@@ -47,3 +48,14 @@ class NewsletterTest(TestCase):
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'previous_issues.html')
+
+    def test_newsletter_url_resolves_newsletter_view(self):
+        view = resolve('/newsletter/1')
+        self.assertEquals(view.func, newsletter)
+
+    def test_newsletter_status_code(self):
+        content = Newsletter.objects.first()
+        url = reverse('newsletter', args=(content.number,))
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'newsletter.html')
