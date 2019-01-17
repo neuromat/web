@@ -10,11 +10,7 @@
         <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
         <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
 
-
         {% ifinstalled mezzanine.blog %}
-            <link rel="stylesheet" href="{% static "css/neuromat.css" %}">
-            <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-            <link rel="stylesheet" href="{% static "css/style.css" %}">
             <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
             <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
         {% endifinstalled %}
@@ -22,8 +18,6 @@
         {% compress css %}
             <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
             <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
-{#            <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">#}
-            <link rel="stylesheet" href="{% static "css/neuromat.css" %}">
             <link rel="stylesheet" href="{% static "css/style.css" %}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
             {% block extra_css %}{% endblock %}
@@ -36,6 +30,11 @@
             {% block extra_js %}{% endblock %}
         {% endcompress %}
 
+        <!-- Simple javascript notifications -->
+        <link href="{% static 'toastr/toastr.css' %}" rel="stylesheet"/>
+        <script src="{% static 'toastr/toastr.js' %}"></script>
+        <script src="{% static 'toastr/toastr_messages.js' %}"></script>
+
         <!--[if lt IE 9]>
         <script src="{% static "js/html5shiv.js" %}"></script>
         <script src="{% static "js/respond.min.js" %}"></script>
@@ -45,226 +44,43 @@
     </head>
 
     <body id="{% block body_id %}body{% endblock %}">
+        {% if messages %}
+            {% for message in messages %}
 
-        {#  ---------- top Menu ----------------------------------------------------- #}
-        {#  <div class="navbar navbar-default navbar-fixed-top" role="navigation">#}
-        <div class="navbar navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    {% block navbar_title %}
-                        {% if settings.SITE_TITLE %}<a class="navbar-brand" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
-                        {% if settings.SITE_TAGLINE %}<p class="navbar-text visible-lg">{{ settings.SITE_TAGLINE }}</p>{% endif %}
-                    {% endblock%}
-                     {% block navbar_search_form %}{% search_form %}{% endblock %}
-                </div>
-            </div>
-        </div>
+                {% if message.tags == "success" %}
+                    <script>showSuccessMessage('{{ message }}')</script>
+                {% endif %}
 
+                {% if message.tags == "warning" %}
+                    <script>showWarningMessage('{{ message }}')</script>
+                {% endif %}
 
-        {# -------------------- Menu Superior ------------------------- #}
-        <div class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-menu-superior">
-        <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">
+                {% if message.tags == "error" %}
+                    <script>showErrorMessage('{{ message }}')</script>
+                {% endif %}
 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><b>Sobre</b></a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="http://127.0.0.1:8000/who-we-are/">Quem somos</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">O Projeto</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Equipe</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Relatórios</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Contato</a>
-              </div>
-            </li>
+                {% if message.tags == "info" %}
+                    <script>showInfoMessage('{{ message }}')</script>
+                {% endif %}
 
-              <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            {% endfor %}
+        {% endif %}
 
-            <li class="nav-item  dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><b>Pesquisa</b></a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Projeto Científico</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Publicações</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Palestras</a>
-              </div>
-            </li>
+        {% include 'top.html' %}
 
-              <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-             <li class="nav-item  dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><b>Inovação</b></a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Ciência Aberta</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Banco de Dados</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Jogo do Goleiro</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">NES</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">NIRA</a>
-              </div>
-            </li>
-
-              <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-            <li class="nav-item  dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><b>Difusão</b></a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Notícias</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Vídeos</a>
-                  <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Áudios</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Boletim</a>
-
-              </div>
-            </li>
-
-              <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#"><b>Eventos</b></a>
-            </li>
-
-              <li class="nav-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#"><b>Oportunidades</b></a>
-            </li>
-
-          </ul>
-
-        </div>
-
-            <img src="../../../static/img/pt-br.png">&nbsp;<small><a class="white" href="http://neuromat.numec.prp.usp.br/pt-br">PORTUGUÊS</a> | <img src="../../../static/img/en.png">&nbsp;<a class="white" href="http://neuromat.numec.prp.usp.br">ENGLISH</a></small>
-
-
-        </div>
-        </div>
-
-        {# -------------------- Fim do Menu Superior ------------------------- #}
-
-
-        <!---- IMAGEM HOME -->
-        <div class="container">
-        <img src="../../../static/img/neuromat.png" width="100%"><br><br>
-        </div>
-        <!-- FIM DA IMAGEM HOME -->
-
-        <div class="container">
-
-            {#  <div class="navbar-collapse collapse">#}
-               {#  {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}#}
-            {# </div> #}
-
-            {# <div class="row"> #}
-              {# <ul class="breadcrumb">#}
-                   {# {% spaceless %  #}
-                     {#  {% block breadcrumb_menu %}{% endblock %} #}
-                   {#{% endspaceless %} #}
-             {# </ul> #}
-            {# </div>#}
+        <div class="container body-neuromat">
+            <nav class="navbar navbar-inverse">
+                {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
+            </nav>
 
             <div class="row">
                 <div class="col-md-9 middle">
-                    <h1>
-                    {% block title %}
-                        {% editable page.title %}{{ page.title }}{% endeditable %}
-                    {% endblock %}
-                    </h1>
-                    <br>
                     {% block main %}{% endblock %}
                 </div>
                 <div class="col-md-3 right">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            {#   {% block right_panel %}{% endblock %}#}
-
-                            <!-- Parte Lateral Direita -->
-
-                                <div class="card mb-3">
-                                <h3 class="card-header"><b>NeuroCineMat</b></h3>
-                              <div class="card-body">
-                                <h6 class="card-subtitle text-muted">Destaque da semana</h6>
-                              </div>
-                              <img style="height: 200px; width: 100%; display: block;" src="../../../static/img/logo-neurocinemat.png" alt="NeuroCineMat">
-                              <div class="card-body">
-                                <p class="card-text">Participe e veja outros vídeos interessantes</p>
-                              </div>
-                              <ul class="list-group list-group-flush">
-                                <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Assine o Canal</a></li>
-                                <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Outros episódios</a></li>
-                              </ul>
-                                </div>
-
-
-                                <div class="card text-white bg-dark mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Blog de Difusão Científica</b></div>
-                                  <div class="card-body">
-                                    <p class="card-text"><img src="../../../static/img/logo-blog.jpg" alt=""></p>
-                                  </div>
-                                </div>
-
-
-
-                                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Assine nossa Newsletter</b></div>
-                                  <div class="card-body">
-                                  <form>
-                                              <fieldset>
-                                                <div class="form-group">
-                                                  <label for="exampleInputEmail1">Seu email</label>
-                                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">OK</button>
-                                              </fieldset>
-                                            </form>
-                                             <p class="card-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Edições Anteriores</a></p>
-                                         </div>
-                                </div>
-
-
-
-                                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Siga-nos no Facebook</b></div>
-                                  <div class="card-body">
-                                          <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fneuromathematics&amp;width=205&amp;height=240&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:205px; height:205px;" allowtransparency="true"></iframe>
-                                  </div>
-                                </div>
-
-
-                                <div class="card text-white bg-info mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Rede NeuroMat de Parkinson</b></div>
-                                  <div class="card-body">
-                                      <div align="center"><p class="card-text"><img src="../../../static/img/logo_amparo.png" height="130" width="130" alt=""></p></div>
-                                  </div>
-                                </div>
-
-                                <div class="card text-white bg-primary mb-3" style="...">
-                                    <div class="card-header"><b>Iniciativa NeuroMat para a Lesão do Plexo Braquial</b></div>
-                                  <div class="card-body">
-                                    <div align="center"><p class="card-text"><img src="../../../static/img/logoabraco.png" height="130" width="130" alt=""></p></div>
-
-                                  </div>
-                                </div>
-
-
-
-
-
-
-                            <!-- Fim parte lateral direita -->
+                            {% block right_panel %}{% endblock %}
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,124 @@
+/*
+  ========================================
+  Header
+  ========================================
+*/
 
-.list-group-item {
-  background: transparent;
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #ffffff;;
+}
+
+/* Logo NeuroMat */
+.top-neuromat {
+  font-weight: bold;
+  position: relative;
+  top: 30%; /* TODO: make relative, try does not use magic number */
+  float: left;
+  margin-top: 20px;
+  margin-right: 10px;
+  font-size: 40px;
+  color: #333;
+}
+
+.top-neuromat:hover,.top-neuromat:focus  {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Texto ao lado do logo */
+.top-small {
+  font-size: smaller;
+  display: inline-block;
+  width: 34%; /* TODO: make relative, try does not use magic number */
+  margin-top: 5px;
+  border-left: 1px solid #333;
+  padding-left: 10px;
+  color: #333;
+  line-height: 20px;
+}
+
+/* Menu principal */
+.navbar-inverse {
+  background-color: #333;
   border: none;
-  padding: 5px 0px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: #317b00;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #317b00;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #317b00;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #333;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+  border: 5px solid #317b00;
+  border: 5px solid rgba(0, 0, 0, .15);
+  border-color: #317b00;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+/*
+  ========================================
+  Body
+  ========================================
+*/
+
+.body-neuromat {
+  margin-top: 30px;
+}
+
+.table_sidebar {
+  background-color: #333;
+  color: #FFFFFF;
+}
+
+.panel-default {
+  border: none;
 }
 
 /*
@@ -69,5 +185,9 @@ footer {
   margin: 15px 10px;
 }
 
-/* ---------------------------------------------------------------------------------------- */
-
+/* Para os links do rodapé */
+.list-group-item {
+  background: transparent;
+  border: none;
+  padding: 5px 0px;
+}
