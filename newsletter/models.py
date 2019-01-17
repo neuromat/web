@@ -61,6 +61,21 @@ class Newsletter(models.Model):
         ordering = ('number',)
 
 
+class FacebookHighlight(models.Model):
+    """
+    An instance of this class is a facebook post
+
+    """
+    newsletter = models.ForeignKey(Newsletter)
+    text = models.TextField(_('Text'))
+    image_url = models.URLField(_('Image URL'))
+    facebook_link = models.URLField(_('Facebook link'))
+    date = models.DateField(_('Date'), default=now)
+
+    def __str__(self):
+        return self.text
+
+
 class Subscription(models.Model):
     """
     An instance of this class is a person who want to receive our newsletter

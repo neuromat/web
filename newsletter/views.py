@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 
-from .models import Newsletter, Subscription
+from .models import Newsletter, Subscription, FacebookHighlight
 
 
 def subscription(request):
@@ -35,5 +35,6 @@ def previous_issues(request, template_name="previous_issues.html"):
 
 def newsletter(request, newsletter_number, template_name="newsletter.html"):
     content = Newsletter.objects.get(number=newsletter_number)
-    context = {'content': content}
+    facebook = FacebookHighlight.objects.filter(newsletter=content.pk)
+    context = {'content': content, 'facebook': facebook}
     return render(request, template_name, context)
