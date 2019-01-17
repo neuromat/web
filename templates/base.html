@@ -68,21 +68,32 @@
 
         {% include 'top.html' %}
 
+
+
         <div class="container body-neuromat">
             <nav class="navbar navbar-inverse">
+
                 {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
+
+                <div align="right"><img src="../../../static/img/pt-br.png">&nbsp;<small><a class="white" href="http://neuromat.numec.prp.usp.br/pt-br">PORTUGUÊS</a> | <img src="../../../static/img/en.png">&nbsp;<a class="white" href="http://neuromat.numec.prp.usp.br">ENGLISH</a></small>&nbsp;&nbsp;</div>
             </nav>
+
+             <!---- IMAGEM HOME -->
+
+        <img src="../../../static/img/neuromat.png" width="100%"><br><br>
+
+        <!-- FIM DA IMAGEM HOME -->
 
             <div class="row">
                 <div class="col-md-9 middle">
                     {% block main %}{% endblock %}
                 </div>
                 <div class="col-md-3 right">
-                    <div class="panel panel-default">
+
                         <div class="panel-body">
                             {% block right_panel %}{% endblock %}
                         </div>
-                    </div>
+
                 </div>
             </div>
         </div>
