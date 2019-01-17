@@ -2868,3 +2868,119 @@ Margens
   }
 }
 
+/*
+=====================================
+Badges
+=====================================
+ */
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.4rem;
+}
+
+a.badge:hover, a.badge:focus {
+  text-decoration: none;
+}
+
+.badge:empty {
+  display: none;
+}
+
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+.badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: #78C2AD;
+}
+
+a.badge-primary:hover, a.badge-primary:focus {
+  color: #fff;
+  background-color: #55b298;
+}
+
+.badge-secondary {
+  color: #fff;
+  background-color: #F3969A;
+}
+
+a.badge-secondary:hover, a.badge-secondary:focus {
+  color: #fff;
+  background-color: #ee686e;
+}
+
+.badge-success {
+  color: #fff;
+  background-color: #56CC9D;
+}
+
+a.badge-success:hover, a.badge-success:focus {
+  color: #fff;
+  background-color: #37b885;
+}
+
+.badge-info {
+  color: #fff;
+  background-color: #6CC3D5;
+}
+
+a.badge-info:hover, a.badge-info:focus {
+  color: #fff;
+  background-color: #44b3ca;
+}
+
+.badge-warning {
+  color: #fff;
+  background-color: #FFCE67;
+}
+
+a.badge-warning:hover, a.badge-warning:focus {
+  color: #fff;
+  background-color: #ffbe34;
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: #FF7851;
+}
+
+a.badge-danger:hover, a.badge-danger:focus {
+  color: #fff;
+  background-color: #ff501e;
+}
+
+.badge-light {
+  color: #fff;
+  background-color: #f8f9fa;
+}
+
+a.badge-light:hover, a.badge-light:focus {
+  color: #fff;
+  background-color: #dae0e5;
+}
+
+.badge-dark {
+  color: #fff;
+  background-color: #343a40;
+}
+
+a.badge-dark:hover, a.badge-dark:focus {
+  color: #fff;
+  background-color: #1d2124;
+}
