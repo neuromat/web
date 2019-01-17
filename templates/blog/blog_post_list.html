@@ -68,6 +68,7 @@
     {# Categoria do post #}
     {% block blog_post_list_post_metainfo %}
         {% editable blog_post.publish_date %}
+            {% blocktrans with sometime=blog_post.publish_date|timesince %}  {{ sometime }}  {% endblocktrans %} &nbsp;
             <span class="badge badge-info">
                 {% with blog_post.categories.all as categories %}
                     {% if categories %}
@@ -79,7 +80,7 @@
             </span>
         {% endeditable %}
     {% endblock %}
-
+    <br><br>
 
     {# Imagem thumbnail #}
     {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
