@@ -1,10 +1,11 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 
-from .models import Subscription
+from .models import Newsletter, Subscription
 
 
 def subscription(request):
@@ -24,3 +25,9 @@ def subscription(request):
 
         redirect_url = reverse('home')
         return HttpResponseRedirect(redirect_url)
+
+
+def previous_issues(request, template_name="previous_issues.html"):
+    previous_issues_list = Newsletter.objects.all()
+    context = {'previous_issues_list': previous_issues_list}
+    return render(request, template_name, context)
