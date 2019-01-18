@@ -1,79 +1,106 @@
 {% load blog_tags keyword_tags mezzanine_tags i18n staticfiles %}
 
 
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">NeuroCineMat</th>
+        </tr>
+        <tr>
+            <td>
+                {% trans "Featuring this week:" %}<br>
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLXUXkbNfNLDaP7Xzt4dXGIYEoJfraPgWr&hl=en_US" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
 
-                                <div class="card mb-3">
-                                <div class="card-header"><b>NeuroCineMat</b></div>
-                              <div class="card-body">
-                                <h6 class="card-subtitle text-muted">{% trans "Featuring This Week" %}</h6>
-                              </div>
-                              <div class="embed-responsive embed-responsive-4by3">
-                                 <iframe src="https://www.youtube.com/embed/videoseries?list=PLXUXkbNfNLDaP7Xzt4dXGIYEoJfraPgWr&hl=en_US" frameborder="0" allowfullscreen></iframe>
-                                </div>
-
-                              <ul class="list-group list-group-flush">
-                                <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Assine o Canal</a></li>
-                                <li class="list-group-item">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Outros episódios</a></li>
-                              </ul>
-                                </div>
-
-
-
-                                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Newsletter</b></div>
-
-                                  <div class="card-body">
-                                      <p class="card-text">{% trans "Stay informed on our latest news!" %}</p>
-                                                <form enctype="multipart/form-data" method="post" action="{% url "subscription" %}">
-                                                {% csrf_token %}
-                                              <fieldset>
-                                                  <div class="input-group">
-                                                    <span class="input-group-addon" id="basic-addon1"><i class="fas fa-envelope"></i></span>
-                                                    <input type="email" class="form-control" name="email" placeholder="E-mail" required="" aria-describedby="basic-addon1">
-                                                    </div>
-
-                                                <br>
-                                                <button class="btn btn-success" id="id_submit" name="submit" value="Subscribe" type="submit">{% trans "Subscribe" %}</button>
-                                                </form>
-                                                <br>
-                                                <p><a href="#">{% trans "Previous issues" %}</a></p>
-                                              </fieldset>
-                                  </div>
-                                </div>
-
-
-
-                                <div class="card text-white bg-dark mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Blog de Difusão Científica</b></div>
-                                  <div class="card-body">
-                                    <p class="card-text"><img src="../../../static/img/logo-blog.jpg" alt=""></p>
-                                  </div>
-                                </div>
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">Newsletter</th>
+        </tr>
+        <tr>
+            <td>
+                <p>{% trans "Stay informed on our latest news!" %}</p>
+                <form enctype="multipart/form-data" method="post" action="{% url "subscription" %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" name="email" placeholder="E-mail" required="" aria-describedby="basic-addon1">
+                    </div>
+                    <br>
+                    <button class="btn btn-success" id="id_submit" name="submit" value="Subscribe" type="submit">{% trans "Subscribe" %}</button>
+                </form>
+                <br>
+                <p>{% trans "Previous issues" %}</p>
+            </td>
+        </tr>
+    </table>
+</div>
 
 
-
-                                <div class="card text-white bg-info mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Rede NeuroMat de Parkinson</b></div>
-                                  <div class="card-body">
-                                      <div align="center"><p class="card-text"><img src="../../../static/img/logo_amparo.png" height="130" width="130" alt=""></p></div>
-                                  </div>
-                                </div>
-
-                                <div class="card text-white bg-primary mb-3" style="...">
-                                    <div class="card-header"><b>Iniciativa NeuroMat para a Lesão do Plexo Braquial</b></div>
-                                  <div class="card-body">
-                                    <div align="center"><p class="card-text"><img src="../../../static/img/logoabraco.png" height="130" width="130" alt=""></p></div>
-
-                                  </div>
-                                </div>
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">Blog de Difusão Científica</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="../../../static/img/logo-blog.jpg" alt="">
+            </td>
+        </tr>
+    </table>
+</div>
 
 
-                                <div class="card bg-light mb-3" style="max-width: 25rem;">
-                                  <div class="card-header"><b>Siga-nos no Facebook</b></div>
-                                  <div class="card-body">
-                                          <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fneuromathematics&amp;width=205&amp;height=240&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:205px; height:205px;" allowtransparency="true"></iframe>
-                                  </div>
-                                </div>
+
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">Rede NeuroMat de Parkinson</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="../../../static/img/logo_amparo.png" width="200" height="167" alt="">
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">Iniciativa NeuroMat<br>para a Lesão do Plexo Braquial</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="../../../static/img/logoabraco.png" width="200" height="167" alt="">
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">Siga-nos no Facebook</th>
+        </tr>
+        <tr>
+            <td>
+                <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fneuromathematics&amp;width=205&amp;height=240&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:205px; height:205px;" allowtransparency="true"></iframe>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
 
 
 
