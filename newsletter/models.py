@@ -39,6 +39,12 @@ class Newsletter(models.Model):
         ordering = ('number',)
 
 
+def facebook_image_path(instance, filename):
+    return 'facebook/{0}/{1}'.format(
+        instance.newsletter.number, str(filename)
+    )
+
+
 class FacebookHighlight(models.Model):
     """
     An instance of this class is a facebook post
@@ -46,7 +52,8 @@ class FacebookHighlight(models.Model):
     """
     newsletter = models.ForeignKey(Newsletter)
     text = models.TextField(_('Text'))
-    image_url = models.URLField(_('Image URL'))
+    image = models.FileField(_('Image'), blank=True, null=True, upload_to=facebook_image_path)
+    image_url = models.URLField(_('Image URL'), blank=True, null=True)
     facebook_link = models.URLField(_('Facebook link'))
     date = models.DateField(_('Date'), default=now)
 
