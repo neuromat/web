@@ -23,6 +23,9 @@
 
 {% block main %}
 
+    <h2>{{ blog_post.meta_title }}</h2>
+    <br>
+
 {% block blog_post_detail_postedby %}
 {% editable blog_post.publish_date %}
 <h6 class="post-meta">
