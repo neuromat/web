@@ -28,7 +28,7 @@ def subscription(request):
 
 
 def previous_issues(request, template_name="previous_issues.html"):
-    previous_issues_list = Newsletter.objects.all()
+    previous_issues_list = Newsletter.objects.all().order_by('-date')
     context = {'previous_issues_list': previous_issues_list}
     return render(request, template_name, context)
 
