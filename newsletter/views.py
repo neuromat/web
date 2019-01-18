@@ -36,5 +36,12 @@ def previous_issues(request, template_name="previous_issues.html"):
 def newsletter(request, newsletter_number, template_name="newsletter.html"):
     content = Newsletter.objects.get(number=newsletter_number)
     facebook = FacebookHighlight.objects.filter(newsletter=content.pk)
-    context = {'content': content, 'facebook': facebook}
+    latest_newsletters = Newsletter.objects.filter(number__in=range(int(newsletter_number) - 3, int(newsletter_number)))
+
+    context = {
+        'content': content,
+        'facebook': facebook,
+        'latest_newsletters': latest_newsletters
+    }
+
     return render(request, template_name, context)
