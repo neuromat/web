@@ -12,7 +12,7 @@
 {#           </button>#}
             {% block navbar_title %}
                 {% if settings.SITE_TITLE %}<a class="top-neuromat" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
-                {% if settings.SITE_TAGLINE %}<p class="top-small">{{ settings.SITE_TAGLINE }}</p>{% endif %}
+                {% if settings.SITE_TAGLINE %}<div class="visible-xs-block visible-md-block visible-lg-block"><p class="top-small">{{ settings.SITE_TAGLINE }}</p></div>{% endif %}
             {% endblock%}
         </div>
 {#      <div class="navbar-collapse collapse" style="margin-right: 15px">#}
