@@ -21,16 +21,31 @@
 
     {% if content.publication.all %}
         <h4>{% trans "Last NeuroMat scientific publications" %}</h4>
+        {% for publication in content.publication.all %}
+            <ul>
+                <li><a href="/blog/{{ publication.slug }}">{% if publication.description %}{{ publication.description }}{% else %}{{ publication.title }}{% endif %}</a></li>
+            </ul>
+        {% endfor %}
         <hr class="my-hr">
     {% endif %}
 
     {% if content.in_the_media.all %}
         <h4>{% trans "NeuroMat in the media" %}</h4>
+        {% for new in content.in_the_media.all %}
+            <ul>
+                <li><a href="/blog/{{ new.slug }}">{% if new.description %}{{ new.description }}{% else %}{{ new.title }}{% endif %}</a></li>
+            </ul>
+        {% endfor %}
         <hr class="my-hr">
     {% endif %}
 
     {% if content.opportunity.all %}
         <h4>{% trans "NeuroMat opportunities" %}</h4>
+        {% for opportunity in content.opportunity.all %}
+            <ul>
+                <li><a href="/blog/{{ opportunity.slug }}">{{ opportunity.title }}</a></li>
+            </ul>
+        {% endfor %}
         <hr class="my-hr">
     {% endif %}
 
