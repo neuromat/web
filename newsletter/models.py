@@ -40,7 +40,7 @@ class Newsletter(models.Model):
 
 
 def facebook_image_path(instance, filename):
-    return 'facebook/{0}/{1}'.format(
+    return 'newsletter/{0}/{1}'.format(
         instance.newsletter.number, str(filename)
     )
 
