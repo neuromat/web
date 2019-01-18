@@ -1,40 +1,3 @@
-/*
-=========================================
-Fontes
-=========================================
- */
-
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
-:root {
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #FF7851;
-  --orange: #fd7e14;
-  --yellow: #FFCE67;
-  --green: #56CC9D;
-  --teal: #20c997;
-  --cyan: #6CC3D5;
-  --white: #fff;
-  --gray: #888;
-  --gray-dark: #343a40;
-  --primary: #78C2AD;
-  --secondary: #F3969A;
-  --success: #56CC9D;
-  --info: #6CC3D5;
-  --warning: #FFCE67;
-  --danger: #FF7851;
-  --light: #f8f9fa;
-  --dark: #343a40;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
 
 /*
   ========================================
@@ -46,8 +9,6 @@ Fontes
 .navbar-default {
   background-color: #ffffff;
   border-color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
 
 }
 
@@ -58,28 +19,27 @@ Fontes
   top: 30%; /* TODO: make relative, try does not use magic number */
   float: left;
   margin-top: 20px;
-  margin-right: 10px;
+  margin-right: 40px;
   font-size: 40px;
   color: #333;
 }
 
 .top-neuromat:hover,.top-neuromat:focus  {
     text-decoration: none;
-    color: #000;
+    color: #0a7c5c;
 }
 
 /* Texto ao lado do logo */
 .top-small {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   display: inline-block;
-  width: 64%; /* TODO: make relative, try does not use magic number */
+  width: 44%; /* TODO: make relative, try does not use magic number */
   margin-top: 5px;
-  border-left: 0px solid #333;
+  border-left: 1px solid #c9c3c3;
   padding-top: 10px;
-  padding-left: 10px;
+  padding-left: 20px;
   color: #333;
   line-height: 20px;
-  font-style:italic;
 }
 
 /* Menu principal */
@@ -194,7 +154,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 .body-neuromat {
   margin-top: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.5rem; /*@ale : aumentar a fonte do texto principal */
   font-weight: 400;
   line-height: 1.5;
