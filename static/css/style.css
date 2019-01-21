@@ -127,6 +127,7 @@ body {
 
 .panel-default {
   border: none;
+  padding-top: 30px;
 }
 
 .my-hr {
