@@ -59,9 +59,9 @@
     {# Título do post #}
     {% block blog_post_list_post_title %}
         {% editable blog_post.title %}
-        <h2>
-            <a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a>
-        </h2>
+        <h3>
+            <a href="{{ blog_post.get_absolute_url }}" style="color: #333">{{ blog_post.title }}</a>
+        </h3>
         {% endeditable %}
     {% endblock %}
 
@@ -75,7 +75,7 @@
                             <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     {% endif %}
-                {% endwith %}
+                {% endwith %} | <span style="color: #666">{{ blog_post.publish_date|date:"M d, Y" }}</span>
             </h6>
         {% endeditable %}
     {% endblock %}
@@ -111,7 +111,7 @@
                 </ul>
             {% endif %}
             <p>
-                <a href="{{ blog_post.get_absolute_url }}">{% trans "read more" %}</a>
+                <a href="{{ blog_post.get_absolute_url }}"><span class="fas fa-plus-circle"></span> {% trans "Read more" %}</a>
                 {% if blog_post.allow_comments %}
                 {% endif %}
             </p>
