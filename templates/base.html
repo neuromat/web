@@ -68,11 +68,7 @@
 
         {% include 'top.html' %}
 
-        <div class="container body-neuromat">
-            <nav class="navbar navbar-inverse">
-                {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
-            </nav>
-
+        <div class="container">
             <div class="row">
                 <div class="col-md-9 middle">
                     {% block main %}{% endblock %}

@@ -1,4 +1,4 @@
-{% load mezzanine_tags i18n %}
+{% load mezzanine_tags pages_tags i18n %}
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -17,5 +17,8 @@
         <div class="navbar-collapse collapse" style="margin-right: 15px">
             {% block navbar_search_form %}{% search_form %}{% endblock %}
         </div>
+        <nav class="navbar navbar-inverse navbar-collapse collapse">
+            {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
+        </nav>
     </div>
 </div>

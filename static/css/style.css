@@ -39,6 +39,13 @@
 }
 
 /* Menu principal */
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+}
+
 .navbar-inverse {
   background-color: #333;
   border: none;
@@ -108,8 +115,9 @@
   ========================================
 */
 
-.body-neuromat {
-  margin-top: 30px;
+body {
+  padding-top: 10px;
+  line-height: 165%;
 }
 
 .table_sidebar {
