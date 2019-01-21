@@ -11,11 +11,12 @@
             </button>
             {% block navbar_title %}
                 {% if settings.SITE_TITLE %}<a class="top-neuromat" href="/">{{ settings.SITE_TITLE }}</a>{% endif %}
-                {% if settings.SITE_TAGLINE %}<p class="top-small">{{ settings.SITE_TAGLINE }}</p>{% endif %}
+                {% if settings.SITE_TAGLINE %}<p class="top-small">{{ settings.SITE_TAGLINE|safe }}</p>{% endif %}
             {% endblock%}
         </div>
         <div class="navbar-collapse collapse" style="margin-right: 15px">
             {% block navbar_search_form %}{% search_form %}{% endblock %}
+            {% include "includes/language_selector.html" %}
         </div>
         <nav class="navbar navbar-inverse navbar-collapse collapse">
             {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
