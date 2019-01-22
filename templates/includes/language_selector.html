@@ -3,16 +3,14 @@
 {% if settings.USE_MODELTRANSLATION and languages|length > 1 %}
     {# hide submit button if browser has javascript support and can react to onchange event #}
     <script>$(document).ready(function(){$('#language_selector_form').change(function(){this.submit();});$('#language_selector_form input').hide();});</script>
-    <form action="{% url "set_language" %}" class="navbar-form navbar-right" method="post">
+    <form action="{% url "set_language" %}" method="post">
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ language.code }}" />
         {% for language in languages %}
             {% if language.code != LANGUAGE_CODE %}
-                <div style="margin-right: -180px">
-                    <img src="{% if language.code == 'pt-br' %}{% static 'img/br.svg'%}{% else %}{% static 'img/gb.svg'%}{% endif %}" alt="" width="8%">
-                    <input name="language" type="hidden" value="{% if language.code == 'pt-br' %}pt-br{% else %}en{% endif %}" />
-                    <input type="submit" class="btn btn-link" value="{{ language.code }}" style="margin-left: -10px"/>
-                </div>
+                    <div align="right">
+                    <img src="{% if language.code == 'pt-br' %}{% static 'img/br.svg'%}{% else %}{% static 'img/gb.svg'%}{% endif %}" alt="" width="2%"><input name="language" type="hidden" value="{% if language.code == 'pt-br' %}pt-br{% else %}en{% endif %}" /><input type="submit" class="btn btn-link" value="{{ language.code }}"/>
+                    </div>
             {% endif %}
         {% endfor %}
     </form>
