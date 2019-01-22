@@ -3,9 +3,8 @@
 {% load mezzanine_tags %}
 
 {% block main %}{{ block.super }}
-
-{% editable page.richtextpage.content %}
-{{ page.richtextpage.content|richtext_filters }}
-{% endeditable %}
-
+    <h3>{% editable page.title %}{{ page.title }}{% endeditable %}</h3>
+    {% editable page.richtextpage.content %}
+        {{ page.richtextpage.content|richtext_filters }}
+    {% endeditable %}
 {% endblock %}

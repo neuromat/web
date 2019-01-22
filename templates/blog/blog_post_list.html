@@ -59,28 +59,26 @@
     {# Título do post #}
     {% block blog_post_list_post_title %}
         {% editable blog_post.title %}
-        <h2>
-            <a class="titulo" href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a>
-        </h2>
+        <h3>
+            <a href="{{ blog_post.get_absolute_url }}" style="color: #333">{{ blog_post.title }}</a>
+        </h3>
         {% endeditable %}
     {% endblock %}
 
     {# Categoria do post #}
     {% block blog_post_list_post_metainfo %}
         {% editable blog_post.publish_date %}
-            {% blocktrans with sometime=blog_post.publish_date %}  {{ sometime }}  {% endblocktrans %} &nbsp;
-            <span class="badge badge-info">
+            <h6 class="post-meta">
                 {% with blog_post.categories.all as categories %}
                     {% if categories %}
                         {% for category in categories %}
-                            <a class="white" href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
+                            <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     {% endif %}
-                {% endwith %}
-            </span>
+                {% endwith %} | <span style="color: #666">{{ blog_post.publish_date|date:"M d, Y" }}</span>
+            </h6>
         {% endeditable %}
     {% endblock %}
-    <br><br>
 
     {# Imagem thumbnail #}
     {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
@@ -113,7 +111,7 @@
                 </ul>
             {% endif %}
             <p>
-                <a href="{{ blog_post.get_absolute_url }}">{% trans "read more" %}</a>
+                <a href="{{ blog_post.get_absolute_url }}"><span class="fas fa-plus-circle"></span> {% trans "Read more" %}</a>
                 {% if blog_post.allow_comments %}
                 {% endif %}
             </p>

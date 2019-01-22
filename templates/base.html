@@ -68,40 +68,20 @@
 
         {% include 'top.html' %}
 
-
-
-        <div class="container body-neuromat">
-            <nav class="navbar navbar-inverse">
-                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                </button>
-                <div class="navbar-collapse collapse" style="margin-right: 15px">
-                    <div class="visible-xs-block">{% block navbar_search_form %}{% search_form %}{% endblock %}</div>
-                {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock%}
+        <div class="container">
+            <div class="row">
+                <div class="container">
+                    <img src="{% static 'img/neuromat.png'%}" class="img-responsive center-block" alt="">
                 </div>
-                <!--<div align="right"><img src="../../../static/img/pt-br.png">&nbsp;<small><a class="white" href="http://neuromat.numec.prp.usp.br/pt-br">PORTUGUÊS</a> | <img src="../../../static/img/en.png">&nbsp;<a class="white" href="http://neuromat.numec.prp.usp.br">ENGLISH</a></small>&nbsp;&nbsp;</div>-->
-            </nav>
-
-             <!---- IMAGEM HOME -->
-
-        <img src="../../../static/img/neuromat.png" width="100%"><br><br>
-
-
-        <!-- FIM DA IMAGEM HOME -->
-
+            </div>
             <div class="row">
                 <div class="col-md-9 middle">
                     {% block main %}{% endblock %}
                 </div>
                 <div class="col-md-3 right">
-
-                        <div class="panel-body">
-                            {% block right_panel %}{% endblock %}
-                        </div>
-
+                    <div class="panel panel-default">
+                        {% block right_panel %}{% endblock %}
+                    </div>
                 </div>
             </div>
         </div>

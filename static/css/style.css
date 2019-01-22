@@ -1,15 +1,12 @@
-
 /*
   ========================================
   Header
   ========================================
 */
 
-
 .navbar-default {
   background-color: #ffffff;
-  border-color: #ffffff;
-
+  border-color: #ffffff;;
 }
 
 /* Logo NeuroMat */
@@ -19,30 +16,36 @@
   top: 30%; /* TODO: make relative, try does not use magic number */
   float: left;
   margin-top: 20px;
-  margin-right: 40px;
+  margin-right: 10px;
   font-size: 40px;
   color: #333;
 }
 
 .top-neuromat:hover,.top-neuromat:focus  {
     text-decoration: none;
-    color: #0a7c5c;
+    color: #000;
 }
 
 /* Texto ao lado do logo */
 .top-small {
-  font-size: 1.5rem;
+  font-size: smaller;
   display: inline-block;
-  width: 44%; /* TODO: make relative, try does not use magic number */
+  width: 34%; /* TODO: make relative, try does not use magic number */
   margin-top: 5px;
-  border-left: 1px solid #c9c3c3;
-  padding-top: 10px;
-  padding-left: 20px;
+  border-left: 1px solid #333;
+  padding-left: 10px;
   color: #333;
   line-height: 20px;
 }
 
 /* Menu principal */
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+}
+
 .navbar-inverse {
   background-color: #333;
   border: none;
@@ -112,82 +115,29 @@
   ========================================
 */
 
-a {
-  color: #0a7c5c;
-  text-decoration: none;
-  background-color: transparent;
+body {
+  padding-top: 10px;
+  line-height: 165%;
 }
-
-
-a.white {
-  color: #FFF;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-
-a.titulo {
-  font-weight: bold;
-  color: #0a7c5c;
-  text-decoration: none;
-  background-color: transparent;
-  font-size: 2.0rem;
-}
-
 
 .table_sidebar {
   background-color: #333;
   color: #FFFFFF;
 }
 
-
-.table {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
-}
-.table > thead > tr > th,
-.table > tbody > tr > th,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > td,
-.table > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.42857143;
-  vertical-align: top;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-}
-
-
 .panel-default {
   border: none;
+  padding-top: 30px;
 }
 
-
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+.my-hr {
   display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 2em 0;
+  padding: 0;
 }
-
-.body-neuromat {
-  margin-top: 30px;
-  font-size: 1.5rem; /*@ale : aumentar a fonte do texto principal */
-  font-weight: 400;
-  line-height: 1.5;
-  color: #3e3e3e;
-  text-align: left;
-  background-color: #fff;
-}
-
 
 /*
   ========================================
@@ -258,127 +208,4 @@ footer {
   background: transparent;
   border: none;
   padding: 5px 0px;
-}
-
-
-
-
-
-
-
-/*
-=====================================
-Badges
-=====================================
- */
-
-.badge {
-  display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.4rem;
-}
-
-a.badge:hover, a.badge:focus {
-  text-decoration: none;
-}
-
-.badge:empty {
-  display: none;
-}
-
-.btn .badge {
-  position: relative;
-  top: -1px;
-}
-
-.badge-pill {
-  padding-right: 0.6em;
-  padding-left: 0.6em;
-  border-radius: 10rem;
-}
-
-.badge-primary {
-  color: #fff;
-  background-color: #78C2AD;
-}
-
-a.badge-primary:hover, a.badge-primary:focus {
-  color: #fff;
-  background-color: #55b298;
-}
-
-.badge-secondary {
-  color: #fff;
-  background-color: #F3969A;
-}
-
-a.badge-secondary:hover, a.badge-secondary:focus {
-  color: #fff;
-  background-color: #ee686e;
-}
-
-.badge-success {
-  color: #fff;
-  background-color: #56CC9D;
-}
-
-a.badge-success:hover, a.badge-success:focus {
-  color: #fff;
-  background-color: #37b885;
-}
-
-.badge-info {
-  color: #fff;
-  background-color: #6CC3D5;
-}
-
-a.badge-info:hover, a.badge-info:focus {
-  color: #fff;
-  background-color: #44b3ca;
-}
-
-.badge-warning {
-  color: #fff;
-  background-color: #FFCE67;
-}
-
-a.badge-warning:hover, a.badge-warning:focus {
-  color: #fff;
-  background-color: #ffbe34;
-}
-
-.badge-danger {
-  color: #fff;
-  background-color: #FF7851;
-}
-
-a.badge-danger:hover, a.badge-danger:focus {
-  color: #fff;
-  background-color: #ff501e;
-}
-
-.badge-light {
-  color: #fff;
-  background-color: #f8f9fa;
-}
-
-a.badge-light:hover, a.badge-light:focus {
-  color: #fff;
-  background-color: #dae0e5;
-}
-
-.badge-dark {
-  color: #fff;
-  background-color: #343a40;
-}
-
-a.badge-dark:hover, a.badge-dark:focus {
-  color: #fff;
-  background-color: #1d2124;
 }

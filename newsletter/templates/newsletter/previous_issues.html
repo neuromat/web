@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    {% for item in previous_issues_list %}
+        <h2><a href="{% url 'newsletter' item.number %}" style="color: black">Newsletter #{{ item.number }}</a></h2>
+        <p><em>{{ item.date|date:"F Y" }}</em> - {% trans "Topics" %}:</p>
+        <ul>
+            {% if item.featured.all %}
+                <li>
+                    {% for featured in item.featured.all %}
+                        <a href="/blog/{{ featured.slug }}">{{ featured.title }}</a>
+                    {% endfor %}
+                </li>
+            {% endif %}
+
+            {% if item.publication.all %}
+                <li><a href="blog/category/publications">{% trans "Last NeuroMat scientific publications" %}</a></li>
+            {% endif %}
+
+            {% if item.in_the_media.all %}
+                <li><a href="blog/category/news">{% trans "NeuroMat in the media" %}</a></li>
+            {% endif %}
+
+            {% if item.opportunity.all %}
+                <li><a href="blog/category/opportunities">{% trans "NeuroMat opportunities" %}</a></li>
+            {% endif %}
+
+            <li><a href="https://www.facebook.com/neuromathematics" target="_blank">{% trans "NeuroMat Facebook Highlights" %}</a></li>
+        </ul>
+    {% endfor %}
+{% endblock %}
+
+{% block right_panel %}
+    {% include "blog/includes/filter_panel.html" %}
+{% endblock %}

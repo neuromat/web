@@ -1,6 +1,5 @@
 {% load blog_tags keyword_tags mezzanine_tags i18n staticfiles %}
 
-
 <div class="table">
     <table class="table">
         <tr>
@@ -35,50 +34,7 @@
                     <button class="btn btn-success" id="id_submit" name="submit" value="Subscribe" type="submit">{% trans "Subscribe" %}</button>
                 </form>
                 <br>
-                <p>{% trans "Previous issues" %}</p>
-            </td>
-        </tr>
-    </table>
-</div>
-
-
-<div class="table">
-    <table class="table">
-        <tr>
-            <th class="table_sidebar">Blog de Difusão Científica</th>
-        </tr>
-        <tr>
-            <td>
-                <img src="../../../static/img/logo-blog.jpg" alt="">
-            </td>
-        </tr>
-    </table>
-</div>
-
-
-
-<div class="table">
-    <table class="table">
-        <tr>
-            <th class="table_sidebar">Rede NeuroMat de Parkinson</th>
-        </tr>
-        <tr>
-            <td>
-                <img src="../../../static/img/logo_amparo.png" width="200" height="167" alt="">
-            </td>
-        </tr>
-    </table>
-</div>
-
-
-<div class="table">
-    <table class="table">
-        <tr>
-            <th class="table_sidebar">Iniciativa NeuroMat<br>para a Lesão do Plexo Braquial</th>
-        </tr>
-        <tr>
-            <td>
-                <img src="../../../static/img/logoabraco.png" width="200" height="167" alt="">
+                <p><a href="{% url "previous_issues" %}">{% trans "Previous issues" %}</a></p>
             </td>
         </tr>
     </table>
@@ -87,22 +43,38 @@
 <div class="table">
     <table class="table">
         <tr>
-            <th class="table_sidebar">Siga-nos no Facebook</th>
+            <th class="table_sidebar">{% trans "NeuroMat's scientific-dissemination blog" %}</th>
         </tr>
         <tr>
             <td>
-                <iframe src="https://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fneuromathematics&amp;width=205&amp;height=240&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:205px; height:205px;" allowtransparency="true"></iframe>
+                <img src="{% static 'img/logo-blog.jpg'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat's scientific-dissemination blog" %}">
             </td>
         </tr>
     </table>
 </div>
 
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">{% trans "NeuroMat Brachial Plexus Injury Initiative" %}</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="{% static 'img/logoabraco.png'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Brachial Plexus Injury Initiative" %}">
+            </td>
+        </tr>
+    </table>
+</div>
 
-
-
-
-
-
-
-                            <!-- Fim parte lateral direita -->
-
+<div class="table">
+    <table class="table">
+        <tr>
+            <th class="table_sidebar">{% trans "NeuroMat Parkinson Network" %}</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="{% static 'img/amparo.jpg'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Parkinson Network" %}">
+            </td>
+        </tr>
+    </table>
+</div>

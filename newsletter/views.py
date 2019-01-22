@@ -1,10 +1,11 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 
-from .models import Subscription
+from .models import Newsletter, Subscription, FacebookHighlight
 
 
 def subscription(request):
@@ -24,3 +25,23 @@ def subscription(request):
 
         redirect_url = reverse('home')
         return HttpResponseRedirect(redirect_url)
+
+
+def previous_issues(request, template_name="previous_issues.html"):
+    previous_issues_list = Newsletter.objects.all().order_by('-date')
+    context = {'previous_issues_list': previous_issues_list}
+    return render(request, template_name, context)
+
+
+def newsletter(request, newsletter_number, template_name="newsletter.html"):
+    content = Newsletter.objects.get(number=newsletter_number)
+    facebook = FacebookHighlight.objects.filter(newsletter=content.pk)
+    latest_newsletters = Newsletter.objects.filter(number__in=range(int(newsletter_number) - 3, int(newsletter_number)))
+
+    context = {
+        'content': content,
+        'facebook': facebook,
+        'latest_newsletters': latest_newsletters
+    }
+
+    return render(request, template_name, context)
