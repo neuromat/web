@@ -892,23 +892,6 @@ th {
 /*}*/
 
 
-*:before
-{
-    box-sizing: border-box;
-    width: 300px;
-    height: 100px;
-    padding: 30px;
-    border: 10px solid blue;
-}
-*:after {
-    position:relative;
-    display:block;
-    margin:auto;
-    border:10px;
-    padding:10px;
-    top:1%;
-    width:50%;
-}
 
 html {
     font-size: 10px;
