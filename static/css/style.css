@@ -115,8 +115,24 @@
   ========================================
 */
 
-*:before,
+*:before
+{
+  box-sizing: border-box;
+  width: 300px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid blue;
+  box-sizing:border-box;
+}
 *:after {
+
+     box-sizing: border-box;
+  width: 300px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid red;
+  box-sizing:border-box;
+    /*
     position:relative;
     margin:auto;
     border:0;
@@ -124,6 +140,7 @@
     top:1%;
     width:50%;
     box-sizing:border-box;
+    */
 }
 
 
