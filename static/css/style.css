@@ -118,7 +118,6 @@
 *:before,
 *:after {
     position:relative;
-    display:block;
     margin:auto;
     border:0;
     padding:0;
