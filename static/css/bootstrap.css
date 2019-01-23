@@ -883,12 +883,33 @@ th {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+/**:before,*/
+/**:after {*/
+  /*-webkit-box-sizing: border-box;*/
+     /*-moz-box-sizing: border-box;*/
+          /*box-sizing: border-box;*/
+
+/*}*/
+
+
+*:before
+{
+  box-sizing: border-box;
+  width: 300px;
+  height: 100px;
+  padding: 30px;
+  border: 10px solid blue;
 }
+*:after {
+  position:relative;
+  display:block;
+  margin:auto;
+  border:10px;
+  padding:10px;
+  top:1%;
+  width:50%;
+}
+
 html {
   font-size: 10px;
 
@@ -963,7 +984,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eee;
+  border-top: 0px solid #eee;
 }
 .sr-only {
   position: absolute;
@@ -3819,7 +3840,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-fixed-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
-  max-height: 340px;
+  max-height: 640px;
 }
 @media (max-width: 480px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,
