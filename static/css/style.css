@@ -115,22 +115,16 @@
   ========================================
 */
 
-*:before
-{
-    box-sizing: border-box;
-    width: 300px;
-    height: 100px;
-    padding: 30px;
-    border: 10px solid blue;
-}
+*:before,
 *:after {
     position:relative;
     display:block;
     margin:auto;
-    border:10px;
-    padding:10px;
+    border:0;
+    padding:0;
     top:1%;
     width:50%;
+    box-sizing:border-box;
 }
 
 
