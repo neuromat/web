@@ -3,6 +3,12 @@ from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 
 
+def application_path(instance, filename):
+    return 'application/{0}/{1}'.format(
+        instance.postdoc_data.name, str(filename)
+    )
+
+
 class Postdoc(models.Model):
     """
     An instance of this class represents a postdoc candidate.
@@ -11,7 +17,7 @@ class Postdoc(models.Model):
     name = models.CharField(_('Name'), max_length=255)
     date = models.DateField(_('Date'), default=now, editable=False)
     email = models.EmailField(_('Email'))
-    cpf = models.CharField(_('CPF'), max_length=15, unique=True, blank=True)
+    cpf = models.CharField(_('CPF'), max_length=15, blank=True)
     passport = models.CharField(_('Passport / RNE'), max_length=50, blank=True)
     phone = models.CharField(_('Phone'), max_length=20, blank=True)
     mobile_phone = models.CharField(_('Mobile phone'), max_length=20, blank=True)
@@ -23,6 +29,14 @@ class Postdoc(models.Model):
         verbose_name = _('Postdoc')
         verbose_name_plural = _('Postdocs')
         ordering = ('name',)
+
+
+class PostdocFile(models.Model):
+    postdoc_data = models.ForeignKey(Postdoc, related_name='postdoc_files')
+    file = models.FileField(_('File'), upload_to=application_path)
+
+    def __str__(self):
+        return self.file.name
 
 
 class Research(models.Model):

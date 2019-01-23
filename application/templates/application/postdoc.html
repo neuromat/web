@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <h2>{% trans "Application Form" %}</h2>
+
+    <p>
+        {% blocktrans %}
+            You should have all the necessary data before sending the form. You will not be able to edit your form after submission. If corrections are necessary, please go over the whole procedure. Do not leave blank any field marked with (<b style="color: red;">*</b>)
+        {% endblocktrans %}
+    </p>
+
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6 col-12">
+                <label class="control-label">{% trans "Name" %} <b style="color: red;">*</b></label>
+                {{ candidate_form.name }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-sm-6 col-12">
+                <label class="control-label">{% trans "Email" %} <b style="color: red;">*</b></label>
+                {{ candidate_form.email }}
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-12">
+                <label class="control-label">{% trans "CPF (For Brazilians)" %}</label>
+                {{ candidate_form.cpf }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-sm-6 col-12">
+                <label class="control-label">{% trans "Passport / RNE" %}</label>
+                {{ candidate_form.passport }}
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-12">
+                <label class="control-label">{% trans "Phone" %}</label>
+                {{ candidate_form.phone }}
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="col-sm-6 col-12">
+                <label class="control-label">{% trans "Mobile phone" %}</label>
+                {{ candidate_form.mobile_phone }}
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="control-label">{% trans "Files" %}</label>
+                <input type="file" name="file" multiple>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+        <div class="span6 offset3 well ">
+            <div class="row">
+                <div class="col-12">
+                    <label><h4>{% trans "Researchers to whom recommendation letters have been requested" %}</h4></label>
+                </div>
+            </div>
+
+            {{ research_inlineformset.management_form }}
+            {% for research in research_inlineformset %}
+                {% for hidden in research.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group  input-group-sm">
+                                <span class="input-group-addon"> <span class="glyphicon glyphicon-user"></span></span>
+                                {{ research.name }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group  input-group-sm">
+                                <span class="input-group-addon"> <span class="glyphicon glyphicon-briefcase"></span></span>
+                                {{ research.affiliation }}
+                            </div>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="input-group  input-group-sm">
+                                <span class="input-group-addon"> <span class="glyphicon glyphicon-envelope"></span></span>
+                                {{ research.email }}
+                            </div>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <em>
+                {% blocktrans %}Please provide the name, affiliation and official email address of the researchers that will send the recommendation letters for you.{% endblocktrans %}
+            </em>
+        </div>
+
+        {% if creating %}
+            <button type="submit" name="action" value="save" class="btn btn-success">{% trans "Save" %}</button>
+        {% endif %}
+
+    </form>
+{% endblock %}
+
+{% block right_panel %}
+    {% include "blog/includes/filter_panel.html" %}
+{% endblock %}

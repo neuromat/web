@@ -27,6 +27,7 @@ urlpatterns += [
     url("^$", blog_views.blog_post_list, name="home"),
     url("^", include("mezzanine.urls")),
     url(r'^newsletter/', include('newsletter.urls')),
+    url(r'^postdoc/', include('application.urls')),
 ]
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error
