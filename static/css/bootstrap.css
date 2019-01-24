@@ -3785,6 +3785,31 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
 }
+
+
+.navbar-collapse {
+  padding-right: 15px;
+  padding-left: 15px;
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+  /*border-top: 0 solid transparent;*/
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+
+.navbar-form {
+  padding: 10px 15px;
+  margin-top: 8px;
+  margin-right: -15px;
+  margin-bottom: 8px;
+  margin-left: -15px;
+  /*border-top: 0 solid transparent;*/
+  /*border-bottom: 0 solid transparent;*/
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+}
+
+
 /*.navbar-collapse {*/
   /*padding-right: 15px;*/
   /*padding-left: 15px;*/
@@ -3794,6 +3819,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   /*-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);*/
           /*box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);*/
 /*}*/
+
+
+
 .navbar-collapse.in {
   overflow-y: auto;
 }
