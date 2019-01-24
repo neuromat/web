@@ -1,5 +1,4 @@
 {% load mezzanine_tags pages_tags i18n %}
-
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -14,8 +13,10 @@
                 {% if settings.SITE_TAGLINE %}<p class="top-small">{{ settings.SITE_TAGLINE|safe }}</p>{% endif %}
             {% endblock%}
         </div>
-        <div class="navbar-collapse collapse" style="margin-right: 15px">
+        <div class="navbar-collapse collapse" style="margin-right: 15px; margin-bottom: 0px">
             {% block navbar_search_form %}{% search_form %}{% endblock %}
+        </div>
+        <div class="navbar-collapse collapse idioma">
             {% include "includes/language_selector.html" %}
         </div>
         <nav class="navbar navbar-inverse navbar-collapse collapse">
