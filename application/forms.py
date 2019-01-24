@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import forms
-from django.forms import TextInput, ClearableFileInput
+from django.forms import TextInput
 from django.utils.translation import ugettext_lazy as _
 
 from application.models import Postdoc, Research
