@@ -10,10 +10,7 @@ def application_path(instance, filename):
 
 
 class Postdoc(models.Model):
-    """
-    An instance of this class represents a postdoc candidate.
-
-    """
+    """An instance of this class represents a postdoc candidate."""
     name = models.CharField(_('Name'), max_length=255)
     date = models.DateField(_('Date'), default=now, editable=False)
     email = models.EmailField(_('Email'))
@@ -32,6 +29,7 @@ class Postdoc(models.Model):
 
 
 class PostdocFile(models.Model):
+    """An instance of this class represents a file from a postdoc candidate. """
     postdoc_data = models.ForeignKey(Postdoc, related_name='postdoc_files')
     file = models.FileField(_('File'), upload_to=application_path)
 
@@ -40,10 +38,7 @@ class PostdocFile(models.Model):
 
 
 class Research(models.Model):
-    """
-    An instance of this class represents a researcher contact of a postdoc candidate.
-
-    """
+    """An instance of this class represents a researcher contact of a postdoc candidate."""
     postdoc_candidate = models.ForeignKey(Postdoc)
     name = models.CharField(_('Name'), max_length=255, blank=True)
     affiliation = models.CharField(_('Affiliation'), max_length=255, blank=True)
