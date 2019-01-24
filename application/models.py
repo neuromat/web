@@ -45,9 +45,9 @@ class Research(models.Model):
 
     """
     postdoc_candidate = models.ForeignKey(Postdoc)
-    name = models.CharField(_('Name'), max_length=255)
-    affiliation = models.CharField(_('Affiliation'), max_length=255)
-    email = models.EmailField(_('Email'))
+    name = models.CharField(_('Name'), max_length=255, blank=True)
+    affiliation = models.CharField(_('Affiliation'), max_length=255, blank=True)
+    email = models.EmailField(_('Email'), blank=True, null=True)
 
     def __str__(self):
         return self.name

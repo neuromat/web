@@ -6,7 +6,7 @@
 
     <p>
         {% blocktrans %}
-            You should have all the necessary data before sending the form. You will not be able to edit your form after submission. If corrections are necessary, please go over the whole procedure. Do not leave blank any field marked with (<b style="color: red;">*</b>)
+            You should have all the necessary data before sending the form. You will not be able to edit your form after submission. If corrections are necessary, please go over the whole procedure.
         {% endblocktrans %}
     </p>
 
@@ -47,18 +47,30 @@
                 <div class="help-block with-errors"></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <label class="control-label">{% trans "Files" %}</label>
-                <input type="file" name="file" multiple>
-                <div class="help-block with-errors"></div>
+
+        <div class="span6 offset3 well ">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label class="control-label">{% trans "Files" %}</label>
+                    <input type="file" name="file" multiple>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <em>
+                        {% blocktrans %}
+                            Multiple files may be uploaded by clicking "Choose File". For all documents, PDF format is preferred. (1) Add your FAPESP CV Summary. See www.fapesp.br/en/6351 for instructions. (2) Upload your list of publications. (3) Upload a summary of your research plan (up to 5 pages). (4) Optionally, upload a document with pointers to other research related output, such as software, web pages, etc. (5) Please add a document containing any further information that may help the evaluation process. You may upload a CV in free format, if you wish (optional).
+                        {% endblocktrans %}
+                    </em>
+                </div>
             </div>
         </div>
 
         <div class="span6 offset3 well ">
             <div class="row">
-                <div class="col-12">
-                    <label><h4>{% trans "Researchers to whom recommendation letters have been requested" %}</h4></label>
+                <div class="col-sm-12">
+                    <label class="control-label">{% trans "Researchers to whom recommendation letters have been requested:" %}</label>
                 </div>
             </div>
 

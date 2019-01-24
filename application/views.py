@@ -18,10 +18,9 @@ def postdoc(request, template_name="postdoc.html"):
             candidate_form = PostdocForm(request.POST, request.FILES)
 
             if candidate_form.is_valid():
-                candidate = candidate_form.save(commit=False)
-                candidate.save()
-
+                candidate = candidate_form.save()
                 researchers = research_inlineformset(request.POST, instance=candidate)
+
                 if researchers.is_valid():
                     researchers.save()
 
