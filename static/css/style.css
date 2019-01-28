@@ -14,6 +14,24 @@
   border-color: transparent;
 }
 
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: transparent;
+}
+
+/* Remove a margem dos campos busca e idioma na versão mobile */
+.navbar-form {
+  padding: 0 15px;
+  margin-top: 2px;
+  margin-right: -15px;
+  margin-bottom: 2px;
+  margin-left: -15px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+}
+
 /* Logo NeuroMat */
 .top-neuromat {
   font-weight: bold;
