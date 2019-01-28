@@ -44,6 +44,18 @@
   color: #333;
 }
 
+@media (max-width: 480px) {
+  .top-neuromat {
+    font-weight: bold;
+    position: relative;
+    top: 30%; /* TODO: make relative, try does not use magic number */
+    float: left;
+    margin: 15px 15px;
+    font-size: 30px;
+    color: #333;
+  }
+}
+
 .top-neuromat:hover,.top-neuromat:focus  {
     text-decoration: none;
     color: #000;
@@ -59,6 +71,19 @@
   padding-left: 10px;
   color: #333;
   line-height: 20px;
+}
+
+@media (max-width: 480px) {
+  .top-small {
+    font-size: x-small;
+    display: inline-block;
+    width: 34%; /* TODO: make relative, try does not use magic number */
+    margin-top: 5px;
+    border-left: 1px solid #333;
+    padding-left: 10px;
+    color: #333;
+    line-height: 20px;
+  }
 }
 
 /* Selecionar idioma */
