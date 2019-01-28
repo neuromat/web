@@ -3,6 +3,7 @@
 
     <div class="form-group">
         <input class="form-control" placeholder="{% trans "Search" %}" type="text" name="q" value="{{ request.GET.q }}">
+        <button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
     </div>
 
     {% if search_model_choices %}
@@ -22,7 +23,5 @@
             </div>
         {% endif %}
     {% endif %}
-
-    <button type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
 
 </form>
