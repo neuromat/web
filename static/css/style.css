@@ -158,16 +158,70 @@ Idiomas
 */
 
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1200px) {
+
   .idioma {
     margin-top: -20px;
     margin-bottom: 5px;
   }
 
   .alinha-direita {
-    text-align:right
+    text-align:right;
   }
 
+  .flag-1200p {
+    width: 2%;
+  }
+}
+
+@media (min-width: 1201px) {
+
+  .idioma {
+    margin-top: -20px;
+    margin-bottom: 5px;
+  }
+
+  .alinha-direita {
+    text-align:right;
+  }
+
+  .flag-1200p {
+    width: 2%;
+  }
+}
+
+
+@media (min-width: 480px) and (max-width: 767px)  {
+  .idioma {
+    margin-top: -20px;
+    margin-bottom: 5px;
+  }
+
+  .alinha-direita {
+    text-align:left;
+  }
+
+  .flag-768p {
+    width: 4%;
+  }
+}
+
+
+@media (min-width: 360px) and (max-width: 479px) {
+
+  .idioma {
+    margin-top: -20px;
+    margin-bottom: 5px;
+  }
+
+  .alinha-direita {
+    text-align:left;
+  }
+
+
+  .flag-360p {
+    width: 5%;
+  }
 }
 
 /*-------------------------------
