@@ -1,5 +1,14 @@
 {% load blog_tags keyword_tags mezzanine_tags i18n staticfiles %}
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="table">
     <table class="table">
         <tr>
@@ -43,38 +52,55 @@
 <div class="table">
     <table class="table">
         <tr>
-            <th class="table_sidebar">{% trans "NeuroMat's scientific-dissemination blog" %}</th>
+            <th class="table_sidebar">Follow Us on Facebook</th>
         </tr>
         <tr>
             <td>
-                <img src="{% static 'img/logo-blog.jpg'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat's scientific-dissemination blog" %}">
+                <div class="fb-page" data-href="https://www.facebook.com/neuromathematics/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/neuromathematics/" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/neuromathematics/">NeuroMat - Research Center for Neuromathematics</a>
+                    </blockquote>
+                </div>
             </td>
         </tr>
     </table>
 </div>
 
-<div class="table">
-    <table class="table">
-        <tr>
-            <th class="table_sidebar">{% trans "NeuroMat Brachial Plexus Injury Initiative" %}</th>
-        </tr>
-        <tr>
-            <td>
-                <img src="{% static 'img/logoabraco.png'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Brachial Plexus Injury Initiative" %}">
-            </td>
-        </tr>
-    </table>
-</div>
-
-<div class="table">
-    <table class="table">
-        <tr>
-            <th class="table_sidebar">{% trans "NeuroMat Parkinson Network" %}</th>
-        </tr>
-        <tr>
-            <td>
-                <img src="{% static 'img/amparo.jpg'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Parkinson Network" %}">
-            </td>
-        </tr>
-    </table>
-</div>
+{#<div class="table">#}
+{#    <table class="table">#}
+{#        <tr>#}
+{#            <th class="table_sidebar">{% trans "NeuroMat's scientific-dissemination blog" %}</th>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>#}
+{#                <img src="{% static 'img/logo-blog.jpg'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat's scientific-dissemination blog" %}">#}
+{#            </td>#}
+{#        </tr>#}
+{#    </table>#}
+{#</div>#}
+{##}
+{#<div class="table">#}
+{#    <table class="table">#}
+{#        <tr>#}
+{#            <th class="table_sidebar">{% trans "NeuroMat Brachial Plexus Injury Initiative" %}</th>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>#}
+{#                <img src="{% static 'img/logoabraco.png'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Brachial Plexus Injury Initiative" %}">#}
+{#            </td>#}
+{#        </tr>#}
+{#    </table>#}
+{#</div>#}
+{##}
+{#<div class="table">#}
+{#    <table class="table">#}
+{#        <tr>#}
+{#            <th class="table_sidebar">{% trans "NeuroMat Parkinson Network" %}</th>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>#}
+{#                <img src="{% static 'img/amparo.jpg'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Parkinson Network" %}">#}
+{#            </td>#}
+{#        </tr>#}
+{#    </table>#}
+{#</div>#}

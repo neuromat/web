@@ -9,16 +9,28 @@
   border-color: #ffffff;;
 }
 
-
-.navbar-collapse {
-  border-top: 0 solid transparent;
+/* Remove a borda que aparece na busca na versão mobile */
+.navbar-default .navbar-form {
+  border-color: transparent;
 }
 
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: transparent;
+}
+
+/* Remove a margem dos campos busca e idioma na versão mobile */
 .navbar-form {
-  border-top: 0 solid transparent;
-  border-bottom: 0 solid transparent;
+  padding: 0 15px;
+  margin-top: 2px;
+  margin-right: -15px;
+  margin-bottom: 2px;
+  margin-left: -15px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1);
 }
-
 
 /* Logo NeuroMat */
 .top-neuromat {
@@ -30,6 +42,18 @@
   margin-right: 10px;
   font-size: 40px;
   color: #333;
+}
+
+@media (max-width: 480px) {
+  .top-neuromat {
+    font-weight: bold;
+    position: relative;
+    top: 30%; /* TODO: make relative, try does not use magic number */
+    float: left;
+    margin: 15px 15px;
+    font-size: 30px;
+    color: #333;
+  }
 }
 
 .top-neuromat:hover,.top-neuromat:focus  {
@@ -47,6 +71,26 @@
   padding-left: 10px;
   color: #333;
   line-height: 20px;
+}
+
+@media (max-width: 480px) {
+  .top-small {
+    font-size: x-small;
+    display: inline-block;
+    width: 34%; /* TODO: make relative, try does not use magic number */
+    margin-top: 5px;
+    border-left: 1px solid #333;
+    padding-left: 10px;
+    color: #333;
+    line-height: 20px;
+  }
+}
+
+/* Selecionar idioma */
+@media (min-width: 768px) {
+  .idioma {
+    margin-top: -25px;
+  }
 }
 
 /* Menu principal */
@@ -124,7 +168,6 @@
   ========================================
   Body
   ========================================
-
 */
 
 body {
@@ -151,200 +194,8 @@ body {
   padding: 0;
 }
 
-/*
-===================================
-Idiomas
------------------------------------
-*/
-
-
-@media (min-width: 768px) and (max-width: 1200px) {
-
-  .idioma {
-    margin-top: -20px;
-    margin-bottom: 5px;
-  }
-
-  .alinha-direita {
-    text-align:right;
-  }
-
-  .flag-1200p {
-    width: 2%;
-  }
-}
-
-@media (min-width: 1201px) {
-
-  .idioma {
-    margin-top: -20px;
-    margin-bottom: 5px;
-  }
-
-  .alinha-direita {
-    text-align:right;
-  }
-
-  .flag-1200p {
-    width: 2%;
-  }
-}
-
-
-@media (min-width: 480px) and (max-width: 767px)  {
-  .idioma {
-    margin-top: -20px;
-    margin-bottom: 5px;
-  }
-
-  .alinha-direita {
-    text-align:left;
-  }
-
-  .flag-768p {
-    width: 4%;
-  }
-}
-
-
-@media (min-width: 360px) and (max-width: 479px) {
-
-  .idioma {
-    margin-top: -20px;
-    margin-bottom: 5px;
-  }
-
-  .alinha-direita {
-    text-align:left;
-  }
-
-
-  .flag-360p {
-    width: 5%;
-  }
-}
-
-/*-------------------------------
-Formulario
----------------------------------
- */
-
-.btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-.btn:hover,
-.btn:focus {
-  color: #333;
-  text-decoration: none;
-}
-.btn:active,
-.btn.active {
-  background-image: none;
-  outline: 0;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-}
-.btn.disabled,
-.btn[disabled],
-fieldset[disabled] .btn {
-  pointer-events: none;
-  cursor: not-allowed;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  opacity: .65;
-}
-.btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
-}
-.btn-default:hover,
-.btn-default:focus,
-.btn-default:active,
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
-}
-.btn-default:active,
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
-  background-image: none;
-}
-.btn-default.disabled,
-.btn-default[disabled],
-fieldset[disabled] .btn-default,
-.btn-default.disabled:hover,
-.btn-default[disabled]:hover,
-fieldset[disabled] .btn-default:hover,
-.btn-default.disabled:focus,
-.btn-default[disabled]:focus,
-fieldset[disabled] .btn-default:focus,
-.btn-default.disabled:active,
-.btn-default[disabled]:active,
-fieldset[disabled] .btn-default:active,
-.btn-default.disabled.active,
-.btn-default[disabled].active,
-fieldset[disabled] .btn-default.active {
-  background-color: #fff;
-  border-color: #ccc;
-}
-.btn-default .badge {
-  color: #fff;
-  background-color: #333;
-}
-
-
-/*========================================
-            MEZZANINE FORMS
-==========================================
-  These rules mirror the rules for .form-control included with
-  Bootstrap. They are needed because we can not directly apply
-  CSS classes to the form fields when rendering them in the template.
-  They also cover special cases for date and date/time inputs.
-*/
-
 .form-group > input[type="text"],
-.form-group > input[type="password"],
-.form-group > input[type="datetime"],
-.form-group > input[type="datetime-local"],
-.form-group > input[type="date"],
-.form-group > input[type="month"],
-.form-group > input[type="time"],
-.form-group > input[type="week"],
-.form-group > input[type="number"],
-.form-group > input[type="email"],
-.form-group > input[type="url"],
-.form-group > input[type="search"],
-.form-group > input[type="tel"],
-.form-group > input[type="color"],
-.form-group > select,
-.form-group > textarea {
+.form-group > input[type="search"] {
   display: inline-block;
   width: 100%;
   max-width: 170px;
@@ -362,54 +213,14 @@ fieldset[disabled] .btn-default.active {
   -webkit-transition: border-color ease-in-out.15s, box-shadow ease-in-out 0.15s;
           transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+
 .form-group > input[type="text"]:focus,
-.form-group > input[type="password"]:focus,
-.form-group > input[type="datetime"]:focus,
-.form-group > input[type="datetime-local"]:focus,
-.form-group > input[type="date"]:focus,
-.form-group > input[type="month"]:focus,
-.form-group > input[type="time"]:focus,
-.form-group > input[type="week"]:focus,
-.form-group > input[type="number"]:focus,
-.form-group > input[type="email"]:focus,
-.form-group > input[type="url"]:focus,
-.form-group > input[type="search"]:focus,
-.form-group > input[type="tel"]:focus,
-.form-group > input[type="color"]:focus,
-.form-group > select:focus,
-.form-group > textarea:focus {
+.form-group > input[type="search"]:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.form-group > textarea {
-  height: auto;
-  max-width: 300px;
-}
-
-
-
-
-
-.input-group {
-  position: relative;
-  display: table;
-  border-collapse: separate;
-}
-.input-group[class*="col-"] {
-  float: none;
-  padding-right: 0;
-  padding-left: 0;
-}
-.input-group .form-control {
-  position: relative;
-  z-index: 2;
-  float: left;
-  width: 100%;
-  margin-bottom: 0;
-}
-
 
 /*
   ========================================
