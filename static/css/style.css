@@ -43,6 +43,13 @@
   line-height: 20px;
 }
 
+/* Selecionar idioma */
+@media (min-width: 768px) {
+  .idioma {
+    margin-top: -25px;
+  }
+}
+
 /* Menu principal */
 .navbar {
   position: relative;
