@@ -9,6 +9,11 @@
   border-color: #ffffff;;
 }
 
+/* Remove a borda que aparece na busca na versão mobile */
+.navbar-default .navbar-form {
+  border-color: transparent;
+}
+
 /* Logo NeuroMat */
 .top-neuromat {
   font-weight: bold;
