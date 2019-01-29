@@ -37,10 +37,17 @@ def previous_issues(request, template_name="previous_issues.html"):
     return render(request, template_name, context)
 
 
-def newsletter(request, newsletter_number, template_name="newsletter.html"):
+def newsletter_content(newsletter_number):
+    """Function to get the info about a specific newsletter"""
     content = Newsletter.objects.get(number=newsletter_number)
     facebook = FacebookHighlight.objects.filter(newsletter=content.pk)
     latest_newsletters = Newsletter.objects.filter(number__in=range(int(newsletter_number) - 3, int(newsletter_number)))
+
+    return content, facebook, latest_newsletters
+
+
+def newsletter(request, newsletter_number, template_name="newsletter.html"):
+    content, facebook, latest_newsletters = newsletter_content(newsletter_number)
 
     context = {
         'content': content,
@@ -54,33 +61,33 @@ def newsletter(request, newsletter_number, template_name="newsletter.html"):
 @login_required
 def send_newsletter(request, newsletter_number):
     if request.method == 'POST':
-        content = Newsletter.objects.get(number=newsletter_number)
-        facebook = FacebookHighlight.objects.filter(newsletter=content.pk)
-        latest_newsletters = Newsletter.objects.filter(number__in=range(
-            int(newsletter_number) - 3, int(newsletter_number))
-        )
+        content, facebook, latest_newsletters = newsletter_content(newsletter_number)
 
+        # Gmail limit. 100 emails at a time.
+        limit = 100
         subject = request.POST['subject']
         from_email = settings.EMAIL_HOST_USER
-        to_email = [address['email'] for address in Subscription.objects.all().values('email')]
+        email_list = [address['email'] for address in Subscription.objects.all().values('email')]
+        to_email = [email_list[i * limit:(i + 1) * limit] for i in range((len(email_list) + limit - 1) // limit)]
         html_message = loader.render_to_string(
             'newsletter_content.html',
             {
                 'content': content,
                 'facebook': facebook,
                 'latest_newsletters': latest_newsletters,
-                'send_newsletter': True
             }
         )
 
         if subject and html_message:
-            try:
-                msg = EmailMessage(subject, html_message, from_email, to_email)
-                msg.content_subtype = "html"
-                msg.send()
-                messages.success(request, _('Newsletter sent successfully.'))
-            except BadHeaderError:
-                return HttpResponse(_('Invalid header found.'))
+            for to_email_group in to_email:
+                try:
+                    msg = EmailMessage(subject, html_message, from_email, bcc=to_email_group)
+                    msg.content_subtype = "html"
+                    msg.send()
+                    messages.success(request, _('Newsletter sent successfully.'))
+                except BadHeaderError:
+                    return HttpResponse(_('Invalid header found.'))
+
             return HttpResponseRedirect(reverse('home'))
         else:
             return HttpResponseRedirect(reverse("newsletter", args=(content.number,)))
