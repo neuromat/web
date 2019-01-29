@@ -21,9 +21,9 @@ def subscription(request):
         except Subscription.DoesNotExist:
             contact = False
 
-        if contact and contact.status == True:
+        if contact and contact.status is True:
             messages.warning(request, _('E-mail already registered.'))
-        elif contact and contact.status == False:
+        elif contact and contact.status is False:
             contact.status = True
             contact.save()
             messages.success(request, _('Email registered successfully.'))
@@ -49,7 +49,7 @@ def unsubscription(request, template_name="unsubscription.html"):
         except Subscription.DoesNotExist:
             contact = False
 
-        if contact and contact.status == True:
+        if contact and contact.status is True:
             contact.status = False
             contact.status_date = now()
             contact.save()
@@ -106,6 +106,7 @@ def send_newsletter(request, newsletter_number):
                 'content': content,
                 'facebook': facebook,
                 'latest_newsletters': latest_newsletters,
+                'domain': request.get_host()
             }
         )
 
