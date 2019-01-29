@@ -31,6 +31,22 @@ def subscription(request):
         return HttpResponseRedirect(redirect_url)
 
 
+def unsubscription(request, template_name="unsubscription.html"):
+    if request.method == 'POST':
+        email = request.POST['email']
+
+        if Subscription.objects.filter(email=email).exists():
+            Subscription.objects.filter(email=email).update(status=False, status_date=now())
+            messages.success(request, _('Email removed successfully.'))
+            return HttpResponseRedirect(reverse('home'))
+
+        else:
+            messages.success(request, _('Email not registered. Did you type it correctly?'))
+            return HttpResponseRedirect(reverse('unsubscription'))
+
+    return render(request, template_name)
+
+
 def previous_issues(request, template_name="previous_issues.html"):
     previous_issues_list = Newsletter.objects.all().order_by('-date')
     context = {'previous_issues_list': previous_issues_list}

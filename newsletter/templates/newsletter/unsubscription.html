@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <h2>{% trans "Unsubscribe" %}</h2>
+    <p>{% blocktrans %}We're sorry you're leaving! Please fill in the field below with your email address to confirm the removal.{% endblocktrans %}</p>
+    <form enctype="multipart/form-data" method="post" action="{% url "unsubscription" %}">
+        {% csrf_token %}
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+            <input type="email" class="form-control" name="email" placeholder="E-mail" required="" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <button class="btn btn-success" id="id_submit" name="submit" value="submit" type="submit">{% trans "Submit" %}</button>
+    </form>
+{% endblock %}
+
+{% block right_panel %}
+    {% include "blog/includes/filter_panel.html" %}
+{% endblock %}
