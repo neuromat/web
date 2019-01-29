@@ -44,13 +44,18 @@ def unsubscription(request, template_name="unsubscription.html"):
     if request.method == 'POST':
         email = request.POST['email']
 
-        if Subscription.objects.filter(email=email).exists():
+        try:
+            contact = Subscription.objects.get(email=email)
+        except Subscription.DoesNotExist:
+            contact = False
+
+        if contact and contact.status == True:
             Subscription.objects.filter(email=email).update(status=False, status_date=now())
             messages.success(request, _('Email removed successfully.'))
             return HttpResponseRedirect(reverse('home'))
 
         else:
-            messages.success(request, _('Email not registered. Did you type it correctly?'))
+            messages.warning(request, _('Email not registered. Did you type it correctly?'))
             return HttpResponseRedirect(reverse('unsubscription'))
 
     return render(request, template_name)
