@@ -50,10 +50,11 @@ def unsubscription(request, template_name="unsubscription.html"):
             contact = False
 
         if contact and contact.status == True:
-            Subscription.objects.filter(email=email).update(status=False, status_date=now())
+            contact.status = False
+            contact.status_date = now()
+            contact.save()
             messages.success(request, _('Email removed successfully.'))
             return HttpResponseRedirect(reverse('home'))
-
         else:
             messages.warning(request, _('Email not registered. Did you type it correctly?'))
             return HttpResponseRedirect(reverse('unsubscription'))
