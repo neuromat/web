@@ -3,7 +3,7 @@ from django.contrib.messages import get_messages
 from django.core.urlresolvers import reverse, resolve
 from django.utils.timezone import now
 
-from newsletter.views import subscription, previous_issues, newsletter, send_newsletter
+from newsletter.views import subscription, unsubscription, previous_issues, newsletter, send_newsletter
 from newsletter.models import Subscription, Newsletter
 
 
@@ -63,3 +63,32 @@ class NewsletterTest(TestCase):
     def test_send_newsletter_url_resolves_send_newsletter_view(self):
         view = resolve('/newsletter/1/submit')
         self.assertEquals(view.func, send_newsletter)
+
+    def test_unsubscription_url_resolves_unsubscription_view(self):
+        view = resolve('/newsletter/unsubscription')
+        self.assertEquals(view.func, unsubscription)
+
+    def test_unsubscription_status_code(self):
+        url = reverse('unsubscription')
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'unsubscription.html')
+
+    def test_unsubscription(self):
+        url = reverse('unsubscription')
+        self.data = {
+            'email': 'fulano@exemplo.com',
+        }
+        self.client.post(url, self.data)
+        new_unsubscription = Subscription.objects.filter(email='fulano@exemplo.com', status=False)
+        self.assertEqual(new_unsubscription.count(), 1)
+
+    def test_unsubscription_email_not_registered(self):
+        url = reverse('unsubscription')
+        self.data = {
+            'email': 'beltrano@exemplo.com',
+        }
+        response = self.client.post(url, self.data)
+        message = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(message), 1)
+        self.assertEqual(str(message[0]), 'Email not registered. Did you type it correctly?')
