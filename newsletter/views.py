@@ -16,8 +16,17 @@ def subscription(request):
     if request.method == 'POST':
         email = request.POST['email']
 
-        if Subscription.objects.filter(email=email).exists():
+        try:
+            contact = Subscription.objects.get(email=email)
+        except Subscription.DoesNotExist:
+            contact = False
+
+        if contact and contact.status == True:
             messages.warning(request, _('E-mail already registered.'))
+        elif contact and contact.status == False:
+            contact.status = True
+            contact.save()
+            messages.success(request, _('Email registered successfully.'))
         else:
             new_email = Subscription.objects.create(
                 email=email,
