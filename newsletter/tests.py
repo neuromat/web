@@ -3,7 +3,7 @@ from django.contrib.messages import get_messages
 from django.core.urlresolvers import reverse, resolve
 from django.utils.timezone import now
 
-from newsletter.views import subscription, previous_issues, newsletter
+from newsletter.views import subscription, previous_issues, newsletter, send_newsletter
 from newsletter.models import Subscription, Newsletter
 
 
@@ -59,3 +59,7 @@ class NewsletterTest(TestCase):
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'newsletter.html')
+
+    def test_send_newsletter_url_resolves_send_newsletter_view(self):
+        view = resolve('/newsletter/1/submit')
+        self.assertEquals(view.func, send_newsletter)
