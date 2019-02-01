@@ -78,6 +78,8 @@ ADMIN_MENU_ORDER = (
 # INSTALLED_APPS setting.
 USE_MODELTRANSLATION = True
 
+# Slug of the page object for the blog
+BLOG_SLUG = "content"
 
 ########################
 # MAIN DJANGO SETTINGS #
