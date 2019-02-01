@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 18:38+0000\n"
+"POT-Creation-Date: 2019-02-01 12:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,15 +125,15 @@ msgid ""
 "                        "
 msgstr ""
 "\n"
-"Vários arquivos podem ser enviados clicando em \"Escolher arquivos\". Utilize em "
-"todos os documentos, preferencialmente, o formato PDF. (1) Adicione sua "
-"Súmula Curricular. Consulte www.fapesp.br/en/6351 para instruções. (2) "
-"Carregue sua lista de publicações. (3) Envie um resumo do seu plano de "
-"pesquisa (até 5 páginas). (4) Opcionalmente, faça o upload de um documento "
-"com links para outros itens que considere importante, como software, páginas "
-"da web, etc. (5) Por favor, adicione um documento contendo qualquer "
-"informação adicional que possa ajudar no processo de avaliação. Você pode "
-"fazer o upload do CV em formato livre, se desejar (opcional)."
+"Vários arquivos podem ser enviados clicando em \"Escolher arquivos\". "
+"Utilize em todos os documentos, preferencialmente, o formato PDF. (1) "
+"Adicione sua Súmula Curricular. Consulte www.fapesp.br/en/6351 para "
+"instruções. (2) Carregue sua lista de publicações. (3) Envie um resumo do "
+"seu plano de pesquisa (até 5 páginas). (4) Opcionalmente, faça o upload de "
+"um documento com links para outros itens que considere importante, como "
+"software, páginas da web, etc. (5) Por favor, adicione um documento contendo "
+"qualquer informação adicional que possa ajudar no processo de avaliação. "
+"Você pode fazer o upload do CV em formato livre, se desejar (opcional)."
 
 #: application/templates/application/postdoc.html:73
 msgid "Researchers to whom recommendation letters have been requested:"
@@ -321,7 +321,15 @@ msgstr "Compartilhar no Twitter"
 msgid "Share on Facebook"
 msgstr "Compartilhar no Facebook"
 
-#: templates/blog/blog_post_list.html:4 templates/blog/blog_post_list.html:22
+#: templates/blog/blog_post_list.html:4 templates/pages/menus/breadcrumb.html:4
+#: templates/pages/menus/breadcrumb.html:10
+#: templates/pages/menus/footer_tree.html:11
+#: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
+#: templates/pages/menus/tree.html:9 templates/search_results.html:13
+msgid "Home"
+msgstr "Página inicial"
+
+#: templates/blog/blog_post_list.html:22
 msgid "Blog"
 msgstr ""
 
@@ -407,14 +415,6 @@ msgstr ""
 
 #: templates/pages/menus/admin.html:31
 msgid "Add"
-msgstr ""
-
-#: templates/pages/menus/breadcrumb.html:4
-#: templates/pages/menus/breadcrumb.html:10
-#: templates/pages/menus/footer_tree.html:11
-#: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
-#: templates/pages/menus/tree.html:9 templates/search_results.html:13
-msgid "Home"
 msgstr ""
 
 #: templates/search_results.html:5 templates/search_results.html:6
