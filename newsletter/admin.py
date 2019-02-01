@@ -22,7 +22,7 @@ admin.site.register(Newsletter, NewsletterAdmin)
 
 
 class FacebookHighlightAdmin(admin.ModelAdmin):
-    fields = ['text', 'image', 'image_url', 'facebook_link', 'date']
+    fields = ['newsletter', 'text', 'image', 'image_url', 'facebook_link', 'date']
     list_display = ('newsletter', 'text', 'date')
     search_fields = ['text', 'newsletter__number']
     list_display_links = ('text',)
