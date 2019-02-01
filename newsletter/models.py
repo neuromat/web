@@ -15,7 +15,7 @@ class Newsletter(models.Model):
         BlogPost, blank=True, related_name='featured_post', limit_choices_to={'categories__slug': 'newsletter'}
     )
     publication = models.ManyToManyField(
-        BlogPost, blank=True, related_name='publication_post', limit_choices_to={'categories__slug': 'publication'}
+        BlogPost, blank=True, related_name='publication_post', limit_choices_to={'categories__slug': 'publications'}
     )
     in_the_media = models.ManyToManyField(
         BlogPost, blank=True, related_name='in_the_media_post', limit_choices_to={'categories__slug': 'news'}
