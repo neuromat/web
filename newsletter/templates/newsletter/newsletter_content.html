@@ -12,7 +12,7 @@
     {% for featured in content.featured.all %}
         <h4>{{ featured.title }}</h4>
         <p>{{ featured.description_from_content|safe }}</p>
-        <p><a href="/blog/{{ featured.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
+        <p><a href="/content/{{ featured.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
     {% endfor %}
     <hr class="my-hr">
 {% endif %}
@@ -21,7 +21,7 @@
     <h4>{% trans "Last NeuroMat scientific publications" %}</h4>
     {% for publication in content.publication.all %}
         <ul>
-            <li><a href="/blog/{{ publication.slug }}">{% if publication.description %}{{ publication.description }}{% else %}{{ publication.title }}{% endif %}</a></li>
+            <li><a href="/content/{{ publication.slug }}">{% if publication.description %}{{ publication.description }}{% else %}{{ publication.title }}{% endif %}</a></li>
         </ul>
     {% endfor %}
     <hr class="my-hr">
@@ -31,7 +31,7 @@
     <h4>{% trans "NeuroMat in the media" %}</h4>
     {% for new in content.in_the_media.all %}
         <ul>
-            <li><a href="/blog/{{ new.slug }}">{% if new.description %}{{ new.description }}{% else %}{{ new.title }}{% endif %}</a></li>
+            <li><a href="/content/{{ new.slug }}">{% if new.description %}{{ new.description }}{% else %}{{ new.title }}{% endif %}</a></li>
         </ul>
     {% endfor %}
     <hr class="my-hr">
@@ -41,7 +41,7 @@
     <h4>{% trans "NeuroMat opportunities" %}</h4>
     {% for opportunity in content.opportunity.all %}
         <ul>
-            <li><a href="/blog/{{ opportunity.slug }}">{{ opportunity.title }}</a></li>
+            <li><a href="/content/{{ opportunity.slug }}">{{ opportunity.title }}</a></li>
         </ul>
     {% endfor %}
     <hr class="my-hr">
@@ -100,7 +100,7 @@
         <p><a href="{% url 'newsletter' newsletter.number %}" style="color: #00c12e">Newsletter #{{ newsletter.number }}</a></p>
         {% for item in newsletter.featured.all %}
             <ul>
-                <li><a href="/blog/{{ item.slug }}" style="color: black">{{ item.title }}</a></li>
+                <li><a href="/content/{{ item.slug }}" style="color: black">{{ item.title }}</a></li>
             </ul>
         {% endfor %}
     {% endfor %}
