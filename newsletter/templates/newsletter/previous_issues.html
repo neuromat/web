@@ -12,6 +12,12 @@
                         <a href="/content/{{ featured.slug }}">{{ featured.title }}</a>
                     {% endfor %}
                 </li>
+            {% elif item.event.all %}
+                <li>
+                    {% for event in item.event.all %}
+                        <a href="/content/{{ event.slug }}">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a>
+                    {% endfor %}
+                </li>
             {% endif %}
 
             {% if item.publication.all %}
