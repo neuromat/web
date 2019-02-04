@@ -72,7 +72,9 @@ def newsletter_content(newsletter_number):
     """Function to get the info about a specific newsletter"""
     content = Newsletter.objects.get(number=newsletter_number)
     facebook = FacebookHighlight.objects.filter(newsletter=content.pk)
-    latest_newsletters = Newsletter.objects.filter(number__in=range(int(newsletter_number) - 3, int(newsletter_number)))
+    latest_newsletters = Newsletter.objects.filter(
+        number__in=range(int(newsletter_number) - 3, int(newsletter_number))
+    ).order_by('-number')
 
     return content, facebook, latest_newsletters
 

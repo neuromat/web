@@ -104,11 +104,19 @@
     <h4>{% trans "Previous issues of the NeuroMat Newsletter (features)" %}</h4>
     {% for newsletter in latest_newsletters %}
         <p><a href="{% url 'newsletter' newsletter.number %}" style="color: #00c12e">Newsletter #{{ newsletter.number }}</a></p>
-        {% for item in newsletter.featured.all %}
-            <ul>
-                <li><a href="/content/{{ item.slug }}" style="color: black">{{ item.title }}</a></li>
-            </ul>
-        {% endfor %}
+        {% if newsletter.featured.all %}
+            {% for item in newsletter.featured.all %}
+                <ul>
+                    <li><a href="/content/{{ item.slug }}" style="color: black">{{ item.title }}</a></li>
+                </ul>
+            {% endfor %}
+        {% elif newsletter.event.all %}
+            {% for event in newsletter.event.all %}
+                <ul>
+                    <li><a href="/content/{{ event.slug }}" style="color: black">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a></li>
+                </ul>
+            {% endfor %}
+        {% endif %}
     {% endfor %}
 {% endif %}
 
