@@ -9,21 +9,21 @@
             {% if item.featured.all %}
                 <li>
                     {% for featured in item.featured.all %}
-                        <a href="/blog/{{ featured.slug }}">{{ featured.title }}</a>
+                        <a href="/content/{{ featured.slug }}">{{ featured.title }}</a>
                     {% endfor %}
                 </li>
             {% endif %}
 
             {% if item.publication.all %}
-                <li><a href="blog/category/publications">{% trans "Last NeuroMat scientific publications" %}</a></li>
+                <li><a href="content/category/publications">{% trans "Last NeuroMat scientific publications" %}</a></li>
             {% endif %}
 
             {% if item.in_the_media.all %}
-                <li><a href="blog/category/news">{% trans "NeuroMat in the media" %}</a></li>
+                <li><a href="content/category/news">{% trans "NeuroMat in the media" %}</a></li>
             {% endif %}
 
             {% if item.opportunity.all %}
-                <li><a href="blog/category/opportunities">{% trans "NeuroMat opportunities" %}</a></li>
+                <li><a href="content/category/opportunities">{% trans "NeuroMat opportunities" %}</a></li>
             {% endif %}
 
             <li><a href="https://www.facebook.com/neuromathematics" target="_blank">{% trans "NeuroMat Facebook Highlights" %}</a></li>
