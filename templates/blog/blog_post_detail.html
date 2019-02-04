@@ -30,7 +30,13 @@
     {# Imagem #}
     {% block blog_post_detail_featured_image %}
         {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-            <p><img class="img-responsive center-block" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 600 0 %}"></p>
+            {% with blog_post.categories.all|first as category %}
+                {% if category.slug == 'events' %}
+                    <p><img class="img-responsive center-block" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 900 0 %}"></p>
+                {% else %}
+                    <p><img class="img-responsive center-block" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 600 0 %}"></p>
+               {% endif %}
+            {% endwith %}
         {% endif %}
     {% endblock %}
 
