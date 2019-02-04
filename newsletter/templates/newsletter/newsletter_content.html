@@ -23,6 +23,15 @@
     <hr class="my-hr">
 {% endif %}
 
+{% if content.streaming.all %}
+    {% for video in content.streaming.all %}
+        <h4>{% if video.meta_title %}{{ video.meta_title }}{% else %}{{ video.title }}{% endif %}</h4>
+        <p>{% if video.description %}{{ video.description|safe }}{% else %}{{ video.description_from_content|safe }}{% endif %}</p>
+        <p><a href="/content/{{ video.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
+    {% endfor %}
+    <hr class="my-hr">
+{% endif %}
+
 {% if content.publication.all %}
     <h4>{% trans "Last NeuroMat scientific publications" %}</h4>
     {% for publication in content.publication.all %}
