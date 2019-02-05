@@ -9,6 +9,8 @@ from django.template import loader
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 
+from mezzanine.conf import settings
+from mezzanine.utils.views import paginate
 from .models import Newsletter, Subscription, FacebookHighlight
 
 
@@ -64,6 +66,8 @@ def unsubscription(request, template_name="unsubscription.html"):
 
 def previous_issues(request, template_name="previous_issues.html"):
     previous_issues_list = Newsletter.objects.all().order_by('-date')
+    previous_issues_list = paginate(previous_issues_list, request.GET.get("page", 1),
+                                    settings.BLOG_POST_PER_PAGE, settings.MAX_PAGING_LINKS)
     context = {'previous_issues_list': previous_issues_list}
     return render(request, template_name, context)
 

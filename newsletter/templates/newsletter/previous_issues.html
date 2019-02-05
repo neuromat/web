@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n mezzanine_tags %}
 
 {% block main %}
     {% for item in previous_issues_list %}
@@ -35,6 +35,8 @@
             <li><a href="https://www.facebook.com/neuromathematics" target="_blank">{% trans "NeuroMat Facebook Highlights" %}</a></li>
         </ul>
     {% endfor %}
+
+    {% pagination_for previous_issues_list %}
 {% endblock %}
 
 {% block right_panel %}
