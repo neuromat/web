@@ -11,7 +11,7 @@
 {% if content.featured.all %}
     {% for featured in content.featured.all %}
         <h4>{{ featured.title }}</h4>
-        <p>{{ featured.description_from_content|safe }}</p>
+        <p>{% if featured.description %}{{ featured.description|safe }}{% else %}{{ featured.description_from_content|safe }}{% endif %}</p>
         <p><a href="/content/{{ featured.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
     {% endfor %}
     <hr class="my-hr">
