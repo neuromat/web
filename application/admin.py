@@ -1,7 +1,10 @@
+from copy import deepcopy
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 from .models import Postdoc, PostdocFile, Research
+from mezzanine.blog.admin import BlogPostAdmin
+from mezzanine.blog.models import BlogPost
 
 
 class ResearchInline(admin.StackedInline):
@@ -27,3 +30,14 @@ class PostdocAdmin(admin.ModelAdmin):
     list_display_links = ('name', )
 
 admin.site.register(Postdoc, PostdocAdmin)
+
+# add fields "video" and "news" to blog subclasses in the admin
+blog_fieldsets = deepcopy(BlogPostAdmin.fieldsets)
+blog_fieldsets[0][1]["fields"] += ("hide_post",)
+
+
+class MyBlogPostAdmin(BlogPostAdmin):
+    fieldsets = blog_fieldsets
+
+admin.site.unregister(BlogPost)
+admin.site.register(BlogPost, MyBlogPostAdmin)

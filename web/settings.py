@@ -41,34 +41,16 @@ ADMIN_MENU_ORDER = (
 #     (3, _("Footer"), "pages/menus/footer.html"),
 # )
 
-# A sequence of fields that will be injected into Mezzanine's (or any
-# library's) models. Each item in the sequence is a four item sequence.
-# The first two items are the dotted path to the model and its field
-# name to be added, and the dotted path to the field class to use for
-# the field. The third and fourth items are a sequence of positional
-# args and a dictionary of keyword args, to use when creating the
-# field instance. When specifying the field class, the path
-# ``django.models.db.`` can be omitted for regular Django model fields.
-#
-# EXTRA_MODEL_FIELDS = (
-#     (
-#         # Dotted path to field.
-#         "mezzanine.blog.models.BlogPost.image",
-#         # Dotted path to field class.
-#         "somelib.fields.ImageField",
-#         # Positional args for field class.
-#         (_("Image"),),
-#         # Keyword args for field class.
-#         {"blank": True, "upload_to": "blog"},
-#     ),
-#     # Example of adding a field to *all* of Mezzanine's content types:
-#     (
-#         "mezzanine.pages.models.Page.another_field",
-#         "IntegerField", # 'django.db.models.' is implied if path is omitted.
-#         (_("Another name"),),
-#         {"blank": True, "default": 1},
-#     ),
-# )
+# Adding new fields to the blog.
+# Using the admin.py file from the application app to show a new field to blog posts
+EXTRA_MODEL_FIELDS = (
+    (
+        "mezzanine.blog.models.BlogPost.hide_post",
+        "django.db.models.BooleanField",
+        ("Do not show on the homepage",),
+        {"default": False},
+    ),
+)
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 BLOG_USE_FEATURED_IMAGE = True
