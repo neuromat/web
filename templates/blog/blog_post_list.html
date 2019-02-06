@@ -63,7 +63,13 @@
     {# Conteúdo do post #}
     {% block blog_post_list_post_content %}
         {% editable blog_post.content %}
-            {{ blog_post.description_from_content|safe }}
+            {% with blog_post.categories.all|first as category %}
+                {% if category.slug == 'events' %}
+                    {{ blog_post.description|safe }}
+                {% else %}
+                    {{ blog_post.description_from_content|safe }}
+                {% endif %}
+            {% endwith %}
         {% endeditable %}
     {% endblock %}
 
