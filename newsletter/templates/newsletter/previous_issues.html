@@ -7,17 +7,13 @@
         <p><em>{{ item.date|date:"F Y" }}</em> - {% trans "Topics" %}:</p>
         <ul>
             {% if item.featured.all %}
-                <li>
-                    {% for featured in item.featured.all %}
-                        <a href="/content/{{ featured.slug }}">{{ featured.title }}</a>
-                    {% endfor %}
-                </li>
+                {% for featured in item.featured.all %}
+                    <li><a href="/content/{{ featured.slug }}">{{ featured.title }}</a></li>
+                {% endfor %}
             {% elif item.event.all %}
-                <li>
-                    {% for event in item.event.all %}
-                        <a href="/content/{{ event.slug }}">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a>
-                    {% endfor %}
-                </li>
+                {% for event in item.event.all %}
+                    <li><a href="/content/{{ event.slug }}">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a></li>
+                {% endfor %}
             {% endif %}
 
             {% if item.publication.all %}
