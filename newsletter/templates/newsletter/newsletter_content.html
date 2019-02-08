@@ -13,14 +13,14 @@
         <h4>{{ featured.title }}</h4>
         <p>{% if featured.description %}{{ featured.description|safe }}{% else %}{{ featured.description_from_content|safe }}{% endif %}</p>
         <p><a href="/content/{{ featured.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
+        <hr class="my-hr">
     {% endfor %}
-    <hr class="my-hr">
 {% elif content.event.all %}
     {% for event in content.event.all %}
         <h4>{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</h4>
         <p>{% if event.description %}{{ event.description|safe }}{% else %}{{ event.description_from_content|safe }}{% endif %}</p>
+        <hr class="my-hr">
     {% endfor %}
-    <hr class="my-hr">
 {% endif %}
 
 {% if content.streaming.all %}
