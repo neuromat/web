@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-01 12:52+0000\n"
+"POT-Creation-Date: 2019-02-11 13:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: application/admin.py:15 application/templates/application/postdoc.html:54
+#: application/admin.py:18 application/templates/application/postdoc.html:54
 msgid "Files"
 msgstr "Arquivos"
 
@@ -216,59 +216,60 @@ msgid "Research, Innovation and Dissemination Center for Neuromathematics"
 msgstr "Centro de Pesquisa, Inovação e Difusão em Neuromatemática"
 
 #: newsletter/templates/newsletter/newsletter_content.html:15
-#: templates/blog/blog_post_list.html:114
+#: newsletter/templates/newsletter/newsletter_content.html:30
+#: templates/blog/blog_post_list.html:92
 msgid "Read more"
 msgstr "Leia mais"
 
-#: newsletter/templates/newsletter/newsletter_content.html:21
-#: newsletter/templates/newsletter/previous_issues.html:18
+#: newsletter/templates/newsletter/newsletter_content.html:36
+#: newsletter/templates/newsletter/previous_issues.html:20
 msgid "Last NeuroMat scientific publications"
 msgstr "Últimas publicações científicas da NeuroMat"
 
-#: newsletter/templates/newsletter/newsletter_content.html:31
-#: newsletter/templates/newsletter/previous_issues.html:22
+#: newsletter/templates/newsletter/newsletter_content.html:46
+#: newsletter/templates/newsletter/previous_issues.html:24
 msgid "NeuroMat in the media"
 msgstr "NeuroMat na mídia"
 
-#: newsletter/templates/newsletter/newsletter_content.html:41
-#: newsletter/templates/newsletter/previous_issues.html:26
+#: newsletter/templates/newsletter/newsletter_content.html:56
+#: newsletter/templates/newsletter/previous_issues.html:28
 msgid "NeuroMat opportunities"
 msgstr "Oportunidades no NeuroMat"
 
-#: newsletter/templates/newsletter/newsletter_content.html:50
+#: newsletter/templates/newsletter/newsletter_content.html:65
 msgid "Follow our initiatives"
 msgstr "Siga nossas iniciativas"
 
-#: newsletter/templates/newsletter/newsletter_content.html:72
-#: newsletter/templates/newsletter/previous_issues.html:29
+#: newsletter/templates/newsletter/newsletter_content.html:87
+#: newsletter/templates/newsletter/previous_issues.html:31
 msgid "NeuroMat Facebook Highlights"
 msgstr "Destaques do NeuroMat no Facebook"
 
-#: newsletter/templates/newsletter/newsletter_content.html:90
+#: newsletter/templates/newsletter/newsletter_content.html:105
 msgid "On NeuroMat"
 msgstr "O NeuroMat"
 
-#: newsletter/templates/newsletter/newsletter_content.html:98
+#: newsletter/templates/newsletter/newsletter_content.html:113
 msgid "Previous issues of the NeuroMat Newsletter (features)"
 msgstr "Edições anteriores do Boletim NeuroMat"
 
-#: newsletter/templates/newsletter/newsletter_content.html:112
+#: newsletter/templates/newsletter/newsletter_content.html:135
 msgid "If you do not want to receive our emails,"
 msgstr "Se você não quiser receber nossos e-mails,"
 
-#: newsletter/templates/newsletter/newsletter_content.html:112
+#: newsletter/templates/newsletter/newsletter_content.html:135
 msgid "click here"
 msgstr "clique aqui"
 
-#: newsletter/templates/newsletter/newsletter_content.html:118
+#: newsletter/templates/newsletter/newsletter_content.html:141
 msgid "Send newsletter"
 msgstr "Enviar newsletter"
 
-#: newsletter/templates/newsletter/newsletter_content.html:121
+#: newsletter/templates/newsletter/newsletter_content.html:144
 msgid "Newsletter subject"
 msgstr "Assunto do boletim"
 
-#: newsletter/templates/newsletter/newsletter_content.html:127
+#: newsletter/templates/newsletter/newsletter_content.html:150
 #: newsletter/templates/newsletter/unsubscription.html:14
 msgid "Submit"
 msgstr "Enviar"
@@ -289,35 +290,35 @@ msgstr ""
 "Lamentamos que esteja de saída! Por favor, preencha o campo abaixo com o seu "
 "endereço de e-mail para confirmar a remoção."
 
-#: newsletter/views.py:25
+#: newsletter/views.py:27
 msgid "E-mail already registered."
 msgstr "E-mail já registrado."
 
-#: newsletter/views.py:29 newsletter/views.py:37
+#: newsletter/views.py:31 newsletter/views.py:39
 msgid "Email registered successfully."
 msgstr "Email registrado com sucesso."
 
-#: newsletter/views.py:56
+#: newsletter/views.py:58
 msgid "Email removed successfully."
 msgstr "Email removido com sucesso."
 
-#: newsletter/views.py:59
+#: newsletter/views.py:61
 msgid "Email not registered. Did you type it correctly?"
 msgstr "E-mail não registrado. Você digitou corretamente?"
 
-#: newsletter/views.py:119
+#: newsletter/views.py:125
 msgid "Newsletter sent successfully."
 msgstr "Boletim enviado com sucesso."
 
-#: newsletter/views.py:121
+#: newsletter/views.py:127
 msgid "Invalid header found."
 msgstr "Cabeçalho inválido encontrado."
 
-#: templates/blog/blog_post_detail.html:47
+#: templates/blog/blog_post_detail.html:53
 msgid "Share on Twitter"
 msgstr "Compartilhar no Twitter"
 
-#: templates/blog/blog_post_detail.html:48
+#: templates/blog/blog_post_detail.html:54
 msgid "Share on Facebook"
 msgstr "Compartilhar no Facebook"
 
@@ -333,23 +334,7 @@ msgstr "Página inicial"
 msgid "Blog"
 msgstr ""
 
-#: templates/blog/blog_post_list.html:33
-msgid "Viewing posts tagged"
-msgstr ""
-
-#: templates/blog/blog_post_list.html:35
-msgid "Viewing posts for the category"
-msgstr ""
-
-#: templates/blog/blog_post_list.html:37
-msgid "Viewing posts from"
-msgstr ""
-
-#: templates/blog/blog_post_list.html:40
-msgid "Viewing posts by"
-msgstr ""
-
-#: templates/blog/blog_post_list.html:105
+#: templates/blog/blog_post_list.html:83
 msgid "Tags"
 msgstr ""
 
@@ -372,6 +357,30 @@ msgstr "Edições anteriores"
 #: templates/blog/includes/filter_panel.html:55
 msgid "Follow Us on Facebook"
 msgstr "Siga-nos no Facebook"
+
+#: templates/blog/includes/filter_panel.html:72
+msgid "NeuroMat's scientific-dissemination blog"
+msgstr "Blog de difusão científica NeuroMat"
+
+#: templates/blog/includes/filter_panel.html:76
+msgid "Logo of the NeuroMat's scientific-dissemination blog"
+msgstr "Logo do blog de difusão científica NeuroMat"
+
+#: templates/blog/includes/filter_panel.html:85
+msgid "NeuroMat Brachial Plexus Injury Initiative"
+msgstr "Iniciativa NeuroMat para a Lesão do Plexo Braquial"
+
+#: templates/blog/includes/filter_panel.html:89
+msgid "Logo of the NeuroMat Brachial Plexus Injury Initiative"
+msgstr "Logo da iniciativa NeuroMat para a Lesão do Plexo Braquial"
+
+#: templates/blog/includes/filter_panel.html:98
+msgid "NeuroMat Parkinson Network"
+msgstr "Rede NeuroMat de Parkinson"
+
+#: templates/blog/includes/filter_panel.html:102
+msgid "Logo of the NeuroMat Parkinson Network"
+msgstr "Logo da Rede NeuroMat de Parkinson"
 
 #: templates/footer.html:5
 msgid "Supported by"
@@ -449,10 +458,10 @@ msgstr ""
 msgid "Media Library"
 msgstr ""
 
-#: web/settings.py:108
+#: web/settings.py:91
 msgid "English"
 msgstr ""
 
-#: web/settings.py:109
+#: web/settings.py:92
 msgid "Portugues"
 msgstr ""
