@@ -40,6 +40,7 @@
   float: left;
   margin-top: 20px;
   margin-right: 10px;
+  margin-left: -15px;
   font-size: 40px;
   color: #333;
 }
@@ -50,8 +51,8 @@
     position: relative;
     top: 30%; /* TODO: make relative, try does not use magic number */
     float: left;
-    margin: 15px 15px;
-    font-size: 30px;
+    margin-left: 0;
+    font-size: 28px;
     color: #333;
   }
 }
