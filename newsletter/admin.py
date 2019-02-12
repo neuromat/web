@@ -17,6 +17,7 @@ class NewsletterAdmin(admin.ModelAdmin):
     list_display = ('number', 'date')
     search_fields = ['number']
     list_display_links = ('number',)
+    ordering = ('-number',)
 
 admin.site.register(Newsletter, NewsletterAdmin)
 
@@ -26,5 +27,6 @@ class FacebookHighlightAdmin(admin.ModelAdmin):
     list_display = ('newsletter', 'text', 'date')
     search_fields = ['text', 'newsletter__number']
     list_display_links = ('text',)
+    ordering = ('-newsletter__number', 'date')
 
 admin.site.register(FacebookHighlight, FacebookHighlightAdmin)
