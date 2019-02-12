@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n mezzanine_tags %}
 
 {% block main %}
     {% for item in previous_issues_list %}
@@ -7,28 +7,32 @@
         <p><em>{{ item.date|date:"F Y" }}</em> - {% trans "Topics" %}:</p>
         <ul>
             {% if item.featured.all %}
-                <li>
-                    {% for featured in item.featured.all %}
-                        <a href="/blog/{{ featured.slug }}">{{ featured.title }}</a>
-                    {% endfor %}
-                </li>
+                {% for featured in item.featured.all %}
+                    <li><a href="/content/{{ featured.slug }}">{{ featured.title }}</a></li>
+                {% endfor %}
+            {% elif item.event.all %}
+                {% for event in item.event.all %}
+                    <li><a href="/content/{{ event.slug }}">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a></li>
+                {% endfor %}
             {% endif %}
 
             {% if item.publication.all %}
-                <li><a href="blog/category/publications">{% trans "Last NeuroMat scientific publications" %}</a></li>
+                <li><a href="/content/category/publications">{% trans "Last NeuroMat scientific publications" %}</a></li>
             {% endif %}
 
             {% if item.in_the_media.all %}
-                <li><a href="blog/category/news">{% trans "NeuroMat in the media" %}</a></li>
+                <li><a href="/content/category/news">{% trans "NeuroMat in the media" %}</a></li>
             {% endif %}
 
             {% if item.opportunity.all %}
-                <li><a href="blog/category/opportunities">{% trans "NeuroMat opportunities" %}</a></li>
+                <li><a href="/content/category/opportunities">{% trans "NeuroMat opportunities" %}</a></li>
             {% endif %}
 
             <li><a href="https://www.facebook.com/neuromathematics" target="_blank">{% trans "NeuroMat Facebook Highlights" %}</a></li>
         </ul>
     {% endfor %}
+
+    {% pagination_for previous_issues_list %}
 {% endblock %}
 
 {% block right_panel %}

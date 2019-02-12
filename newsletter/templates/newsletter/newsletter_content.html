@@ -1,0 +1,152 @@
+{% load i18n staticfiles %}
+
+<h2>Newsletter #{{ content.number }}</h2>
+
+<div style="padding-top: 20px; padding-bottom: 20px; background-color: #080808; background-size: 600px; border-radius: 2px;" align="center">
+    <h1 style="font-size: 40px; margin: 2px; color: #00f02e; font-family: Arial, sans-serif; letter-spacing: 2px;"> Neuro<span style=" color: #01edc0;">Mat</span></h1>
+    <p style="font-size: 16px; margin: 6px;  color: #FFFFFF;">{% blocktrans %}Research, Innovation and Dissemination Center for Neuromathematics{% endblocktrans %}</p>
+    <p style="font-size: 20px; font-weight: bold; color: #FFFFFF; padding-bottom: 7px;">Newsletter - Nº {{ content.number }} | {{ content.date|date:"F Y" }}</p>
+</div>
+
+{% if content.featured.all %}
+    {% for featured in content.featured.all %}
+        <h4>{{ featured.title }}</h4>
+        <p>{% if featured.description %}{{ featured.description|safe }}{% else %}{{ featured.description_from_content|safe }}{% endif %}</p>
+        <p><a href="/content/{{ featured.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
+        <hr class="my-hr">
+    {% endfor %}
+{% elif content.event.all %}
+    {% for event in content.event.all %}
+        <h4>{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</h4>
+        <p>{% if event.description %}{{ event.description|safe }}{% else %}{{ event.description_from_content|safe }}{% endif %}</p>
+        <hr class="my-hr">
+    {% endfor %}
+{% endif %}
+
+{% if content.streaming.all %}
+    {% for video in content.streaming.all %}
+        <h4>{% if video.meta_title %}{{ video.meta_title }}{% else %}{{ video.title }}{% endif %}</h4>
+        <p>{% if video.description %}{{ video.description|safe }}{% else %}{{ video.description_from_content|safe }}{% endif %}</p>
+        <p><a href="/content/{{ video.slug }}" class="btn btn-success">{% trans "Read more" %}</a></p>
+    {% endfor %}
+    <hr class="my-hr">
+{% endif %}
+
+{% if content.publication.all %}
+    <h4>{% trans "Last NeuroMat scientific publications" %}</h4>
+    {% for publication in content.publication.all %}
+        <ul>
+            <li><a href="/content/{{ publication.slug }}">{% if publication.description %}{{ publication.description }}{% else %}{{ publication.title }}{% endif %}</a></li>
+        </ul>
+    {% endfor %}
+    <hr class="my-hr">
+{% endif %}
+
+{% if content.in_the_media.all %}
+    <h4>{% trans "NeuroMat in the media" %}</h4>
+    {% for new in content.in_the_media.all %}
+        <ul>
+            <li><a href="/content/{{ new.slug }}">{% if new.description %}{{ new.description }}{% else %}{{ new.title }}{% endif %}</a></li>
+        </ul>
+    {% endfor %}
+    <hr class="my-hr">
+{% endif %}
+
+{% if content.opportunity.all %}
+    <h4>{% trans "NeuroMat opportunities" %}</h4>
+    {% for opportunity in content.opportunity.all %}
+        <ul>
+            <li><a href="/content/{{ opportunity.slug }}">{{ opportunity.title }}</a></li>
+        </ul>
+    {% endfor %}
+    <hr class="my-hr">
+{% endif %}
+
+<h4>{% trans "Follow our initiatives" %}</h4>
+<table align="center">
+    <tbody>
+        <tr>
+            <td style="border:0; padding:0.75em 1em; width:300px; vertical-align: top;" align="center">
+                 <a href="https://amparo.numec.prp.usp.br/" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
+                    <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/sites/default/files/logo_amparo.png">
+                    <p style="font-size:13px;">NeuroMat Parkinson Network</p>
+                </a>
+            </td>
+            <td style="border:0;padding:0.75em 1em;width:300px; vertical-align: top;" align="center">
+                <a href="http://abraco.numec.prp.usp.br" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
+                    <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/sites/default/files/logoabraco.png">
+                    <p style="font-size:13px;">NeuroMat Brachial Plexus Injury Initiative</p>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% if facebook %}
+    <hr class="my-hr">
+    <h4>{% trans "NeuroMat Facebook Highlights" %}</h4>
+    <table>
+        <tbody>
+            <tr>
+                {% for item in facebook %}
+                    <td style="padding:0.75em 1em;width:200px; vertical-align: top;">
+                        <a href="{{ item.facebook_link }}" target="_blank">
+                            <img alt="" style="object-fit: cover;width: 100%; height: 140px;" src="{% if item.image %}{{ item.image.url }}{% elif item.image_url %}{{ item.image_url }}{% else %}{% static 'img/fb_neuromat.png'%}{% endif %}">
+                            <p style="font-size:13px;">{{ item.text }}</p>
+                        </a>
+                    </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+{% endif %}
+
+<hr class="my-hr">
+<h4>{% trans "On NeuroMat" %}</h4>
+<p>NeuroMat is a research center established in 2013 at the University of São Paulo that is dedicated to integrating mathematical modeling and theoretical neuroscience. Among the core missions of NeuroMat are the creation of a new mathematical system to understanding neural data and the development of neuroscientific open-source computational tools. The research center is headed by Prof. Antonio Galves, from USP's Institute of Mathematics and Statistics, and is funded by the São Paulo Research Foundation (FAPESP). To receive monthly updates on NeuroMat's work or pertaining news, please subscribe to <a href="https://neuromat.numec.prp.usp.br/newsletter/subscriptions" target="_blank">NeuroMat's newsletter</a>.</p>
+<p>For more information or press inquiries on NeuroMat, please contact us at: <a href="mailto:comunicacao@numec.prp.usp.br">comunicacao@numec.prp.usp.br</a></p>
+<p>NeuroMat's website: <a href="https://neuromat.numec.prp.usp.br" target="_blank">neuromat.numec.prp.usp.br</a></p>
+<p>Like us on Facebook: <a href="https://www.facebook.com/neuromathematics/" target="_blank">www.facebook.com/neuromathematics.</a> On this FB page we post updates on Neuromathematics, related news, forthcoming events and other pertaining information.</p>
+
+{% if latest_newsletters %}
+    <hr class="my-hr">
+    <h4>{% trans "Previous issues of the NeuroMat Newsletter (features)" %}</h4>
+    {% for newsletter in latest_newsletters %}
+        <p><a href="{% url 'newsletter' newsletter.number %}" style="color: #00c12e">Newsletter #{{ newsletter.number }}</a></p>
+        {% if newsletter.featured.all %}
+            {% for item in newsletter.featured.all %}
+                <ul>
+                    <li><a href="/content/{{ item.slug }}" style="color: black">{{ item.title }}</a></li>
+                </ul>
+            {% endfor %}
+        {% elif newsletter.event.all %}
+            {% for event in newsletter.event.all %}
+                <ul>
+                    <li><a href="/content/{{ event.slug }}" style="color: black">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a></li>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if domain %}
+    <hr class="my-hr">
+    <p class="text-center">
+        {% trans "If you do not want to receive our emails," %} <a href="http://{{ domain }}/newsletter/unsubscription">{% trans "click here" %}</a>.
+    </p>
+{% endif %}
+
+{%  if request.user.is_superuser %}
+    <hr class="my-hr">
+    <h4>{% trans "Send newsletter" %}</h4>
+    <form enctype="multipart/form-data" method="post" action="{% url "send_newsletter" content.number %}">
+        {% csrf_token %}
+        <label>{% trans "Newsletter subject" %}</label>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+            <input type="text" class="form-control" name="subject" value="Newsletter #{{ content.number }} - {{ content.featured.first }}" required="" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <button class="btn btn-success" id="id_submit" name="submit" value="submit" type="submit">{% trans "Submit" %}</button>
+    </form>
+{% endif %}

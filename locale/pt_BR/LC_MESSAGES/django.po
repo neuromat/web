@@ -1,0 +1,467 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-11 13:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: application/admin.py:18 application/templates/application/postdoc.html:54
+msgid "Files"
+msgstr "Arquivos"
+
+#: application/forms.py:17
+msgid "This field must be filled."
+msgstr "Este campo deve ser preenchido."
+
+#: application/forms.py:19
+msgid "Incorrect e-mail"
+msgstr "E-mail incorreto"
+
+#: application/forms.py:35 application/models.py:14 application/models.py:43
+#: application/templates/application/postdoc.html:16
+msgid "Name"
+msgstr "Nome"
+
+#: application/forms.py:36 application/models.py:44
+msgid "Affiliation"
+msgstr "Afiliação"
+
+#: application/forms.py:38
+msgid "Incorrect email"
+msgstr "Email incorreto"
+
+#: application/forms.py:38 application/models.py:16 application/models.py:45
+#: application/templates/application/postdoc.html:21 templates/footer.html:45
+msgid "Email"
+msgstr ""
+
+#: application/models.py:15 newsletter/models.py:13 newsletter/models.py:58
+msgid "Date"
+msgstr "Data"
+
+#: application/models.py:17
+msgid "CPF"
+msgstr ""
+
+#: application/models.py:18 application/templates/application/postdoc.html:33
+msgid "Passport / RNE"
+msgstr "Passaporte / RNE"
+
+#: application/models.py:19 application/templates/application/postdoc.html:40
+#: templates/footer.html:41
+msgid "Phone"
+msgstr "Telefone"
+
+#: application/models.py:20 application/templates/application/postdoc.html:45
+msgid "Mobile phone"
+msgstr "Celular"
+
+#: application/models.py:26
+msgid "Postdoc"
+msgstr ""
+
+#: application/models.py:27
+msgid "Postdocs"
+msgstr ""
+
+#: application/models.py:34
+msgid "File"
+msgstr "Arquivo"
+
+#: application/models.py:51
+msgid "Research"
+msgstr "Pesquisa"
+
+#: application/models.py:52
+msgid "Researchers"
+msgstr "Pesquisadores"
+
+#: application/templates/application/postdoc.html:5
+msgid "Application Form"
+msgstr "Formulário de aplicação"
+
+#: application/templates/application/postdoc.html:8
+msgid ""
+"\n"
+"            You should have all the necessary data before sending the form. "
+"You will not be able to edit your form after submission. If corrections are "
+"necessary, please go over the whole procedure.\n"
+"        "
+msgstr ""
+"\n"
+"Você deve ter todos os dados necessários antes de enviar o formulário. Você "
+"não poderá editar seu formulário após o envio. Caso queira alterar algo, "
+"refaça todo o procedimento.\n"
+"  "
+
+#: application/templates/application/postdoc.html:28
+msgid "CPF (For Brazilians)"
+msgstr "CPF (Para Brasileiros)"
+
+#: application/templates/application/postdoc.html:62
+msgid ""
+"\n"
+"                            Multiple files may be uploaded by clicking "
+"\"Choose File\". For all documents, PDF format is preferred. (1) Add your "
+"FAPESP CV Summary. See www.fapesp.br/en/6351 for instructions. (2) Upload "
+"your list of publications. (3) Upload a summary of your research plan (up to "
+"5 pages). (4) Optionally, upload a document with pointers to other research "
+"related output, such as software, web pages, etc. (5) Please add a document "
+"containing any further information that may help the evaluation process. You "
+"may upload a CV in free format, if you wish (optional).\n"
+"                        "
+msgstr ""
+"\n"
+"Vários arquivos podem ser enviados clicando em \"Escolher arquivos\". "
+"Utilize em todos os documentos, preferencialmente, o formato PDF. (1) "
+"Adicione sua Súmula Curricular. Consulte www.fapesp.br/en/6351 para "
+"instruções. (2) Carregue sua lista de publicações. (3) Envie um resumo do "
+"seu plano de pesquisa (até 5 páginas). (4) Opcionalmente, faça o upload de "
+"um documento com links para outros itens que considere importante, como "
+"software, páginas da web, etc. (5) Por favor, adicione um documento contendo "
+"qualquer informação adicional que possa ajudar no processo de avaliação. "
+"Você pode fazer o upload do CV em formato livre, se desejar (opcional)."
+
+#: application/templates/application/postdoc.html:73
+msgid "Researchers to whom recommendation letters have been requested:"
+msgstr "Pesquisadores para os quais foram solicitadas cartas de recomendação:"
+
+#: application/templates/application/postdoc.html:113
+msgid ""
+"Please provide the name, affiliation and official email address of the "
+"researchers that will send the recommendation letters for you."
+msgstr ""
+"Por favor, forneça o nome, afiliação e endereço de e-mail institucional dos "
+"pesquisadores que enviarão as cartas de recomendação para você."
+
+#: application/templates/application/postdoc.html:118
+msgid "Save"
+msgstr "Salvar"
+
+#: application/views.py:31
+msgid "Application created successfully."
+msgstr "Formulário enviado com sucesso."
+
+#: application/views.py:36
+msgid "Information not saved."
+msgstr "Informação não salva."
+
+#: application/views.py:39
+msgid "Action not available."
+msgstr "ção não disponível."
+
+#: newsletter/models.py:12
+msgid "Number"
+msgstr "Número"
+
+#: newsletter/models.py:37
+msgid "Newsletter"
+msgstr ""
+
+#: newsletter/models.py:38
+msgid "Newsletters"
+msgstr ""
+
+#: newsletter/models.py:54
+msgid "Text"
+msgstr "Texto"
+
+#: newsletter/models.py:55
+msgid "Image"
+msgstr "Imagem"
+
+#: newsletter/models.py:56
+msgid "Image URL"
+msgstr "URL da imagem"
+
+#: newsletter/models.py:57
+msgid "Facebook link"
+msgstr "Link para o Facebook"
+
+#: newsletter/models.py:69
+msgid "e-mail"
+msgstr ""
+
+#: newsletter/models.py:71
+msgid "Status"
+msgstr ""
+
+#: newsletter/models.py:72
+msgid "Status date"
+msgstr "Data do status"
+
+#: newsletter/models.py:78
+msgid "Subscription"
+msgstr "Inscrição"
+
+#: newsletter/models.py:79
+msgid "Subscriptions"
+msgstr "Inscrições"
+
+#: newsletter/templates/newsletter/newsletter_content.html:7
+msgid "Research, Innovation and Dissemination Center for Neuromathematics"
+msgstr "Centro de Pesquisa, Inovação e Difusão em Neuromatemática"
+
+#: newsletter/templates/newsletter/newsletter_content.html:15
+#: newsletter/templates/newsletter/newsletter_content.html:30
+#: templates/blog/blog_post_list.html:92
+msgid "Read more"
+msgstr "Leia mais"
+
+#: newsletter/templates/newsletter/newsletter_content.html:36
+#: newsletter/templates/newsletter/previous_issues.html:20
+msgid "Last NeuroMat scientific publications"
+msgstr "Últimas publicações científicas da NeuroMat"
+
+#: newsletter/templates/newsletter/newsletter_content.html:46
+#: newsletter/templates/newsletter/previous_issues.html:24
+msgid "NeuroMat in the media"
+msgstr "NeuroMat na mídia"
+
+#: newsletter/templates/newsletter/newsletter_content.html:56
+#: newsletter/templates/newsletter/previous_issues.html:28
+msgid "NeuroMat opportunities"
+msgstr "Oportunidades no NeuroMat"
+
+#: newsletter/templates/newsletter/newsletter_content.html:65
+msgid "Follow our initiatives"
+msgstr "Siga nossas iniciativas"
+
+#: newsletter/templates/newsletter/newsletter_content.html:87
+#: newsletter/templates/newsletter/previous_issues.html:31
+msgid "NeuroMat Facebook Highlights"
+msgstr "Destaques do NeuroMat no Facebook"
+
+#: newsletter/templates/newsletter/newsletter_content.html:105
+msgid "On NeuroMat"
+msgstr "O NeuroMat"
+
+#: newsletter/templates/newsletter/newsletter_content.html:113
+msgid "Previous issues of the NeuroMat Newsletter (features)"
+msgstr "Edições anteriores do Boletim NeuroMat"
+
+#: newsletter/templates/newsletter/newsletter_content.html:135
+msgid "If you do not want to receive our emails,"
+msgstr "Se você não quiser receber nossos e-mails,"
+
+#: newsletter/templates/newsletter/newsletter_content.html:135
+msgid "click here"
+msgstr "clique aqui"
+
+#: newsletter/templates/newsletter/newsletter_content.html:141
+msgid "Send newsletter"
+msgstr "Enviar newsletter"
+
+#: newsletter/templates/newsletter/newsletter_content.html:144
+msgid "Newsletter subject"
+msgstr "Assunto do boletim"
+
+#: newsletter/templates/newsletter/newsletter_content.html:150
+#: newsletter/templates/newsletter/unsubscription.html:14
+msgid "Submit"
+msgstr "Enviar"
+
+#: newsletter/templates/newsletter/previous_issues.html:7
+msgid "Topics"
+msgstr "Tópicos"
+
+#: newsletter/templates/newsletter/unsubscription.html:5
+msgid "Unsubscribe"
+msgstr "Cancelar inscrição"
+
+#: newsletter/templates/newsletter/unsubscription.html:6
+msgid ""
+"We're sorry you're leaving! Please fill in the field below with your email "
+"address to confirm the removal."
+msgstr ""
+"Lamentamos que esteja de saída! Por favor, preencha o campo abaixo com o seu "
+"endereço de e-mail para confirmar a remoção."
+
+#: newsletter/views.py:27
+msgid "E-mail already registered."
+msgstr "E-mail já registrado."
+
+#: newsletter/views.py:31 newsletter/views.py:39
+msgid "Email registered successfully."
+msgstr "Email registrado com sucesso."
+
+#: newsletter/views.py:58
+msgid "Email removed successfully."
+msgstr "Email removido com sucesso."
+
+#: newsletter/views.py:61
+msgid "Email not registered. Did you type it correctly?"
+msgstr "E-mail não registrado. Você digitou corretamente?"
+
+#: newsletter/views.py:125
+msgid "Newsletter sent successfully."
+msgstr "Boletim enviado com sucesso."
+
+#: newsletter/views.py:127
+msgid "Invalid header found."
+msgstr "Cabeçalho inválido encontrado."
+
+#: templates/blog/blog_post_detail.html:53
+msgid "Share on Twitter"
+msgstr "Compartilhar no Twitter"
+
+#: templates/blog/blog_post_detail.html:54
+msgid "Share on Facebook"
+msgstr "Compartilhar no Facebook"
+
+#: templates/blog/blog_post_list.html:4 templates/pages/menus/breadcrumb.html:4
+#: templates/pages/menus/breadcrumb.html:10
+#: templates/pages/menus/footer_tree.html:11
+#: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
+#: templates/pages/menus/tree.html:9 templates/search_results.html:13
+msgid "Home"
+msgstr "Página inicial"
+
+#: templates/blog/blog_post_list.html:22
+msgid "Blog"
+msgstr ""
+
+#: templates/blog/blog_post_list.html:83
+msgid "Tags"
+msgstr ""
+
+#: templates/blog/includes/filter_panel.html:19
+msgid "Featuring this week:"
+msgstr "Apresentando esta semana:"
+
+#: templates/blog/includes/filter_panel.html:35
+msgid "Stay informed on our latest news!"
+msgstr "Mantenha-se informado sobre as nossas novidades!"
+
+#: templates/blog/includes/filter_panel.html:43
+msgid "Subscribe"
+msgstr "Assinar"
+
+#: templates/blog/includes/filter_panel.html:46
+msgid "Previous issues"
+msgstr "Edições anteriores"
+
+#: templates/blog/includes/filter_panel.html:55
+msgid "Follow Us on Facebook"
+msgstr "Siga-nos no Facebook"
+
+#: templates/blog/includes/filter_panel.html:72
+msgid "NeuroMat's scientific-dissemination blog"
+msgstr "Blog de difusão científica NeuroMat"
+
+#: templates/blog/includes/filter_panel.html:76
+msgid "Logo of the NeuroMat's scientific-dissemination blog"
+msgstr "Logo do blog de difusão científica NeuroMat"
+
+#: templates/blog/includes/filter_panel.html:85
+msgid "NeuroMat Brachial Plexus Injury Initiative"
+msgstr "Iniciativa NeuroMat para a Lesão do Plexo Braquial"
+
+#: templates/blog/includes/filter_panel.html:89
+msgid "Logo of the NeuroMat Brachial Plexus Injury Initiative"
+msgstr "Logo da iniciativa NeuroMat para a Lesão do Plexo Braquial"
+
+#: templates/blog/includes/filter_panel.html:98
+msgid "NeuroMat Parkinson Network"
+msgstr "Rede NeuroMat de Parkinson"
+
+#: templates/blog/includes/filter_panel.html:102
+msgid "Logo of the NeuroMat Parkinson Network"
+msgstr "Logo da Rede NeuroMat de Parkinson"
+
+#: templates/footer.html:5
+msgid "Supported by"
+msgstr "Apoiado pela"
+
+#: templates/footer.html:9
+msgid "Hosted by"
+msgstr "Localizado na"
+
+#: templates/footer.html:17
+msgid "Related Projects"
+msgstr "Projetos relacionados"
+
+#: templates/footer.html:26
+msgid "Follow us"
+msgstr "Siga-nos"
+
+#: templates/footer.html:34
+msgid "Contact"
+msgstr "Contato"
+
+#: templates/footer.html:37
+msgid "Address"
+msgstr "Endereço"
+
+#: templates/footer.html:38
+msgid "Matao St."
+msgstr "Rua do Matão"
+
+#: templates/footer.html:53
+msgid "This site content is licensed under a "
+msgstr "Licenciado sob os termos da "
+
+#: templates/includes/search_form.html:5
+msgid "Search"
+msgstr "Pesquisar"
+
+#: templates/includes/search_form.html:15
+msgid "Everything"
+msgstr ""
+
+#: templates/pages/menus/admin.html:31
+msgid "Add"
+msgstr ""
+
+#: templates/search_results.html:5 templates/search_results.html:6
+#: templates/search_results.html:15
+msgid "Search Results"
+msgstr ""
+
+#: templates/search_results.html:22
+#, python-format
+msgid ""
+"\n"
+"No results were found in %(search_type)s matching your query: %(query)s\n"
+msgstr ""
+
+#: templates/search_results.html:26
+#, python-format
+msgid ""
+"\n"
+"Showing %(start)s to %(end)s of %(total)s results in %(search_type)s "
+"matching your query: %(query)s\n"
+msgstr ""
+
+#: templates/search_results.html:47
+msgid "read more"
+msgstr "leia mais"
+
+#: templates/top.html:6
+msgid "Toggle Navigation"
+msgstr ""
+
+#: web/settings.py:17
+msgid "Media Library"
+msgstr ""
+
+#: web/settings.py:91
+msgid "English"
+msgstr ""
+
+#: web/settings.py:92
+msgid "Portugues"
+msgstr ""
