@@ -31,9 +31,9 @@ class PostdocAdmin(admin.ModelAdmin):
 
 admin.site.register(Postdoc, PostdocAdmin)
 
-# add fields "video" and "news" to blog subclasses in the admin
+# add fields "hide_post" and "altmetric type/number" to blog subclasses in the admin
 blog_fieldsets = deepcopy(BlogPostAdmin.fieldsets)
-blog_fieldsets[0][1]["fields"] += ("hide_post",)
+blog_fieldsets[0][1]["fields"] += ("hide_post", "altmetric_type", "altmetric_number")
 
 
 class MyBlogPostAdmin(BlogPostAdmin):

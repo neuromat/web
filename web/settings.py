@@ -43,12 +43,33 @@ ADMIN_MENU_ORDER = (
 
 # Adding new fields to the blog.
 # Using the admin.py file from the application app to show a new field to blog posts
+
+ALTMETRIC_CHOICES = (
+    ("doi", _("DOI")),
+    ("arxiv", _("arXiv")),
+    ("pubmed", _("PubMed ID")),
+    ("isbn", _("ISBN")),
+    ("uri", _("URI"))
+)
+
 EXTRA_MODEL_FIELDS = (
     (
         "mezzanine.blog.models.BlogPost.hide_post",
         "django.db.models.BooleanField",
         ("Do not show on the homepage",),
         {"default": False},
+    ),
+    (
+        "mezzanine.blog.models.BlogPost.altmetric_type",
+        "django.db.models.CharField",
+        ("Altmetric type",),
+        {"max_length": 10, "blank": True, "choices": ALTMETRIC_CHOICES},
+    ),
+    (
+        "mezzanine.blog.models.BlogPost.altmetric_number",
+        "django.db.models.CharField",
+        ("Altmetric number",),
+        {"max_length": 255, "blank": True},
     ),
 )
 
