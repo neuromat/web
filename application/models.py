@@ -25,7 +25,7 @@ class Postdoc(models.Model):
     class Meta:
         verbose_name = _('Postdoc')
         verbose_name_plural = _('Postdocs')
-        ordering = ('name',)
+        ordering = ('-date',)
 
 
 class PostdocFile(models.Model):
