@@ -62,40 +62,40 @@
     <hr class="my-hr">
 {% endif %}
 
+{% if facebook %}
+    <h4>{% trans "NeuroMat Facebook Highlights" %}</h4>
+    <div class="row">
+        {% for item in facebook %}
+            <div class="col-xs-6 col-sm-4">
+                <a href="{{ item.facebook_link }}" target="_blank">
+                    <img class="img-responsive center-block" style="object-fit: cover; width: 100%; height: 200px;" alt="" src="{% if item.image %}{{ item.image.url }}{% elif item.image_url %}{{ item.image_url }}{% else %}{% static 'img/fb_neuromat.png'%}{% endif %}">
+                    <p class="text-center">{{ item.text }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="my-hr">
+{% endif %}
+
 <h4>{% trans "Follow our initiatives" %}</h4>
 <table align="center">
     <tbody>
         <tr>
             <td style="border:0; padding:0.75em 1em; width:300px; vertical-align: top;" align="center">
                  <a href="https://amparo.numec.prp.usp.br/" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
-                    NeuroMat Parkinson Network
-                    <img src="{% static 'img/amparo.jpg'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Parkinson Network" %}">
+                    <img src="{% static 'img/amparo.jpg'%}" class="img-responsive center-block" style="object-fit: scale-down; width: 100%; height: 100px;" alt="{% trans "Logo of the NeuroMat Parkinson Network" %}">
+                    <br>NeuroMat Parkinson Network
                 </a>
             </td>
             <td style="border:0;padding:0.75em 1em;width:300px; vertical-align: top;" align="center">
                 <a href="http://abraco.numec.prp.usp.br" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
-                    NeuroMat Brachial Plexus Injury Initiative
-                    <img src="{% static 'img/logoabraco.png'%}" class="img-responsive center-block" alt="{% trans "Logo of the NeuroMat Brachial Plexus Injury Initiative" %}">
+                    <img src="{% static 'img/logoabraco.png'%}" class="img-responsive center-block" style="object-fit: scale-down; width: 100%; height: 100px;" alt="{% trans "Logo of the NeuroMat Brachial Plexus Injury Initiative" %}">
+                    <br>NeuroMat Brachial Plexus Injury Initiative
                 </a>
             </td>
         </tr>
     </tbody>
 </table>
-
-{% if facebook %}
-    <hr class="my-hr">
-    <h4>{% trans "NeuroMat Facebook Highlights" %}</h4>
-    <div class="row">
-        {% for item in facebook %}
-            <div class="col-xs-12 col-sm-4">
-                <a href="{{ item.facebook_link }}" target="_blank">
-                    <img class="img-responsive center-block" alt="" src="{% if item.image %}{{ item.image.url }}{% elif item.image_url %}{{ item.image_url }}{% else %}{% static 'img/fb_neuromat.png'%}{% endif %}">
-                    <p class="text-center">{{ item.text }}</p>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}
 
 <hr class="my-hr">
 <h4>{% trans "On NeuroMat" %}</h4>
