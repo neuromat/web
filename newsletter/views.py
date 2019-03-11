@@ -14,7 +14,7 @@ from mezzanine.utils.views import paginate
 from .models import Newsletter, Subscription, FacebookHighlight
 
 
-def subscription(request):
+def subscription(request,  template_name="subscription.html"):
     if request.method == 'POST':
         email = request.POST['email']
 
@@ -40,6 +40,8 @@ def subscription(request):
 
         redirect_url = reverse('home')
         return HttpResponseRedirect(redirect_url)
+
+    return render(request, template_name)
 
 
 def unsubscription(request, template_name="unsubscription.html"):
