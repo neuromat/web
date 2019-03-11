@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load i18n staticfiles %}
 
+{% block meta_title %}{% trans "Newsletter" %}{% endblock %}
+
 {% block main %}
     {% include 'newsletter_content.html' %}
 {% endblock %}
