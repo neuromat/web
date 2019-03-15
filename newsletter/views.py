@@ -109,7 +109,7 @@ def send_newsletter(request, newsletter_number):
         email_list = [address['email'] for address in Subscription.objects.filter(status=True).values('email')]
         to_email = [email_list[i * limit:(i + 1) * limit] for i in range((len(email_list) + limit - 1) // limit)]
         html_message = loader.render_to_string(
-            'newsletter_content.html',
+            'send_newsletter.html',
             {
                 'content': content,
                 'facebook': facebook,

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        @media only screen {
+            html {min-height: 100%; background: #ffffff;}
+            div[style*="margin: 16px 0"] {margin: 0 !important; font-size: 100% !important;}
+            body { margin: 0 !important; padding:0 !important; background: #FFFFFF; color: #222527; font-family: 'Roboto', sans-serif; font-size: 12px; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; }
+            img { outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; display: block; margin: 0; border: 0; }
+            a img { border: none; }
+            table td { border-collapse: collapse; }
+            a { color: #546357; text-decoration: none; }
+            .im { color: #222527; }
+        /* MOBILE */
+        @media screen and (max-width: 599px), screen and (max-device-width: 599px) {
+            table {width: 100% !important; height: auto !important; }
+            table[class=ajustar100pc], td[class=ajustar100pc], img[class=ajustar100pc], div[class=ajustar100pc], a[class=ajustar100pc] { width: 100% !important; height: auto !important;} }
+        }
+    </style>
+    <body style="background:#FFFFFF; color: #000000; font-size:12px; margin:0px;">
+    <!--CONTENT-->
+    <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+        <tbody>
+           <!--Newsletter top bar -->
+            <tr>
+                <td style="padding-top: 10px; ; background-color: #080808; background-size: 600px; border-radius: 2px;" align="center" ;>
+                    <div>
+                        <h1 style="font-size: 40px; margin: 2px; color: #00f02e; font-family: Arial, sans-serif; letter-spacing: 2px;"> Neuro<span style=" color: #01edc0;">Mat</span></h1>
+                        <p style="font-size: 16px; margin: 6px;  color: #FFFFFF;">Research, Innovation and Dissemination Center for Neuromathematics</p>
+                        <p style="font-size: 20px; font-weight: bold; color: #FFFFFF; padding-bottom: 7px;">Newsletter - Nº {{ content.number }} | {{ content.date|date:"F Y" }}</p>
+                    </div>
+                </td>
+            </tr>
+
+            <!--NEWS-->
+            {% if content.featured.all %}
+                {% for featured in content.featured.all %}
+                    <tr>
+                        <td style="font-size:16px; color:#222527; line-height:20px; padding:10px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                            <div>
+                                <!--News Title-->
+                                <p style="font-weight: bold;">{{ featured.title }}</p>
+                                <!--News Content-->
+                                <p style="font-size:15px;">{% if featured.description %}{{ featured.description|safe }}{% else %}{{ featured.description_from_content|safe }}{% endif %}</p>
+                                <!--Read more link-->
+                                <a href="/content/{{ featured.slug }}" target="_blank" style="text-decoration: none; font-size:13px; background-color: #00f02e; color: #000000; padding: 5px; border-radius: 20px; margin: 2px;"> → Read more here </a>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+
+            <!--PUBLICATIONS-->
+            {% if content.publication.all %}
+                <tr>
+                    <td style="font-size:16px; color:#222527; border-top: 1px solid #D3D3D3; line-height:20px; padding:5px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                        <div>
+                            <p style="font-weight: bold;">Last NeuroMat scientific publications</p>
+                            <ul>
+                                {% for publication in content.publication.all %}
+                                    <li style="list-style-type: square;">
+                                        <a href="/content/{{ publication.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{% if publication.description %}{{ publication.description }}{% else %}{{ publication.title }}{% endif %}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endif %}
+
+            <!-- IN THE MEDIA media-->
+            {% if content.in_the_media.all %}
+                <tr>
+                    <td style="font-size:16px; color:#222527; border-top: 1px solid #D3D3D3; line-height:20px; padding-top:5px; padding-right: 5px; padding-left: 5px; padding-bottom: 10px; text-decoration:none; font-weight:normal;" align="left">
+                        <p style="font-weight: bold;">NeuroMat in the media</p>
+                        <ul>
+                            {% for new in content.in_the_media.all %}
+                                <li style="list-style-type: square;"><a href="/content/{{ new.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{% if new.description %}{{ new.description }}{% else %}{{ new.title }}{% endif %}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endif %}
+
+            <!--OPPORTUNITIES-->
+            {% if content.opportunity.all %}
+                <tr>
+                    <td style="font-size:16px; color:#222527; border-top: 1px solid #D3D3D3; line-height:20px; padding:5px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                        <div>
+                            <p style="font-weight: bold;">NeuroMat opportunities</p>
+                            <ul>
+                                {% for opportunity in content.opportunity.all %}
+                                    <li style="list-style-type: square;"><a href="/content/{{ opportunity.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{{ opportunity.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <!--FACEBOOK-->
+    <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+        <tbody>
+            <tr>
+                <td style="font-size:16px; color:#222527; border-top: 1px solid #D3D3D3; line-height:20px; padding:5px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                    <div>
+                        <p style="font-weight: bold;">NeuroMat Facebook Highlights</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+        <tbody>
+            <tr>
+                {% for item in facebook %}
+                    <td style="border-bottom: 1px solid #D3D3D3;padding:0.75em 1em;width:200px; vertical-align: top;">
+                        <a href="{{ item.facebook_link }}" target="_blank">
+                            <img alt="" style="object-fit: cover;width: 100%; height: 140px;" src="https://neuromat.numec.prp.usp.br{% if item.image %}{{ item.image.url }}{% elif item.image_url %}{{ item.image_url }}{% else %}/static/img/fb_neuromat.png{% endif %}">
+                            <p style="font-size:13px;">{{ item.text }}</p>
+                        </a>
+                    </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <!--INITIATIVES-->
+    <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+        <tbody>
+            <tr>
+                <td style="font-size:16px; color:#222527; line-height:20px; padding:10px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                    <div>
+                        <p style="font-weight: bold;">Follow our initiatives</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+        <tbody>
+            <tr>
+                <td style="border:0; padding:0.75em 1em; width:300px; vertical-align: top;" align="center">
+                     <a href="https://amparo.numec.prp.usp.br/" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
+                        <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/static/img/amparo.jpg">
+                        <p style="font-size:13px;">NeuroMat Parkinson Network</p>
+                    </a>
+                </td>
+                <td style="border:0;padding:0.75em 1em;width:300px; vertical-align: top;" align="center">
+                    <a href="http://abraco.numec.prp.usp.br" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
+                        <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/static/img/logoabraco.png">
+                        <p style="font-size:13px; margin-top: 25px">NeuroMat Brachial Plexus Injury Initiative</p>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--ON NEUROMAT-->
+    <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+        <tbody>
+            <!--NEUROMAT-->
+            <tr>
+                <td style="font-size:16px; color:#222527; border-top: 1px solid #D3D3D3; line-height:20px; padding:10px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                    <div>
+                        <p style="font-weight: bold; padding-left: 5px; border-left: 7px solid #01edc0;">On NeuroMat</p>
+                        <!--News Content-->
+                        <p style="font-size:15px;">
+                        NeuroMat is a research center established in 2013 at the University of São Paulo that is dedicated to integrating mathematical modeling and theoretical neuroscience. Among the core missions of NeuroMat are the creation of a new mathematical system to understanding neural data and the development of neuroscientific open-source computational tools. The research center is headed by Prof. Antonio Galves, from USP's Institute of Mathematics and Statistics, and is funded by the São Paulo Research Foundation (FAPESP).
+                        To receive monthly updates on NeuroMat's work or pertaining news, please subscribe to NeuroMat's newsletter.</p>
+                        <p style="font-size:15px;">For more information or press inquiries on NeuroMat, please contact us at: <a href="mailto:comunicacao@numec.prp.usp.br" style="color: #009271;">comunicacao@numec.prp.usp.br</a></p>
+                        <p style="font-size:15px;">NeuroMat's website: <a href="http://neuromat.numec.prp.usp.br" target="_blank" style="text-decoration: none; color: #009271;">neuromat.numec.prp.usp.br</a></p>
+                        <p style="font-size:15px;">Like us on Facebook: <a href="https://www.facebook.com/neuromathematics/" target="_blank" style="text-decoration: none; color: #009271;">www.facebook.com/neuromathematics.</a> On this FB page we post updates on Neuromathematics, related news, forthcoming events and other pertaining information.</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--PREVIOUS ISSUES-->
+    {% if latest_newsletters %}
+        <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+            <tbody>
+                <tr>
+                    <td style="font-size:16px; color:#222527; border-top: 1px solid #D3D3D3; line-height:20px; padding:10px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                        <div>
+                            <p style="font-weight: bold;">Previous issues of the NeuroMat Newsletter (features)</p>
+                            {% for newsletter in latest_newsletters %}
+                                <p style="font-size:14px;"> <a href="https://neuromat.numec.prp.usp.br/newsletter/59" target="_blank" style="text-decoration: none; color: #00c12e;" >Newsletter #{{ newsletter.number }}</a></p>
+                                {% if newsletter.featured.all %}
+                                    <ul>
+                                        {% for item in newsletter.featured.all %}
+                                            <li style="list-style-type: square;">
+                                                <a href="/content/{{ item.slug }}" target="_blank" style="text-decoration: none; font-size:14px; color: #546357;">{{ item.title }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% elif newsletter.event.all %}
+                                    <ul>
+                                        {% for event in newsletter.event.all %}
+                                            <li style="list-style-type: square;">
+                                                <a href="/content/{{ event.slug }}" target="_blank" style="text-decoration: none; font-size:14px; color: #546357;">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+
+    <!--UNSUBSCRIPTION-->
+    {% if domain %}
+        <table class="ajustar100pc" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+            <tbody>
+                <tr>
+                    <td style="font-size:16px; color:#222527; border-top: 1px solid #D3D3D3; line-height:20px; padding:10px 5px 10px 5px; text-decoration:none; font-weight:normal;" align="left">
+                        <div>
+                            <p style="font-size:15px;">If you do not want to receive our emails, <a href="http://{{ domain }}/newsletter/unsubscription">click here</a>.</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endif %}
+    </body>
+</html>
+

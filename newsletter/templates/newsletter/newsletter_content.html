@@ -125,13 +125,6 @@
     {% endfor %}
 {% endif %}
 
-{% if domain %}
-    <hr class="my-hr">
-    <p class="text-center">
-        {% trans "If you do not want to receive our emails," %} <a href="http://{{ domain }}/newsletter/unsubscription">{% trans "click here" %}</a>.
-    </p>
-{% endif %}
-
 {%  if request.user.is_superuser %}
     <hr class="my-hr">
     <h4>{% trans "Send newsletter" %}</h4>
