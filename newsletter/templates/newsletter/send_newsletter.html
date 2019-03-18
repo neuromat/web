@@ -46,7 +46,7 @@
                                 <!--News Content-->
                                 <p style="font-size:15px;">{% if featured.description %}{{ featured.description|safe }}{% else %}{{ featured.description_from_content|safe }}{% endif %}</p>
                                 <!--Read more link-->
-                                <a href="/content/{{ featured.slug }}" target="_blank" style="text-decoration: none; font-size:13px; background-color: #00f02e; color: #000000; padding: 5px; border-radius: 20px; margin: 2px;"> → Read more here </a>
+                                <a href="https://neuromat.numec.prp.usp.br/content/{{ featured.slug }}" target="_blank" style="text-decoration: none; font-size:13px; background-color: #00f02e; color: #000000; padding: 5px; border-radius: 20px; margin: 2px;"> → Read more here </a>
                             </div>
                         </td>
                     </tr>
@@ -62,7 +62,7 @@
                             <ul>
                                 {% for publication in content.publication.all %}
                                     <li style="list-style-type: square;">
-                                        <a href="/content/{{ publication.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{% if publication.description %}{{ publication.description }}{% else %}{{ publication.title }}{% endif %}</a>
+                                        <a href="https://neuromat.numec.prp.usp.br/content/{{ publication.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{% if publication.description %}{{ publication.description }}{% else %}{{ publication.title }}{% endif %}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
@@ -78,7 +78,7 @@
                         <p style="font-weight: bold;">NeuroMat in the media</p>
                         <ul>
                             {% for new in content.in_the_media.all %}
-                                <li style="list-style-type: square;"><a href="/content/{{ new.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{% if new.description %}{{ new.description }}{% else %}{{ new.title }}{% endif %}</a></li>
+                                <li style="list-style-type: square;"><a href="https://neuromat.numec.prp.usp.br/content/{{ new.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{% if new.description %}{{ new.description }}{% else %}{{ new.title }}{% endif %}</a></li>
                             {% endfor %}
                         </ul>
                     </td>
@@ -93,7 +93,7 @@
                             <p style="font-weight: bold;">NeuroMat opportunities</p>
                             <ul>
                                 {% for opportunity in content.opportunity.all %}
-                                    <li style="list-style-type: square;"><a href="/content/{{ opportunity.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{{ opportunity.title }}</a></li>
+                                    <li style="list-style-type: square;"><a href="https://neuromat.numec.prp.usp.br/content/{{ opportunity.slug }}" target="_blank" style="text-decoration: none; font-size:15px; color: #546357;">{{ opportunity.title }}</a></li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -172,9 +172,7 @@
                     <div>
                         <p style="font-weight: bold; padding-left: 5px; border-left: 7px solid #01edc0;">On NeuroMat</p>
                         <!--News Content-->
-                        <p style="font-size:15px;">
-                        NeuroMat is a research center established in 2013 at the University of São Paulo that is dedicated to integrating mathematical modeling and theoretical neuroscience. Among the core missions of NeuroMat are the creation of a new mathematical system to understanding neural data and the development of neuroscientific open-source computational tools. The research center is headed by Prof. Antonio Galves, from USP's Institute of Mathematics and Statistics, and is funded by the São Paulo Research Foundation (FAPESP).
-                        To receive monthly updates on NeuroMat's work or pertaining news, please subscribe to NeuroMat's newsletter.</p>
+                        <p style="font-size:15px;">NeuroMat is a research center established in 2013 at the University of São Paulo that is dedicated to integrating mathematical modeling and theoretical neuroscience. Among the core missions of NeuroMat are the creation of a new mathematical system to understanding neural data and the development of neuroscientific open-source computational tools. The research center is headed by Prof. Antonio Galves, from USP's Institute of Mathematics and Statistics, and is funded by the São Paulo Research Foundation (FAPESP).</p>
                         <p style="font-size:15px;">For more information or press inquiries on NeuroMat, please contact us at: <a href="mailto:comunicacao@numec.prp.usp.br" style="color: #009271;">comunicacao@numec.prp.usp.br</a></p>
                         <p style="font-size:15px;">NeuroMat's website: <a href="http://neuromat.numec.prp.usp.br" target="_blank" style="text-decoration: none; color: #009271;">neuromat.numec.prp.usp.br</a></p>
                         <p style="font-size:15px;">Like us on Facebook: <a href="https://www.facebook.com/neuromathematics/" target="_blank" style="text-decoration: none; color: #009271;">www.facebook.com/neuromathematics.</a> On this FB page we post updates on Neuromathematics, related news, forthcoming events and other pertaining information.</p>
@@ -193,12 +191,12 @@
                         <div>
                             <p style="font-weight: bold;">Previous issues of the NeuroMat Newsletter (features)</p>
                             {% for newsletter in latest_newsletters %}
-                                <p style="font-size:14px;"> <a href="https://neuromat.numec.prp.usp.br/newsletter/59" target="_blank" style="text-decoration: none; color: #00c12e;" >Newsletter #{{ newsletter.number }}</a></p>
+                                <p style="font-size:14px;"> <a href="https://neuromat.numec.prp.usp.br/newsletter/{{ newsletter.number }}" target="_blank" style="text-decoration: none; color: #00c12e;" >Newsletter #{{ newsletter.number }}</a></p>
                                 {% if newsletter.featured.all %}
                                     <ul>
                                         {% for item in newsletter.featured.all %}
                                             <li style="list-style-type: square;">
-                                                <a href="/content/{{ item.slug }}" target="_blank" style="text-decoration: none; font-size:14px; color: #546357;">{{ item.title }}</a>
+                                                <a href="https://neuromat.numec.prp.usp.br/content/{{ item.slug }}" target="_blank" style="text-decoration: none; font-size:14px; color: #546357;">{{ item.title }}</a>
                                             </li>
                                         {% endfor %}
                                     </ul>
@@ -206,7 +204,7 @@
                                     <ul>
                                         {% for event in newsletter.event.all %}
                                             <li style="list-style-type: square;">
-                                                <a href="/content/{{ event.slug }}" target="_blank" style="text-decoration: none; font-size:14px; color: #546357;">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a>
+                                                <a href="https://neuromat.numec.prp.usp.br/content/{{ event.slug }}" target="_blank" style="text-decoration: none; font-size:14px; color: #546357;">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a>
                                             </li>
                                         {% endfor %}
                                     </ul>
