@@ -136,6 +136,12 @@
             <input type="text" class="form-control" name="subject" value="Newsletter #{{ content.number }} - {{ content.featured.first }}" required="" aria-describedby="basic-addon1">
         </div>
         <br>
+        <label>{% trans "Send newsletter to" %}</label>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fas fa-user"></i></span>
+            <input type="email" class="form-control" name="test_newsletter" placeholder="Type an email to test the newsletter or leave it blank to send" aria-describedby="basic-addon1">
+        </div>
+        <br>
         <button class="btn btn-success" id="id_submit" name="submit" value="submit" type="submit">{% trans "Submit" %}</button>
     </form>
 {% endif %}

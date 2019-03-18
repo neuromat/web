@@ -106,8 +106,13 @@ def send_newsletter(request, newsletter_number):
         limit = 100
         subject = request.POST['subject']
         from_email = settings.EMAIL_HOST_USER
-        email_list = [address['email'] for address in Subscription.objects.filter(status=True).values('email')]
-        to_email = [email_list[i * limit:(i + 1) * limit] for i in range((len(email_list) + limit - 1) // limit)]
+
+        if request.POST['test_newsletter'] == '':
+            email_list = [address['email'] for address in Subscription.objects.filter(status=True).values('email')]
+            to_email = [email_list[i * limit:(i + 1) * limit] for i in range((len(email_list) + limit - 1) // limit)]
+        else:
+            to_email = [[request.POST['test_newsletter']]]
+
         html_message = loader.render_to_string(
             'send_newsletter.html',
             {
