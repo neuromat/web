@@ -4,7 +4,8 @@ from .models import Newsletter, Subscription, FacebookHighlight
 
 
 class SubscriptionAdmin(admin.ModelAdmin):
-    fields = ['email', 'create_date', 'status', 'status_date']
+    fields = ['email', 'status', 'status_date']
+    readonly_fields = ('create_date',)
     list_display = ('email', 'create_date', 'status', 'status_date')
     search_fields = ['email']
     list_display_links = ('email',)
