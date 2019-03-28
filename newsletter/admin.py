@@ -17,7 +17,7 @@ class NewsletterAdmin(admin.ModelAdmin):
     list_display = ('number', 'date')
     search_fields = ['number']
     list_display_links = ('number',)
-    ordering = ('-number',)
+    ordering = ('-date',)
 
 admin.site.register(Newsletter, NewsletterAdmin)
 
