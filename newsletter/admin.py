@@ -27,6 +27,6 @@ class FacebookHighlightAdmin(admin.ModelAdmin):
     list_display = ('newsletter', 'text', 'date')
     search_fields = ['text', 'newsletter__number']
     list_display_links = ('text',)
-    ordering = ('-newsletter__number', 'date')
+    ordering = ('-date',)
 
 admin.site.register(FacebookHighlight, FacebookHighlightAdmin)
