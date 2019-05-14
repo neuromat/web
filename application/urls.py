@@ -4,5 +4,5 @@ from application import views
 
 
 urlpatterns = [
-    url(r'^new', views.postdoc, name="postdoc"),
+    url("^new/$", views.postdoc, name="postdoc"),
 ]
