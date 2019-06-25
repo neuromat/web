@@ -1,11 +1,12 @@
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.mail import BadHeaderError, EmailMessage
+from django.core.mail import BadHeaderError, EmailMultiAlternatives
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
+from django.utils.html import strip_tags
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 
@@ -101,17 +102,13 @@ def newsletter(request, newsletter_number, template_name="newsletter.html"):
 def send_newsletter(request, newsletter_number):
     if request.method == 'POST':
         content, facebook, latest_newsletters = newsletter_content(newsletter_number)
-
-        # Gmail limit. 100 emails at a time.
-        limit = 100
         subject = request.POST['subject']
         from_email = settings.EMAIL_HOST_USER
 
         if request.POST['test_newsletter'] == '':
-            email_list = [address['email'] for address in Subscription.objects.filter(status=True).values('email')]
-            to_email = [email_list[i * limit:(i + 1) * limit] for i in range((len(email_list) + limit - 1) // limit)]
+            to_email = settings.EMAIL_TO
         else:
-            to_email = [[request.POST['test_newsletter']]]
+            to_email = request.POST['test_newsletter']
 
         html_message = loader.render_to_string(
             'send_newsletter.html',
@@ -123,15 +120,16 @@ def send_newsletter(request, newsletter_number):
             }
         )
 
-        if subject and html_message:
-            for to_email_group in to_email:
-                try:
-                    msg = EmailMessage(subject, html_message, from_email, bcc=to_email_group)
-                    msg.content_subtype = "html"
-                    msg.send()
-                    messages.success(request, _('Newsletter sent successfully.'))
-                except BadHeaderError:
-                    return HttpResponse(_('Invalid header found.'))
+        text_message = strip_tags(html_message)
+
+        if subject and to_email:
+            try:
+                msg = EmailMultiAlternatives(subject, text_message, from_email, bcc=[to_email])
+                msg.attach_alternative(html_message, "text/html")
+                msg.send()
+                messages.success(request, _('Newsletter sent successfully.'))
+            except BadHeaderError:
+                return HttpResponse(_('Invalid header found.'))
 
             return HttpResponseRedirect(reverse('home'))
         else:
