@@ -62,48 +62,44 @@
     <hr class="my-hr">
 {% endif %}
 
+{% if facebook %}
+    <h4>{% trans "NeuroMat Facebook Highlights" %}</h4>
+    <div class="row">
+        {% for item in facebook %}
+            <div class="col-xs-6 col-sm-4">
+                <a href="{{ item.facebook_link }}" target="_blank">
+                    <img class="img-responsive center-block" style="object-fit: cover; width: 100%; height: 200px;" alt="" src="{% if item.image %}{{ item.image.url }}{% elif item.image_url %}{{ item.image_url }}{% else %}{% static 'img/fb_neuromat.png'%}{% endif %}">
+                    <p class="text-center">{{ item.text }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <hr class="my-hr">
+{% endif %}
+
 <h4>{% trans "Follow our initiatives" %}</h4>
 <table align="center">
     <tbody>
         <tr>
             <td style="border:0; padding:0.75em 1em; width:300px; vertical-align: top;" align="center">
                  <a href="https://amparo.numec.prp.usp.br/" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
-                    <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/sites/default/files/logo_amparo.png">
-                    <p style="font-size:13px;">NeuroMat Parkinson Network</p>
+                    <img src="{% static 'img/amparo.jpg'%}" class="img-responsive center-block" style="object-fit: scale-down; width: 100%; height: 100px;" alt="{% trans "Logo of the NeuroMat Parkinson Network" %}">
+                    <br>NeuroMat Parkinson Network
                 </a>
             </td>
             <td style="border:0;padding:0.75em 1em;width:300px; vertical-align: top;" align="center">
                 <a href="http://abraco.numec.prp.usp.br" style="border:0;margin:0;padding:0;text-decoration-line:none; color: #546357;" target="_blank">
-                    <img alt="" style="width: 40%;" src="https://neuromat.numec.prp.usp.br/sites/default/files/logoabraco.png">
-                    <p style="font-size:13px;">NeuroMat Brachial Plexus Injury Initiative</p>
+                    <img src="{% static 'img/logoabraco.png'%}" class="img-responsive center-block" style="object-fit: scale-down; width: 100%; height: 100px;" alt="{% trans "Logo of the NeuroMat Brachial Plexus Injury Initiative" %}">
+                    <br>NeuroMat Brachial Plexus Injury Initiative
                 </a>
             </td>
         </tr>
     </tbody>
 </table>
 
-{% if facebook %}
-    <hr class="my-hr">
-    <h4>{% trans "NeuroMat Facebook Highlights" %}</h4>
-    <table>
-        <tbody>
-            <tr>
-                {% for item in facebook %}
-                    <td style="padding:0.75em 1em;width:200px; vertical-align: top;">
-                        <a href="{{ item.facebook_link }}" target="_blank">
-                            <img alt="" style="object-fit: cover;width: 100%; height: 140px;" src="{% if item.image %}{{ item.image.url }}{% elif item.image_url %}{{ item.image_url }}{% else %}{% static 'img/fb_neuromat.png'%}{% endif %}">
-                            <p style="font-size:13px;">{{ item.text }}</p>
-                        </a>
-                    </td>
-                {% endfor %}
-            </tr>
-        </tbody>
-    </table>
-{% endif %}
-
 <hr class="my-hr">
 <h4>{% trans "On NeuroMat" %}</h4>
-<p>NeuroMat is a research center established in 2013 at the University of São Paulo that is dedicated to integrating mathematical modeling and theoretical neuroscience. Among the core missions of NeuroMat are the creation of a new mathematical system to understanding neural data and the development of neuroscientific open-source computational tools. The research center is headed by Prof. Antonio Galves, from USP's Institute of Mathematics and Statistics, and is funded by the São Paulo Research Foundation (FAPESP). To receive monthly updates on NeuroMat's work or pertaining news, please subscribe to <a href="https://neuromat.numec.prp.usp.br/newsletter/subscriptions" target="_blank">NeuroMat's newsletter</a>.</p>
+<p>NeuroMat is a research center established in 2013 at the University of São Paulo that is dedicated to integrating mathematical modeling and theoretical neuroscience. Among the core missions of NeuroMat are the creation of a new mathematical system to understanding neural data and the development of neuroscientific open-source computational tools. The research center is headed by Prof. Antonio Galves, from USP's Institute of Mathematics and Statistics, and is funded by the São Paulo Research Foundation (FAPESP). To receive monthly updates on NeuroMat's work or pertaining news, please subscribe to <a href="{% url "subscription" %}" target="_blank">NeuroMat's newsletter</a>.</p>
 <p>For more information or press inquiries on NeuroMat, please contact us at: <a href="mailto:comunicacao@numec.prp.usp.br">comunicacao@numec.prp.usp.br</a></p>
 <p>NeuroMat's website: <a href="https://neuromat.numec.prp.usp.br" target="_blank">neuromat.numec.prp.usp.br</a></p>
 <p>Like us on Facebook: <a href="https://www.facebook.com/neuromathematics/" target="_blank">www.facebook.com/neuromathematics.</a> On this FB page we post updates on Neuromathematics, related news, forthcoming events and other pertaining information.</p>
@@ -129,13 +125,6 @@
     {% endfor %}
 {% endif %}
 
-{% if domain %}
-    <hr class="my-hr">
-    <p class="text-center">
-        {% trans "If you do not want to receive our emails," %} <a href="http://{{ domain }}/newsletter/unsubscription">{% trans "click here" %}</a>.
-    </p>
-{% endif %}
-
 {%  if request.user.is_superuser %}
     <hr class="my-hr">
     <h4>{% trans "Send newsletter" %}</h4>
@@ -145,6 +134,12 @@
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1"><i class="fas fa-envelope"></i></span>
             <input type="text" class="form-control" name="subject" value="Newsletter #{{ content.number }} - {{ content.featured.first }}" required="" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <label>{% trans "Send newsletter to" %}</label>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><i class="fas fa-user"></i></span>
+            <input type="email" class="form-control" name="test_newsletter" placeholder="Type an email to test the newsletter or leave it blank to send" aria-describedby="basic-addon1">
         </div>
         <br>
         <button class="btn btn-success" id="id_submit" name="submit" value="submit" type="submit">{% trans "Submit" %}</button>

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load i18n mezzanine_tags %}
 
+{% block meta_title %}{% trans "Newsletter" %}{% endblock %}
+
 {% block main %}
     {% for item in previous_issues_list %}
         <h2><a href="{% url 'newsletter' item.number %}" style="color: black">Newsletter #{{ item.number }}</a></h2>

@@ -3,9 +3,9 @@
 {% block meta_title %}{% trans "Newsletter" %}{% endblock %}
 
 {% block main %}
-    <h2>{% trans "Unsubscribe" %}</h2>
-    <p>{% blocktrans %}We're sorry you're leaving! Please fill in the field below with your email address to confirm the removal.{% endblocktrans %}</p>
-    <form enctype="multipart/form-data" method="post" action="{% url "unsubscription" %}">
+    <h2>{% trans "Newsletter" %}</h2>
+    <p>{% blocktrans %}Stay informed on our latest news!{% endblocktrans %}</p>
+    <form enctype="multipart/form-data" method="post" action="{% url "subscription" %}">
         {% csrf_token %}
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1"><i class="fas fa-envelope"></i></span>

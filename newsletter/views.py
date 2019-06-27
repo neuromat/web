@@ -1,11 +1,12 @@
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.mail import BadHeaderError, EmailMessage
+from django.core.mail import BadHeaderError, EmailMultiAlternatives
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.template import loader
+from django.utils.html import strip_tags
 from django.utils.timezone import now
 from django.utils.translation import ugettext as _
 
@@ -14,7 +15,7 @@ from mezzanine.utils.views import paginate
 from .models import Newsletter, Subscription, FacebookHighlight
 
 
-def subscription(request):
+def subscription(request,  template_name="subscription.html"):
     if request.method == 'POST':
         email = request.POST['email']
 
@@ -40,6 +41,8 @@ def subscription(request):
 
         redirect_url = reverse('home')
         return HttpResponseRedirect(redirect_url)
+
+    return render(request, template_name)
 
 
 def unsubscription(request, template_name="unsubscription.html"):
@@ -75,7 +78,7 @@ def previous_issues(request, template_name="previous_issues.html"):
 def newsletter_content(newsletter_number):
     """Function to get the info about a specific newsletter"""
     content = Newsletter.objects.get(number=newsletter_number)
-    facebook = FacebookHighlight.objects.filter(newsletter=content.pk)
+    facebook = FacebookHighlight.objects.filter(newsletter=content.pk).order_by('-date')
     latest_newsletters = Newsletter.objects.filter(
         number__in=range(int(newsletter_number) - 3, int(newsletter_number))
     ).order_by('-number')
@@ -99,15 +102,16 @@ def newsletter(request, newsletter_number, template_name="newsletter.html"):
 def send_newsletter(request, newsletter_number):
     if request.method == 'POST':
         content, facebook, latest_newsletters = newsletter_content(newsletter_number)
-
-        # Gmail limit. 100 emails at a time.
-        limit = 100
         subject = request.POST['subject']
         from_email = settings.EMAIL_HOST_USER
-        email_list = [address['email'] for address in Subscription.objects.all().values('email')]
-        to_email = [email_list[i * limit:(i + 1) * limit] for i in range((len(email_list) + limit - 1) // limit)]
+
+        if request.POST['test_newsletter'] == '':
+            to_email = settings.EMAIL_TO
+        else:
+            to_email = request.POST['test_newsletter']
+
         html_message = loader.render_to_string(
-            'newsletter_content.html',
+            'send_newsletter.html',
             {
                 'content': content,
                 'facebook': facebook,
@@ -116,15 +120,16 @@ def send_newsletter(request, newsletter_number):
             }
         )
 
-        if subject and html_message:
-            for to_email_group in to_email:
-                try:
-                    msg = EmailMessage(subject, html_message, from_email, bcc=to_email_group)
-                    msg.content_subtype = "html"
-                    msg.send()
-                    messages.success(request, _('Newsletter sent successfully.'))
-                except BadHeaderError:
-                    return HttpResponse(_('Invalid header found.'))
+        text_message = strip_tags(html_message)
+
+        if subject and to_email:
+            try:
+                msg = EmailMultiAlternatives(subject, text_message, from_email, bcc=[to_email])
+                msg.attach_alternative(html_message, "text/html")
+                msg.send()
+                messages.success(request, _('Newsletter sent successfully.'))
+            except BadHeaderError:
+                return HttpResponse(_('Invalid header found.'))
 
             return HttpResponseRedirect(reverse('home'))
         else:

@@ -12,11 +12,15 @@ from mezzanine.blog import views as blog_views
 
 admin.autodiscover()
 
-urlpatterns = i18n_patterns(
-    # Change the admin prefix here to use an alternate URL for the
-    # admin interface, which would be marginally more secure.
-    url("^admin/", include(admin.site.urls)),
-)
+# urlpatterns = i18n_patterns(
+#     # Change the admin prefix here to use an alternate URL for the
+#     # admin interface, which would be marginally more secure.
+#     url("^admin/", include(admin.site.urls)),
+# )
+
+urlpatterns = [
+    url("^admin/", include(admin.site.urls))
+]
 
 if settings.USE_MODELTRANSLATION:
     urlpatterns += [
@@ -25,12 +29,13 @@ if settings.USE_MODELTRANSLATION:
 
 urlpatterns += [
     url("^$", blog_views.blog_post_list, name="home"),
+    url("^newsletter/", include('newsletter.urls')),
+    url("^postdoc/", include('application.urls')),
     url("^", include("mezzanine.urls")),
-    url(r'^newsletter/', include('newsletter.urls')),
-    url(r'^postdoc/', include('application.urls')),
 ]
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error
 # pages can use JS, CSS and images.
 handler404 = "mezzanine.core.views.page_not_found"
 handler500 = "mezzanine.core.views.server_error"
+

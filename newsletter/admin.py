@@ -4,7 +4,8 @@ from .models import Newsletter, Subscription, FacebookHighlight
 
 
 class SubscriptionAdmin(admin.ModelAdmin):
-    fields = ['email', 'create_date', 'status', 'status_date']
+    fields = ['email', 'status', 'status_date']
+    readonly_fields = ('create_date',)
     list_display = ('email', 'create_date', 'status', 'status_date')
     search_fields = ['email']
     list_display_links = ('email',)
@@ -17,7 +18,7 @@ class NewsletterAdmin(admin.ModelAdmin):
     list_display = ('number', 'date')
     search_fields = ['number']
     list_display_links = ('number',)
-    ordering = ('-number',)
+    ordering = ('-date',)
 
 admin.site.register(Newsletter, NewsletterAdmin)
 
@@ -27,6 +28,6 @@ class FacebookHighlightAdmin(admin.ModelAdmin):
     list_display = ('newsletter', 'text', 'date')
     search_fields = ['text', 'newsletter__number']
     list_display_links = ('text',)
-    ordering = ('-newsletter__number', 'date')
+    ordering = ('-date',)
 
 admin.site.register(FacebookHighlight, FacebookHighlightAdmin)
