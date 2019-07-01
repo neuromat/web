@@ -71,9 +71,23 @@ EXTRA_MODEL_FIELDS = (
         ("Altmetric number",),
         {"max_length": 255, "blank": True},
     ),
+    # IMAGE 'CREDITS' FIELD
+    (
+        "mezzanine.blog.models.BlogPost.credits",
+        "django.db.models.CharField",
+        ("Créditos",),
+        {"max_length": 255, "blank": True},
+    ),
+    # IMAGE 'LEGENDS' FIELD
+    (
+        "mezzanine.blog.models.BlogPost.legend",
+        "django.db.models.CharField",
+        ("Legenda",),
+        {"max_length": 255, "blank": True},
+    ),
 )
 
-# Setting to turn on featured images for blog posts. Defaults to False.
+# Se    tting to turn on featured images for blog posts. Defaults to False.
 BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the django-modeltranslation will be added to the

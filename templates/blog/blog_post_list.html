@@ -56,7 +56,7 @@
         {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
             {% block blog_post_list_post_featured_image %}
             <a href="{{ blog_post.get_absolute_url }}">
-                <img class="img-thumbnail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 120 80 %}">
+                <img {% if blog_post.credits %} title="{{ blog_post.credits }}" {% endif %} class="img-thumbnail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 120 80 %}">
             </a>
             {% endblock %}
         {% endif %}
