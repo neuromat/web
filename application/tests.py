@@ -9,7 +9,7 @@ from application.models import Postdoc
 class PostdocTest(TestCase):
 
     def test_postdoc_url_resolves_postdoc_view(self):
-        view = resolve('/postdoc/new')
+        view = resolve('/postdoc/new/')
         self.assertEquals(view.func, postdoc)
 
     def test_postdoc_status_code(self):
