@@ -35,7 +35,7 @@ admin.site.register(Postdoc, PostdocAdmin)
 blog_fieldsets = deepcopy(BlogPostAdmin.fieldsets)
 blog_fieldsets[0][1]["fields"] += ("hide_post", "altmetric_type", "altmetric_number")
 blog_fieldsets[0][1]["fields"].insert(-5, "legend")
-blog_fieldsets[0][1]["fields"].insert(-6, "creditsls")
+blog_fieldsets[0][1]["fields"].insert(-6, "credits")
 
 
 class MyBlogPostAdmin(BlogPostAdmin):
