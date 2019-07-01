@@ -36,9 +36,19 @@
         {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
             {% with blog_post.categories.all|first as category %}
                 {% if category.slug == 'events' %}
-                    <p><img class="img-responsive center-block" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 900 0 %}"></p>
+                    <p>
+                        <img {% if blog_post.credits %} title="{{ blog_post.credits }}" {% endif %}  class="img-responsive center-block" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 900 0 %}" />
+                        {% if blog_post.legend %}
+                            <small class="image-legend">{{ blog_post.legend }}</small>
+                        {%  endif %}
+                    </p>
                 {% else %}
-                    <p><img class="img-responsive center-block" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 600 0 %}"></p>
+                    <p>
+                        <img {% if blog_post.credits %} title="{{ blog_post.credits }}" {% endif %} class="img-responsive center-block" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 600 0 %}" />
+                        {% if blog_post.legend %}
+                            <small class="image-legend">{{ blog_post.legend }}</small>
+                        {%  endif %}
+                    </p>
                {% endif %}
             {% endwith %}
         {% endif %}

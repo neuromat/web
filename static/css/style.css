@@ -310,3 +310,8 @@ footer {
   border: none;
   padding: 5px 0px;
 }
+
+p small.image-legend{
+  text-align: center;
+  display: block;
+}

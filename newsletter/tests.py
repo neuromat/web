@@ -13,7 +13,7 @@ class NewsletterTest(TestCase):
         Newsletter.objects.create(number='1')
 
     def test_subscription_url_resolves_subscription_view(self):
-        view = resolve('/newsletter/subscription')
+        view = resolve('/newsletter/subscription/')
         self.assertEquals(view.func, subscription)
 
     def test_new_subscription(self):
@@ -40,7 +40,7 @@ class NewsletterTest(TestCase):
         self.assertEqual(str(message[0]), 'E-mail already registered.')
 
     def test_previous_issues_url_resolves_previous_issues_view(self):
-        view = resolve('/newsletter/previous')
+        view = resolve('/newsletter/previous/')
         self.assertEquals(view.func, previous_issues)
 
     def test_previous_issues_status_code(self):
@@ -50,7 +50,7 @@ class NewsletterTest(TestCase):
         self.assertTemplateUsed(response, 'previous_issues.html')
 
     def test_newsletter_url_resolves_newsletter_view(self):
-        view = resolve('/newsletter/1')
+        view = resolve('/newsletter/1/')
         self.assertEquals(view.func, newsletter)
 
     def test_newsletter_status_code(self):
@@ -61,11 +61,11 @@ class NewsletterTest(TestCase):
         self.assertTemplateUsed(response, 'newsletter.html')
 
     def test_send_newsletter_url_resolves_send_newsletter_view(self):
-        view = resolve('/newsletter/1/submit')
+        view = resolve('/newsletter/1/submit/')
         self.assertEquals(view.func, send_newsletter)
 
     def test_unsubscription_url_resolves_unsubscription_view(self):
-        view = resolve('/newsletter/unsubscription')
+        view = resolve('/newsletter/unsubscription/')
         self.assertEquals(view.func, unsubscription)
 
     def test_unsubscription_status_code(self):
