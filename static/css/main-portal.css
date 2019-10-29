@@ -1,0 +1,468 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, p, span, a {
+  font-family: "Open Sans", sans-serif;
+}
+
+.app-portal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
+.app-portal header {
+  display: flex;
+  width: 80%;
+  height: 80px;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.app-portal header .logo {
+  width: 200px;
+  height: 80px;
+  font-size: 2.5em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.app-portal header nav {
+  width: 70%;
+}
+.app-portal header nav ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1em;
+}
+.app-portal header nav ul li.social-media-link {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  margin-left: 0;
+  border: none;
+}
+.app-portal header nav ul li.social-media-link:hover {
+  border: none;
+}
+.app-portal header nav ul li.social-media-link a {
+  color: #333;
+  font-size: 1.2em;
+}
+.app-portal header nav ul li.social-media-link a:hover {
+  color: #12587a;
+}
+.app-portal header nav ul li {
+  margin-right: 15px;
+  padding: 15px;
+  position: relative;
+  border: 1px solid transparent;
+}
+.app-portal header nav ul li:hover {
+  border: 1px solid #333;
+}
+.app-portal header nav ul li:hover:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  z-index: 1000;
+}
+.app-portal header nav ul li:hover ul {
+  display: flex;
+}
+.app-portal header nav ul li a {
+  color: #333;
+  text-decoration: none;
+}
+.app-portal header nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: -1px;
+  flex-direction: column;
+  background: white;
+  width: 220px;
+  margin: 0;
+  padding: 5px 0 0 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  list-style: none;
+}
+.app-portal header nav ul li ul li {
+  display: flex;
+  padding: 8px;
+  width: 100%;
+  margin: 0;
+}
+.app-portal header nav ul li ul li:hover {
+  background: #f3f3f3;
+  border: 1px solid transparent;
+}
+
+.section-default {
+  width: 80%;
+  margin: auto;
+}
+
+.promo-banner {
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  background: transparent;
+  display: flex;
+  box-shadow: 4px 4px 10px black;
+}
+.promo-banner .promo-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 300px;
+  margin: 2px;
+  border: 0.5px solid white;
+  background-size: cover;
+  background-position: center;
+  background-color: transparent;
+}
+.promo-banner .promo-item:hover {
+  border: 0.5px solid #2dc450;
+}
+.promo-banner .promo-item:hover .title {
+  display: none;
+}
+.promo-banner .promo-item:hover .description {
+  display: flex;
+}
+.promo-banner .promo-item .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background: white;
+}
+.promo-banner .promo-item .title h2 {
+  font-weight: normal;
+  font-size: 1.4em;
+  width: 100%;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.promo-banner .promo-item .description {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  background: black;
+}
+.promo-banner .promo-item .description h2 {
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+.promo-banner .promo-item .description p {
+  color: white;
+  line-height: 17pt;
+  font-size: 0.9em;
+}
+.promo-banner .promo-item .description button {
+  margin-top: 30px;
+}
+.promo-banner button, .promo-banner a {
+  border: none;
+  text-decoration: none;
+  padding: 8px;
+  width: 90%;
+  height: 38px;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 1em;
+  background: #069;
+  color: white;
+  cursor: pointer;
+}
+.promo-banner button:hover, .promo-banner a:hover {
+  background: #133c94;
+  color: white;
+}
+
+.search-box {
+  width: 100%;
+  height: 100px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f7ea;
+  padding: 40px auto;
+}
+.search-box input {
+  outline: none;
+  align-self: center;
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 1.4em;
+  width: 50%;
+  height: 50px;
+  flex-grow: 0;
+}
+.search-box input::placeholder {
+  font-size: 0.9em;
+}
+.search-box input:focus {
+  border: 1px solid #2dc450;
+}
+.search-box input:focus::placeholder {
+  color: #2dc450;
+}
+.search-box button {
+  align-self: center;
+  width: 100px;
+  height: 50px;
+  flex-grow: 0;
+}
+.search-box button:hover {
+  background: #069;
+  color: white;
+}
+
+.post-feature-item {
+  display: flex;
+}
+.post-feature-item .post-feature-image {
+  width: 45%;
+  height: 350px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  background-position: center;
+  margin-right: 15px;
+  border-radius: 3px;
+}
+.post-feature-item .post-feature-info {
+  width: 70%;
+}
+.post-feature-item .post-feature-info h3 {
+  margin-top: 0;
+}
+
+.post-item {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: 5px;
+}
+.post-item .post-image-box {
+  width: 100%;
+  height: 200px;
+}
+.post-item .post-image-box .post-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-color: #ccc;
+  border-radius: 3px;
+}
+.post-item small {
+  font-weight: bold;
+  color: #333;
+  background: khaki;
+}
+.post-item .post-title {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 1.2em;
+  line-height: 17pt;
+  height: 60px;
+}
+.post-item p {
+  line-height: 17pt;
+}
+
+.project-slideshow-component {
+  display: flex;
+  width: 100%;
+  height: 300px;
+}
+.project-slideshow-component .swiper-container {
+  width: 100%;
+  height: 300px;
+}
+.project-slideshow-component .swiper-container .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-slideshow-component .swiper-container .swiper-slide img {
+  filter: grayscale(0.9);
+  opacity: 0.5;
+  transition: all ease 0.5s;
+}
+.project-slideshow-component .swiper-container .swiper-slide img:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+.project-slideshow-component .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.title-section {
+  margin: 25px auto 20px auto;
+  padding: 0;
+  font-size: 1.5em;
+}
+
+.newsletter-lead {
+  margin-top: 40px;
+}
+.newsletter-lead input {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 70%;
+  height: 35px;
+  padding: 4px 6px;
+  font-size: 1em;
+}
+.newsletter-lead button {
+  width: 100px;
+  height: 34px;
+}
+
+.youtube-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #DADCE0;
+  border-radius: 3px;
+}
+.youtube-box iframe {
+  width: 100%;
+  height: 390px;
+}
+
+.bg-blue {
+  background: cornflowerblue;
+}
+
+.bg-sepia {
+  background: #f7f7ea;
+  margin-top: 15px;
+}
+
+.last-events {
+  margin-top: 10px;
+}
+.last-events ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.last-events ul li {
+  padding: 6px 8px;
+  border: 1px solid #f3f3f3;
+}
+.last-events ul li a {
+  color: #333;
+  text-decoration: none;
+}
+.last-events ul li a:hover {
+  color: #069;
+}
+.last-events ul li .title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.1em;
+}
+.last-events ul p {
+  margin-top: 10px;
+}
+
+.container-posts {
+  display: flex;
+}
+
+.container-paralax {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px auto;
+  height: 400px;
+}
+
+.newsletter-box ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.newsletter-box ul li {
+  border-bottom: 1px solid #ccc;
+}
+.newsletter-box ul li h2 {
+  font-size: 1.3em;
+}
+
+.podcast-button {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding-left: 110px;
+  background-image: url("../assets/podcast_cover.png");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: 0;
+  background-color: #131e4c;
+  width: 100%;
+  height: 90px;
+  color: #6186c4;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-top: 30px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.podcast-button:hover {
+  border: 1px solid #2dc450;
+}
+
+footer {
+  width: 100%;
+  min-height: 200px;
+  background: #333;
+  margin-top: 50px;
+}
+
+.container-fluid {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.debug {
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=main-portal.css.map */
