@@ -76,9 +76,53 @@
         {% endif %}
 
     {#    NOVO PORTAL #}
+    <!-- Facebook like button stuff -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v5.0&appId=862143357188336&autoLogAppEvents=1"></script>
+    <!-- / Facebook like button stuff end -->
+
+    <!-- NAVBAR  -->
+    <nav class="navbar navbar-default mobile-only">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">NeuroMat</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+                </li>
+            </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- END'S NAVBAR -->
+
     <div class="app-portal">
         <header>
-            <div class="logo">NeuroMat</div>
+            <div class="logo">NeuroMat
+                <small>Centro de Pesquisa, Inovação e Difusão em Neuromatemática</small>
+            </div>
             <nav>
                 <ul>
                     <li>
@@ -103,26 +147,145 @@
                     <li><a href="#">Eventos</a></li>
                     <li><a href="#">Oportunidades</a></li>
                     <li><a href="#">CEPID Neuromat</a></li>
+                    <li class="language-link"><a href="#"> <img width="20" height="auto" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="">    English Version</a></li>
                     <li class="social-media-link">
-                        <a title="Facebook" href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a title="Facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a>
+                        <a title="LinkedIn" href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="Github" href="#"><i class="fab fa-github"></i></a>
+                        <a title="Github" href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="Wikipedia" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-wikipedia-w"></i></a>
+                        <a title="Wikipedia" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fa fa-wikipedia-w" aria-hidden="true"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-youtube"></i></a>
+                        <a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fa fa-youtube" aria-hidden="true"></i></a>
                     </li>
+
                 </ul>
             </nav>
+            <a title="Apoio FAPESP" href="https://www.fapesp.br" class="fapesp-apoio">
+                <span>Apoio</span>
+            </a>
+
         </header>
 
         <main>
+            <div class="container-fluid container-fluid--spacer">
+                <div class="section-default">
+                        <div class="slider-wrapper">
+                            <div class="inner-wrapper">
+                                <div class="slide">
+                                    <div class="slide-info">
+                                        <h2 class="slide-title">A NeuroMat project for a "self-driving" transcranial magnetic stimulation (TMS): an interview with Oswaldo Baffa Filho</h2>
+                                        <button>Read more</button>
+                                    </div>
+                                    <div class="image-frame" style="background-image:url('temp/banner.jpg');"></div>
+                                </div>
+                                <div class="slide">
+                                        <div class="slide-info">
+                                            <h2 class="slide-title">Positions for Postdoctoral Researchers</h2>
+                                            <button>Read more</button>
+                                        </div>
+                                        <div class="image-frame" style="background-image:url('http://agencia.fapesp.br/agencia-novo/imagens/noticia/24126.jpg');"></div>
+                                </div>
+                            </div>
+                            <div class="button prev"></div>
+                            <div class="button next"></div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="container-fluid container-fluid--spacer no-padding-top bg-sepia">
+                    <div class="search-box">
+                        <input type="search" placeholder="Buscar conteúdo no portal" />
+                        <button>Buscar</button>
+                    </div>
+
+                    <section class="section-default">
+                        <h3 class="section-title"> <span>Notícias destaque</span></h3>
+                        <div class="container-posts">
+                            {% blog_recent_posts category='feature' as posts %}
+                            {% for post in posts %}
+                            <div class="post-item">
+                                <div class="post-image-box">
+                                    <a href="#">
+                                        {% if post.featured_image %}
+                                            <div class="post-image"
+                                                 style="background-image:url('{{ MEDIA_URL }}{{ post.featured_image }}')">
+                                            </div>
+                                        {% else %}
+                                            <div class="post-image"
+                                                 style="background-image:url('{{ STATIC_URL }}img/image_placeholder.jpg')">
+                                            </div>
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="post-info">
+                                    <small class="post-date">Abr 22, 2019</small>
+                                    <h3 class="post-title">{{ post }} </h3>
+                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!--
+                            <div class="post-item">
+                                <div class="post-image-box">
+                                    <a href="#">
+                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
+                                    </a>
+                                </div>
+                                <div class="post-info">
+                                    <small class="post-date">Abr 22, 2019</small>
+                                    <h3 class="post-title">Fluctuations for Spatially Extended Hawkes Processes
+                                    </h3>
+                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-image-box">
+                                    <a href="#">
+                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
+                                    </a>
+                                </div>
+                                <div class="post-info">
+                                    <small class="post-date">Abr 22, 2019</small>
+                                    <h3 class="post-title">The effect of magnetization of natural rubber latex coated magnetite nanoparticles on shear ...</h3>
+                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-image-box">
+                                    <a href="#">
+                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
+                                    </a>
+                                </div>
+                                <div class="post-info">
+                                    <small class="post-date">Abr 22, 2019</small>
+                                    <h3 class="post-title">Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels</h3>
+                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
+                                </div>
+                            </div>
+                            <div class="post-item">
+                                <div class="post-image-box">
+                                    <a href="#">
+                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
+                                    </a>
+                                </div>
+                                <div class="post-info">
+                                    <small class="post-date">Abr 22, 2019</small>
+                                    <h3 class="post-title">Variance-Based Extragradient Methods with Line Search for Stochastic Variational Inequalities</h3>
+                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+
+                    </section>
+                </div>
+
             <div id="paralaxSection" class="container-fluid container-paralax">
                 <section class="section-default">
                     <div class="promo-banner">
@@ -133,7 +296,7 @@
                             <div class="description">
                                 <h2>Jogo do goleiro</h2>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptatem laborum quos et, illo quibusdam culpa eaque debitis placeat ut.</p>
-                                <button class="btn btn-primary">Saiba mais</button>
+                                <button class="btn">Saiba mais</button>
                             </div>
                         </div>
                         <div class="promo-item">
@@ -143,9 +306,10 @@
                             <div class="description">
                                 <h2>Podcast: A Matemática do Cérebro</h2>
                                 <p>O Podcast: A Matemática do Cérebro aborda três temas principais: o modelo de sistemas de disparos neuronais desenvolvido pela equipe do CEPID NeuroMat.</p>
-                                <div class="podcast-button" style="background-image: url('{% static "img/podcast.png" %}')">
+                                <div class="podcast-button">
                                     Ouça e assine nas principais plataformas
                                 </div>
+                                <!-- <button class="btn btn-primary">Saiba mais</button> -->
                             </div>
                         </div>
                         <div class="promo-item">
@@ -155,7 +319,7 @@
                             <div class="description">
                                 <h2>Iniciativa Wikipedia</h2>
                                 <p>O trabalho de difusão do NeuroMat trabalha tanto em formação, quanto de comunicação. Especificamente na comunicação, o NeuroMat trabalha com o uso da Wikipédia na difusão científica.</p>
-                                <button class="btn btn-primary">Saiba mais</button>
+                                <a href="page.html" class="btn">Saiba mais</a>
                             </div>
                         </div>
                         <div class="promo-item">
@@ -165,24 +329,42 @@
                             <div class="description">
                                 <h2>Transferência Tecnológica</h2>
                                 <p>O eixo de transferência tecnológica do CEPID NeuroMat pauta-se pelo arcabouço conceptual e experimental desenvolvido pela equipe cientifica do NeuroMat para explicar fenômenos neurocientíficos.</p>
-                                <button class="btn btn-primary">Saiba mais</button>
+                                <button class="btn">Saiba mais</button>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <div class="search-box">
-                <input type="search" placeholder="Buscar conteúdo no portal" />
-                <button>Buscar</button>
-            </div>
-
-            <div class="container-fluid">
+            <div class="container-fluid container-fluid--spacer">
                 <section class="section-default">
-                    <div class="col-md-9">
+                    <div class="col-md-9 col-sm-12">
                         {% autoescape off %}
                             {% show_page_content %}
                         {% endautoescape %}
+                        <!--
+                        <div class="post-feature-item">
+                            <div class="post-feature-image" style="background-image:url('http://localhost:8888/front-end-static/temp/numec_foto_predio.jpg')"></div>
+                            <div class="post-feature-info">
+                                <h3 class="section-title"> <span>CEPID Neuromat</span></h3>
+                                <p>O Centro de Pesquisa, Inovação e Difusão em Neuromatemática (CEPID NeuroMat) é um centro de matemática cuja missão é desenvolver a nova matemática necessária para construir uma Teoria do Cérebro, tendo em vista os dados experimentais produzidos pela neurociência.</p>
+                                <p><a href="#">Conheça o projeto</a></p>
+
+                                <div class="newsletter-lead">
+                                    <strong>Cadastre-se na nossa Newsletter</strong>
+                                    <p>Mantenha-se informado sobre as nossas novidades!</p>
+                                    <div class="newsletter-lead-row">
+                                        <input type="email" placeholder="Informe o seu E-mail" />
+                                        <button>Assinar</button>
+                                    </div>
+                                </div>
+
+                                <div class="facebook-like-btn-box">
+                                    <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                                </div>
+                            </div>
+
+                        </div> -->
                     </div>
                     <div class="col-md-3">
                         <div class="project-slideshow-component">
@@ -193,22 +375,22 @@
                                         <!-- Slides -->
                                         <div class="swiper-slide">
                                             <a href="#">
-                                                <img src="static/img/amparo.jpg" alt="">
+                                                <img src="{% static 'img/amparo.jpg' %}" alt="">
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
                                             <a href="#">
-                                                <img src="static/img/abraco_card.jpg" alt="">
+                                                <img src="{% static 'img/abraco_card.jpg' %}" alt="">
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
                                             <a href="#">
-                                                <img src="static/img/traco_ciencia_card.jpg" alt="">
+                                                <img src="{% static 'img/traco_ciencia_card.jpg' %}" alt="">
                                             </a>
                                         </div>
                                         <div class="swiper-slide">
                                             <a href="#">
-                                                <img src="static/img/nes_card.jpg" alt="">
+                                                <img src="{% static 'img/nes_card.jpg' %}" alt="">
                                             </a>
                                         </div>
 
@@ -229,69 +411,11 @@
                 </section>
             </div>
 
-            <div class="container-fluid bg-sepia">
-                <section class="section-default">
-                    <h3>Publicações</h3>
-                    <div class="container-posts">
-                        <div class="post-item">
-                            <div class="post-image-box">
-                                <a href="#">
-                                    <div class="post-image" style="background-image:url('temp/mock_post_image.jpg')"></div>
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <small class="post-date">Abr 22, 2019</small>
-                                <h3 class="post-title">Fluctuations for Spatially Extended Hawkes Processes
-                                </h3>
-                                <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                            </div>
-                        </div>
-                        <div class="post-item">
-                            <div class="post-image-box">
-                                <a href="#">
-                                    <div class="post-image" style="background-image:url('temp/mock_post_image.jpg')"></div>
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <small class="post-date">Abr 22, 2019</small>
-                                <h3 class="post-title">The effect of magnetization of natural rubber latex coated magnetite nanoparticles on shear wave dispersion magneto-motive ultrasound</h3>
-                                <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                            </div>
-                        </div>
-                        <div class="post-item">
-                            <div class="post-image-box">
-                                <a href="#">
-                                    <div class="post-image" style="background-image:url('temp/mock_post_image.jpg')"></div>
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <small class="post-date">Abr 22, 2019</small>
-                                <h3 class="post-title">Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels</h3>
-                                <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                            </div>
-                        </div>
-                        <div class="post-item">
-                            <div class="post-image-box">
-                                <a href="#">
-                                    <div class="post-image" style="background-image:url('temp/mock_post_image.jpg')"></div>
-                                </a>
-                            </div>
-                            <div class="post-info">
-                                <small class="post-date">Abr 22, 2019</small>
-                                <h3 class="post-title">Variance-Based Extragradient Methods with Line Search for Stochastic Variational Inequalities</h3>
-                                <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-            </div>
-
             <!-- Video and Event Section -->
-            <div class="container-fluid">
+            <div class="container-fluid container-fluid--spacer">
                 <section class="section-default">
                     <div class="col-md-7">
-                        <h3 class="title">Últimos eventos</h3>
+                        <h3 class="section-title"> <span>Últimos eventos</span></h3>
                         <div class="feature-event">
                             <img style="width: 100%;" src="https://neuromat.numec.prp.usp.br/static/media/uploads/dc_hamburger/banner.jpg" alt="">
                         </div>
@@ -326,7 +450,7 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <h3>NeuroCineMat</h3>
+                        <h3 class="section-title"> <span>NeuroCineMat</span></h3>
                         <div class="youtube-box">
                             <iframe src="https://www.youtube.com/embed/-geDxts3o8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
                         </div>
@@ -335,6 +459,84 @@
             </div>
         </main>
     </div>
+
+    <footer>
+        <div class="footer-info">
+
+            <!-- Sitemap -->
+            <ul class="sitemap-tree">
+                <li><a href="#">CEPID NeuroMat</a>
+                    <ul>
+                        <li><a href="#">Quem somos</a></li>
+                        <li><a href="#">Equipe</a></li>
+                        <li><a href="#">Oportunidades</a></li>
+                        <li><a href="#">Relatórios</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </li>
+
+                <li> <a href="#">Pesquisa</a>
+                    <ul>
+                        <li><a href="#">NES</a></li>
+                        <li><a href="#">Jogo do Goleiro</a></li>
+                        <li><a href="#">ABRACO</a></li>
+                        <li><a href="#">AMPARO</a></li>
+                    </ul>
+                </li>
+                <li> <a href="#">Difusão</a>
+                    <ul>
+                        <li><a href="#">Notícias</a></li>
+                        <li><a href="#">Vídeos</a></li>
+                        <li><a href="#">Áudios</a></li>
+                        <li><a href="#">Boletim</a></li>
+                    </ul>
+                </li>
+
+                <li class="social-media-list"> <span>Siga-nos</span>
+                    <ul>
+                        <li><a title="Facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a></li>
+                        <li><a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fa fa-youtube" aria-hidden="true"></i> Youtube</a></li>
+                        <li><a title="Github" href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
+                        <li><a title="LinkedIn" href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i>LinkedIn</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Address -->
+            <div class="address-info">
+                <h3>Contato</h3>
+                <ul>
+                    <li>
+                        <h4>Endereço ( <a href="#">Ver no mapa</a> )</h4>
+                        <p>Rua do Matão, 1010 - Cidade Universitária - São Paulo - SP - Brasil. 05508-090.</p>
+                    </li>
+                    <li>
+                        <h4>Telefone:</h4>
+                        <p>+55 11 3091-1717</p>
+                    </li>
+                    <li>
+                        <h4>E-mail:</h4>
+                        <p><a href="mailto:neuromat@numec.prp.usp.br">neuromat@numec.prp.usp.br</a></p>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="marcas-footer">
+                <div class="marca-apoio">
+                    <span>Apoio:</span>
+                    <img src="static/img/marca_fapesp.png" alt="" />
+                </div>
+                <div class="marca-apoio localizacao">
+                    <span>Localizado na:</span>
+                    <img src="https://neuromat.numec.prp.usp.br/static/img/usp.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <p class="text-center license">Licenciado sob os termos da Creative Commons Attributions 4.0</p>
+    </footer>
 
         {% include 'top.html' %}
 
@@ -366,8 +568,12 @@
             {% include "includes/footer_scripts.html" %}
         {% endblock %}
 
-      <!-- PARALLAX -->
-        <script src="{% static "js/parallax.js" %}"></script>
+
+        <!-- SLIDESHOW BANNER -->
+        <script src="{% static "js/banner_slider.js" %}"></script>
+
+        <!-- PARALLAX -->
+        <script type="text/javascript" src="{% static "js/parallax.js" %}"></script>
         <script type="text/javascript">
           $(document).ready(function(){
               $('.container-paralax').parallax({imageSrc: '{% static "img/bg_paralax.png" %}'});
@@ -375,35 +581,8 @@
         </script>
 
 
-      <!-- Swiper -->
-      <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-      <script>
-            const mySwiper = new Swiper ('.swiper-container', {
-              // Optional parameters
-              direction: 'horizontal',
-              loop: true,
-              speed: 500,
-
-              // If we need pagination
-              pagination: {
-                el: '.swiper-pagination',
-              },
-
-              // Navigation arrows
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-
-              // And if we need scrollbar
-              scrollbar: {
-                el: '.swiper-scrollbar',
-              },
-            });
-
-            setInterval(() => {
-                mySwiper.slideNext();
-            }, 4500)
-            </script>
+      <!-- Swiper Component -->
+      <script type="text/javascript" src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+      <script type="text/javascript" src="{% static "js/swiper_component.js" %}"> </script>
     </body>
 </html>
