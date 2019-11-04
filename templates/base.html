@@ -173,30 +173,9 @@
         </header>
 
         <main>
-            <div class="container-fluid container-fluid--spacer">
-                <div class="section-default">
-                        <div class="slider-wrapper">
-                            <div class="inner-wrapper">
-                                <div class="slide">
-                                    <div class="slide-info">
-                                        <h2 class="slide-title">A NeuroMat project for a "self-driving" transcranial magnetic stimulation (TMS): an interview with Oswaldo Baffa Filho</h2>
-                                        <button>Read more</button>
-                                    </div>
-                                    <div class="image-frame" style="background-image:url('temp/banner.jpg');"></div>
-                                </div>
-                                <div class="slide">
-                                        <div class="slide-info">
-                                            <h2 class="slide-title">Positions for Postdoctoral Researchers</h2>
-                                            <button>Read more</button>
-                                        </div>
-                                        <div class="image-frame" style="background-image:url('http://agencia.fapesp.br/agencia-novo/imagens/noticia/24126.jpg');"></div>
-                                </div>
-                            </div>
-                            <div class="button prev"></div>
-                            <div class="button next"></div>
-                        </div>
-                </div>
-            </div>
+
+            {# MAIN SLIDESHOW COMPONENT #}
+            {% include 'components/slideshow/slideshow.html' %}
 
             <div class="container-fluid container-fluid--spacer no-padding-top bg-sepia">
                     <div class="search-box">
@@ -230,57 +209,7 @@
                                 </div>
                             </div>
                             {% endfor %}
-                            <!--
-                            <div class="post-item">
-                                <div class="post-image-box">
-                                    <a href="#">
-                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <small class="post-date">Abr 22, 2019</small>
-                                    <h3 class="post-title">Fluctuations for Spatially Extended Hawkes Processes
-                                    </h3>
-                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                                </div>
-                            </div>
-                            <div class="post-item">
-                                <div class="post-image-box">
-                                    <a href="#">
-                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <small class="post-date">Abr 22, 2019</small>
-                                    <h3 class="post-title">The effect of magnetization of natural rubber latex coated magnetite nanoparticles on shear ...</h3>
-                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                                </div>
-                            </div>
-                            <div class="post-item">
-                                <div class="post-image-box">
-                                    <a href="#">
-                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <small class="post-date">Abr 22, 2019</small>
-                                    <h3 class="post-title">Mean field limits for nonlinear spatially extended Hawkes processes with exponential memory kernels</h3>
-                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                                </div>
-                            </div>
-                            <div class="post-item">
-                                <div class="post-image-box">
-                                    <a href="#">
-                                        <div class="post-image" style="background-image:url({% static 'temp/mock_post_image.jpg'%})"></div>
-                                    </a>
-                                </div>
-                                <div class="post-info">
-                                    <small class="post-date">Abr 22, 2019</small>
-                                    <h3 class="post-title">Variance-Based Extragradient Methods with Line Search for Stochastic Variational Inequalities</h3>
-                                    <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
-                                </div>
-                            </div>
-                            -->
+
                         </div>
 
                     </section>
@@ -367,46 +296,8 @@
                         </div> -->
                     </div>
                     <div class="col-md-3">
-                        <div class="project-slideshow-component">
-                            <!-- CAROUSEL COMPONENT -->
-                            <div class="swiper-container">
-                                    <!-- Additional required wrapper -->
-                                    <div class="swiper-wrapper">
-                                        <!-- Slides -->
-                                        <div class="swiper-slide">
-                                            <a href="#">
-                                                <img src="{% static 'img/amparo.jpg' %}" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#">
-                                                <img src="{% static 'img/abraco_card.jpg' %}" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#">
-                                                <img src="{% static 'img/traco_ciencia_card.jpg' %}" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#">
-                                                <img src="{% static 'img/nes_card.jpg' %}" alt="">
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                    <!-- If we need pagination -->
-                                    <div class="swiper-pagination"></div>
-
-                                    <!-- If we need navigation buttons -->
-                                    <div class="swiper-button-prev"></div>
-                                    <div class="swiper-button-next"></div>
-
-                                    <!-- If we need scrollbar -->
-                                    <!-- <div class="swiper-scrollbar"></div> -->
-                                </div>
-                            <!-- / CAROUSEL COMPONENT -->
-                        </div>
+                    {# SWIPER SLIDESHOW COMPONENT #}
+                    {% include 'components/swiper/swiper.html' %}
                     </div>
                 </section>
             </div>

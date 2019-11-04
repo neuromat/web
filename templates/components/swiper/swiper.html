@@ -1,0 +1,42 @@
+{# SWIPPER COMPONENT - SLIDESHOW QUE MOSTRA OS PROJETOS NA HOME PAGE #}
+{% load static %}
+<div class="project-slideshow-component">
+    <!-- CAROUSEL COMPONENT -->
+    <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="{% static 'img/amparo.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="{% static 'img/abraco_card.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="{% static 'img/traco_ciencia_card.jpg' %}" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#">
+                        <img src="{% static 'img/nes_card.jpg' %}" alt="">
+                    </a>
+                </div>
+
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+    <!-- / CAROUSEL COMPONENT -->
+</div>
