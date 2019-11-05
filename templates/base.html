@@ -226,28 +226,22 @@
 {#                        {% endautoescape %}#}
 
                         <div class="post-feature-item">
-
                             <div class="post-feature-image" style="background-image:url('http://localhost:8888/front-end-static/temp/numec_foto_predio.jpg')"></div>
+
                             <div class="post-feature-info">
+
                                 <h3 class="section-title"> <span>CEPID Neuromat</span></h3>
                                 <p>O Centro de Pesquisa, Inovação e Difusão em Neuromatemática (CEPID NeuroMat) é um centro de matemática cuja missão é desenvolver a nova matemática necessária para construir uma Teoria do Cérebro, tendo em vista os dados experimentais produzidos pela neurociência.</p>
                                 <p><a href="#">Conheça o projeto</a></p>
-                                <div class="newsletter-lead">
-                                    <strong>Cadastre-se na nossa Newsletter</strong>
-                                    <p>Mantenha-se informado sobre as nossas novidades!</p>
-                                    <div class="newsletter-lead-row">
-                                        <input type="email" placeholder="Informe o seu E-mail" />
-                                        <button>Assinar</button>
-                                    </div>
-                                </div>
+                                {% include 'components/newsletter_subscribe_input/newsteller_subscribe_input.html' %}
                             </div>
-
                         </div>
 
 
-                            <div class="facebook-like-btn-box">
-                                <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                            </div>
+                        <div class="facebook-like-btn-box">
+                            <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                        </div>
+
                     </div>
                     <div class="col-md-3">
                     {# SWIPER SLIDESHOW COMPONENT #}
@@ -261,44 +255,33 @@
                 <section class="section-default">
                     <div class="col-md-7">
                         <h3 class="section-title"> <span>Últimos eventos</span></h3>
+
+                        <!-- Definir lógica para featured event -->
                         <div class="feature-event">
                             <img style="width: 100%;" src="https://neuromat.numec.prp.usp.br/static/media/uploads/dc_hamburger/banner.jpg" alt="">
                         </div>
+                        <!-- / Definir lógica para featured event -->
+
                         <div class="last-events">
                             <ul>
-                                <li>
-                                    <a href="#">
-                                        <div class="date"> Mai 19, 2016</div>
-                                        <h4 class="title"> Second NeuroMat Workshop: New Frontiers in NeuroMathematics </h4>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="date">Mai 19, 2016 </div>
-                                        <h4 class="title">Encontro: Cultura Matemática no Brasil: diagnósticos e perspectivas</h4>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="date"> Mai 19, 2016 </div>
-                                        <h4 class="title">Second NeuroMat Workshop: New Frontiers in NeuroMathematics </h4>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="date"> Mai 19, 2016</div>
-                                        <h4 class="title">Second NeuroMat Workshop: New Frontiers in NeuroMathematics</h4>
-                                    </a>
-                                </li>
+
+                                {% blog_recent_posts category='Eventos' as eventos %}
+                                {% for evento in eventos %}
+                                    <li>
+                                        <a href="#">
+                                            <div class="date"> Mai 19, 2016</div>
+                                            <h4 class="title"> Second NeuroMat Workshop: New Frontiers in NeuroMathematics </h4>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+
                                 <p><a href="#">Visualizar todos os eventos</a></p>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <h3 class="section-title"> <span>NeuroCineMat</span></h3>
-                        <div class="youtube-box">
-                            <iframe src="https://www.youtube.com/embed/-geDxts3o8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                        </div>
+                    {# YOUTUBE VIDEO COMPONENT #}
+                    {% include 'components/youtube_video_component/youtube_video_component.html' %}
                     </div>
                 </section>
             </div>
@@ -383,7 +366,7 @@
         </div>
         <p class="text-center license">Licenciado sob os termos da Creative Commons Attributions 4.0</p>
     </footer>
-
+        {#  AQUI COMEÇA O SITE ANTIGO #}
         {% include 'top.html' %}
 
         <div class="container">

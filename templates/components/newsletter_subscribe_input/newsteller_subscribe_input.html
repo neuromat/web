@@ -1,0 +1,65 @@
+{% load i18n %}
+<div class="newsletter-lead">
+    <strong>Cadastre-se na nossa Newsletter</strong>
+    <p>{% trans "Stay informed on our latest news!" %}</p>
+        <form
+            class="newsletter-lead-row"
+            enctype="multipart/form-data"
+            method="post"  action="{% url "subscription" %}"
+            onsubmit="newsletterSubscribe(event)"
+        >
+            {% csrf_token %}
+            <input autocomplete="off" type="email"  name="email" placeholder="Informe o seu E-mail"/>
+            <button name="submit" id="id_submit" type="submit">{% trans "Subscribe" %}</button>
+        </form>
+</div>
+
+<script type="text/javascript">
+    // /newsletter/subscription/
+
+
+    function getCookie(name) {
+        if (!document.cookie) {
+          return null;
+        }
+        const token = document.cookie.split(';')
+          .map(c => c.trim())
+          .filter(c => c.startsWith(name + '='));
+
+        if (token.length === 0) {
+          return null;
+        }
+        return decodeURIComponent(token[0].split('=')[1]);
+    }
+
+  const csrftoken = getCookie('csrftoken');
+
+    function newsletterSubscribe(e) {
+        e.preventDefault();
+        console.log(e.target);
+
+        const data = {
+            email: e.target.email.value,
+            csrfmiddlewaretoken: csrftoken,
+        };
+
+        console.log(data, e.target.csrfmiddlewaretoken.value);
+        console.log(JSON.stringify(data));
+
+        const requestInfo = {
+            method: 'POST',
+            mode: 'same-origin',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken
+            }
+        };
+
+        fetch('/newsletter/subscription/', requestInfo)
+            .then(res => res.text())
+            .then(data => console.log(data))
+            .catch(e => console.log(e));
+    }
+</script>
