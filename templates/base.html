@@ -149,19 +149,19 @@
                     <li><a href="#">CEPID Neuromat</a></li>
                     <li class="language-link"><a href="#"> <img width="20" height="auto" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="">    English Version</a></li>
                     <li class="social-media-link">
-                        <a title="Facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                        <a title="Facebook" href="#"><i class="fab fa-facebook-square"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="LinkedIn" href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                        <a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="Github" href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        <a title="Github" href="#"><i class="fab fa-github" aria-hidden="true"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="Wikipedia" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fa fa-wikipedia-w" aria-hidden="true"></i></a>
+                        <a title="Wikipedia" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-wikipedia-w"></i></a>
                     </li>
                     <li class="social-media-link">
-                        <a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                        <a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-youtube"></i></a>
                     </li>
 
                 </ul>
@@ -215,70 +215,23 @@
                     </section>
                 </div>
 
-            <div id="paralaxSection" class="container-fluid container-paralax">
-                <section class="section-default">
-                    <div class="promo-banner">
-                        <div class="promo-item">
-                            <div class="title">
-                                <h2>Jogo do Goleiro</h2>
-                            </div>
-                            <div class="description">
-                                <h2>Jogo do goleiro</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptatem laborum quos et, illo quibusdam culpa eaque debitis placeat ut.</p>
-                                <button class="btn">Saiba mais</button>
-                            </div>
-                        </div>
-                        <div class="promo-item">
-                            <div class="title">
-                                <h2>Podcast: A Matemática do Cérebro</h2>
-                            </div>
-                            <div class="description">
-                                <h2>Podcast: A Matemática do Cérebro</h2>
-                                <p>O Podcast: A Matemática do Cérebro aborda três temas principais: o modelo de sistemas de disparos neuronais desenvolvido pela equipe do CEPID NeuroMat.</p>
-                                <div class="podcast-button">
-                                    Ouça e assine nas principais plataformas
-                                </div>
-                                <!-- <button class="btn btn-primary">Saiba mais</button> -->
-                            </div>
-                        </div>
-                        <div class="promo-item">
-                            <div class="title">
-                                <h2>Iniciativa Wikipedia</h2>
-                            </div>
-                            <div class="description">
-                                <h2>Iniciativa Wikipedia</h2>
-                                <p>O trabalho de difusão do NeuroMat trabalha tanto em formação, quanto de comunicação. Especificamente na comunicação, o NeuroMat trabalha com o uso da Wikipédia na difusão científica.</p>
-                                <a href="page.html" class="btn">Saiba mais</a>
-                            </div>
-                        </div>
-                        <div class="promo-item">
-                            <div class="title">
-                                <h2>Transferência Tecnológica</h2>
-                            </div>
-                            <div class="description">
-                                <h2>Transferência Tecnológica</h2>
-                                <p>O eixo de transferência tecnológica do CEPID NeuroMat pauta-se pelo arcabouço conceptual e experimental desenvolvido pela equipe cientifica do NeuroMat para explicar fenômenos neurocientíficos.</p>
-                                <button class="btn">Saiba mais</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+            {# MAIN SLIDESHOW COMPONENT #}
+            {% include 'components/featured_cards_component/featured_cards_component.html' %}
 
             <div class="container-fluid container-fluid--spacer">
                 <section class="section-default">
                     <div class="col-md-9 col-sm-12">
-                        {% autoescape off %}
-                            {% show_page_content %}
-                        {% endautoescape %}
-                        <!--
+{#                        {% autoescape off %}#}
+{#                            {% show_page_content %}#}
+{#                        {% endautoescape %}#}
+
                         <div class="post-feature-item">
+
                             <div class="post-feature-image" style="background-image:url('http://localhost:8888/front-end-static/temp/numec_foto_predio.jpg')"></div>
                             <div class="post-feature-info">
                                 <h3 class="section-title"> <span>CEPID Neuromat</span></h3>
                                 <p>O Centro de Pesquisa, Inovação e Difusão em Neuromatemática (CEPID NeuroMat) é um centro de matemática cuja missão é desenvolver a nova matemática necessária para construir uma Teoria do Cérebro, tendo em vista os dados experimentais produzidos pela neurociência.</p>
                                 <p><a href="#">Conheça o projeto</a></p>
-
                                 <div class="newsletter-lead">
                                     <strong>Cadastre-se na nossa Newsletter</strong>
                                     <p>Mantenha-se informado sobre as nossas novidades!</p>
@@ -287,13 +240,14 @@
                                         <button>Assinar</button>
                                     </div>
                                 </div>
-
-                                <div class="facebook-like-btn-box">
-                                    <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                                </div>
                             </div>
 
-                        </div> -->
+                        </div>
+
+
+                            <div class="facebook-like-btn-box">
+                                <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                            </div>
                     </div>
                     <div class="col-md-3">
                     {# SWIPER SLIDESHOW COMPONENT #}
@@ -386,10 +340,11 @@
 
                 <li class="social-media-list"> <span>Siga-nos</span>
                     <ul>
-                        <li><a title="Facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a></li>
-                        <li><a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fa fa-youtube" aria-hidden="true"></i> Youtube</a></li>
-                        <li><a title="Github" href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
-                        <li><a title="LinkedIn" href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i>LinkedIn</a></li>
+                        <li><a title="Facebook" href="#"><i class="fab fa-facebook-square"></i> Facebook</a></li>
+                        <li><a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab
+                        fa-youtube" aria-hidden="true"></i> Youtube</a></li>
+                        <li><a title="Github" href="#"><i class="fab fa-github" aria-hidden="true"></i> Github</a></li>
+                        <li><a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
                     </ul>
                 </li>
             </ul>
