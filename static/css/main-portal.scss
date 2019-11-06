@@ -594,6 +594,21 @@ $mq-large-screens: "only screen and (min-width : 1824px)";
 
 // MISC
 
+.img-featured-blog-post-detail{
+    margin: auto 20px 10px 10px !important;
+}
+
+.post-detail-title{
+    font-size: 1.5em;
+    line-height: 22pt;
+}
+
+.post-detail-content{
+    border-top: 1px solid #666;
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
 .no-padding-top{
     padding-top: 0 !important;
 }
