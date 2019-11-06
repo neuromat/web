@@ -173,7 +173,7 @@
         </header>
 
         <main>
-
+{#            {% block main %}#}
             {# MAIN SLIDESHOW COMPONENT #}
             {% include 'components/slideshow/slideshow.html' %}
 
@@ -190,7 +190,7 @@
                             {% for post in posts %}
                             <div class="post-item">
                                 <div class="post-image-box">
-                                    <a href="#">
+                                    <a href="{{ post.get_absolute_url }}">
                                         {% if post.featured_image %}
                                             <div class="post-image"
                                                  style="background-image:url('{{ MEDIA_URL }}{{ post.featured_image }}')">
@@ -211,9 +211,10 @@
                             {% endfor %}
 
                         </div>
-
                     </section>
+
                 </div>
+{#            {% endblock %}#}
 
             {# MAIN SLIDESHOW COMPONENT #}
             {% include 'components/featured_cards_component/featured_cards_component.html' %}
@@ -236,12 +237,9 @@
                                 {% include 'components/newsletter_subscribe_input/newsteller_subscribe_input.html' %}
                             </div>
                         </div>
-
-
                         <div class="facebook-like-btn-box">
                             <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                         </div>
-
                     </div>
                     <div class="col-md-3">
                     {# SWIPER SLIDESHOW COMPONENT #}
@@ -288,114 +286,31 @@
         </main>
     </div>
 
-    <footer>
-        <div class="footer-info">
+    {% include "footer.html" %}
+    {% block footer_js %}
+        {% include "includes/footer_scripts.html" %}
+    {% endblock %}
 
-            <!-- Sitemap -->
-            <ul class="sitemap-tree">
-                <li><a href="#">CEPID NeuroMat</a>
-                    <ul>
-                        <li><a href="#">Quem somos</a></li>
-                        <li><a href="#">Equipe</a></li>
-                        <li><a href="#">Oportunidades</a></li>
-                        <li><a href="#">Relatórios</a></li>
-                        <li><a href="#">Eventos</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </li>
-
-                <li> <a href="#">Pesquisa</a>
-                    <ul>
-                        <li><a href="#">NES</a></li>
-                        <li><a href="#">Jogo do Goleiro</a></li>
-                        <li><a href="#">ABRACO</a></li>
-                        <li><a href="#">AMPARO</a></li>
-                    </ul>
-                </li>
-                <li> <a href="#">Difusão</a>
-                    <ul>
-                        <li><a href="#">Notícias</a></li>
-                        <li><a href="#">Vídeos</a></li>
-                        <li><a href="#">Áudios</a></li>
-                        <li><a href="#">Boletim</a></li>
-                    </ul>
-                </li>
-
-                <li class="social-media-list"> <span>Siga-nos</span>
-                    <ul>
-                        <li><a title="Facebook" href="#"><i class="fab fa-facebook-square"></i> Facebook</a></li>
-                        <li><a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab
-                        fa-youtube" aria-hidden="true"></i> Youtube</a></li>
-                        <li><a title="Github" href="#"><i class="fab fa-github" aria-hidden="true"></i> Github</a></li>
-                        <li><a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- Address -->
-            <div class="address-info">
-                <h3>Contato</h3>
-                <ul>
-                    <li>
-                        <h4>Endereço ( <a href="#">Ver no mapa</a> )</h4>
-                        <p>Rua do Matão, 1010 - Cidade Universitária - São Paulo - SP - Brasil. 05508-090.</p>
-                    </li>
-                    <li>
-                        <h4>Telefone:</h4>
-                        <p>+55 11 3091-1717</p>
-                    </li>
-                    <li>
-                        <h4>E-mail:</h4>
-                        <p><a href="mailto:neuromat@numec.prp.usp.br">neuromat@numec.prp.usp.br</a></p>
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="marcas-footer">
-                <div class="marca-apoio">
-                    <span>Apoio:</span>
-                    <img src="static/img/marca_fapesp.png" alt="" />
-                </div>
-                <div class="marca-apoio localizacao">
-                    <span>Localizado na:</span>
-                    <img src="https://neuromat.numec.prp.usp.br/static/img/usp.png" alt="" />
-                </div>
-            </div>
-        </div>
-        <p class="text-center license">Licenciado sob os termos da Creative Commons Attributions 4.0</p>
-    </footer>
         {#  AQUI COMEÇA O SITE ANTIGO #}
-        {% include 'top.html' %}
+{#        {% include 'top.html' %}#}
 
-        <div class="container">
-            <div class="row">
-                <div class="container">
-                    <img src="{% static 'img/neuromat.png'%}" class="img-responsive center-block" alt="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-9 middle">
-                    {% block main %}{% endblock %}
-                </div>
-                <div class="col-md-3 right">
-                    <div class="panel panel-default">
-                        {% block right_panel %}{% endblock %}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <div class="container">
-                {% include "footer.html" %}
-            </div>
-        </footer>
-
-        {% block footer_js %}
-            {% include "includes/footer_scripts.html" %}
-        {% endblock %}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="container">#}
+{#                    <img src="{% static 'img/neuromat.png'%}" class="img-responsive center-block" alt="">#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                <div class="col-md-9 middle">#}
+{#                    {% block main %}{% endblock %}#}
+{#                </div>#}
+{#                <div class="col-md-3 right">#}
+{#                    <div class="panel panel-default">#}
+{#                        {% block right_panel %}{% endblock %}#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
 
 
         <!-- SLIDESHOW BANNER -->

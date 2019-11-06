@@ -1,56 +1,79 @@
 {% load i18n staticfiles %}
 
-<div id="id_footer_section" class="container neuromat-footer">
-    <div class="col-md-6 footer-content-align">
-        <p class="fapesp-icon">{% trans "Supported by" %}</p>
-        <a href="http://www.fapesp.br/" target="_blank"><img src="{% static 'img/Fapesp.png'%}" alt=""></a>
-    </div>
-    <div class="col-md-6 footer-content-align">
-        <p>{% trans "Hosted by" %}</p>
-        <a href="http://usp.br" target="_blank"><img  src="{% static 'img/usp.png'%}" alt=""></a>
-    </div>
-    <div class="col-md-12">
-        <hr>
-    </div>
+<footer>
+    <div class="footer-info">
+        <!-- Sitemap -->
+        <ul class="sitemap-tree">
+            <li><a href="#">CEPID NeuroMat</a>
+                <ul>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Equipe</a></li>
+                    <li><a href="#">Oportunidades</a></li>
+                    <li><a href="#">Relatórios</a></li>
+                    <li><a href="#">Eventos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </li>
 
-    <section class="col-md-3">
-        <h4>{% trans "Related Projects" %}</h4>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="http://abraco.numec.prp.usp.br/" target="_blank">ABRAÇO</a></li>
-            <li class="list-group-item"><a href="https://amparo.numec.prp.usp.br/" target="_blank">AMPARO</a></li>
-            <li class="list-group-item"><a href="http://game.numec.prp.usp.br/" target="_blank">Jogo do Goleiro</a></li>
-            <li class="list-group-item"><a href="http://numec.prp.usp.br/" target="_blank">NUMEC</a></li>
+            <li> <a href="#">Pesquisa</a>
+                <ul>
+                    <li><a href="#">NES</a></li>
+                    <li><a href="#">Jogo do Goleiro</a></li>
+                    <li><a href="#">ABRACO</a></li>
+                    <li><a href="#">AMPARO</a></li>
+                </ul>
+            </li>
+            <li> <a href="#">Difusão</a>
+                <ul>
+                    <li><a href="#">Notícias</a></li>
+                    <li><a href="#">Vídeos</a></li>
+                    <li><a href="#">Áudios</a></li>
+                    <li><a href="#">Boletim</a></li>
+                </ul>
+            </li>
+
+            <li class="social-media-list"> <span>Siga-nos</span>
+                <ul>
+                    <li><a title="Facebook" href="#"><i class="fab fa-facebook-square"></i> Facebook</a></li>
+                    <li><a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab
+                    fa-youtube" aria-hidden="true"></i> Youtube</a></li>
+                    <li><a title="Github" href="#"><i class="fab fa-github" aria-hidden="true"></i> Github</a></li>
+                    <li><a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+                </ul>
+            </li>
         </ul>
-    </section>
-    <section class="col-md-3">
-        <h4>{% trans "Follow us" %}</h4>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="https://www.facebook.com/neuromathematics" target="_blank"> <span class="fab fa-facebook"></span>Facebook</a></li>
-            <li class="list-group-item"><a href="https://www.youtube.com/neuromathematics" target="_blank"> <span class="fab fa-youtube"> </span>Youtube</a></li>
-            <li class="list-group-item"><a href="https://github.com/neuromat/" target="_blank"> <span class="fab fa-github"> </span>Github</a></li>
-        </ul>
-    </section>
-    <section id="id_footer_contact" class="col-md-6">
-        <h4>{% trans "Contact" %}</h4>
-        <div id="id_footer_contact">
-            <p>
-                {% trans "Address" %}: <br>
-                {% trans "Matao St." %}, 1010 - Cidade Universitária - São Paulo - SP - Brasil. 05508-090.
-            </p>
-            <p>
-                {% trans "Phone" %}: <br>
-                +55 11 3091-1717
-            </p>
-            <p>
-                {% trans "Email" %}: <br>
-                neuromat@numec.prp.usp.br
-            </p>
+
+        <!-- Address -->
+        <div class="address-info">
+            <h3>Contato</h3>
+            <ul>
+                <li>
+                    <h4>Endereço ( <a href="#">Ver no mapa</a> )</h4>
+                    <p>Rua do Matão, 1010 - Cidade Universitária - São Paulo - SP - Brasil. 05508-090.</p>
+                </li>
+                <li>
+                    <h4>Telefone:</h4>
+                    <p>+55 11 3091-1717</p>
+                </li>
+                <li>
+                    <h4>E-mail:</h4>
+                    <p><a href="mailto:neuromat@numec.prp.usp.br">neuromat@numec.prp.usp.br</a></p>
+                </li>
+
+            </ul>
+
         </div>
-    </section>
 
-    <div id="id_footer_license" class="footer-license">
-        <p>
-            {% trans "This site content is licensed under a " %}Creative Commons Attributions 4.0
-        </p>
+        <div class="marcas-footer">
+            <div class="marca-apoio">
+                <span>{% trans "Supported by" %}:</span>
+                <img src="static/img/marca_fapesp.png" alt="" />
+            </div>
+            <div class="marca-apoio localizacao">
+                <span>{% trans "Hosted by" %}:</span>
+                <img src="https://neuromat.numec.prp.usp.br/static/img/usp.png" alt="" />
+            </div>
+        </div>
     </div>
-</div>
+    <p class="text-center license">Licenciado sob os termos da Creative Commons Attributions 4.0</p>
+</footer>
