@@ -129,6 +129,11 @@ h1, h2, h3, h4, h5, p, span, a, button {
   left: 0;
   z-index: 99000;
 }
+@media only screen and (min-width : 1824px) {
+  .app-portal header nav ul li:hover:after {
+    bottom: 5px;
+  }
+}
 .app-portal header nav ul li:hover ul {
   display: flex;
 }
@@ -527,6 +532,12 @@ h1, h2, h3, h4, h5, p, span, a, button {
   height: 390px;
 }
 
+.sidebar-component {
+  width: 100%;
+  min-height: 400px;
+  padding: 10px;
+}
+
 .bg-blue {
   background: cornflowerblue;
 }
@@ -564,6 +575,10 @@ h1, h2, h3, h4, h5, p, span, a, button {
 }
 .last-events ul p {
   margin-top: 10px;
+}
+
+.section-spacer {
+  margin-top: 30px;
 }
 
 .img-featured-blog-post-detail {
@@ -649,11 +664,9 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .podcast-button {
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 8px 8px 8px 110px;
   border: 1px solid transparent;
   border-radius: 3px;
-  padding-left: 110px;
-  background-image: url("../img/podcast_cover.png");
   background-repeat: no-repeat;
   background-size: 100px;
   background-position: 0;
