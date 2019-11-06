@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n mezzanine_tags blog_tags keyword_tags disqus_tags %}
+{% load i18n mezzanine_tags blog_tags keyword_tags disqus_tags custom_home_loops %}
 
 {% block meta_title %}{% if page %}{{ page.meta_title }}{% else %}{% trans "Home" %}{% endif %}{% endblock %}
 
@@ -23,89 +23,134 @@
     {% endif %}
 {% endblock %}
 
+{# ESTRUTURA DO NOVO PORTAL #}
 {% block main %}
+    {# MAIN SLIDESHOW COMPONENT #}
+    {% include 'components/slideshow/slideshow.html' %}
+    <div class="container-fluid container-fluid--spacer no-padding-top bg-sepia">
+        <div class="search-box">
+            <input type="search" placeholder="Buscar conteúdo no portal" />
+            <button>Buscar</button>
+        </div>
 
-{# Início da lista de posts #}
-{% for blog_post in blog_posts.object_list %}
-    {% if not blog_post.hide_post %}
-        {# Título do post #}
-        {% block blog_post_list_post_title %}
-            {% editable blog_post.title %}
-            <h3>
-                <a href="{{ blog_post.get_absolute_url }}" style="color: #333">{{ blog_post.title }}</a>
-            </h3>
-            {% endeditable %}
-        {% endblock %}
+        <section class="section-default">
+            <h3 class="section-title"> <span>Notícias destaque</span></h3>
+            <div class="container-posts">
+                {% blog_recent_posts category='feature' as posts %}
+                {% for post in posts %}
+                <div class="post-item">
+                    <div class="post-image-box">
+                        <a href="{{ post.get_absolute_url }}">
+                            {% if post.featured_image %}
+                                <div class="post-image"
+                                     style="background-image:url('{{ MEDIA_URL }}{{ post.featured_image }}')">
+                                </div>
+                            {% else %}
+                                <div class="post-image"
+                                     style="background-image:url('{{ STATIC_URL }}img/image_placeholder.jpg')">
+                                </div>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="post-info">
+                        <small class="post-date">Abr 22, 2019</small>
+                        <h3 class="post-title">{{ post }} </h3>
+                        <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
+                    </div>
+                </div>
+                {% endfor %}
 
-        {# Categoria do post #}
-        {% block blog_post_list_post_metainfo %}
-            {% editable blog_post.publish_date %}
-                <h6 class="post-meta">
-                    {% with blog_post.categories.all as categories %}
-                        {% if categories %}
-                            {% for category in categories %}
-                                <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %} | <span style="color: #666">{{ blog_post.publish_date|date:"M d, Y" }}</span>
-                </h6>
-            {% endeditable %}
-        {% endblock %}
-
-        {# Imagem thumbnail #}
-        {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-            {% block blog_post_list_post_featured_image %}
-            <a href="{{ blog_post.get_absolute_url }}">
-                <img {% if blog_post.credits %} title="{{ blog_post.credits }}" {% endif %} class="img-thumbnail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 120 80 %}">
-            </a>
-            {% endblock %}
-        {% endif %}
-
-        {# Conteúdo do post #}
-        {% block blog_post_list_post_content %}
-            {% editable blog_post.content %}
-                {% with blog_post.categories.all|first as category %}
-                    {% if category.slug == 'events' %}
-                        {{ blog_post.description|safe }}
-                    {% else %}
-                        {{ blog_post.description_from_content|safe }}
-                    {% endif %}
-                {% endwith %}
-            {% endeditable %}
-        {% endblock %}
-
-        {# Tags e botão leia mais #}
-        {% block blog_post_list_post_links %}
-            <div class="blog-list-detail">
-                {% keywords_for blog_post as tags %}
-                {% if tags %}
-                    <ul class="list-inline tags">
-                        {% trans "Tags" %}:
-                        {% spaceless %}
-                        {% for tag in tags %}
-                        <li><a href="{% url "blog_post_list_tag" tag.slug %}" class="tag">{{ tag }}</a>{% if not forloop.last %}, {% endif %}</li>
-                        {% endfor %}
-                        {% endspaceless %}
-                    </ul>
-                {% endif %}
-                <p>
-                    <a href="{{ blog_post.get_absolute_url }}"><span class="fas fa-plus-circle"></span> {% trans "Read more" %}</a>
-                    {% if blog_post.allow_comments %}
-                    {% endif %}
-                </p>
             </div>
-        {% endblock %}
-    {% endif %}
-{% endfor %}
-
-{% pagination_for blog_posts %}
-
-{% if settings.COMMENTS_DISQUS_SHORTNAME %}
-    {% include "generic/includes/disqus_counts.html" %}
-{% endif %}
-
+        </section>
+    </div>
 {% endblock %}
 
-{% block right_panel %}
-    {% include "blog/includes/filter_panel.html" %}
-{% endblock %}
+{# Estrutra do portal antigo   #}
+{#{% block main %}#}
+{##}
+{# Início da lista de posts #}
+{##}
+{##}
+{#{% for blog_post in blog_posts.object_list %}#}
+{#    {% if not blog_post.hide_post %}#}
+        {# Título do post #}
+{#        {% block blog_post_list_post_title %}#}
+{#            {% editable blog_post.title %}#}
+{#            <h3>#}
+{#                <a href="{{ blog_post.get_absolute_url }}" style="color: #333">{{ blog_post.title }}</a>#}
+{#            </h3>#}
+{#            {% endeditable %}#}
+{#        {% endblock %}#}
+{##}
+        {# Categoria do post #}
+{#        {% block blog_post_list_post_metainfo %}#}
+{#            {% editable blog_post.publish_date %}#}
+{#                <h6 class="post-meta">#}
+{#                    {% with blog_post.categories.all as categories %}#}
+{#                        {% if categories %}#}
+{#                            {% for category in categories %}#}
+{#                                <a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a>{% if not forloop.last %}, {% endif %}#}
+{#                            {% endfor %}#}
+{#                        {% endif %}#}
+{#                    {% endwith %} | <span style="color: #666">{{ blog_post.publish_date|date:"M d, Y" }}</span>#}
+{#                </h6>#}
+{#            {% endeditable %}#}
+{#        {% endblock %}#}
+{##}
+        {# Imagem thumbnail #}
+{#        {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}#}
+{#            {% block blog_post_list_post_featured_image %}#}
+{#            <a href="{{ blog_post.get_absolute_url }}">#}
+{#                <img {% if blog_post.credits %} title="{{ blog_post.credits }}" {% endif %} class="img-thumbnail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 120 80 %}">#}
+{#            </a>#}
+{#            {% endblock %}#}
+{#        {% endif %}#}
+{##}
+        {# Conteúdo do post #}
+{#        {% block blog_post_list_post_content %}#}
+{#            {% editable blog_post.content %}#}
+{#                {% with blog_post.categories.all|first as category %}#}
+{#                    {% if category.slug == 'events' %}#}
+{#                        {{ blog_post.description|safe }}#}
+{#                    {% else %}#}
+{#                        {{ blog_post.description_from_content|safe }}#}
+{#                    {% endif %}#}
+{#                {% endwith %}#}
+{#            {% endeditable %}#}
+{#        {% endblock %}#}
+{##}
+        {# Tags e botão leia mais #}
+{#        {% block blog_post_list_post_links %}#}
+{#            <div class="blog-list-detail">#}
+{#                {% keywords_for blog_post as tags %}#}
+{#                {% if tags %}#}
+{#                    <ul class="list-inline tags">#}
+{#                        {% trans "Tags" %}:#}
+{#                        {% spaceless %}#}
+{#                        {% for tag in tags %}#}
+{#                        <li><a href="{% url "blog_post_list_tag" tag.slug %}" class="tag">{{ tag }}</a>{% if not forloop.last %}, {% endif %}</li>#}
+{#                        {% endfor %}#}
+{#                        {% endspaceless %}#}
+{#                    </ul>#}
+{#                {% endif %}#}
+{#                <p>#}
+{#                    <a href="{{ blog_post.get_absolute_url }}"><span class="fas fa-plus-circle"></span> {% trans "Read more" %}</a>#}
+{#                    {% if blog_post.allow_comments %}#}
+{#                    {% endif %}#}
+{#                </p>#}
+{#            </div>#}
+{#        {% endblock %}#}
+{#    {% endif %}#}
+{#{% endfor %}#}
+{##}
+{#{% pagination_for blog_posts %}#}
+{##}
+{#{% if settings.COMMENTS_DISQUS_SHORTNAME %}#}
+{#    {% include "generic/includes/disqus_counts.html" %}#}
+{#{% endif %}#}
+{##}
+{#{% endblock %}#}
+{##}
+{#{% block right_panel %}#}
+{#    {% include "blog/includes/filter_panel.html" %}#}
+{#{% endblock %}#}
