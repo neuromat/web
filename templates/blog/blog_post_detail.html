@@ -20,6 +20,8 @@
     <div class="container-fluid container-fluid--spacer bg-sepia">
         <section class="section-default">
             <div class="col-md-8">
+
+                {% include "pages/menus/breadcrumb.html" %}
                 <h3 class="post-detail-title">
                     <span> {% editable blog_post.title %}{{ blog_post.title }} {% endeditable %} </span>
                 </h3>
