@@ -51,3 +51,34 @@ class Research(models.Model):
         verbose_name = _('Research')
         verbose_name_plural = _('Researchers')
         ordering = ('name',)
+
+
+class FeatureCard(models.Model):
+    """An instance of this class represents a card item."""
+    title = models.CharField(_('Title'), max_length=255)
+    description = models.CharField(_('Description'), max_length=255)
+    link = models.CharField(_('Link'), max_length=255)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Card')
+        verbose_name_plural = _('Cards')
+        ordering = ('title',)
+
+class SwiperCard(models.Model):
+    """An instance of this class represents a card item."""
+    title = models.CharField(_('Title'), max_length=255)
+    description = models.CharField(_('Description'), max_length=255)
+    link = models.CharField(_('Link'), max_length=255)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Swipper Card')
+        verbose_name_plural = _('Swipper Cards')
+        ordering = ('title',)

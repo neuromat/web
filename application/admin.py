@@ -2,7 +2,7 @@ from copy import deepcopy
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Postdoc, PostdocFile, Research
+from .models import Postdoc, PostdocFile, Research, FeatureCard, SwiperCard
 from mezzanine.blog.admin import BlogPostAdmin
 from mezzanine.blog.models import BlogPost
 
@@ -37,6 +37,15 @@ blog_fieldsets[0][1]["fields"] += ("hide_post", "altmetric_type", "altmetric_num
 blog_fieldsets[0][1]["fields"].insert(-5, "legend")
 blog_fieldsets[0][1]["fields"].insert(-6, "credits")
 
+class FeatureCardsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description')
+
+admin.site.register(FeatureCard, FeatureCardsAdmin)
+
+class SwiperCardsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description')
+
+admin.site.register(SwiperCard, SwiperCardsAdmin)
 
 class MyBlogPostAdmin(BlogPostAdmin):
     fieldsets = blog_fieldsets
