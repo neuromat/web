@@ -6,6 +6,7 @@ from mezzanine.accounts.admin import User
 from mezzanine.blog.models import BlogPost, BlogCategory
 from mezzanine.generic.models import Keyword
 from mezzanine.pages.models import Page
+from ..models import FeatureCard
 
 register = template.Library()
 
@@ -76,3 +77,8 @@ def blog_recent_posts(limit=8, tag=None, username=None, category=None):
 @register.simple_tag
 def newsletter_list():
     pass
+
+@register.simple_tag
+def feature_cards():
+    cards = FeatureCard.objects.all()
+    return cards

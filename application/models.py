@@ -58,7 +58,6 @@ class FeatureCard(models.Model):
     title = models.CharField(_('Title'), max_length=255)
     description = models.CharField(_('Description'), max_length=255)
     link = models.CharField(_('Link'), max_length=255)
-    image = models.ImageField()
 
     def __str__(self):
         return self.title
