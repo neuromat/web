@@ -72,3 +72,7 @@ def blog_recent_posts(limit=8, tag=None, username=None, category=None):
         except User.DoesNotExist:
             return []
     return list(blog_posts[:limit])
+
+@register.simple_tag
+def newsletter_list():
+    pass
