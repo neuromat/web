@@ -134,9 +134,15 @@ $mq-large-screens: "only screen and (min-width : 1824px)";
                         }
                     }
                 }
-                li.language-link{
-                    &:hover{
-                        border:1px solid transparent;
+                .language-link{
+                    display: flex;
+                    align-items: center;
+                    margin-right: 25px;
+
+                    a, input[type="submit"]{
+                        text-decoration: none;
+                        color: #333;
+                        outline: none;
                     }
                 }
                 li{

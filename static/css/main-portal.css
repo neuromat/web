@@ -110,8 +110,15 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .app-portal header nav ul li.social-media-link a:hover {
   color: #12587a;
 }
-.app-portal header nav ul li.language-link:hover {
-  border: 1px solid transparent;
+.app-portal header nav ul .language-link {
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+.app-portal header nav ul .language-link a, .app-portal header nav ul .language-link input[type=submit] {
+  text-decoration: none;
+  color: #333;
+  outline: none;
 }
 .app-portal header nav ul li {
   margin-right: 15px;

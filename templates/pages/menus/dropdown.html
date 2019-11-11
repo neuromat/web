@@ -13,51 +13,31 @@
                     {% endif %}
                 {% endfor %}
 
+                {# SOCIAL MEDIA AND LAGUAGE LINKS #}
+                {% if branch_level == 0 %}
+
+                    <div class="language-link">
+                        {% include "includes/language_selector.html" %}
+                    </div>
+
+                    <li class="social-media-link">
+                        <a title="Facebook" href="#"><i class="fab fa-facebook-square"></i></a>
+                    </li>
+                    <li class="social-media-link">
+                        <a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a>
+                    </li>
+                    <li class="social-media-link">
+                        <a title="Github" href="#"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="social-media-link">
+                        <a title="Wikipedia" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-wikipedia-w"></i></a>
+                    </li>
+                    <li class="social-media-link">
+                        <a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-youtube"></i></a>
+                    </li>
+                {% endif %}
+
             </ul>
         </nav>
     {% endif %}
 {% endspaceless %}
-
-{#<nav style="display:none;">#}
-{#    <ul>#}
-{#        <li>#}
-{#            <a href="#">Pesquisa</a>#}
-{#            <ul>#}
-{#                <li><a href="#">NES</a></li>#}
-{#                <li><a href="#">Jogo do Goleiro</a></li>#}
-{#                <li><a href="#">ABRACO</a></li>#}
-{#                <li><a href="#">AMPARO</a></li>#}
-{#            </ul>#}
-{#        </li>#}
-{#        <li>#}
-{#            <a href="#">Difusão</a>#}
-{#            <ul>#}
-{#                <li><a href="#">Notícias</a></li>#}
-{#                <li><a href="#">Vídeos</a></li>#}
-{#                <li><a href="#">Áudios</a></li>#}
-{#                <li><a href="#">Boletim</a></li>#}
-{#            </ul>#}
-{##}
-{#        </li>#}
-{#        <li><a href="#">Eventos</a></li>#}
-{#        <li><a href="#">Oportunidades</a></li>#}
-{#        <li><a href="#">CEPID Neuromat</a></li>#}
-{#        <li class="language-link"><a href="#"> <img width="20" height="auto" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg" alt="">    English Version</a></li>#}
-{#        <li class="social-media-link">#}
-{#            <a title="Facebook" href="#"><i class="fab fa-facebook-square"></i></a>#}
-{#        </li>#}
-{#        <li class="social-media-link">#}
-{#            <a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a>#}
-{#        </li>#}
-{#        <li class="social-media-link">#}
-{#            <a title="Github" href="#"><i class="fab fa-github" aria-hidden="true"></i></a>#}
-{#        </li>#}
-{#        <li class="social-media-link">#}
-{#            <a title="Wikipedia" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-wikipedia-w"></i></a>#}
-{#        </li>#}
-{#        <li class="social-media-link">#}
-{#            <a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-youtube"></i></a>#}
-{#        </li>#}
-{##}
-{#    </ul>#}
-{#</nav>#}
