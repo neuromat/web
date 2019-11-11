@@ -120,9 +120,9 @@
 
     <div class="app-portal">
         <header>
-            <div class="logo">NeuroMat
+            <a href="/" class="logo">NeuroMat
                 <small>Centro de Pesquisa, Inovação e Difusão em Neuromatemática</small>
-            </div>
+            </a>
             <nav>
                 <ul>
                     <li>
@@ -174,74 +174,6 @@
 
         <main>
             {% block main %} {% endblock %}
-
-            {# MAIN SLIDESHOW COMPONENT #}
-            {% include 'components/featured_cards_component/featured_cards_component.html' %}
-
-            <div class="container-fluid container-fluid--spacer">
-                <section class="section-default">
-                    <div class="col-md-9 col-sm-12">
-{#                        {% autoescape off %}#}
-{#                            {% show_page_content %}#}
-{#                        {% endautoescape %}#}
-
-                        <div class="post-feature-item">
-                            <div class="post-feature-image" style="background-image:url('http://localhost:8888/front-end-static/temp/numec_foto_predio.jpg')"></div>
-
-                            <div class="post-feature-info">
-
-                                <h3 class="section-title"> <span>CEPID Neuromat</span></h3>
-                                <p>O Centro de Pesquisa, Inovação e Difusão em Neuromatemática (CEPID NeuroMat) é um centro de matemática cuja missão é desenvolver a nova matemática necessária para construir uma Teoria do Cérebro, tendo em vista os dados experimentais produzidos pela neurociência.</p>
-                                <p><a href="#">Conheça o projeto</a></p>
-                                {% include 'components/newsletter_subscribe_input/newsteller_subscribe_input.html' %}
-                            </div>
-                        </div>
-                        <div class="facebook-like-btn-box">
-                            <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                    {# SWIPER SLIDESHOW COMPONENT #}
-                    {% include 'components/swiper/swiper.html' %}
-                    </div>
-                </section>
-            </div>
-
-            <!-- Video and Event Section -->
-            <div class="container-fluid container-fluid--spacer">
-                <section class="section-default">
-                    <div class="col-md-7">
-                        <h3 class="section-title"> <span>Últimos eventos</span></h3>
-
-                        <!-- Definir lógica para featured event -->
-                        <div class="feature-event">
-                            <img style="width: 100%;" src="https://neuromat.numec.prp.usp.br/static/media/uploads/dc_hamburger/banner.jpg" alt="">
-                        </div>
-                        <!-- / Definir lógica para featured event -->
-
-                        <div class="last-events">
-                            <ul>
-
-                                {% blog_recent_posts category='Eventos' as eventos %}
-                                {% for evento in eventos %}
-                                    <li>
-                                        <a href="#">
-                                            <div class="date"> Mai 19, 2016</div>
-                                            <h4 class="title"> Second NeuroMat Workshop: New Frontiers in NeuroMathematics </h4>
-                                        </a>
-                                    </li>
-                                {% endfor %}
-
-                                <p><a href="#">Visualizar todos os eventos</a></p>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                    {# YOUTUBE VIDEO COMPONENT #}
-                    {% include 'components/youtube_video_component/youtube_video_component.html' %}
-                    </div>
-                </section>
-            </div>
         </main>
     </div>
 
@@ -250,38 +182,16 @@
         {% include "includes/footer_scripts.html" %}
     {% endblock %}
 
-        {#  AQUI COMEÇA O SITE ANTIGO #}
-{#        {% include 'top.html' %}#}
+    <!-- SLIDESHOW BANNER -->
+    <script src="{% static "js/banner_slider.js" %}"></script>
 
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="container">#}
-{#                    <img src="{% static 'img/neuromat.png'%}" class="img-responsive center-block" alt="">#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row">#}
-{#                <div class="col-md-9 middle">#}
-{#                    {% block main %}{% endblock %}#}
-{#                </div>#}
-{#                <div class="col-md-3 right">#}
-{#                    <div class="panel panel-default">#}
-{#                        {% block right_panel %}{% endblock %}#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-
-
-        <!-- SLIDESHOW BANNER -->
-        <script src="{% static "js/banner_slider.js" %}"></script>
-
-        <!-- PARALLAX -->
-        <script type="text/javascript" src="{% static "js/parallax.js" %}"></script>
-        <script type="text/javascript">
-          $(document).ready(function(){
-              $('.container-paralax').parallax({imageSrc: '{% static "img/bg_paralax.png" %}'});
-          });
-        </script>
+    <!-- PARALLAX -->
+    <script type="text/javascript" src="{% static "js/parallax.js" %}"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $('.container-paralax').parallax({imageSrc: '{% static "img/bg_paralax.png" %}'});
+      });
+    </script>
 
 
       <!-- Swiper Component -->

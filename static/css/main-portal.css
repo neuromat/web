@@ -64,6 +64,9 @@ h1, h2, h3, h4, h5, p, span, a, button {
   display: flex;
   align-items: center;
   position: relative;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
 }
 .app-portal header .logo small {
   font-size: 0.35em;
@@ -323,13 +326,16 @@ h1, h2, h3, h4, h5, p, span, a, button {
     margin-top: 0;
   }
 }
+.search-box form {
+  width: 60%;
+}
 .search-box input {
   outline: none;
   align-self: center;
   border: 1px solid #ddd;
   padding: 8px;
   font-size: 1.2em;
-  width: 50%;
+  width: 88%;
   height: 50px;
   flex-grow: 0;
 }

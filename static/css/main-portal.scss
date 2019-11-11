@@ -92,6 +92,9 @@ $mq-large-screens: "only screen and (min-width : 1824px)";
             display: flex;
             align-items: center;
             position: relative;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
             small{
                 font-size: 0.35em;
                 font-weight: normal;
@@ -348,13 +351,17 @@ $mq-large-screens: "only screen and (min-width : 1824px)";
     @media #{$mq-smartphones-portrait-landscape}{
         margin-top: 0;
     }
+    form{
+        width: 60%;
+
+    }
     input{
         outline: none;
         align-self: center;
         border: 1px solid #ddd;
         padding: 8px;
         font-size: 1.2em;
-        width: 50%;
+        width: 88%;
         height: 50px;
         flex-grow: 0;
         @media #{$mq-smartphones-portrait-landscape}{
