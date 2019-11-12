@@ -52,6 +52,20 @@ class Research(models.Model):
         verbose_name_plural = _('Researchers')
         ordering = ('name',)
 
+class Banner(models.Model):
+    """An instance of this class represents a card item."""
+    title = models.CharField(_('Title'), max_length=255)
+    description = models.CharField(_('Description'), max_length=255)
+    link = models.CharField(_('Link'), max_length=255)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Banner')
+        verbose_name_plural = _('Banners')
+        ordering = ('title',)
 
 class FeatureCard(models.Model):
     """An instance of this class represents a card item."""

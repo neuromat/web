@@ -1,31 +1,35 @@
 {# SWIPPER COMPONENT - SLIDESHOW QUE MOSTRA OS PROJETOS NA HOME PAGE #}
-{% load static %}
+{% load static custom_home_loops %}
 <div class="project-slideshow-component">
     <!-- CAROUSEL COMPONENT -->
     <div class="swiper-container">
             <!-- Additional required wrapper -->
+        {% swiper_cards as cards %}
+
             <div class="swiper-wrapper">
                 <!-- Slides -->
+                {% for card in cards %}
                 <div class="swiper-slide">
                     <a href="#">
-                        <img src="{% static 'img/amparo.jpg' %}" alt="">
+                        <img src="{{ MEDIA_URL }}{{ card.image }}" alt="" />
                     </a>
                 </div>
-                <div class="swiper-slide">
-                    <a href="#">
-                        <img src="{% static 'img/abraco_card.jpg' %}" alt="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#">
-                        <img src="{% static 'img/traco_ciencia_card.jpg' %}" alt="">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="#">
-                        <img src="{% static 'img/nes_card.jpg' %}" alt="">
-                    </a>
-                </div>
+                {% endfor %}
+{#                <div class="swiper-slide">#}
+{#                    <a href="#">#}
+{#                        <img src="{% static 'img/abraco_card.jpg' %}" alt="">#}
+{#                    </a>#}
+{#                </div>#}
+{#                <div class="swiper-slide">#}
+{#                    <a href="#">#}
+{#                        <img src="{% static 'img/traco_ciencia_card.jpg' %}" alt="">#}
+{#                    </a>#}
+{#                </div>#}
+{#                <div class="swiper-slide">#}
+{#                    <a href="#">#}
+{#                        <img src="{% static 'img/nes_card.jpg' %}" alt="">#}
+{#                    </a>#}
+{#                </div>#}
 
             </div>
             <!-- If we need pagination -->

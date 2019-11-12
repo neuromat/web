@@ -6,7 +6,7 @@ from mezzanine.accounts.admin import User
 from mezzanine.blog.models import BlogPost, BlogCategory
 from mezzanine.generic.models import Keyword
 from mezzanine.pages.models import Page
-from ..models import FeatureCard
+from ..models import FeatureCard, SwiperCard, Banner
 
 register = template.Library()
 
@@ -27,14 +27,6 @@ def show_page_content():
     html_block += '<p><a href="#">Conheça o projeto</a></p>'
     html_block += '</div> </div>'
     return html_block
-
-
-@register.simple_tag
-def project_swiper_component():
-    """
-    Provide a slidehow component with main products and internal links.
-    """
-    pass
 
 
 @register.simple_tag
@@ -74,11 +66,31 @@ def blog_recent_posts(limit=8, tag=None, username=None, category=None):
             return []
     return list(blog_posts[:limit])
 
+
 @register.simple_tag
 def newsletter_list():
     pass
+
 
 @register.simple_tag
 def feature_cards():
     cards = FeatureCard.objects.all()
     return cards
+
+
+@register.simple_tag
+def swiper_cards():
+    """
+    Provide a slideshow component with main products and internal links.
+    """
+    cards = SwiperCard.objects.all();
+    return cards
+
+
+@register.simple_tag
+def get_banners():
+    """
+    Provide a slideshow component with main products and internal links.
+    """
+    banners = Banner.objects.all()
+    return banners

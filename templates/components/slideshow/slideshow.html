@@ -1,21 +1,26 @@
+{% load custom_home_loops %}
+
 <div class="container-fluid container-fluid--spacer">
     <div class="section-default">
             <div class="slider-wrapper">
                 <div class="inner-wrapper">
-                    <div class="slide">
-                        <div class="slide-info">
-                            <h2 class="slide-title">A NeuroMat project for a "self-driving" transcranial magnetic stimulation (TMS): an interview with Oswaldo Baffa Filho</h2>
-                            <button>Read more</button>
+                    {% get_banners as banners %}
+                    {% for banner in banners %}
+                        <div class="slide">
+                            <div class="slide-info">
+                                <h2 class="slide-title">{{ banner.title }}</h2>
+                                <a>Read more</a>
+                            </div>
+                            <div class="image-frame" style="background-image:url('{{ MEDIA_URL }}{{ banner.image }}');"></div>
                         </div>
-                        <div class="image-frame" style="background-image:url('temp/banner.jpg');"></div>
-                    </div>
-                    <div class="slide">
-                        <div class="slide-info">
-                            <h2 class="slide-title">Positions for Postdoctoral Researchers</h2>
-                            <button>Read more</button>
-                        </div>
-                        <div class="image-frame" style="background-image:url('http://agencia.fapesp.br/agencia-novo/imagens/noticia/24126.jpg');"></div>
-                    </div>
+                    {% endfor %}
+{#                    <div class="slide">#}
+{#                        <div class="slide-info">#}
+{#                            <h2 class="slide-title">Positions for Postdoctoral Researchers</h2>#}
+{#                            <button>Read more</button>#}
+{#                        </div>#}
+{#                        <div class="image-frame" style="background-image:url('http://agencia.fapesp.br/agencia-novo/imagens/noticia/24126.jpg');"></div>#}
+{#                    </div>#}
                 </div>
                 <div class="button prev"></div>
                 <div class="button next"></div>

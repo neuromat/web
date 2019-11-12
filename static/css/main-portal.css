@@ -67,6 +67,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
   color: #333;
   text-decoration: none;
   font-weight: bold;
+  font-family: Arial;
 }
 .app-portal header .logo small {
   font-size: 0.35em;
@@ -717,6 +718,12 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  footer {
+    width: 100%;
+    flex-direction: column;
+  }
+}
 footer .license {
   color: #ccc;
   border-top: 1px solid #ccc;
@@ -897,7 +904,7 @@ footer .footer-info ul.sitemap-tree li.social-media-list i {
     line-height: 35px;
   }
 }
-.slide .slide-info button {
+.slide .slide-info a, .slide .slide-info button {
   position: absolute;
   left: 35px;
   bottom: 40px;
@@ -907,8 +914,12 @@ footer .footer-info ul.sitemap-tree li.social-media-list i {
   border: none;
   border-radius: 4px;
   margin-left: 20px;
+  text-decoration: none;
+  text-align: center;
+  color: #333;
+  background: #f3f3f3;
 }
-.slide .slide-info button:hover {
+.slide .slide-info a:hover, .slide .slide-info button:hover {
   background: #2dc450;
   color: white;
 }
