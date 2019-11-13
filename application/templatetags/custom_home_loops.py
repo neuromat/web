@@ -96,9 +96,22 @@ def get_banners():
     return banners
 
 @register.simple_tag
-def get_social_media_links():
+def get_social_media_links(list=False):
     """
     Provide a slideshow component with main products and internal links.
     """
-    links = SocialMediaLink.objects.all()
-    return links
+    if list:
+        print('list case')
+        list_template = "<ul>"
+
+        for sociallink in SocialMediaLink.objects.all():
+            list_template += '<li class="social-media-link"><a title="' + sociallink.title + '"target="_blank"' + \
+             'href="' + sociallink.link + '"><i class="' + sociallink.icon_class + '"></i>' + \
+                             sociallink.title + '</a></li>'
+        list_template += "</ul>"
+        return list_template
+    else:
+        print('link case')
+        links = SocialMediaLink.objects.all()
+        return links
+
