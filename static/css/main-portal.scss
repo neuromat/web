@@ -65,6 +65,12 @@ $mq-ipads-landscape: "only screen and (min-device-width : 768px) and (max-device
 $mq-desktops-laptops: "only screen and (min-width : 1224px) and (max-width: 1824px)";
 $mq-large-screens: "only screen and (min-width : 1824px)";
 
+body{
+    @media #{$mq-smartphones-portrait-landscape}{
+        padding-top: 0;
+    }
+}
+
 // MAIN STYLES
 .app-portal{
     display: flex;
@@ -362,7 +368,10 @@ $mq-large-screens: "only screen and (min-width : 1824px)";
     }
     form{
         width: 60%;
-
+        @media #{$mq-smartphones-portrait-landscape}{
+            width: 100%;
+            display: flex;
+        }
     }
     input{
         outline: none;
@@ -475,6 +484,9 @@ $mq-large-screens: "only screen and (min-width : 1824px)";
         font-size: 1.2em;
         line-height: 17pt;
         height: 60px;
+        @media #{$mq-smartphones-portrait-landscape}{
+            height: 30px;
+        }
         @media #{$mq-desktops-laptops}{
             font-size: 1.1em;
         }
@@ -769,10 +781,19 @@ footer{
             display: flex;
             justify-content: space-between;
             width: 400px;
+            @media #{$mq-smartphones-portrait-landscape}{
+                width: 100%;
+                margin: auto;
+                padding: 10px;
+            }
             .marca-apoio{
                 width: 180px;
                 display: flex;
                 flex-direction: column;
+                @media #{$mq-smartphones-portrait-landscape}{
+                    width: 130px;
+                }
+
                 span{
                     color: white;
                 }
@@ -791,6 +812,7 @@ footer{
         }
 
         .address-info{
+
             h3{
                 font-size: 1.1em;
                 color: white;
@@ -820,12 +842,18 @@ footer{
                     }
                 }
             }
+            @media #{$mq-smartphones-portrait-landscape}{
+                display: none;
+            }
         }
 
         ul.sitemap-tree{
             display: flex;
             list-style: none;
             padding-left: 0;
+            @media #{$mq-smartphones-portrait-landscape}{
+                display: none;
+            }
             li{
                 margin-left: 30px;
                 a{
@@ -989,4 +1017,9 @@ footer{
         border-color: $verde-neuromat;
         opacity: 1;
     }
+}
+
+.navbar-mobile{
+    background: #f3f3f3;
+    margin-bottom: 15px;
 }

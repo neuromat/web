@@ -36,6 +36,12 @@ h1, h2, h3, h4, h5, p, span, a, button {
   position: absolute;
 }
 
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  body {
+    padding-top: 0;
+  }
+}
+
 .app-portal {
   display: flex;
   flex-direction: column;
@@ -340,6 +346,12 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .search-box form {
   width: 60%;
 }
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  .search-box form {
+    width: 100%;
+    display: flex;
+  }
+}
 .search-box input {
   outline: none;
   align-self: center;
@@ -460,6 +472,11 @@ h1, h2, h3, h4, h5, p, span, a, button {
   font-size: 1.2em;
   line-height: 17pt;
   height: 60px;
+}
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  .post-item .post-title {
+    height: 30px;
+  }
 }
 @media only screen and (min-width : 1224px) and (max-width: 1824px) {
   .post-item .post-title {
@@ -745,10 +762,22 @@ footer .footer-info .marcas-footer {
   justify-content: space-between;
   width: 400px;
 }
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  footer .footer-info .marcas-footer {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+  }
+}
 footer .footer-info .marcas-footer .marca-apoio {
   width: 180px;
   display: flex;
   flex-direction: column;
+}
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  footer .footer-info .marcas-footer .marca-apoio {
+    width: 130px;
+  }
 }
 footer .footer-info .marcas-footer .marca-apoio span {
   color: white;
@@ -791,10 +820,20 @@ footer .footer-info .address-info ul li p {
 footer .footer-info .address-info ul li p a {
   color: white;
 }
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  footer .footer-info .address-info {
+    display: none;
+  }
+}
 footer .footer-info ul.sitemap-tree {
   display: flex;
   list-style: none;
   padding-left: 0;
+}
+@media only screen and (min-width : 320px) and (max-width : 1024px) {
+  footer .footer-info ul.sitemap-tree {
+    display: none;
+  }
 }
 footer .footer-info ul.sitemap-tree li {
   margin-left: 30px;
@@ -955,6 +994,11 @@ footer .footer-info ul.sitemap-tree li.social-media-list i {
 .next:hover {
   border-color: #2dc450;
   opacity: 1;
+}
+
+.navbar-mobile {
+  background: #f3f3f3;
+  margin-bottom: 15px;
 }
 
 /*# sourceMappingURL=main-portal.css.map */

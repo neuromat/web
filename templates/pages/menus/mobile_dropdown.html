@@ -2,7 +2,7 @@
 {% spaceless %}
 
 {% if branch_level == 0 %}
-    <nav class="nav navbar-default">
+    <nav class="nav navbar-default navbar-mobile mobile-only">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -55,6 +55,9 @@
                     {% endif %}
                 {% endif %}
             {% if branch_level == 0 %}
+                <div class="language-link">
+                    {% include "includes/language_selector.html" %}
+                </div>
             </div>
         </div>
     </nav>
