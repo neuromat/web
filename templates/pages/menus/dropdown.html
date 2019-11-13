@@ -1,4 +1,4 @@
-{% load i18n pages_tags %}
+{% load i18n pages_tags custom_home_loops %}
 {% spaceless %}
 {% if page_branch_in_menu %}
         <nav>
@@ -18,22 +18,14 @@
                     <div class="language-link">
                         {% include "includes/language_selector.html" %}
                     </div>
-
-                    <li class="social-media-link">
-                        <a title="Facebook" href="#"><i class="fab fa-facebook-square"></i></a>
-                    </li>
-                    <li class="social-media-link">
-                        <a title="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a>
-                    </li>
-                    <li class="social-media-link">
-                        <a title="Github" href="#"><i class="fab fa-github" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="social-media-link">
-                        <a title="Wikipedia" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-wikipedia-w"></i></a>
-                    </li>
-                    <li class="social-media-link">
-                        <a title="Youtube" href="https://en.wikipedia.org/wiki/NeuroMat"><i class="fab fa-youtube"></i></a>
-                    </li>
+                    {% get_social_media_links as social_links %}
+                    {% for sociallink in social_links %}
+                        <li class="social-media-link">
+                            <a title="{{ sociallink.link }}" target="_blank" href="{{ sociallink.link }}">
+                                <i class="{{ sociallink.icon_class }}"></i>
+                            </a>
+                        </li>
+                    {% endfor %}
                 {% endif %}
 
             </ul>

@@ -95,3 +95,17 @@ class SwiperCard(models.Model):
         verbose_name = _('Swipper Card')
         verbose_name_plural = _('Swipper Cards')
         ordering = ('title',)
+
+class SocialMediaLink(models.Model):
+    """An instance of this class represents a card item."""
+    title = models.CharField(_('Title'), max_length=255)
+    link = models.CharField(_('Link'), max_length=255)
+    icon_class = models.CharField(_('Font Awesome class'), max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Social link')
+        verbose_name_plural = _('Social links')
+        ordering = ('title',)

@@ -2,7 +2,7 @@ from copy import deepcopy
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Postdoc, PostdocFile, Research, FeatureCard, SwiperCard, Banner
+from .models import Postdoc, PostdocFile, Research, FeatureCard, SwiperCard, Banner, SocialMediaLink
 from mezzanine.blog.admin import BlogPostAdmin
 from mezzanine.blog.models import BlogPost
 
@@ -54,6 +54,11 @@ class SwiperCardsAdmin(admin.ModelAdmin):
 
 admin.site.register(SwiperCard, SwiperCardsAdmin)
 
+
+class SocialMediaLinkAdmin(admin.ModelAdmin):
+    list_display = ('title', 'link', 'icon_class')
+
+admin.site.register(SocialMediaLink, SocialMediaLinkAdmin)
 
 class MyBlogPostAdmin(BlogPostAdmin):
     fieldsets = blog_fieldsets
