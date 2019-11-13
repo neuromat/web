@@ -1,0 +1,62 @@
+{% load i18n pages_tags %}
+{% spaceless %}
+
+{% if branch_level == 0 %}
+    <nav class="nav navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            {% endif %}
+
+                {% if page_branch_in_menu %}
+                    {% if branch_level == 0 %}
+                        <ul class="nav navbar-nav">
+                            {% for page in page_branch %}
+                                {% if page.in_menu %}
+                                    {% if page.login_required and request.user.is_authenticated or not page.login_required %}
+                                        <li class="dropdown{% if page.is_current_or_ascendant %} active{% endif %}"
+                                        id="dropdown-menu-{{ page.html_id }}">
+                                            <a href="{{ page.get_absolute_url }}">
+                                                {{ page.title }}
+                                                {% if page.has_children %}<span class="caret"></span>{% endif %}
+                                            </a>
+                                        {% if page.has_children %}{% page_menu page %}{% endif %}
+                                        </li>
+                                        <li class="divider-vertical"></li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    {% if branch_level == 1 %}
+                        {# <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>#}
+                        <ul class="dropdown-menu">
+                            {% for page in page_branch %}
+                                {% if page.in_menu %}
+                                    {% if page.login_required and request.user.is_authenticated or not page.login_required %}
+                                        <li{% if page.is_current_or_ascendant %} class="active"{% endif %}
+                                        id="dropdown-menu-{{ page.html_id }}">
+                                        <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endif %}
+            {% if branch_level == 0 %}
+            </div>
+        </div>
+    </nav>
+    {% endif %}
+{% endspaceless %}
