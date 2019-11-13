@@ -51,7 +51,7 @@
                         </a>
                     </div>
                     <div class="post-info">
-                        <small class="post-date">Abr 22, 2019</small>
+                        <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
                         <h3 class="post-title">{{ post }} </h3>
                         <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
                     </div>
@@ -67,26 +67,9 @@
 
     <div class="container-fluid container-fluid--spacer">
         <section class="section-default">
-            <div class="col-md-9 col-sm-12">
-{#                        {% autoescape off %}#}
-{#                            {% show_page_content %}#}
-{#                        {% endautoescape %}#}
+            {# ABOUT NEUROMAT #}
+            {% include 'includes/neuromat_about_frame.html' %}
 
-                <div class="post-feature-item">
-                    <div class="post-feature-image" style="background-image:url('http://localhost:8888/front-end-static/temp/numec_foto_predio.jpg')"></div>
-
-                    <div class="post-feature-info">
-
-                        <h3 class="section-title"> <span>CEPID Neuromat</span></h3>
-                        <p>O Centro de Pesquisa, Inovação e Difusão em Neuromatemática (CEPID NeuroMat) é um centro de matemática cuja missão é desenvolver a nova matemática necessária para construir uma Teoria do Cérebro, tendo em vista os dados experimentais produzidos pela neurociência.</p>
-                        <p><a href="#">Conheça o projeto</a></p>
-                        {% include 'components/newsletter_subscribe_input/newsteller_subscribe_input.html' %}
-                    </div>
-                </div>
-                <div class="facebook-like-btn-box">
-                    <div class="fb-like" data-href="http://neuromat.numec.prp.usp.br" data-width="" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                </div>
-            </div>
             <div class="col-md-3">
             {# SWIPER SLIDESHOW COMPONENT #}
             {% include 'components/swiper/swiper.html' %}
