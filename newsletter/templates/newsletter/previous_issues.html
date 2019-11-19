@@ -4,36 +4,46 @@
 {% block meta_title %}{% trans "Newsletter" %}{% endblock %}
 
 {% block main %}
-    {% for item in previous_issues_list %}
-        <h2><a href="{% url 'newsletter' item.number %}" style="color: black">Newsletter #{{ item.number }}</a></h2>
-        <p><em>{{ item.date|date:"F Y" }}</em> - {% trans "Topics" %}:</p>
-        <ul>
-            {% if item.featured.all %}
-                {% for featured in item.featured.all %}
-                    <li><a href="/content/{{ featured.slug }}">{{ featured.title }}</a></li>
-                {% endfor %}
-            {% elif item.event.all %}
-                {% for event in item.event.all %}
-                    <li><a href="/content/{{ event.slug }}">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a></li>
-                {% endfor %}
-            {% endif %}
+    <section class="section-default section-spacer">
+        <div class="col-md-9">
+        {% for item in previous_issues_list %}
+            <div class="newsletter-previous-item">
+                <h2><a href="{% url 'newsletter' item.number %}" style="color: black">Newsletter #{{ item.number }}</a></h2>
+                <p><em>{{ item.date|date:"F Y" }}</em> - {% trans "Topics" %}:</p>
+                <ul>
+                    {% if item.featured.all %}
+                        {% for featured in item.featured.all %}
+                            <li><a href="/content/{{ featured.slug }}">{{ featured.title }}</a></li>
+                        {% endfor %}
+                    {% elif item.event.all %}
+                        {% for event in item.event.all %}
+                            <li><a href="/content/{{ event.slug }}">{% if event.meta_title %}{{ event.meta_title }}{% else %}{{ event.title }}{% endif %}</a></li>
+                        {% endfor %}
+                    {% endif %}
 
-            {% if item.publication.all %}
-                <li><a href="/content/category/publications">{% trans "Last NeuroMat scientific publications" %}</a></li>
-            {% endif %}
+                    {% if item.publication.all %}
+                        <li><a href="/content/category/publications">{% trans "Last NeuroMat scientific publications" %}</a></li>
+                    {% endif %}
 
-            {% if item.in_the_media.all %}
-                <li><a href="/content/category/news">{% trans "NeuroMat in the media" %}</a></li>
-            {% endif %}
+                    {% if item.in_the_media.all %}
+                        <li><a href="/content/category/news">{% trans "NeuroMat in the media" %}</a></li>
+                    {% endif %}
 
-            {% if item.opportunity.all %}
-                <li><a href="/content/category/opportunities">{% trans "NeuroMat opportunities" %}</a></li>
-            {% endif %}
+                    {% if item.opportunity.all %}
+                        <li><a href="/content/category/opportunities">{% trans "NeuroMat opportunities" %}</a></li>
+                    {% endif %}
 
-            <li><a href="https://www.facebook.com/neuromathematics" target="_blank">{% trans "NeuroMat Facebook Highlights" %}</a></li>
-        </ul>
-    {% endfor %}
+                    <li><a href="https://www.facebook.com/neuromathematics" target="_blank">{% trans "NeuroMat Facebook Highlights" %}</a></li>
+                </ul>
+            </div>
 
+        {% endfor %}
+        </div>
+        <div class="col-md-3">
+        {% include "components/sidebar/sidebar.html" %}
+        </div>
+
+    </section>
     {% pagination_for previous_issues_list %}
 {% endblock %}
 

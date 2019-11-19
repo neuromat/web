@@ -3,7 +3,7 @@
         <section class="section-default section-spacer clearfix">
             <h3 class="section-title"> <span>Notícias destaque</span></h3>
             <div class="container-posts">
-                {% blog_recent_posts category='feature' as posts %}
+                {% blog_recent_posts category='news' as posts %}
                 {% for post in posts %}
                 <div class="post-item">
                     <div class="post-image-box">
@@ -20,9 +20,9 @@
                         </a>
                     </div>
                     <div class="post-info">
-                        <small class="post-date">Abr 22, 2019</small>
-                        <h3 class="post-title">{{ post }} </h3>
-                        <p>The Research, Innovation and Dissemination Center for Neuromathematics (RIDC NeuroMat) has sustained an ongoing project for the development of new strategies of transcranial magneti</p>
+                        <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
+                        <h3 class="post-title">{{ post | truncatewords:15  }} </h3>
+                        <p>{{ post.description | truncatewords:50 }}</p>
                     </div>
                 </div>
                 {% endfor %}

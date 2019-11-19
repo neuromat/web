@@ -407,7 +407,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
   }
 }
 .post-feature-item .post-feature-image {
-  width: 45%;
+  width: 55%;
   height: 350px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -422,7 +422,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
   }
 }
 .post-feature-item .post-feature-info {
-  width: 70%;
+  width: 100%;
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .post-feature-item .post-feature-info {
@@ -437,7 +437,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
   display: flex;
   flex-direction: column;
   width: 25%;
-  margin: 5px;
+  margin: 10px;
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .post-item {
@@ -495,6 +495,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .project-slideshow-component .swiper-container {
   width: 100%;
   height: 300px;
+  margin-top: 10px;
 }
 .project-slideshow-component .swiper-container .swiper-slide {
   display: flex;
@@ -609,6 +610,32 @@ h1, h2, h3, h4, h5, p, span, a, button {
 }
 .last-events ul p {
   margin-top: 10px;
+}
+
+.page-content img {
+  float: left;
+  margin: 15px;
+}
+.page-content ul {
+  margin-left: 20px;
+}
+
+.newsletter-content {
+  width: 800px;
+  margin: 20px auto;
+}
+
+.newsletter-previous-item {
+  padding: 12px;
+  border-bottom: 10px solid #f3f3f3;
+  margin-bottom: 10px;
+}
+.newsletter-previous-item h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.4em;
+}
+.newsletter-previous-item ul {
+  padding-left: 30px;
 }
 
 .section-spacer {

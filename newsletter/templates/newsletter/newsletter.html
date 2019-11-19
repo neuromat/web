@@ -4,9 +4,12 @@
 {% block meta_title %}{% trans "Newsletter" %}{% endblock %}
 
 {% block main %}
-    {% include 'newsletter_content.html' %}
-{% endblock %}
-
-{% block right_panel %}
-    {% include "blog/includes/filter_panel.html" %}
+    <section class="section-default section-spacer">
+        <div class="col-md-9">
+            {% include 'newsletter_content.html' %}
+        </div>
+        <div class="col-md-3">
+            {% include "components/sidebar/sidebar.html" %}
+        </div>
+    </section>
 {% endblock %}

@@ -101,7 +101,6 @@ def get_social_media_links(list=False):
     Provide a slideshow component with main products and internal links.
     """
     if list:
-        print('list case')
         list_template = "<ul>"
 
         for sociallink in SocialMediaLink.objects.all():
@@ -111,7 +110,6 @@ def get_social_media_links(list=False):
         list_template += "</ul>"
         return list_template
     else:
-        print('link case')
         links = SocialMediaLink.objects.all()
         return links
 

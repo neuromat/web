@@ -133,7 +133,7 @@
   scroll-snap-type: y mandatory;
 }
 :root {
-  --swiper-navigation-size: 44px;
+  --swiper-navigation-size: 30px;
   /*
   --swiper-navigation-color: var(--swiper-theme-color);
   */

@@ -54,6 +54,12 @@ ALTMETRIC_CHOICES = (
 
 EXTRA_MODEL_FIELDS = (
     (
+        "mezzanine.pages.models.Page.page_image",
+        "ImageField",
+        ("Featured Image",),
+        {"blank": True, "upload_to": "uploads", },
+    ),
+    (
         "mezzanine.blog.models.BlogPost.hide_post",
         "django.db.models.BooleanField",
         ("Do not show on the homepage",),
