@@ -619,6 +619,9 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .page-content ul {
   margin-left: 20px;
 }
+.page-content .section-title {
+  margin-top: 75px;
+}
 
 .newsletter-content {
   width: 800px;
