@@ -187,6 +187,9 @@ h1, h2, h3, h4, h5, p, span, a, button {
   background: #f3f3f3;
   border: 1px solid transparent;
 }
+.app-portal header nav ul li ul li:after {
+  height: 0;
+}
 .app-portal header .fapesp-apoio {
   width: 150px;
   height: 65px;
@@ -411,7 +414,6 @@ h1, h2, h3, h4, h5, p, span, a, button {
   height: 350px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #ccc;
   background-position: center;
   margin-right: 15px;
   border-radius: 3px;
@@ -471,7 +473,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
   padding: 0;
   font-size: 1.2em;
   line-height: 17pt;
-  height: 60px;
+  min-height: 60px;
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .post-item .post-title {
@@ -519,6 +521,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
 
 .newsletter-lead {
   margin-top: 40px;
+  margin-bottom: 25px;
 }
 .newsletter-lead .newsletter-lead-row {
   display: flex;
@@ -620,7 +623,24 @@ h1, h2, h3, h4, h5, p, span, a, button {
   margin-left: 20px;
 }
 .page-content .section-title {
+  font-size: 1.4em;
   margin-top: 75px;
+  margin-bottom: 20px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid green;
+}
+.page-content .section-title span {
+  position: relative;
+}
+.page-content .section-title span:before {
+  content: "";
+  bottom: -3px;
+  left: 0;
+  width: 120%;
+  height: 2px;
+  background-color: #4e852e;
+  z-index: 500;
+  position: absolute;
 }
 
 .newsletter-content {
