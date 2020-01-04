@@ -5,7 +5,7 @@
             <ul>
                 {% for page in page_branch %}
                     {% if page.in_menu %}
-                        <li>
+                        <li class="{% if page.has_children_in_menu %} submenu {% endif %}" >
                             <a href="{{ page.get_absolute_url }}"> {{ page.title }}</a>
                             {% if page.has_children_in_menu %}{% page_menu page %}{% endif %}
                         </li>

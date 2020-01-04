@@ -22,7 +22,7 @@
                     <div class="post-info">
                         <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
                         <h3 class="post-title">{{ post | truncatewords:15  }} </h3>
-                        <p>{{ post.description | truncatewords:50 }}</p>
+                        <p>{{ post.description | truncatewords:50 | safe }}</p>
                     </div>
                 </div>
                 {% endfor %}

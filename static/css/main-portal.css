@@ -57,6 +57,12 @@ h1, h2, h3, h4, h5, p, span, a, button {
   justify-content: space-between;
   position: relative;
 }
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header {
+    width: 90%;
+    height: auto;
+  }
+}
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .app-portal header {
     display: none;
@@ -72,8 +78,12 @@ h1, h2, h3, h4, h5, p, span, a, button {
   position: relative;
   color: #333;
   text-decoration: none;
-  font-weight: bold;
   font-family: Arial;
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header .logo {
+    height: auto;
+  }
 }
 .app-portal header .logo small {
   font-size: 0.35em;
@@ -83,6 +93,11 @@ h1, h2, h3, h4, h5, p, span, a, button {
   margin-left: 9px;
   border-left: 1px solid #333;
 }
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header .logo small {
+    display: none;
+  }
+}
 .app-portal header nav {
   width: 70%;
   margin-right: 160px;
@@ -90,6 +105,8 @@ h1, h2, h3, h4, h5, p, span, a, button {
 @media only screen and (min-width : 1224px) and (max-width: 1824px) {
   .app-portal header nav {
     width: 75%;
+    display: flex;
+    align-items: center;
   }
 }
 .app-portal header nav ul {
@@ -104,8 +121,12 @@ h1, h2, h3, h4, h5, p, span, a, button {
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
-  margin-left: 0;
   border: none;
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header nav ul li.social-media-link {
+    display: none;
+  }
 }
 .app-portal header nav ul li.social-media-link:hover {
   border: none;
@@ -117,15 +138,26 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .app-portal header nav ul li.social-media-link a:hover {
   color: #12587a;
 }
-.app-portal header nav ul .language-link {
+.app-portal header nav ul li.language-link {
   display: flex;
   align-items: center;
   margin-right: 25px;
+  border: 1px solid red;
+  width: 200px;
+  justify-content: space-between;
 }
-.app-portal header nav ul .language-link a, .app-portal header nav ul .language-link input[type=submit] {
+.app-portal header nav ul li.language-link a, .app-portal header nav ul li.language-link input[type=submit], .app-portal header nav ul li.language-link .btn-link {
   text-decoration: none;
-  color: #333;
+  color: #333 !important;
   outline: none;
+  border: none;
+  background: transparent;
+  width: 150px;
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header nav ul li.submenu:hover:after {
+    bottom: -1px;
+  }
 }
 .app-portal header nav ul li {
   margin-right: 15px;
@@ -154,6 +186,13 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .app-portal header nav ul li:hover ul {
   display: flex;
 }
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header nav ul li {
+    align-self: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
 .app-portal header nav ul li nav {
   margin-right: auto;
 }
@@ -177,11 +216,26 @@ h1, h2, h3, h4, h5, p, span, a, button {
   border-right: 1px solid #333;
   list-style: none;
 }
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header nav ul li ul {
+    top: 34px;
+  }
+}
 .app-portal header nav ul li ul li {
   display: flex;
   padding: 8px;
   width: 100%;
   margin: 0;
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header nav ul li ul li {
+    padding: 6px;
+  }
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header nav ul li ul li a {
+    font-size: 0.9em;
+  }
 }
 .app-portal header nav ul li ul li:hover {
   background: #f3f3f3;
@@ -210,10 +264,20 @@ h1, h2, h3, h4, h5, p, span, a, button {
   left: 20px;
   color: #069;
 }
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header .fapesp-apoio {
+    display: none;
+  }
+}
 
 .section-default {
   width: 80%;
   margin: auto;
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .section-default {
+    width: 90%;
+  }
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .section-default {
@@ -348,11 +412,17 @@ h1, h2, h3, h4, h5, p, span, a, button {
 }
 .search-box form {
   width: 60%;
+  display: flex;
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .search-box form {
     width: 100%;
     display: flex;
+  }
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .search-box form {
+    width: 80%;
   }
 }
 .search-box input {
@@ -417,6 +487,12 @@ h1, h2, h3, h4, h5, p, span, a, button {
   background-position: center;
   margin-right: 15px;
   border-radius: 3px;
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .post-feature-item .post-feature-image {
+    width: 75%;
+    height: 260px;
+  }
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .post-feature-item .post-feature-image {
@@ -522,6 +598,11 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .newsletter-lead {
   margin-top: 40px;
   margin-bottom: 25px;
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .newsletter-lead {
+    margin: 0 0 20px 0;
+  }
 }
 .newsletter-lead .newsletter-lead-row {
   display: flex;
@@ -668,6 +749,11 @@ h1, h2, h3, h4, h5, p, span, a, button {
 .img-featured-blog-post-detail {
   margin: auto 20px 10px 10px !important;
 }
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .img-featured-blog-post-detail {
+    width: 400px;
+  }
+}
 
 .post-detail-title {
   font-size: 1.5em;
@@ -784,6 +870,7 @@ footer {
   background: #333;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 0;
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   footer {
@@ -881,6 +968,11 @@ footer .footer-info ul.sitemap-tree {
   padding-left: 0;
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
+  footer .footer-info ul.sitemap-tree {
+    display: none;
+  }
+}
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
   footer .footer-info ul.sitemap-tree {
     display: none;
   }

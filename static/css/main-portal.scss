@@ -77,16 +77,24 @@ body{
     margin: auto;
     header{
         display: flex;
-        //border-bottom: 1px solid #333;
         width: 80%;
         height: 80px;
         margin: auto;
         align-items: center;
         justify-content: space-between;
         position: relative;
+
+
+       @media #{$mq-desktops-laptops}{
+           width: 90%;
+           height: auto;
+       }
+
         @media #{$mq-smartphones-portrait-landscape}{
             display: none;
         }
+
+
         .logo{
             width: 320px;
             height: 80px;
@@ -97,8 +105,10 @@ body{
             position: relative;
             color: #333;
             text-decoration: none;
-            font-weight: bold;
             font-family: Arial;
+            @media #{$mq-desktops-laptops}{
+                height: auto;
+            }
             small{
                 font-size: 0.35em;
                 font-weight: normal;
@@ -106,14 +116,21 @@ body{
                 padding-left: 8px;
                 margin-left: 9px;
                 border-left: 1px solid #333;
+                @media #{$mq-desktops-laptops}{
+                    display: none;
+                }
             }
         }
         nav{
             width: 70%;
             margin-right: 160px;
+
             @media #{$mq-desktops-laptops}{
                 width: 75%;
+                display: flex;
+                align-items: center;
             }
+
             ul{
                 list-style: none;
                 width: 100%;
@@ -121,11 +138,15 @@ body{
                 justify-content: flex-end;
                 font-size: 1em;
                 z-index: 9999;
+
+
                 li.social-media-link{
                     margin-left: 0;
                     margin-right: 0;
                     padding-left: 0;
-                    margin-left: 0;
+                    @media #{$mq-desktops-laptops}{
+                        display: none;
+                    }
                     border: none;
                     &:hover{
                         border: none;
@@ -138,22 +159,41 @@ body{
                         }
                     }
                 }
-                .language-link{
+
+                li.language-link{
                     display: flex;
                     align-items: center;
                     margin-right: 25px;
+                    border: 1px solid red;
+                    width: 200px;
+                    justify-content: space-between;
 
-                    a, input[type="submit"]{
+                    a, input[type="submit"], .btn-link{
                         text-decoration: none;
-                        color: #333;
+                        color: #333 !important;
                         outline: none;
+                        border: none;
+                        background: transparent;
+                        width: 150px;
                     }
                 }
+
+                li.submenu{
+                    &:hover{
+                        &:after{
+                            @media #{$mq-desktops-laptops}{
+                                bottom: -1px;
+                            }
+                        }
+                    }
+                }
+
                 li{
                     margin-right: 15px;
                     padding: 15px;
                     position: relative;
                     border: 1px solid transparent;
+
                     &:hover{
                         border: 1px solid #333;
                         &:after{
@@ -165,6 +205,8 @@ body{
                             bottom: 1px;
                             left: 0;
                             z-index: 99000;
+
+
                             @media #{$mq-large-screens}{
                                 bottom: 5px;
                             }
@@ -175,6 +217,13 @@ body{
                         }
                     }
 
+                    // DESKTOP AND NOTEBOOKS
+                    @media #{$mq-desktops-laptops}{
+                        align-self: center;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                    }
+
                     nav{
                         margin-right: auto;
                     }
@@ -183,6 +232,8 @@ body{
                         color: #333;
                         text-decoration: none;
                     }
+
+                    // SUB NAVIGATION
                     ul{
                         display: none;
                         position: absolute;
@@ -198,15 +249,33 @@ body{
                         border-left: 1px solid #333;
                         border-right: 1px solid #333;
                         list-style: none;
+
+                        @media #{$mq-desktops-laptops}{
+                            top: 34px;
+                        }
+
                         li{
                             display: flex;
                             padding: 8px;
                             width: 100%;
                             margin: 0;
+
+                            // DESKTOP E NOTEBOOKS
+                            @media #{$mq-desktops-laptops}{
+                                padding: 6px;
+                            }
+
+                            a{
+                                @media #{$mq-desktops-laptops}{
+                                    font-size: .9em;
+                                }
+                            }
+
                             &:hover{
                                 background: #f3f3f3;
                                 border: 1px solid transparent;
                             }
+
                             &:after{
                                 height: 0;
                             }
@@ -215,6 +284,7 @@ body{
                 }
             }
         }
+
         .fapesp-apoio{
             width: 150px;
             height: 65px;
@@ -234,6 +304,11 @@ body{
                 left: 20px;
                 color: #069;
             }
+
+            @media #{$mq-desktops-laptops}{
+                display: none;
+            }
+
         }
     }
 }
@@ -241,6 +316,9 @@ body{
 .section-default{
     width: 80%;
     margin: auto;
+    @media #{$mq-desktops-laptops}{
+        width: 90%;
+    }
     @media #{$mq-smartphones-portrait-landscape}{
         width: 100%;
     }
@@ -368,10 +446,15 @@ body{
     }
     form{
         width: 60%;
+        display: flex;
         @media #{$mq-smartphones-portrait-landscape}{
             width: 100%;
             display: flex;
         }
+        @media #{$mq-desktops-laptops}{
+            width: 80%;
+        }
+
     }
     input{
         outline: none;
@@ -431,6 +514,12 @@ body{
         background-position: center;
         margin-right: 15px;
         border-radius: 3px;
+
+        @media #{$mq-desktops-laptops}{
+            width: 75%;
+            height: 260px;
+        }
+
         @media #{$mq-smartphones-portrait-landscape}{
             display: none;
         }
@@ -532,6 +621,9 @@ body{
 .newsletter-lead{
     margin-top: 40px;
     margin-bottom: 25px;
+    @media #{$mq-desktops-laptops}{
+        margin: 0 0 20px 0;
+    }
     .newsletter-lead-row{
         display: flex;
         align-items: center;
@@ -646,19 +738,19 @@ body{
     margin-bottom: 20px;
     padding-bottom: 4px;
     border-bottom: 1px solid green;
-        span{
-            position: relative;
-            &:before{
-                content: '';
-                bottom: -3px;
-                left: 0;
-                width: 120%;
-                height: 2px;
-                background-color: rgb(78, 133, 46);
-                z-index: 500;
-                position: absolute;
-            }
+    span{
+        position: relative;
+        &:before{
+            content: '';
+            bottom: -3px;
+            left: 0;
+            width: 120%;
+            height: 2px;
+            background-color: rgb(78, 133, 46);
+            z-index: 500;
+            position: absolute;
         }
+    }
 }
 
 
@@ -688,6 +780,9 @@ body{
 
 .img-featured-blog-post-detail{
     margin: auto 20px 10px 10px !important;
+    @media #{$mq-desktops-laptops}{
+        width: 400px;
+    }
 }
 
 .post-detail-title{
@@ -804,6 +899,7 @@ footer{
     background: #333;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-top: 0;
         @media #{$mq-smartphones-portrait-landscape}{
             width: 100%;
             flex-direction: column;
@@ -818,6 +914,7 @@ footer{
         justify-content: space-between;
         width: 80%;
         margin: 20px auto;
+
         @media #{$mq-smartphones-portrait-landscape}{
             width: 100%;
         }
@@ -831,6 +928,7 @@ footer{
                 margin: auto;
                 padding: 10px;
             }
+
             .marca-apoio{
                 width: 180px;
                 display: flex;
@@ -846,6 +944,7 @@ footer{
                     width: 70%;
                 }
             }
+
             .marca-apoio.localizacao{
                 span{
                     margin-bottom: 5px;
@@ -886,9 +985,11 @@ footer{
                     }
                 }
             }
+
             @media #{$mq-smartphones-portrait-landscape}{
                 display: none;
             }
+
         }
 
         ul.sitemap-tree{
@@ -896,6 +997,9 @@ footer{
             list-style: none;
             padding-left: 0;
             @media #{$mq-smartphones-portrait-landscape}{
+                display: none;
+            }
+            @media #{$mq-desktops-laptops}{
                 display: none;
             }
             li{
