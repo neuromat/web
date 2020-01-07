@@ -41,7 +41,8 @@
                         {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
                             {% with blog_post.categories.all|first as category %}
                                 {% if category.slug == 'events' %}
-                                    <img {% if blog_post.credits %} title="{{ blog_post.credits }}" {% endif %}class="img-responsive img-featured-blog-post-detail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 500 auto %}" />
+                                    <img {% if blog_post.credits %} title="{{ blog_post.credits }}"
+                                    {% endif %}class="img-responsive img-featured-blog-post-detail pull-left" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 500 0 %}" />
 
                                     {% if blog_post.legend %}
                                         <small class="image-legend">{{ blog_post.legend }}</small>

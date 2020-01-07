@@ -25,11 +25,12 @@
                     {% endif %}
                 </p>
 
-                <div id="search-results">
+                <ul id="search-results" class="search-results-block">
                     {% for result in results.object_list %}
+                        <li>
                         {% with result.get_absolute_url as result_url %}
-                            <h5>
-                                {{ forloop.counter0|add:results.start_index }})
+                            <h5 class="search-results-title">
+                                {{ forloop | add:results.start_index }}
                                 {% if result_url %}
                                     <a href="{{ result_url }}">{{ result }}</a>
                                 {% else %}
@@ -43,8 +44,9 @@
                                 <a href="{{ result_url }}">{% trans "read more" %}</a>
                             {% endif %}
                         {% endwith %}
+                        </li>
                     {% endfor %}
-                </div>
+                </ul>
 
                 {% pagination_for results %}
             </div>

@@ -95,14 +95,14 @@
                         {% blog_recent_posts category='events' as eventos %}
                         {% for event in eventos %}
                             <li>
-                                <a href="#">
-                                    <div class="date"> {{ event.publish_date|date:"M d, Y" }}</div>
+                                <a href="{{ event.get_absolute_url }}">
+                                    <div class="date"> {{ event.publish_date | date:"M d, Y" }}</div>
                                     <h4 class="title"> {{ event.title }} </h4>
                                 </a>
                             </li>
                         {% endfor %}
 
-                        <p><a href="#">Visualizar todos os eventos</a></p>
+                        <p><a href="/eventos">Visualizar todos os eventos</a></p>
                     </ul>
                 </div>
             </div>

@@ -38,7 +38,7 @@
                         {% endif %}
                         {# Eventos            #}
                         {% if page.get_slug == 'eventos' or page.get_slug == 'sobre-o-neuromat/eventos'%}
-                                <div class="container-posts">
+                                <div class="container-posts container-posts--events">
                                     {% blog_recent_posts category='events' as posts %}
                                     {% for post in posts %}
                                     <div class="post-item">
@@ -57,7 +57,9 @@
                                         </div>
                                         <div class="post-info">
                                             <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
-                                            <h3 class="post-title">{{ post.title | truncatewords:15 }} </h3>
+                                             <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
+                                                 <h3 class="post-title">{{ post.title | truncatewords:15 }} </h3>
+                                             </a>
                                             <p> {% autoescape off %} {{ post.description | truncatewords:50 }}
                                             {% endautoescape %}</p>
                                         </div>
