@@ -647,14 +647,15 @@ body{
             height: 35px;
             background: #f3f3f3;
             color: #666;
-            border: 1px solid #ccc;
+            border: none;
             font-size: 0.9em;
             border-radius: 3px;
-            font-weight: bold;
+
             &:hover{
                 background: $color-button-hover;
                 border: 1px solid $color-button-hover;
                 color: white;
+                font-weight: bold;
             }
         }
     }
@@ -833,7 +834,7 @@ body{
      }
 }
 
-.container-posts--events{
+.container-posts--horizontal{
 
     flex-direction: column;
     .post-item{
@@ -1162,7 +1163,7 @@ footer{
   .button {
     width: 30px;
     height: 30px;
-    border-top: 4px solid rgb(0, 0, 0);
+    //border-top: 4px solid rgb(0, 0, 0);
     position: absolute;
     top: 50%;
     cursor: pointer;
@@ -1220,4 +1221,8 @@ footer{
             background: #f3f0bd;
         }
     }
+}
+
+.feature-event{
+    margin-bottom: 20px;
 }

@@ -30,7 +30,7 @@ def show_page_content():
 
 
 @register.simple_tag
-def blog_recent_posts(limit=8, tag=None, username=None, category=None):
+def blog_recent_posts(limit=4, tag=None, username=None, category=None):
     """
     Put a list of recently published blog posts into the template
     context. A tag title or slug, category title or slug or author's

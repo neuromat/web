@@ -630,15 +630,15 @@ h1, h2, h3, h4, h5, p, span, a, button {
   height: 35px;
   background: #f3f3f3;
   color: #666;
-  border: 1px solid #ccc;
+  border: none;
   font-size: 0.9em;
   border-radius: 3px;
-  font-weight: bold;
 }
 .newsletter-lead .newsletter-lead-row button:hover {
   background: #5eb052;
   border: 1px solid #5eb052;
   color: white;
+  font-weight: bold;
 }
 
 .youtube-box {
@@ -807,26 +807,26 @@ h1, h2, h3, h4, h5, p, span, a, button {
   }
 }
 
-.container-posts--events {
+.container-posts--horizontal {
   flex-direction: column;
 }
-.container-posts--events .post-item {
+.container-posts--horizontal .post-item {
   width: 100%;
   flex-direction: row;
 }
-.container-posts--events .post-item .post-image-box {
+.container-posts--horizontal .post-item .post-image-box {
   width: 25%;
   margin-right: 14px;
 }
-.container-posts--events .post-item .post-info {
+.container-posts--horizontal .post-item .post-info {
   width: 70%;
 }
-.container-posts--events .post-item .post-info .post-title {
+.container-posts--horizontal .post-item .post-info .post-title {
   color: #333;
   margin-bottom: 10px;
   min-height: auto;
 }
-.container-posts--events .post-item .post-info .post-title:hover {
+.container-posts--horizontal .post-item .post-info .post-title:hover {
   color: #069;
 }
 
@@ -1132,7 +1132,6 @@ footer .footer-info ul.sitemap-tree li.social-media-list i {
 .button {
   width: 30px;
   height: 30px;
-  border-top: 4px solid black;
   position: absolute;
   top: 50%;
   cursor: pointer;
@@ -1184,6 +1183,10 @@ footer .footer-info ul.sitemap-tree li.social-media-list i {
 }
 .search-results-block li:hover {
   background: #f3f0bd;
+}
+
+.feature-event {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=main-portal.css.map */

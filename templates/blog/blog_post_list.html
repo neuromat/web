@@ -32,7 +32,7 @@
         {% include "includes/search_form.html" %}
 
         <section class="section-default">
-            <h3 class="section-title"> <span>Notícias destaque</span></h3>
+            <h3 class="section-title"> <span>{% trans "Feature News" %} </span></h3>
             <div class="container-posts">
                 {% blog_recent_posts category='news' as posts %}
                 {% for post in posts %}
@@ -78,21 +78,14 @@
     </div>
 
     <!-- Video and Event Section -->
+    {% blog_recent_posts category='events' as eventos %}
     <div class="container-fluid container-fluid--spacer">
         <section class="section-default">
             <div class="col-md-7">
-                <h3 class="section-title"> <span>Últimos eventos</span></h3>
-
-                <!-- Definir lógica para featured event -->
-                <div class="feature-event">
-                    <img style="width: 100%;" src="https://neuromat.numec.prp.usp.br/static/media/uploads/dc_hamburger/banner.jpg" alt="">
-                </div>
-                <!-- / Definir lógica para featured event -->
+                <h3 class="section-title"> <span> {% trans "Recent Events" %}</span></h3>
 
                 <div class="last-events">
                     <ul>
-
-                        {% blog_recent_posts category='events' as eventos %}
                         {% for event in eventos %}
                             <li>
                                 <a href="{{ event.get_absolute_url }}">

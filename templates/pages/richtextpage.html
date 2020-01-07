@@ -10,8 +10,8 @@
                     <div class="col-md-9 page-content">
                         <h2 class="section-title"> <span>{{ page.title }}</span></h2>
                         {% if page.get_slug == 'sobre-o-neuromat/news' or page.get_slug == 'sobre-o-neuromat/news'%}
-                                <div class="container-posts">
-                                    {% blog_recent_posts category='news' as posts %}
+                                <div class="container-posts container-posts--horizontal">
+                                    {% blog_recent_posts limit=12 category='news' as posts %}
                                     {% for post in posts %}
                                     <div class="post-item">
                                         <div class="post-image-box">
@@ -38,7 +38,7 @@
                         {% endif %}
                         {# Eventos            #}
                         {% if page.get_slug == 'eventos' or page.get_slug == 'sobre-o-neuromat/eventos'%}
-                                <div class="container-posts container-posts--events">
+                                <div class="container-posts container-posts--horizontal">
                                     {% blog_recent_posts category='events' as posts %}
                                     {% for post in posts %}
                                     <div class="post-item">
