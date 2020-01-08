@@ -1,4 +1,16 @@
+{% load static custom_home_loops %}
+{% get_videos as videos %}
+
 <h3 class="section-title"> <span>NeuroCineMat</span></h3>
 <div class="youtube-box">
-    <iframe src="https://www.youtube.com/embed/-geDxts3o8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    {% for video in videos %}
+        {% if forloop.counter == 1 %}
+            <iframe
+                    src="{{ video.youtube_link }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="">
+            </iframe>
+        {% endif %}
+    {% endfor %}
 </div>

@@ -109,3 +109,16 @@ class SocialMediaLink(models.Model):
         verbose_name = _('Social link')
         verbose_name_plural = _('Social links')
         ordering = ('title',)
+
+class NeuroCineMat(models.Model):
+    """An instance of this class represents a card item."""
+    title = models.CharField(_('Title'), max_length=255)
+    youtube_link = models.CharField(_('Link'), max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('NeuroCineMat')
+        verbose_name_plural = _('NeuroCineMat')
+        ordering = ('title',)

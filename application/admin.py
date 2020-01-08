@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Postdoc, PostdocFile, Research, FeatureCard, SwiperCard, Banner, SocialMediaLink
+from .models import Postdoc, PostdocFile, Research, FeatureCard, SwiperCard, Banner, SocialMediaLink, NeuroCineMat
 from mezzanine.blog.admin import BlogPostAdmin
 from mezzanine.blog.models import BlogPost
 from copy import deepcopy
@@ -68,6 +68,11 @@ class SocialMediaLinkAdmin(admin.ModelAdmin):
 
 admin.site.register(SocialMediaLink, SocialMediaLinkAdmin)
 
+class NeuroCineMatAdmin(admin.ModelAdmin):
+    list_display = ('title', 'youtube_link')
+
+
+admin.site.register(NeuroCineMat, NeuroCineMatAdmin)
 
 class MyBlogPostAdmin(BlogPostAdmin):
     fieldsets = blog_fieldsets

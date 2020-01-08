@@ -6,7 +6,7 @@ from mezzanine.accounts.admin import User
 from mezzanine.blog.models import BlogPost, BlogCategory
 from mezzanine.generic.models import Keyword
 from mezzanine.pages.models import Page
-from ..models import FeatureCard, SwiperCard, Banner, SocialMediaLink
+from ..models import FeatureCard, SwiperCard, Banner, SocialMediaLink, NeuroCineMat
 
 register = template.Library()
 
@@ -83,7 +83,7 @@ def swiper_cards():
     """
     Provide a slideshow component with main products and internal links.
     """
-    cards = SwiperCard.objects.all();
+    cards = SwiperCard.objects.all()
     return cards
 
 
@@ -113,3 +113,10 @@ def get_social_media_links(list=False):
         links = SocialMediaLink.objects.all()
         return links
 
+@register.simple_tag
+def get_videos():
+    """
+    Provide a object with published videos
+    """
+    videos = NeuroCineMat.objects.all()
+    return videos
