@@ -1,10 +1,12 @@
 {% load custom_home_loops %}
+{% get_banners as banners %}
 
+{% if  banners  %}
 <div class="container-fluid container-fluid--spacer">
     <div class="section-default">
             <div class="slider-wrapper">
                 <div class="inner-wrapper">
-                    {% get_banners as banners %}
+
                     {% for banner in banners %}
                         <div class="slide">
                             <div class="slide-info">
@@ -14,16 +16,10 @@
                             <div class="image-frame" style="background-image:url('{{ MEDIA_URL }}{{ banner.image }}');"></div>
                         </div>
                     {% endfor %}
-{#                    <div class="slide">#}
-{#                        <div class="slide-info">#}
-{#                            <h2 class="slide-title">Positions for Postdoctoral Researchers</h2>#}
-{#                            <button>Read more</button>#}
-{#                        </div>#}
-{#                        <div class="image-frame" style="background-image:url('http://agencia.fapesp.br/agencia-novo/imagens/noticia/24126.jpg');"></div>#}
-{#                    </div>#}
                 </div>
                 <div class="button prev"></div>
                 <div class="button next"></div>
             </div>
     </div>
 </div>
+{% endif %}
