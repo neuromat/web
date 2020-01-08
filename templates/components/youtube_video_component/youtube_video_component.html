@@ -1,6 +1,7 @@
 {% load static custom_home_loops %}
 {% get_videos as videos %}
 
+{% if videos %}
 <h3 class="section-title"> <span>NeuroCineMat</span></h3>
 <div class="youtube-box">
     {% for video in videos %}
@@ -14,3 +15,4 @@
         {% endif %}
     {% endfor %}
 </div>
+{% endif %}
