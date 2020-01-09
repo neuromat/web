@@ -31,6 +31,22 @@
 
         {% include "includes/search_form.html" %}
 
+
+            {# Conteúdo do post #}
+        {% block blog_post_list_post_content %}
+            {% editable blog_post.content %}
+                {% with blog_post.categories.all|first as category %}
+                    {% if category.slug == 'events' %}
+                       THE CAT BITE A FISH
+                        {{ blog_post.description|safe }}
+                    {% else %}
+                        {{ blog_post.description_from_content|safe }}
+                    {% endif %}
+                {% endwith %}
+            {% endeditable %}
+        {% endblock %}
+
+
         <section class="section-default">
             <h3 class="section-title"> <span>{% trans "Feature News" %} </span></h3>
             <div class="container-posts">
