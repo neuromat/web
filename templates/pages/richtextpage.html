@@ -36,8 +36,9 @@
                                     {% endfor %}
                                 </div>
                         {% endif %}
-                        {# Eventos            #}
-                        {% if page.get_slug == 'eventos' or page.get_slug == 'sobre-o-neuromat/eventos'%}
+
+                        {# Eventos #}
+                        {% if page.get_slug == 'category/events' or page.get_slug == 'sobre-o-neuromat/eventos'%}
                                 <div class="container-posts container-posts--horizontal">
                                     {% blog_recent_posts category='events' as posts %}
                                     {% for post in posts %}
