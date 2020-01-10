@@ -38,7 +38,7 @@
                         {% endif %}
 
                         {# Eventos #}
-                        {% if page.get_slug == 'events' or page.get_slug == 'content/category/events'%}
+                        {% if page.get_slug == 'events' or page.get_slug == 'eventos'%}
                                 <div class="container-posts container-posts--horizontal">
                                     {% blog_recent_posts category='events' as posts %}
                                     {% for post in posts %}
