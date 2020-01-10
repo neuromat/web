@@ -38,7 +38,7 @@
                         {% endif %}
 
                         {# Eventos #}
-                        {% if page.get_slug == 'content/category/events' or page.get_slug == 'sobre-o-neuromat/eventos'%}
+                        {% if page.get_slug == 'events' or page.get_slug == 'content/category/events'%}
                                 <div class="container-posts container-posts--horizontal">
                                     {% blog_recent_posts category='events' as posts %}
                                     {% for post in posts %}
@@ -89,7 +89,7 @@
                                             </a>
                                         </div>
                                         <div class="post-info">
-                                            <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
+                                                <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
                                             <h3 class="post-title">{{ post.title | truncatewords:15 }} </h3>
                                             <p>{{ post.description | truncatewords:50 }}</p>
                                         </div>
@@ -99,7 +99,6 @@
                         {% endif %}
 
                         <div class="post-feature-item">
-                            A
                             {% if page.page_image %}
                                 <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
                             {% endif %}
