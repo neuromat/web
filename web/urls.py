@@ -9,6 +9,10 @@ from mezzanine.conf import settings
 
 # Uncomment to use blog as home page. See also urlpatterns section below.
 from mezzanine.blog import views as blog_views
+from application.views import category_page
+
+# Trailing slahes for urlpatterns based on setup.
+_slash = "/" if settings.APPEND_SLASH else ""
 
 admin.autodiscover()
 
@@ -19,7 +23,7 @@ admin.autodiscover()
 # )
 
 urlpatterns = [
-    url("^admin/", include(admin.site.urls))
+    url("^admin/", include(admin.site.urls)),
 ]
 
 if settings.USE_MODELTRANSLATION:
@@ -32,6 +36,7 @@ urlpatterns += [
     url("^newsletter/", include('newsletter.urls')),
     url("^postdoc/", include('application.urls')),
     url("^", include("mezzanine.urls")),
+    url(r"^content/category/(?P<category>.*)%s$" % _slash, category_page, name="category_page"),
 ]
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error

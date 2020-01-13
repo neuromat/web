@@ -8,6 +8,8 @@ from mezzanine.generic.models import Keyword
 from mezzanine.pages.models import Page
 from ..models import FeatureCard, SwiperCard, Banner, SocialMediaLink, NeuroCineMat
 
+import math
+
 register = template.Library()
 
 @register.simple_tag
@@ -44,12 +46,13 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
         {% blog_recent_posts 5 username=admin as recent_posts %}
 
     """
+    blog_posts = BlogPost.objects.published().select_related("user")
     page = int(page)
     posts_per_page = 4
-    total_pages = 0
-
-    blog_posts = BlogPost.objects.published().select_related("user")
+    total_posts = len(blog_posts)
+    pagination = []
     title_or_slug = lambda s: Q(title=s) | Q(slug=s)
+
     if tag is not None:
         try:
             tag = Keyword.objects.get(title_or_slug(tag))
@@ -60,6 +63,10 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
         try:
             category = BlogCategory.objects.get(title_or_slug(category))
             blog_posts = blog_posts.filter(categories=category)
+            # PAGINATION AVAIABLE ONLY FOR CATEGORIES FILTERS
+            total_posts = len(blog_posts)
+            total_pages = math.ceil(total_posts / posts_per_page)
+            pagination = list(range(1, total_pages + 1))
         except BlogCategory.DoesNotExist:
             return []
     if username is not None:
@@ -69,7 +76,15 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
         except User.DoesNotExist:
             return []
 
-    return list(blog_posts[:limit])
+    if page == 1:
+        print("page é 1: ", page, page + posts_per_page)
+        blog_posts = list(blog_posts[page: page + posts_per_page])
+    else:
+        print("page é: ", page, page + posts_per_page)
+        blog_posts = list(blog_posts[page + 1: page + 1 + posts_per_page])
+
+    tag_context = {"blog_posts": blog_posts, "pagination": pagination, "current_page": page}
+    return tag_context
 
 
 @register.simple_tag

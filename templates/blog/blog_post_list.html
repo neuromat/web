@@ -31,27 +31,11 @@
 
         {% include "includes/search_form.html" %}
 
-
-            {# Conteúdo do post #}
-        {% block blog_post_list_post_content %}
-            {% editable blog_post.content %}
-                {% with blog_post.categories.all|first as category %}
-                    {% if category.slug == 'events' %}
-                       THE CAT BITE A FISH
-                        {{ blog_post.description|safe }}
-                    {% else %}
-                        {{ blog_post.description_from_content|safe }}
-                    {% endif %}
-                {% endwith %}
-            {% endeditable %}
-        {% endblock %}
-
-
         <section class="section-default">
             <h3 class="section-title"> <span>{% trans "Feature News" %} </span></h3>
             <div class="container-posts">
                 {% blog_recent_posts category='news' as posts %}
-                {% for post in posts %}
+                {% for post in posts.blog_posts %}
                 <div class="post-item">
                     <div class="post-image-box">
                         <a href="{{ post.get_absolute_url }}">
@@ -102,7 +86,7 @@
 
                 <div class="last-events">
                     <ul>
-                        {% for event in eventos %}
+                        {% for event in eventos.blog_posts %}
                             <li>
                                 <a href="{{ event.get_absolute_url }}">
                                     <div class="date"> {{ event.publish_date | date:"M d, Y" }}</div>
