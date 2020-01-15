@@ -19,7 +19,7 @@
                                         {% blog_recent_posts page=1 category='news' as posts %}
                                     {% endif %}
 
-                                    {% for post in posts.blog_posts %}
+                                    {% for post in posts %}
                                     <div class="post-item">
                                         <div class="post-image-box">
                                             <a href="{{ post.get_absolute_url }}">
@@ -41,12 +41,30 @@
                                         </div>
                                     </div>
                                     {% endfor %}
+
                                     <div class="pagination">
-                                        {% for page in posts.pagination %}
-                                            <li class="{% if page == posts.current_page %} active {% endif %}">
-                                                <a href="/news/?page={{ page }}"> {{ page }} </a>
+                                        {% if posts.has_previous %}
+                                            <li>
+                                                <a href="/sobre-o-neuromat/news/?page={{ posts.previous_page_number }}"> Anterior
+                                                </a>
                                             </li>
-                                        {% endfor  %}
+                                        {% endif %}
+
+                                        {% for pg in posts.paginator.page_range %}
+                                            <li class="{% if posts.number == pg %} active {% endif %}">
+                                                <a href="/sobre-o-neuromat/news/?page={{pg}}">
+                                                    {{ pg }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+
+                                        {% if posts.has_next %}
+                                            <li>
+                                                <a href="/eventos/?page={{ posts.next_page_number }}">
+                                                    Próxima
+                                                </a>
+                                            </li>
+                                        {% endif %}
                                     </div>
                                 </div>
                         {% endif %}
@@ -61,7 +79,7 @@
                                         {% blog_recent_posts limit=6 page=1 category='events' as posts %}
                                     {% endif %}
 
-                                    {% for post in posts.blog_posts %}
+                                    {% for post in posts %}
                                     <div class="post-item">
                                         <div class="post-info">
                                             <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
@@ -75,11 +93,28 @@
                                     {% endfor %}
 
                                     <div class="pagination">
-                                        {% for page in posts.pagination %}
-                                            <li class="{% if page == posts.current_page %} active {% endif %}">
-                                                <a href="/eventos/?page={{ page }}"> {{ page }} </a>
+                                        {% if posts.has_previous %}
+                                            <li>
+                                                <a href="/eventos/?page={{ posts.previous_page_number }}"> Anterior
+                                                </a>
                                             </li>
-                                        {% endfor  %}
+                                        {% endif %}
+
+                                        {% for pg in posts.paginator.page_range %}
+                                            <li class="{% if posts.number == pg %} active {% endif %}">
+                                                <a href="/eventos/?page={{pg}}">
+                                                    {{ pg }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+
+                                        {% if posts.has_next %}
+                                            <li>
+                                                <a href="/eventos/?page={{ posts.next_page_number }}">
+                                                    Próxima
+                                                </a>
+                                            </li>
+                                        {% endif %}
                                     </div>
                                 </div>
                         {% endif %}

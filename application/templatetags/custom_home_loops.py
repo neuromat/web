@@ -1,6 +1,7 @@
 from django import template
 from html import unescape
-
+from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
+from django.template import RequestContext
 from django.db.models import Q
 from mezzanine.accounts.admin import User
 from mezzanine.blog.models import BlogPost, BlogCategory
@@ -22,7 +23,7 @@ def show_page_content():
     #     print(page)
     #     print(page.id)
 
-    html_block =  '<div class="post-feature-item"><div class="post-feature-image" style="background-image:url('')"></div>'
+    html_block = '<div class="post-feature-item"><div class="post-feature-image" style="background-image:url('')"></div>'
     html_block += '<div class="post-feature-info">'
     html_block += '<h3>CEPID Neuromat</h3>'
     html_block += '<p>O Centro de Pesquisa, ...</p>'
@@ -47,10 +48,13 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
 
     """
     blog_posts = BlogPost.objects.published().select_related("user")
-    page = int(page)
+
+    try:
+        page = int(page)
+    except:
+        page = 1
+
     posts_per_page = 4
-    total_posts = len(blog_posts)
-    pagination = []
     title_or_slug = lambda s: Q(title=s) | Q(slug=s)
 
     if tag is not None:
@@ -63,10 +67,6 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
         try:
             category = BlogCategory.objects.get(title_or_slug(category))
             blog_posts = blog_posts.filter(categories=category)
-            # PAGINATION AVAIABLE ONLY FOR CATEGORIES FILTERS
-            total_posts = len(blog_posts)
-            total_pages = math.ceil(total_posts / posts_per_page)
-            pagination = list(range(1, total_pages + 1))
         except BlogCategory.DoesNotExist:
             return []
     if username is not None:
@@ -76,15 +76,14 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
         except User.DoesNotExist:
             return []
 
-    if page == 1:
-        print("page é 1: ", page, page + posts_per_page)
-        blog_posts = list(blog_posts[page: page + posts_per_page])
-    else:
-        print("page é: ", page, page + posts_per_page)
-        blog_posts = list(blog_posts[page + 1: page + 1 + posts_per_page])
+    paginator = Paginator(blog_posts, posts_per_page)
 
-    tag_context = {"blog_posts": blog_posts, "pagination": pagination, "current_page": page}
-    return tag_context
+    try:
+        posts = paginator.page(page)
+    except(EmptyPage, InvalidPage, PageNotAnInteger):
+        posts = paginator.page(paginator.num_pages)
+
+    return posts
 
 
 @register.simple_tag
