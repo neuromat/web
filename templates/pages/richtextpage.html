@@ -10,7 +10,7 @@
                     <div class="col-md-9 page-content">
                         <h2 class="section-title"> <span>{{ page.title }}</span></h2>
                         {% if page.get_slug == 'sobre-o-neuromat/news' or page.get_slug == 'noticias' or page.get_slug == '#/news' %}
-                                <pre>Notícias page</pre>
+                                <pre>Notícias page, {{ page.get_slug }}</pre>
                                 <div class="container-posts container-posts--horizontal">
 {#                                    {% blog_recent_posts limit=12 category='noticias' as posts %}#}
 
