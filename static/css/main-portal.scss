@@ -1226,3 +1226,43 @@ footer{
 .feature-event{
     margin-bottom: 20px;
 }
+
+// CONTACT RICHTEXT PAGE
+
+    .contact-block-info{
+        .address-info{
+            margin-left: 15px;
+        }
+        .social-media-list{
+            margin-left: 0;
+            padding-left: 0;
+            li{
+                list-style: none;
+                margin-bottom: 5px;
+                margin-left: 0;
+                padding-left: 0;
+                a{
+                    color: #333;
+                    i{
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-see-more{
+        padding: 6px;
+        width: 180px;
+        background: #f3f3f3;
+        display: flex;
+        justify-content: center;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        cursor: pointer;
+        &:hover{
+            background: $color-button-hover;
+            color: white;
+        }
+    }
