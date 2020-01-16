@@ -46,7 +46,8 @@
                                     <div class="pagination">
                                         {% if posts.has_previous %}
                                             <li>
-                                                <a href="/sobre-o-neuromat/news/?page={{ posts.previous_page_number }}"> Anterior
+                                                <a href="{{ page.get_slug }}/?page={{ posts.previous_page_number }}">
+                                                    Anterior
                                                 </a>
                                             </li>
                                         {% endif %}
