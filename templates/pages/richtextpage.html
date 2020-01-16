@@ -11,12 +11,12 @@
                         <h2 class="section-title"> <span>{{ page.title }}</span></h2>
                         {% if page.get_slug == 'sobre-o-neuromat/news' or page.get_slug == 'noticias' %}
                                 <div class="container-posts container-posts--horizontal">
-                                    {% blog_recent_posts limit=12 category='noticias' as posts %}
+{#                                    {% blog_recent_posts limit=12 category='noticias' as posts %}#}
 
                                     {% if request.GET.page %}
-                                        {% blog_recent_posts page=request.GET.page category='news' as posts %}
+                                        {% blog_recent_posts page=request.GET.page category='Noticas' as posts %}
                                     {% else %}
-                                        {% blog_recent_posts page=1 category='news' as posts %}
+                                        {% blog_recent_posts page=1 category='Noticas' as posts %}
                                     {% endif %}
 
                                     {% for post in posts %}
