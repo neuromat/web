@@ -54,7 +54,7 @@
 
                                         {% for pg in posts.paginator.page_range %}
                                             <li class="{% if posts.number == pg %} active {% endif %}">
-                                                <a href="/sobre-o-neuromat/news/?page={{pg}}">
+                                                <a href="{{ page.get_slug }}/?page={{pg}}">
                                                     {{ pg }}
                                                 </a>
                                             </li>
@@ -62,7 +62,7 @@
 
                                         {% if posts.has_next %}
                                             <li>
-                                                <a href="/eventos/?page={{ posts.next_page_number }}">
+                                                <a href="{{ page.get_slug }}/?page={{ posts.next_page_number }}">
                                                     Próxima
                                                 </a>
                                             </li>
