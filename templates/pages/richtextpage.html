@@ -15,9 +15,9 @@
 {#                                    {% blog_recent_posts limit=12 category='noticias' as posts %}#}
 
                                     {% if request.GET.page %}
-                                        {% blog_recent_posts page=request.GET.page category='Noticias' as posts %}
+                                        {% blog_recent_posts page=request.GET.page category='news' as posts %}
                                     {% else %}
-                                        {% blog_recent_posts page=1 category='Noticias' as posts %}
+                                        {% blog_recent_posts page=1 category='news' as posts %}
                                     {% endif %}
 
                                     {% for post in posts %}
