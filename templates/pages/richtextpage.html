@@ -46,7 +46,7 @@
                                     <div class="pagination">
                                         {% if posts.has_previous %}
                                             <li>
-                                                <a href="{{ page.get_slug }}/?page={{ posts.previous_page_number }}">
+                                                <a href="/difusao/noticias/?page={{ posts.previous_page_number }}">
                                                     Anterior
                                                 </a>
                                             </li>
@@ -54,7 +54,7 @@
 
                                         {% for pg in posts.paginator.page_range %}
                                             <li class="{% if posts.number == pg %} active {% endif %}">
-                                                <a href="{{ page.get_slug }}/?page={{pg}}">
+                                                <a href="/difusao/noticias?page={{pg}}">
                                                     {{ pg }}
                                                 </a>
                                             </li>
@@ -62,7 +62,7 @@
 
                                         {% if posts.has_next %}
                                             <li>
-                                                <a href="{{ page.get_slug }}/?page={{ posts.next_page_number }}">
+                                                <a href="/difusao/noticias?page={{ posts.next_page_number }}">
                                                     Próxima
                                                 </a>
                                             </li>
