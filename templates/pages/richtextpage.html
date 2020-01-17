@@ -148,7 +148,7 @@
                                             </li>
                                         {% endif %}
 
-                                        {% for pg in posts.paginator.page_range | slice: "20" %}
+                                        {% for pg in posts.paginator.page_range %}
                                             <li class="{% if posts.number == pg %} active {% endif %}">
                                                 <a href="/eventos/?page={{pg}}">
                                                     {{ pg }}
