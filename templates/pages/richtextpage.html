@@ -123,9 +123,9 @@
                                 <pre>{{ page.get_slug }}</pre>
                                 <div class="container-posts container-posts--horizontal">
                                     {% if request.GET.page %}
-                                        {% blog_recent_posts limit=6 page=request.GET.page category='Publicacoes' as posts %}
+                                        {% blog_recent_posts limit=6 page=request.GET.page category='Publications' as posts %}
                                     {% else %}
-                                        {% blog_recent_posts limit=6 page=1 category='events' as posts %}
+                                        {% blog_recent_posts limit=6 page=1 category='Publications' as posts %}
                                     {% endif %}
 
                                     {% for post in posts %}
