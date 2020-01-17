@@ -143,19 +143,18 @@
                                     <div class="pagination">
                                         {% if posts.has_previous %}
                                             <li>
-                                                <a href="/eventos/?page={{ posts.previous_page_number }}"> Anterior
+                                                <a href="/eventos/?page={{ posts.previous_page_number }}">
+                                                    Anterior
                                                 </a>
                                             </li>
                                         {% endif %}
 
                                         {% for pg in posts.paginator.page_range %}
-                                            {% if forloop.counter < 30 %}
                                             <li class="{% if posts.number == pg %} active {% endif %}">
                                                 <a href="/eventos/?page={{pg}}">
                                                     {{ pg }}
                                                 </a>
                                             </li>
-                                            {% endif %}
                                         {% endfor %}
 
                                         {% if posts.has_next %}
