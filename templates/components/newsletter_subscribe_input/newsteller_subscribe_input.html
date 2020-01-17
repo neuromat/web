@@ -61,7 +61,8 @@
         return decodeURIComponent(token[0].split('=')[1]);
     }
 
-    const csrftoken = getCookie('csrftoken');
+    //const csrftoken = getCookie('csrftoken');
+    const csrftoken = $('input[name="csrftoken"]').value
 
     function newsletterSubscribe(e) {
         e.preventDefault();

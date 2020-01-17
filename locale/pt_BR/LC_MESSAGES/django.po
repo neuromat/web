@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 10:49-0300\n"
+"POT-Creation-Date: 2020-01-17 11:13-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -279,6 +279,7 @@ msgstr "Centro de Pesquisa, Inovação e Difusão em Neuromatemática"
 
 #: newsletter/templates/newsletter/newsletter_content.html:15
 #: newsletter/templates/newsletter/newsletter_content.html:30
+#: templates/components/featured_cards_component/featured_cards_component.html:15
 #: templates/components/slideshow/slideshow.html:14
 msgid "Read more"
 msgstr "Leia mais"
@@ -390,6 +391,12 @@ msgstr "Boletim enviado com sucesso."
 #: newsletter/views.py:132
 msgid "Invalid header found."
 msgstr "Cabeçalho inválido encontrado."
+
+#: templates/base.html:84
+#, fuzzy
+#| msgid "Research, Innovation and Dissemination Center for Neuromathematics"
+msgid "Neuromathematics Research, Innovation and Dissemination Center"
+msgstr "Centro de Pesquisa, Inovação e Difusão em Neuromatemática"
 
 #: templates/blog/blog_post_detail.html:72
 msgid "Share on Twitter"
