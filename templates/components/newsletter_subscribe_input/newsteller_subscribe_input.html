@@ -62,7 +62,7 @@
     }
 
     //const csrftoken = getCookie('csrftoken');
-    const csrftoken = $('input[name="csrftoken"]').val();
+    const csrftoken = $('input[name="csrfmiddlewaretoken"]').val();
 
     function newsletterSubscribe(e) {
         e.preventDefault();
