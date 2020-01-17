@@ -62,7 +62,7 @@
     }
 
     //const csrftoken = getCookie('csrftoken');
-    const csrftoken = $('input[name="csrftoken"]').value
+    const csrftoken = $('input[name="csrftoken"]').val();
 
     function newsletterSubscribe(e) {
         e.preventDefault();
@@ -73,6 +73,8 @@
             csrfmiddlewaretoken: csrftoken,
             action: 'post'
         };
+
+        console.log(data);
 
         if(validateEmail(data.email)) {
             $.ajax({
