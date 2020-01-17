@@ -120,7 +120,6 @@
 
                         {# Publicações #}
                         {% if page.get_slug == 'publications' or page.get_slug == 'research/publications'%}
-                                <pre>{{ page.get_slug }}</pre>
                                 <div class="container-posts container-posts--horizontal">
                                     {% if request.GET.page %}
                                         {% blog_recent_posts limit=6 page=request.GET.page category='publications' as posts %}
@@ -149,7 +148,7 @@
                                             </li>
                                         {% endif %}
 
-                                        {% for pg in posts.paginator.page_range %}
+                                        {% for pg in posts.paginator.page_range | slice: "20" %}
                                             <li class="{% if posts.number == pg %} active {% endif %}">
                                                 <a href="/eventos/?page={{pg}}">
                                                     {{ pg }}
@@ -219,7 +218,6 @@
                         {% endif %}
 
                         <div class="post-feature-item">
-                            <pre>{{ page.get_slug }}</pre>
                             {% if page.page_image %}
                                 <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
                             {% endif %}
