@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 13:17+0000\n"
+"POT-Creation-Date: 2020-01-17 10:49-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: application/admin.py:18 application/templates/application/postdoc.html:54
+#: application/admin.py:20 application/templates/application/postdoc.html:56
 msgid "Files"
 msgstr "Arquivos"
 
@@ -31,7 +31,7 @@ msgid "Incorrect e-mail"
 msgstr "E-mail incorreto"
 
 #: application/forms.py:35 application/models.py:14 application/models.py:43
-#: application/templates/application/postdoc.html:16
+#: application/templates/application/postdoc.html:18
 msgid "Name"
 msgstr "Nome"
 
@@ -44,7 +44,7 @@ msgid "Incorrect email"
 msgstr "Email incorreto"
 
 #: application/forms.py:38 application/models.py:16 application/models.py:45
-#: application/templates/application/postdoc.html:21 templates/footer.html:45
+#: application/templates/application/postdoc.html:23
 msgid "Email"
 msgstr ""
 
@@ -56,16 +56,15 @@ msgstr "Data"
 msgid "CPF"
 msgstr ""
 
-#: application/models.py:18 application/templates/application/postdoc.html:33
+#: application/models.py:18 application/templates/application/postdoc.html:35
 msgid "Passport / RNE"
 msgstr "Passaporte / RNE"
 
-#: application/models.py:19 application/templates/application/postdoc.html:40
-#: templates/footer.html:41
+#: application/models.py:19 application/templates/application/postdoc.html:42
 msgid "Phone"
 msgstr "Telefone"
 
-#: application/models.py:20 application/templates/application/postdoc.html:45
+#: application/models.py:20 application/templates/application/postdoc.html:47
 msgid "Mobile phone"
 msgstr "Celular"
 
@@ -89,11 +88,70 @@ msgstr "Pesquisa"
 msgid "Researchers"
 msgstr "Pesquisadores"
 
-#: application/templates/application/postdoc.html:5
+#: application/models.py:57 application/models.py:72 application/models.py:86
+#: application/models.py:101 application/models.py:115
+msgid "Title"
+msgstr ""
+
+#: application/models.py:58 application/models.py:73 application/models.py:87
+#, fuzzy
+#| msgid "Subscription"
+msgid "Description"
+msgstr "Inscrição"
+
+#: application/models.py:59 application/models.py:74 application/models.py:88
+#: application/models.py:102 application/models.py:116
+msgid "Link"
+msgstr ""
+
+#: application/models.py:66
+msgid "Banner"
+msgstr ""
+
+#: application/models.py:67
+msgid "Banners"
+msgstr ""
+
+#: application/models.py:80
+msgid "Card"
+msgstr ""
+
+#: application/models.py:81
+msgid "Cards"
+msgstr ""
+
+#: application/models.py:95
+msgid "Swipper Card"
+msgstr ""
+
+#: application/models.py:96
+msgid "Swipper Cards"
+msgstr ""
+
+#: application/models.py:103
+msgid "Font Awesome class"
+msgstr ""
+
+#: application/models.py:109
+msgid "Social link"
+msgstr ""
+
+#: application/models.py:110
+msgid "Social links"
+msgstr ""
+
+#: application/models.py:122 application/models.py:123
+#, fuzzy
+#| msgid "On NeuroMat"
+msgid "NeuroCineMat"
+msgstr "O NeuroMat"
+
+#: application/templates/application/postdoc.html:4
+#: application/templates/application/postdoc.html:7
 msgid "Application Form"
 msgstr "Formulário de aplicação"
 
-#: application/templates/application/postdoc.html:8
+#: application/templates/application/postdoc.html:10
 msgid ""
 "\n"
 "            You should have all the necessary data before sending the form. "
@@ -107,11 +165,11 @@ msgstr ""
 "refaça todo o procedimento.\n"
 "  "
 
-#: application/templates/application/postdoc.html:28
+#: application/templates/application/postdoc.html:30
 msgid "CPF (For Brazilians)"
 msgstr "CPF (Para Brasileiros)"
 
-#: application/templates/application/postdoc.html:62
+#: application/templates/application/postdoc.html:64
 msgid ""
 "\n"
 "                            Multiple files may be uploaded by clicking "
@@ -135,11 +193,11 @@ msgstr ""
 "qualquer informação adicional que possa ajudar no processo de avaliação. "
 "Você pode fazer o upload do CV em formato livre, se desejar (opcional)."
 
-#: application/templates/application/postdoc.html:73
+#: application/templates/application/postdoc.html:75
 msgid "Researchers to whom recommendation letters have been requested:"
 msgstr "Pesquisadores para os quais foram solicitadas cartas de recomendação:"
 
-#: application/templates/application/postdoc.html:113
+#: application/templates/application/postdoc.html:115
 msgid ""
 "Please provide the name, affiliation and official email address of the "
 "researchers that will send the recommendation letters for you."
@@ -147,19 +205,19 @@ msgstr ""
 "Por favor, forneça o nome, afiliação e endereço de e-mail institucional dos "
 "pesquisadores que enviarão as cartas de recomendação para você."
 
-#: application/templates/application/postdoc.html:118
+#: application/templates/application/postdoc.html:120
 msgid "Save"
 msgstr "Salvar"
 
-#: application/views.py:31
+#: application/views.py:45
 msgid "Application created successfully."
 msgstr "Formulário enviado com sucesso."
 
-#: application/views.py:36
+#: application/views.py:50
 msgid "Information not saved."
 msgstr "Informação não salva."
 
-#: application/views.py:39
+#: application/views.py:53
 msgid "Action not available."
 msgstr "ção não disponível."
 
@@ -167,7 +225,11 @@ msgstr "ção não disponível."
 msgid "Number"
 msgstr "Número"
 
-#: newsletter/models.py:37
+#: newsletter/models.py:37 newsletter/templates/newsletter/newsletter.html:4
+#: newsletter/templates/newsletter/previous_issues.html:4
+#: newsletter/templates/newsletter/subscription.html:3
+#: newsletter/templates/newsletter/subscription.html:6
+#: newsletter/templates/newsletter/unsubscription.html:3
 msgid "Newsletter"
 msgstr ""
 
@@ -217,72 +279,87 @@ msgstr "Centro de Pesquisa, Inovação e Difusão em Neuromatemática"
 
 #: newsletter/templates/newsletter/newsletter_content.html:15
 #: newsletter/templates/newsletter/newsletter_content.html:30
-#: templates/blog/blog_post_list.html:92
+#: templates/components/slideshow/slideshow.html:14
 msgid "Read more"
 msgstr "Leia mais"
 
 #: newsletter/templates/newsletter/newsletter_content.html:36
-#: newsletter/templates/newsletter/previous_issues.html:20
+#: newsletter/templates/newsletter/previous_issues.html:25
 msgid "Last NeuroMat scientific publications"
 msgstr "Últimas publicações científicas da NeuroMat"
 
 #: newsletter/templates/newsletter/newsletter_content.html:46
-#: newsletter/templates/newsletter/previous_issues.html:24
+#: newsletter/templates/newsletter/previous_issues.html:29
 msgid "NeuroMat in the media"
 msgstr "NeuroMat na mídia"
 
 #: newsletter/templates/newsletter/newsletter_content.html:56
-#: newsletter/templates/newsletter/previous_issues.html:28
+#: newsletter/templates/newsletter/previous_issues.html:33
 msgid "NeuroMat opportunities"
 msgstr "Oportunidades no NeuroMat"
 
-#: newsletter/templates/newsletter/newsletter_content.html:65
-msgid "Follow our initiatives"
-msgstr "Siga nossas iniciativas"
-
-#: newsletter/templates/newsletter/newsletter_content.html:87
-#: newsletter/templates/newsletter/previous_issues.html:31
+#: newsletter/templates/newsletter/newsletter_content.html:66
+#: newsletter/templates/newsletter/previous_issues.html:36
 msgid "NeuroMat Facebook Highlights"
 msgstr "Destaques do NeuroMat no Facebook"
 
-#: newsletter/templates/newsletter/newsletter_content.html:105
+#: newsletter/templates/newsletter/newsletter_content.html:80
+msgid "Follow our initiatives"
+msgstr "Siga nossas iniciativas"
+
+#: newsletter/templates/newsletter/newsletter_content.html:86
+#: templates/blog/includes/filter_panel.html:124
+msgid "Logo of the NeuroMat Parkinson Network"
+msgstr "Logo da Rede NeuroMat de Parkinson"
+
+#: newsletter/templates/newsletter/newsletter_content.html:92
+#: templates/blog/includes/filter_panel.html:94
+msgid "Logo of the NeuroMat Brachial Plexus Injury Initiative"
+msgstr "Logo da iniciativa NeuroMat para a Lesão do Plexo Braquial"
+
+#: newsletter/templates/newsletter/newsletter_content.html:101
 msgid "On NeuroMat"
 msgstr "O NeuroMat"
 
-#: newsletter/templates/newsletter/newsletter_content.html:113
+#: newsletter/templates/newsletter/newsletter_content.html:109
 msgid "Previous issues of the NeuroMat Newsletter (features)"
 msgstr "Edições anteriores do Boletim NeuroMat"
 
-#: newsletter/templates/newsletter/newsletter_content.html:135
-msgid "If you do not want to receive our emails,"
-msgstr "Se você não quiser receber nossos e-mails,"
-
-#: newsletter/templates/newsletter/newsletter_content.html:135
-msgid "click here"
-msgstr "clique aqui"
-
-#: newsletter/templates/newsletter/newsletter_content.html:141
+#: newsletter/templates/newsletter/newsletter_content.html:130
 msgid "Send newsletter"
 msgstr "Enviar newsletter"
 
-#: newsletter/templates/newsletter/newsletter_content.html:144
+#: newsletter/templates/newsletter/newsletter_content.html:133
 msgid "Newsletter subject"
 msgstr "Assunto do boletim"
 
-#: newsletter/templates/newsletter/newsletter_content.html:150
-#: newsletter/templates/newsletter/unsubscription.html:14
+#: newsletter/templates/newsletter/newsletter_content.html:139
+#, fuzzy
+#| msgid "Send newsletter"
+msgid "Send newsletter to"
+msgstr "Enviar newsletter"
+
+#: newsletter/templates/newsletter/newsletter_content.html:145
+#: newsletter/templates/newsletter/subscription.html:15
+#: newsletter/templates/newsletter/unsubscription.html:15
 msgid "Submit"
 msgstr "Enviar"
 
-#: newsletter/templates/newsletter/previous_issues.html:7
+#: newsletter/templates/newsletter/previous_issues.html:12
 msgid "Topics"
 msgstr "Tópicos"
 
-#: newsletter/templates/newsletter/unsubscription.html:5
+#: newsletter/templates/newsletter/subscription.html:7
+#: templates/blog/includes/filter_panel.html:36
+#: templates/components/newsletter_subscribe_input/newsteller_subscribe_input.html:4
+msgid "Stay informed on our latest news!"
+msgstr "Mantenha-se informado sobre as nossas novidades!"
+
+#: newsletter/templates/newsletter/unsubscription.html:6
 msgid "Unsubscribe"
 msgstr "Cancelar inscrição"
 
-#: newsletter/templates/newsletter/unsubscription.html:6
+#: newsletter/templates/newsletter/unsubscription.html:7
 msgid ""
 "We're sorry you're leaving! Please fill in the field below with your email "
 "address to confirm the removal."
@@ -290,35 +367,35 @@ msgstr ""
 "Lamentamos que esteja de saída! Por favor, preencha o campo abaixo com o seu "
 "endereço de e-mail para confirmar a remoção."
 
-#: newsletter/views.py:27
+#: newsletter/views.py:28
 msgid "E-mail already registered."
 msgstr "E-mail já registrado."
 
-#: newsletter/views.py:31 newsletter/views.py:39
+#: newsletter/views.py:32 newsletter/views.py:40
 msgid "Email registered successfully."
 msgstr "Email registrado com sucesso."
 
-#: newsletter/views.py:58
+#: newsletter/views.py:61
 msgid "Email removed successfully."
 msgstr "Email removido com sucesso."
 
-#: newsletter/views.py:61
+#: newsletter/views.py:64
 msgid "Email not registered. Did you type it correctly?"
 msgstr "E-mail não registrado. Você digitou corretamente?"
 
-#: newsletter/views.py:125
+#: newsletter/views.py:130
 msgid "Newsletter sent successfully."
 msgstr "Boletim enviado com sucesso."
 
-#: newsletter/views.py:127
+#: newsletter/views.py:132
 msgid "Invalid header found."
 msgstr "Cabeçalho inválido encontrado."
 
-#: templates/blog/blog_post_detail.html:53
+#: templates/blog/blog_post_detail.html:72
 msgid "Share on Twitter"
 msgstr "Compartilhar no Twitter"
 
-#: templates/blog/blog_post_detail.html:54
+#: templates/blog/blog_post_detail.html:73
 msgid "Share on Facebook"
 msgstr "Compartilhar no Facebook"
 
@@ -326,7 +403,7 @@ msgstr "Compartilhar no Facebook"
 #: templates/pages/menus/breadcrumb.html:10
 #: templates/pages/menus/footer_tree.html:11
 #: templates/pages/menus/mobile.html:10 templates/pages/menus/primary.html:8
-#: templates/pages/menus/tree.html:9 templates/search_results.html:13
+#: templates/pages/menus/tree.html:9
 msgid "Home"
 msgstr "Página inicial"
 
@@ -334,91 +411,114 @@ msgstr "Página inicial"
 msgid "Blog"
 msgstr ""
 
-#: templates/blog/blog_post_list.html:83
-msgid "Tags"
-msgstr ""
+#: templates/blog/blog_post_list.html:35
+msgid "Feature News"
+msgstr "Notícias destaque"
+
+#: templates/blog/blog_post_list.html:70
+#, fuzzy
+#| msgid "See all events"
+msgid "See all news"
+msgstr "Visualizar todos os eventos"
+
+#: templates/blog/blog_post_list.html:96
+msgid "Recent Events"
+msgstr "Eventos recentes"
+
+#: templates/blog/blog_post_list.html:110
+msgid "See all events"
+msgstr "Visualizar todos os eventos"
 
 #: templates/blog/includes/filter_panel.html:19
 msgid "Featuring this week:"
 msgstr "Apresentando esta semana:"
 
-#: templates/blog/includes/filter_panel.html:35
-msgid "Stay informed on our latest news!"
-msgstr "Mantenha-se informado sobre as nossas novidades!"
-
-#: templates/blog/includes/filter_panel.html:43
+#: templates/blog/includes/filter_panel.html:44
+#: templates/components/newsletter_subscribe_input/newsteller_subscribe_input.html:36
 msgid "Subscribe"
 msgstr "Assinar"
 
-#: templates/blog/includes/filter_panel.html:46
+#: templates/blog/includes/filter_panel.html:47
 msgid "Previous issues"
 msgstr "Edições anteriores"
 
-#: templates/blog/includes/filter_panel.html:55
+#: templates/blog/includes/filter_panel.html:56
 msgid "Follow Us on Facebook"
 msgstr "Siga-nos no Facebook"
 
-#: templates/blog/includes/filter_panel.html:72
-msgid "NeuroMat's scientific-dissemination blog"
-msgstr "Blog de difusão científica NeuroMat"
+#: templates/blog/includes/filter_panel.html:74
+#: templates/blog/includes/filter_panel.html:79
+msgid "Podcast A Matemática do Cérebro"
+msgstr "Podcast The Math of brain"
 
-#: templates/blog/includes/filter_panel.html:76
-msgid "Logo of the NeuroMat's scientific-dissemination blog"
-msgstr "Logo do blog de difusão científica NeuroMat"
-
-#: templates/blog/includes/filter_panel.html:85
+#: templates/blog/includes/filter_panel.html:89
 msgid "NeuroMat Brachial Plexus Injury Initiative"
 msgstr "Iniciativa NeuroMat para a Lesão do Plexo Braquial"
 
-#: templates/blog/includes/filter_panel.html:89
-msgid "Logo of the NeuroMat Brachial Plexus Injury Initiative"
-msgstr "Logo da iniciativa NeuroMat para a Lesão do Plexo Braquial"
+#: templates/blog/includes/filter_panel.html:104
+msgid "Neuroscience Experiments System"
+msgstr "Neuroscience Experiments System"
 
-#: templates/blog/includes/filter_panel.html:98
+#: templates/blog/includes/filter_panel.html:109
+msgid "Logo of the Neuroscience Experiments System"
+msgstr "Logo do NES"
+
+#: templates/blog/includes/filter_panel.html:119
 msgid "NeuroMat Parkinson Network"
 msgstr "Rede NeuroMat de Parkinson"
 
-#: templates/blog/includes/filter_panel.html:102
-msgid "Logo of the NeuroMat Parkinson Network"
-msgstr "Logo da Rede NeuroMat de Parkinson"
+#: templates/blog/includes/filter_panel.html:134
+msgid "NeuroMat's scientific-dissemination blog"
+msgstr "Blog de difusão científica NeuroMat"
 
-#: templates/footer.html:5
+#: templates/blog/includes/filter_panel.html:139
+msgid "Logo of the NeuroMat's scientific-dissemination blog"
+msgstr "Logo do blog de difusão científica NeuroMat"
+
+#: templates/components/newsletter_subscribe_input/newsteller_subscribe_input.html:3
+msgid "Subscribe to our newsletter"
+msgstr "Cadastre-se na nossa Newsletter"
+
+#: templates/components/newsletter_subscribe_input/newsteller_subscribe_input.html:17
+#, fuzzy
+#| msgid "Email registered successfully."
+msgid "Registered successfully"
+msgstr "Email registrado com sucesso."
+
+#: templates/components/newsletter_subscribe_input/newsteller_subscribe_input.html:33
+msgid "Type your E-mail"
+msgstr "Informe o seu E-mail"
+
+#: templates/errors/404.html:6 templates/errors/404.html:10
+msgid "Page not found"
+msgstr "Página não encontrada"
+
+#: templates/errors/404.html:12
+msgid "The page you requested does not exist."
+msgstr ""
+
+#: templates/errors/500.html:6 templates/errors/500.html:10
+#: templates/errors/500.html:15
+msgid "Error"
+msgstr "Erro"
+
+#: templates/errors/500.html:16
+msgid "Sorry, an error occurred."
+msgstr ""
+
+#: templates/footer.html:65
 msgid "Supported by"
 msgstr "Apoiado pela"
 
-#: templates/footer.html:9
+#: templates/footer.html:69
 msgid "Hosted by"
 msgstr "Localizado na"
 
-#: templates/footer.html:17
-msgid "Related Projects"
-msgstr "Projetos relacionados"
-
-#: templates/footer.html:26
-msgid "Follow us"
-msgstr "Siga-nos"
-
-#: templates/footer.html:34
-msgid "Contact"
-msgstr "Contato"
-
-#: templates/footer.html:37
-msgid "Address"
-msgstr "Endereço"
-
-#: templates/footer.html:38
-msgid "Matao St."
-msgstr "Rua do Matão"
-
-#: templates/footer.html:53
-msgid "This site content is licensed under a "
-msgstr "Licenciado sob os termos da "
-
-#: templates/includes/search_form.html:5
+#: templates/includes/search_form.html:4 templates/includes/search_form.html:5
 msgid "Search"
 msgstr "Pesquisar"
 
-#: templates/includes/search_form.html:15
+#: templates/includes/search_form.html:13
 msgid "Everything"
 msgstr ""
 
@@ -426,27 +526,29 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: templates/search_results.html:5 templates/search_results.html:6
-#: templates/search_results.html:15
+#: templates/search_results.html:5 templates/search_results.html:14
 msgid "Search Results"
+msgstr ""
+
+#: templates/search_results.html:18
+#, python-format
+msgid ""
+"\n"
+"                            No results were found matching your query: <em>"
+"%(query)s</em>\n"
+"                        "
 msgstr ""
 
 #: templates/search_results.html:22
 #, python-format
 msgid ""
 "\n"
-"No results were found in %(search_type)s matching your query: %(query)s\n"
+"                            Showing %(start)s to %(end)s of %(total)s "
+"results matching your query: <em>%(query)s</em>\n"
+"                        "
 msgstr ""
 
-#: templates/search_results.html:26
-#, python-format
-msgid ""
-"\n"
-"Showing %(start)s to %(end)s of %(total)s results in %(search_type)s "
-"matching your query: %(query)s\n"
-msgstr ""
-
-#: templates/search_results.html:47
+#: templates/search_results.html:44
 msgid "read more"
 msgstr "leia mais"
 
@@ -458,10 +560,54 @@ msgstr ""
 msgid "Media Library"
 msgstr ""
 
-#: web/settings.py:91
+#: web/settings.py:48
+msgid "DOI"
+msgstr ""
+
+#: web/settings.py:49
+msgid "arXiv"
+msgstr ""
+
+#: web/settings.py:50
+msgid "PubMed ID"
+msgstr ""
+
+#: web/settings.py:51
+msgid "ISBN"
+msgstr ""
+
+#: web/settings.py:52
+msgid "URI"
+msgstr ""
+
+#: web/settings.py:132
 msgid "English"
 msgstr ""
 
-#: web/settings.py:92
+#: web/settings.py:133
 msgid "Portugues"
 msgstr ""
+
+#~ msgid "If you do not want to receive our emails,"
+#~ msgstr "Se você não quiser receber nossos e-mails,"
+
+#~ msgid "click here"
+#~ msgstr "clique aqui"
+
+#~ msgid "Related Projects"
+#~ msgstr "Projetos relacionados"
+
+#~ msgid "Follow us"
+#~ msgstr "Siga-nos"
+
+#~ msgid "Contact"
+#~ msgstr "Contato"
+
+#~ msgid "Address"
+#~ msgstr "Endereço"
+
+#~ msgid "Matao St."
+#~ msgstr "Rua do Matão"
+
+#~ msgid "This site content is licensed under a "
+#~ msgstr "Licenciado sob os termos da "

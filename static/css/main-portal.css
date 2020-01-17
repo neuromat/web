@@ -1211,18 +1211,25 @@ footer .footer-info ul.sitemap-tree li.social-media-list i {
 
 .btn-see-more {
   padding: 6px;
-  width: 180px;
-  background: #f3f3f3;
+  min-width: 180px;
+  border: 1px solid #5eb052;
   display: flex;
   justify-content: center;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   cursor: pointer;
+  color: #5eb052;
+}
+.btn-see-more a {
+  text-decoration: none !important;
 }
 .btn-see-more:hover {
   background: #5eb052;
   color: white;
+}
+.btn-see-more:hover a {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=main-portal.css.map */

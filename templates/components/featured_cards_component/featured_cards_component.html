@@ -1,4 +1,4 @@
-{% load static custom_home_loops %}
+{% load i18n static custom_home_loops %}
 
 {% feature_cards as cards %}
 <div id="paralaxSection" class="container-fluid container-paralax">
@@ -12,7 +12,7 @@
                 <div class="description">
                     <h2>{{ card.title }}</h2>
                     <p>{{ card.description }}</p>
-                    <a href="{{ card.link }}" class="btn">Saiba mais</a>
+                    <a href="{{ card.link }}" class="btn">{% trans "Read more" %}</a>
                 </div>
             </div>
         {% endfor %}

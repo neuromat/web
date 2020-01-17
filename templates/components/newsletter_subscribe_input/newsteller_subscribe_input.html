@@ -1,6 +1,6 @@
 {% load i18n %}
 <div class="newsletter-lead">
-    <strong>Cadastre-se na nossa Newsletter</strong>
+    <strong> {% trans "Subscribe to our newsletter" %}</strong>
     <p>{% trans "Stay informed on our latest news!" %}</p>
 
 
@@ -14,7 +14,7 @@
 
         <h3 id="successMessage" class="success-message">
             <i class="fas fa-check"></i>
-            <span> Cadastrado com sucesso </span>
+            <span> {% trans "Registered successfully" %}</span>
         </h3>
 
         <form
@@ -30,7 +30,7 @@
                    autocomplete="off"
                    type="email"
                    name="email"
-                   placeholder="Informe o seu E-mail"
+                   placeholder="{% trans "Type your E-mail" %}"
             />
 
             <button name="submit" id="id_submit" type="submit">{% trans "Subscribe" %}</button>
