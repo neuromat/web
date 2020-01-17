@@ -149,15 +149,13 @@
                                         {% endif %}
 
                                         {% for pg in posts.paginator.page_range %}
-                                            {% with offset= 30 %}
-                                            {% if forloop.counter < offset %}
+                                            {% if forloop.counter < 30 %}
                                             <li class="{% if posts.number == pg %} active {% endif %}">
                                                 <a href="/eventos/?page={{pg}}">
                                                     {{ pg }}
                                                 </a>
                                             </li>
                                             {% endif %}
-                                            {% endwith %}
                                         {% endfor %}
 
                                         {% if posts.has_next %}
