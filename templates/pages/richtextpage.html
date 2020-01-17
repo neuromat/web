@@ -120,10 +120,10 @@
 
                         {# Publicações #}
                         {% if page.get_slug == 'publications' or page.get_slug == 'research/publications'%}
-
+                                <pre>{{ page.get_slug }}</pre>
                                 <div class="container-posts container-posts--horizontal">
                                     {% if request.GET.page %}
-                                        {% blog_recent_posts limit=6 page=request.GET.page category='Publicações' as posts %}
+                                        {% blog_recent_posts limit=6 page=request.GET.page category='Publicacoes' as posts %}
                                     {% else %}
                                         {% blog_recent_posts limit=6 page=1 category='events' as posts %}
                                     {% endif %}
