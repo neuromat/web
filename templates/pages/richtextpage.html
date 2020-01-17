@@ -123,7 +123,7 @@
 
                                 <div class="container-posts container-posts--horizontal">
                                     {% if request.GET.page %}
-                                        {% blog_recent_posts limit=6 page=request.GET.page category='events' as posts %}
+                                        {% blog_recent_posts limit=6 page=request.GET.page category='Publicações' as posts %}
                                     {% else %}
                                         {% blog_recent_posts limit=6 page=1 category='events' as posts %}
                                     {% endif %}
