@@ -118,6 +118,56 @@
                                 </div>
                         {% endif %}
 
+                        {# Publicações #}
+                        {% if page.get_slug == 'publications' or page.get_slug == 'publicacoes'%}
+
+                                <div class="container-posts container-posts--horizontal">
+                                    {% if request.GET.page %}
+                                        {% blog_recent_posts limit=6 page=request.GET.page category='events' as posts %}
+                                    {% else %}
+                                        {% blog_recent_posts limit=6 page=1 category='events' as posts %}
+                                    {% endif %}
+
+                                    {% for post in posts %}
+                                    <div class="post-item">
+                                        <div class="post-info">
+                                            <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
+                                             <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
+                                                 <h3 class="post-title">{{ post.title | truncatewords:15 }} </h3>
+                                             </a>
+                                            <p> {% autoescape off %} {{ post.description | truncatewords:50 }}
+                                            {% endautoescape %}</p>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                    <div class="pagination">
+                                        {% if posts.has_previous %}
+                                            <li>
+                                                <a href="/eventos/?page={{ posts.previous_page_number }}"> Anterior
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+                                        {% for pg in posts.paginator.page_range %}
+                                            <li class="{% if posts.number == pg %} active {% endif %}">
+                                                <a href="/eventos/?page={{pg}}">
+                                                    {{ pg }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+
+                                        {% if posts.has_next %}
+                                            <li>
+                                                <a href="/eventos/?page={{ posts.next_page_number }}">
+                                                    Próxima
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                        {% endif %}
+
                         {# VIDEOS #}
                         {% if page.get_slug == 'sobre-o-neuromat/videos' or page.get_slug == 'sobre-o-neuromat/streaming' %}
                                 <div class="container-posts">
