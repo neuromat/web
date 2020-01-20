@@ -6,4 +6,5 @@
 .idea
 local_settings.py
 static/media
+db.sqlite3
 web/wsgi.py
