@@ -192,7 +192,7 @@ body{
                     padding: 15px;
                     position: relative;
                     border: 1px solid transparent;
-
+                    flex-shrink: 0;
                     &:hover{
                         border: 1px solid #333;
                         &:after{
