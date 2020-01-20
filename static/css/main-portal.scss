@@ -139,7 +139,9 @@ body{
                 justify-content: flex-end;
                 font-size: 1em;
                 z-index: 9999;
-
+                @media #{$mq-desktops-laptops}{
+                  margin-top: 10px;
+                }
 
                 li.social-media-link{
                     margin-left: 0;

@@ -118,6 +118,11 @@ h1, h2, h3, h4, h5, p, span, a, button {
   font-size: 1em;
   z-index: 9999;
 }
+@media only screen and (min-width : 1224px) and (max-width: 1824px) {
+  .app-portal header nav ul {
+    margin-top: 10px;
+  }
+}
 .app-portal header nav ul li.social-media-link {
   margin-left: 0;
   margin-right: 0;
