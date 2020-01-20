@@ -479,6 +479,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
 
 .post-feature-item {
   display: flex;
+  position: relative;
 }
 @media only screen and (min-width : 320px) and (max-width : 1024px) {
   .post-feature-item {

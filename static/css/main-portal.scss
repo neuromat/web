@@ -505,6 +505,7 @@ body{
 // POST CONTENT
 .post-feature-item{
     display: flex;
+    position: relative;
     @media #{$mq-smartphones-portrait-landscape}{
         flex-direction: column;
     }
