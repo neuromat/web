@@ -107,6 +107,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
     width: 75%;
     display: flex;
     align-items: center;
+    margin-right: 0;
   }
 }
 .app-portal header nav ul {
