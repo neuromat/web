@@ -2,14 +2,18 @@
 
 <!-- Newsletter feed -->
 <div class="newsletter-box">
+    {% blog_recent_posts category='newsletter' as posts %}
+
     <ul>
+        {% for post in posts %}
         <li>
-            <h2>Newsletter #1 <small class="post-date">Abr 22, 2019</small></h2>
+            <h2>{{ post.title }} <small class="post-date">Abr 22, 2019</small></h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente hic libero dolore sunt?</p>
         </li>
-
+        {% endfor %}
     </ul>
+
     <p>
-        <a href="#">Edições anteriores</a>
+        <a href="/newsletter">Edições anteriores</a>
     </p>
 </div>

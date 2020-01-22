@@ -168,9 +168,10 @@
                         {% endif %}
 
                         {# VIDEOS #}
-                        {% if page.get_slug == '#/videos' or page.get_slug == 'sobre-o-neuromat/streaming' %}
+                        {% if page.get_slug == 'videos' or page.get_slug == 'sobre-o-neuromat/videos' %}
                                 <div class="container-posts">
-                                    {% blog_recent_posts category='Streaming' as posts %}
+                                    <pre>{{ page.get_slug }}</pre>
+                                    {% blog_recent_posts category=page.get_slug as posts %}
                                     {% for post in posts %}
                                     <div class="post-item">
                                         <div class="post-image-box">
@@ -218,7 +219,7 @@
                         {% endif %}
 
                         <div class="post-feature-item">
-                            {# <pre>{{ page.get_slug }}</pre> #}
+                             <pre>{{ page.get_slug }}</pre>
                             {% if page.page_image %}
                                 <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
                             {% endif %}

@@ -38,13 +38,27 @@
             </div>
 
         {% endfor %}
+
+        <style>
+            .pag-box{
+                width: 100%;
+                float: left;
+                clear: both;
+                float: left;
+            }
+        </style>
+        <div class="pag-box">
+            {% pagination_for previous_issues_list %}
         </div>
+
+        </div>
+
         <div class="col-md-3">
         {% include "components/sidebar/sidebar.html" %}
         </div>
 
     </section>
-    {% pagination_for previous_issues_list %}
+
 {% endblock %}
 
 {% block right_panel %}
