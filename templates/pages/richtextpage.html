@@ -71,8 +71,18 @@
                         {# Eventos #}
                         {% if page.get_slug == 'events' or page.get_slug == 'eventos'%}
                                 <style>
+                                    .post-item-events.post-item{
+                                        width: 90%;
+                                    }
+
                                     .post-item-events img{
                                         width: 100%;
+                                    }
+
+                                    .post-item-news p img {
+                                        width: 100%;
+                                        display: flex;
+                                        margin-left: 0px;
                                     }
                                 </style>
                                 <div class="container-posts container-posts--horizontal">
@@ -83,7 +93,7 @@
                                     {% endif %}
 
                                     {% for post in posts %}
-                                    <div class="post-item post-item-news">
+                                    <div class="post-item post-item-events">
                                         <div class="post-info">
                                             <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
                                              <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
