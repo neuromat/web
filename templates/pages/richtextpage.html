@@ -225,18 +225,18 @@
                                          <h1>Custom content</h1>
                                     </section>
                                 </div>
-                                <div class="container-posts">
-                                    <div class="post-feature-item">
-                                        {% if page.page_image %}
-                                            <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
-                                        {% endif %}
-                                        <div class="post-feature-info">
-                                            {{ page.richtextpage.content|richtext_filters }}
-                                             Newsletter input component
-                                             {% include "components/newsletter_subscribe_input/newsteller_subscribe_input.html" %}
-                                        </div>
-                                    </div>
-                                </div>
+{#                                <div class="container-posts">#}
+{#                                    <div class="post-feature-item">#}
+{#                                        {% if page.page_image %}#}
+{#                                            <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>#}
+{#                                        {% endif %}#}
+{#                                        <div class="post-feature-info">#}
+{#                                            {{ page.richtextpage.content|richtext_filters }}#}
+{#                                             Newsletter input component#}
+{#                                             {% include "components/newsletter_subscribe_input/newsteller_subscribe_input.html" %}#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
                         {% endif %}
 
                         {% if page.get_slug == 'contact' %}
