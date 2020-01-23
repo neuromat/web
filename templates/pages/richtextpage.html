@@ -10,6 +10,7 @@
                     <div class="col-md-9 page-content">
                         <h2 class="section-title"> <span>{{ page.title }}</span></h2>
                         {% if page.get_slug == 'sobre-o-neuromat/news' or page.get_slug == 'dissemination/news'  or page.get_slug == '#/news' %}
+
                                 <div class="container-posts container-posts--horizontal">
                                     {% if request.GET.page %}
                                         {% blog_recent_posts page=request.GET.page category='news' as posts %}
@@ -214,6 +215,23 @@
                                         </div>
                                     </div>
                                     {% endfor %}
+                                </div>
+                        {% endif %}
+
+                        {# NEUROMAT MAIN PAGE #}
+                        {% if page.get_slug == 'the-neuromat-project' %}
+                                <div class="container-posts">
+                                    <pre>{{ page.get_slug }}</pre>
+                                    <div class="post-feature-item">
+                                        {% if page.page_image %}
+                                            <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
+                                        {% endif %}
+                                        <div class="post-feature-info">
+                                            {{ page.richtextpage.content|richtext_filters }}
+                                            {# Newsletter input component #}
+                                            {# {% include "components/newsletter_subscribe_input/newsteller_subscribe_input.html" %} #}
+                                        </div>
+                                    </div>
                                 </div>
                         {% endif %}
 
