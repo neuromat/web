@@ -219,45 +219,44 @@
                         {% endif %}
 
                         {# NEUROMAT MAIN PAGE #}
-                        {% if page.get_slug == 'the-neuromat-project' %}
-                                <div class="container-posts">
-                                    <pre>{{ page.get_slug }}</pre>
-                                    <div class="post-feature-item">
-                                        {% if page.page_image %}
-                                            <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
-                                        {% endif %}
-                                        <div class="post-feature-info">
-                                            {{ page.richtextpage.content|richtext_filters }}
+{#                        {% if page.get_slug == 'the-neuromat-project' %}#}
+{#                                <div class="container-posts">#}
+{#                                    <pre>{{ page.get_slug }}</pre>#}
+{#                                    <div class="post-feature-item">#}
+{#                                        {% if page.page_image %}#}
+{#                                            <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>#}
+{#                                        {% endif %}#}
+{#                                        <div class="post-feature-info">#}
+{#                                            {{ page.richtextpage.content|richtext_filters }}#}
                                             {# Newsletter input component #}
                                             {# {% include "components/newsletter_subscribe_input/newsteller_subscribe_input.html" %} #}
-                                        </div>
-                                    </div>
-                                </div>
-                        {% endif %}
-
-                        {% if page.get_slug == 'contact' %}
-                            <div class="container-posts">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7314.687364901179!2d-46.731832!3d-23.556097!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzMxLjMiUyA0NsKwNDMnNTUuNSJX!5e0!3m2!1spt-BR!2sus!4v1579108228922!5m2!1spt-BR!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                                <div class="contact-block-info">
-                                    <div class="address-info">
-                                        <p><strong>Mailing address: </strong> Rua do Matão, 1010 - Cidade
-                                            Universitária - São Paulo - SP - Brasil - CEP 05508-090.</p>
-                                        <p> <strong>Phone: </strong> 55 11 3091-1717 </p>
-                                        <p> <strong>Email: </strong> neuromat@numec.prp.usp.br</p>
-                                    </div>
-                                     <ul class="social-media-list">
-                                        <li class="social-media-list">
-                                            {% autoescape off %}
-                                                {% get_social_media_links list=True %}
-                                            {% endautoescape %}
-                                        </li>
-                                     </ul>
-                                </div>
-                            </div>
-                        {% endif %}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                        {% endif %}#}
+{##}
+{#                        {% if page.get_slug == 'contact' %}#}
+{#                            <div class="container-posts">#}
+{#                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7314.687364901179!2d-46.731832!3d-23.556097!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzMxLjMiUyA0NsKwNDMnNTUuNSJX!5e0!3m2!1spt-BR!2sus!4v1579108228922!5m2!1spt-BR!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>#}
+{#                                <div class="contact-block-info">#}
+{#                                    <div class="address-info">#}
+{#                                        <p><strong>Mailing address: </strong> Rua do Matão, 1010 - Cidade#}
+{#                                            Universitária - São Paulo - SP - Brasil - CEP 05508-090.</p>#}
+{#                                        <p> <strong>Phone: </strong> 55 11 3091-1717 </p>#}
+{#                                        <p> <strong>Email: </strong> neuromat@numec.prp.usp.br</p>#}
+{#                                    </div>#}
+{#                                     <ul class="social-media-list">#}
+{#                                        <li class="social-media-list">#}
+{#                                            {% autoescape off %}#}
+{#                                                {% get_social_media_links list=True %}#}
+{#                                            {% endautoescape %}#}
+{#                                        </li>#}
+{#                                     </ul>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        {% endif %}#}
 
                         <div class="post-feature-item">
-                        <pre>{{ page.get_slug }}</pre>
                             {% if page.page_image %}
                                 <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
                             {% endif %}
