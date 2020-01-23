@@ -222,24 +222,10 @@
                         {% if page.get_slug == '/the-neuromat-project//the-neuromat-project' %}
                                 <div id="paralaxSection" class="container-fluid container-paralax">
                                     <section class="section-default">
-                                        <div class="promo-banner">
-
-                                            <div class="promo-item">
-                                                <div class="title">
-                                                    <h2>{{ card.title }}</h2>
-                                                </div>
-                                                <div class="description">
-                                                    <h2>{{ card.title }}</h2>
-                                                    <p>{{ card.description }}</p>
-                                                    <a href="{{ card.link }}" class="btn">Read More</a>
-                                                </div>
-                                            </div>
-                                        
-                                        </div>
+                                         <h1>Custom content</h1>
                                     </section>
                                 </div>
                                 <div class="container-posts">
-                                    <pre>{{ page.get_slug }}</pre>
                                     <div class="post-feature-item">
                                         {% if page.page_image %}
                                             <div class="post-feature-image" style="background-image:url('{{ MEDIA_URL }}{{ page.page_image }}')"></div>
