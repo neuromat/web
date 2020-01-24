@@ -87,8 +87,8 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
 
 @register.simple_tag
 def newsletter_list():
-    newsletter = Newsletter.objects.all()
-    return  newsletter
+    newsletter = Newsletter.objects.all().order_by('-number')[:4]
+    return newsletter
 
 
 @register.simple_tag
