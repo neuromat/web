@@ -727,6 +727,12 @@ body{
 }
 
 // MISC
+
+.img-content-helper{
+    float: left !important;
+    margin: 35px !important;
+}
+
 .page-content{
 
     img{
@@ -876,13 +882,15 @@ body{
         padding: 0;
         list-style: none;
         li{
-            border-bottom: 1px solid #ccc;
+            border-bottom: 4px solid #f3f3f3;
             h2{
-                font-size: 1.3em;
+                font-size: 1.2em;
+                margin-bottom: 3px;
                 small{
-                    font-weight: bold;
+                    font-weight: normal;
                     color: #333;
                     background: khaki;
+                    font-size: 0.8em;
                 }
             }
         }

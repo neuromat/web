@@ -1,9 +1,13 @@
+{% load mezzanine_tags %}
 <div class="sidebar-component">
     {# Newsletter subscribe   #}
      {% include 'components/newsletter_subscribe_input/newsteller_subscribe_input.html' %}
 
-{#    {% include 'components/newsletter_list/newsletter_list.html' %}#}
 
+    {# NEWSLETTER LIST #}
+{#     {% if page.get_slug is not 'dissemination' %}#}
+{#         {% include 'components/newsletter_list/newsletter_list.html' %}#}
+{#     {% endif %}#}
     <div
             class="fb-page"
             data-href="https://pt-br.facebook.com/neuromathematics"

@@ -1,14 +1,21 @@
-{% load custom_home_loops  %}
+{% load i18n custom_home_loops  %}
 
 <!-- Newsletter feed -->
 <div class="newsletter-box">
-    {% blog_recent_posts category='newsletter' as posts %}
-
+    {% newsletter_list as newsletters %}
+    <p>Matenha-se informado sobre as nossas novidades assinando a nossa newsletter</p>
     <ul>
-        {% for post in posts %}
+        {% for newsletter in newsletters%}
         <li>
-            <h2>{{ post.title }} <small class="post-date">Abr 22, 2019</small></h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente hic libero dolore sunt?</p>
+                <h2>
+                    <a title="{% trans "Newsletter" %}{{ newsletters.number }}" href="/newsletter
+                    /{{ newsletter.number }}">
+                       {% trans "Newsletter" %} # {{ newsletter.number }}
+                    </a>
+                    <small class="post-date">{{ newsletter.date|date:"F Y"  }}</small>
+                </h2>
+
+            <p>{{ newsletter.description | truncatewords:50 | safe }}</p>
         </li>
         {% endfor %}
     </ul>

@@ -11,7 +11,7 @@
                 <!-- Slides -->
                 {% for card in cards %}
                 <div class="swiper-slide">
-                    <a href="#">
+                    <a href="{{ card.link }}">
                         <img src="{{ MEDIA_URL }}{{ card.image }}" alt="" />
                     </a>
                 </div>

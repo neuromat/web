@@ -1,13 +1,12 @@
 from django import template
-from html import unescape
 from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnInteger
-from django.template import RequestContext
 from django.db.models import Q
 from mezzanine.accounts.admin import User
 from mezzanine.blog.models import BlogPost, BlogCategory
 from mezzanine.generic.models import Keyword
 from mezzanine.pages.models import Page
 from ..models import FeatureCard, SwiperCard, Banner, SocialMediaLink, NeuroCineMat
+from newsletter.models import  Newsletter
 
 import math
 
@@ -88,7 +87,8 @@ def blog_recent_posts(limit=4, page=1, tag=None, username=None, category=None):
 
 @register.simple_tag
 def newsletter_list():
-    pass
+    newsletter = Newsletter.objects.all()
+    return  newsletter
 
 
 @register.simple_tag

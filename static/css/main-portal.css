@@ -705,6 +705,11 @@ h1, h2, h3, h4, h5, p, span, a, button {
   margin-top: 10px;
 }
 
+.img-content-helper {
+  float: left !important;
+  margin: 35px !important;
+}
+
 .page-content img {
   float: left;
   margin: 15px;
@@ -852,15 +857,17 @@ h1, h2, h3, h4, h5, p, span, a, button {
   list-style: none;
 }
 .newsletter-box ul li {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 4px solid #f3f3f3;
 }
 .newsletter-box ul li h2 {
-  font-size: 1.3em;
+  font-size: 1.2em;
+  margin-bottom: 3px;
 }
 .newsletter-box ul li h2 small {
-  font-weight: bold;
+  font-weight: normal;
   color: #333;
   background: khaki;
+  font-size: 0.8em;
 }
 
 .podcast-button {
