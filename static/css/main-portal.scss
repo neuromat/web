@@ -546,6 +546,14 @@ body{
     @media #{$mq-smartphones-portrait-landscape}{
         width: 100%;
     }
+
+    a{
+        color: #333;
+        &:hover{
+            color: $color-button-hover;
+        }
+    }
+
     .post-image-box{
         width: 100%;
         height: 200px;

@@ -105,8 +105,10 @@
                                              <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
                                                  <h3 class="post-title">{{ post.title | truncatewords:15 }} </h3>
                                              </a>
-                                            <p> {% autoescape off %} {{ post.description | truncatewords:50 }}
+                                            <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
+                                                <p> {% autoescape off %} {{ post.description | truncatewords:50 }}
                                             {% endautoescape %}</p>
+                                            </a>
                                         </div>
                                     </div>
                                     {% endfor %}
@@ -154,8 +156,10 @@
                                              <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
                                                  <h3 class="post-title">{{ post.title | truncatewords:15 }} </h3>
                                              </a>
-                                            <p> {% autoescape off %} {{ post.description | truncatewords:50 }}
-                                            {% endautoescape %}</p>
+                                            <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
+                                                <p> {% autoescape off %} {{ post.description | truncatewords:50 }}
+                                                {% endautoescape %}</p>
+                                            </a>
                                         </div>
                                     </div>
                                     {% endfor %}
@@ -284,9 +288,6 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <h3 class="section-title"> <span>Last news</span></h3>
                                 <div class="container-posts">
                                     {% if request.GET.page %}
@@ -312,9 +313,13 @@
                                         </div>
                                         <div class="post-info">
                                             <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
-                                            <a href="{{ post.get_absolute_url }}"><h3 class="post-title">
-                                                {{ post.title | truncatewords:15 }} </h3> </a>
-                                            <p>{{ post.description | safe | truncatewords:50 }}</p>
+                                            <a href="{{ post.get_absolute_url }}">
+                                                <h3 class="post-title">
+                                                {{ post.title | truncatewords:15 }} </h3>
+                                            </a>
+                                            <a href="{{ post.get_absolute_url }}">
+                                                <p>{{ post.description | safe | truncatewords:50 }}</p>
+                                            </a>
                                         </div>
                                     </div>
                                     {% endfor %}

@@ -52,8 +52,10 @@
                     </div>
                     <div class="post-info">
                         <small class="post-date">{{ post.publish_date|date:"M d, Y" }}</small>
-                        <h3 class="post-title">{{ post.title | truncatewords:15 | safe }} </h3>
-                        <p>{{ post.description | truncatewords:50 | safe }}</p>
+                        <a href="{{ post.get_absolute_url }}"><h3 class="post-title">
+                            {{ post.title | truncatewords:15 | safe }} </h3></a>
+                        <a href="{{ post.get_absolute_url }}"> <p>
+                            {{ post.description | truncatewords:50 | safe }}</p> </a>
                     </div>
                 </div>
                 {% endfor %}
