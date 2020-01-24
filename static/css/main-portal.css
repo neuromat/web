@@ -852,7 +852,7 @@ h1, h2, h3, h4, h5, p, span, a, button {
 }
 
 .newsletter-box ul {
-  margin: 0;
+  margin: 0 0 20px 0;
   padding: 0;
   list-style: none;
 }
