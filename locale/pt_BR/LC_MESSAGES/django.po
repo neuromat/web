@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-17 11:13-0300\n"
+"POT-Creation-Date: 2020-01-28 19:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,9 +44,9 @@ msgid "Incorrect email"
 msgstr "Email incorreto"
 
 #: application/forms.py:38 application/models.py:16 application/models.py:45
-#: application/templates/application/postdoc.html:23
+#: application/templates/application/postdoc.html:23 templates/footer.html:51
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: application/models.py:15 newsletter/models.py:13 newsletter/models.py:58
 msgid "Date"
@@ -61,6 +61,7 @@ msgid "Passport / RNE"
 msgstr "Passaporte / RNE"
 
 #: application/models.py:19 application/templates/application/postdoc.html:42
+#: templates/footer.html:47
 msgid "Phone"
 msgstr "Telefone"
 
@@ -502,7 +503,7 @@ msgstr "Página não encontrada"
 
 #: templates/errors/404.html:12
 msgid "The page you requested does not exist."
-msgstr ""
+msgstr "A página que você requisitou não existe."
 
 #: templates/errors/500.html:6 templates/errors/500.html:10
 #: templates/errors/500.html:15
@@ -511,15 +512,40 @@ msgstr "Erro"
 
 #: templates/errors/500.html:16
 msgid "Sorry, an error occurred."
-msgstr ""
+msgstr "Desculpe, ocorreu um erro."
+
+#: templates/footer.html:12 templates/footer.html:40
+msgid "Contact"
+msgstr "Contato"
+
+#: templates/footer.html:43
+msgid "Address"
+msgstr "Endereço"
+
+#: templates/footer.html:43
+msgid "See on map"
+msgstr "Veja no mapa"
+
+#: templates/footer.html:44
+#| msgid "Matao St."
+msgid "Matão St."
+msgstr "Rua do Matão"
+
+#: templates/footer.html:44
+msgid "University City"
+msgstr "Cidade universitária"
+
+#: templates/footer.html:61
+msgid "Supported by"
+msgstr "Apoiado por"
 
 #: templates/footer.html:65
-msgid "Supported by"
-msgstr "Apoiado pela"
-
-#: templates/footer.html:69
 msgid "Hosted by"
 msgstr "Localizado na"
+
+#: templates/footer.html:70
+msgid "Licensed under the terms of"
+msgstr "Licenciado sob os termos da"
 
 #: templates/includes/search_form.html:4 templates/includes/search_form.html:5
 msgid "Search"
@@ -527,15 +553,15 @@ msgstr "Pesquisar"
 
 #: templates/includes/search_form.html:13
 msgid "Everything"
-msgstr ""
+msgstr "Tudo"
 
 #: templates/pages/menus/admin.html:31
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: templates/search_results.html:5 templates/search_results.html:14
 msgid "Search Results"
-msgstr ""
+msgstr "Resultados da busca"
 
 #: templates/search_results.html:18
 #, python-format
@@ -606,15 +632,6 @@ msgstr ""
 
 #~ msgid "Follow us"
 #~ msgstr "Siga-nos"
-
-#~ msgid "Contact"
-#~ msgstr "Contato"
-
-#~ msgid "Address"
-#~ msgstr "Endereço"
-
-#~ msgid "Matao St."
-#~ msgstr "Rua do Matão"
 
 #~ msgid "This site content is licensed under a "
 #~ msgstr "Licenciado sob os termos da "

@@ -1,6 +1,6 @@
 {% load i18n pages_tags custom_home_loops %}
 {% spaceless %}
-{% if page_branch_in_menu %}
+    {% if page_branch_in_menu %}
         <nav>
             <ul>
                 {% for page in page_branch %}
@@ -14,7 +14,6 @@
 
                 {# SOCIAL MEDIA AND LAGUAGE LINKS #}
                 {% if branch_level == 0 %}
-
                     <div class="language-link">
                         {% include "includes/language_selector.html" %}
                     </div>

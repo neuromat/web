@@ -3,56 +3,39 @@
 <footer>
     <div class="footer-info">
         <!-- Sitemap -->
-        <ul class="sitemap-tree">
-            <li><a href="#">CEPID NeuroMat</a>
-                <ul>
-                    <li><a href="#">Quem somos</a></li>
-                    <li><a href="#">Equipe</a></li>
-                    <li><a href="#">Oportunidades</a></li>
-                    <li><a href="#">Relatórios</a></li>
-                    <li><a href="#">Eventos</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </li>
-
-            <li> <a href="#">Pesquisa</a>
-                <ul>
-                    <li><a href="#">NES</a></li>
-                    <li><a href="#">Jogo do Goleiro</a></li>
-                    <li><a href="#">ABRACO</a></li>
-                    <li><a href="#">AMPARO</a></li>
-                </ul>
-            </li>
-            <li> <a href="#">Difusão</a>
-                <ul>
-                    <li><a href="#">Notícias</a></li>
-                    <li><a href="#">Vídeos</a></li>
-                    <li><a href="#">Áudios</a></li>
-                    <li><a href="#">Boletim</a></li>
-                </ul>
-            </li>
-
-            <li class="social-media-list"> <span>Siga-nos</span>
-                    {% autoescape off %}
-                        {% get_social_media_links list=True %}
-                    {% endautoescape %}
-            </li>
-        </ul>
+        {% load i18n pages_tags custom_home_loops %}
+        {% spaceless %}
+            {% if page_branch_in_menu %}
+                <nav>
+                    <ul>
+                        {% for page in page_branch %}
+                            {% trans 'Contact' as contact %}
+                            {% if page.in_menu and page.title != contact %}
+                                <li class="{% if page.has_children_in_menu %} submenu {% endif %}" >
+                                    <a href="{{ page.get_absolute_url }}"> {{ page.title }}</a>
+                                    {% if page.has_children_in_menu %}{% page_menu page %}{% endif %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
+            {% endif %}
+        {% endspaceless %}
 
         <!-- Address -->
         <div class="address-info">
-            <h3>Contato</h3>
+            <h3>{% trans 'Contact' %}</h3>
             <ul>
                 <li>
-                    <h4>Endereço ( <a href="#">Ver no mapa</a> )</h4>
-                    <p>Rua do Matão, 1010 - Cidade Universitária - São Paulo - SP - Brasil. 05508-090.</p>
+                    <h4>{% trans 'Address' %} ( <a href="#">{% trans 'See on map' %}</a> )</h4>
+                    <p>{% trans 'Matão St.' %}, 1010 - {% trans 'University City' %} - São Paulo - SP - Brasil. 05508-090.</p>
                 </li>
                 <li>
-                    <h4>Telefone:</h4>
+                    <h4>{% trans 'Phone' %}:</h4>
                     <p>+55 11 3091-1717</p>
                 </li>
                 <li>
-                    <h4>E-mail:</h4>
+                    <h4>{% trans 'Email' %}:</h4>
                     <p><a href="mailto:neuromat@numec.prp.usp.br">neuromat@numec.prp.usp.br</a></p>
                 </li>
 
@@ -63,13 +46,17 @@
         <div class="marcas-footer">
             <div class="marca-apoio">
                 <span>{% trans "Supported by" %}:</span>
-                <img src="{{ STATIC_URL }}img/Fapesp.png" alt="" />
+                <a href="http://www.fapesp.br" target="_blank">
+                    <img src="{{ STATIC_URL }}img/Fapesp.png" alt="" />
+                </a>
             </div>
             <div class="marca-apoio localizacao">
                 <span>{% trans "Hosted by" %}:</span>
-                <img src="https://neuromat.numec.prp.usp.br/static/img/usp.png" alt="" />
+                <a href="http://www.usp.br" target="_blank">
+                    <img src="https://neuromat.numec.prp.usp.br/static/img/usp.png" alt="" />
+                </a>
             </div>
         </div>
     </div>
-    <p class="text-center license">Licenciado sob os termos da Creative Commons Attributions 4.0</p>
+    <p class="text-center license">{% trans 'Licensed under the terms of' %} Creative Commons Attributions 4.0</p>
 </footer>
