@@ -965,6 +965,22 @@ footer{
             width: 100%;
         }
 
+        nav{
+            ul{
+                display: flex;
+                li{
+                    margin: 0 10px;
+                    a{
+                        font-size: 1.1em;
+                        color: white;
+                    }
+                    ul{
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+
         .marcas-footer{
             display: flex;
             justify-content: space-between;
@@ -1236,7 +1252,7 @@ footer{
         p{
             font-style: italic;
         }
-        
+
         &:hover{
             background: #f3f0bd;
         }

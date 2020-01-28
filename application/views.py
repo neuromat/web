@@ -23,6 +23,7 @@ def category_page(request, template_name="blog_list_category.html"):
     context = {"blog_posts": blog_posts, "test": category}
     return render(request, template_name, context)
 
+
 def postdoc(request, template_name="postdoc.html"):
     candidate_form = PostdocForm(request.POST or None)
     research_inlineformset = inlineformset_factory(Postdoc, Research, form=ResearchForm, extra=3, can_delete=False)

@@ -939,6 +939,19 @@ footer .footer-info {
     width: 100%;
   }
 }
+footer .footer-info nav ul {
+  display: flex;
+}
+footer .footer-info nav ul li {
+  margin: 0 10px;
+}
+footer .footer-info nav ul li a {
+  font-size: 1.1em;
+  color: white;
+}
+footer .footer-info nav ul li ul {
+  flex-direction: column;
+}
 footer .footer-info .marcas-footer {
   display: flex;
   justify-content: space-between;
