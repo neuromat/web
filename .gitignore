@@ -5,5 +5,5 @@
 .coverage
 .idea
 local_settings.py
-static/media
+/static
 web/wsgi.py
