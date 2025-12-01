@@ -8,3 +8,4 @@ local_settings.py
 /static
 web/wsgi.py
 static-root/
+.python-version
