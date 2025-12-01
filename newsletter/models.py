@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.timezone import now
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from mezzanine.blog.models import BlogPost
 
 
@@ -50,7 +50,7 @@ class FacebookHighlight(models.Model):
     An instance of this class is a facebook post
 
     """
-    newsletter = models.ForeignKey(Newsletter)
+    newsletter = models.ForeignKey(Newsletter, on_delete=models.PROTECT)
     text = models.TextField(_('Text'))
     image = models.FileField(_('Image'), blank=True, null=True, upload_to=facebook_image_path)
     image_url = models.URLField(_('Image URL'), blank=True, null=True)
