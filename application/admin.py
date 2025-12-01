@@ -1,6 +1,6 @@
 from copy import deepcopy
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from .models import Postdoc, PostdocFile, Research
 from mezzanine.blog.admin import BlogPostAdmin
