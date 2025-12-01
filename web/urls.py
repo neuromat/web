@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
-from django.conf.urls import include, url
-from django.conf.urls.i18n import i18n_patterns
+from django.urls import include, re_path
 from django.contrib import admin
 from django.views.i18n import set_language
 
@@ -19,19 +18,19 @@ admin.autodiscover()
 # )
 
 urlpatterns = [
-    url("^admin/", include(admin.site.urls))
+    re_path("^admin/", include(admin.site.urls))
 ]
 
 if settings.USE_MODELTRANSLATION:
     urlpatterns += [
-        url('^i18n/$', set_language, name='set_language'),
+        re_path('^i18n/$', set_language, name='set_language'),
     ]
 
 urlpatterns += [
-    url("^$", blog_views.blog_post_list, name="home"),
-    url("^newsletter/", include('newsletter.urls')),
-    url("^postdoc/", include('application.urls')),
-    url("^", include("mezzanine.urls")),
+    re_path("^$", blog_views.blog_post_list, name="home"),
+    re_path("^newsletter/", include('newsletter.urls')),
+    re_path("^postdoc/", include('application.urls')),
+    re_path("^", include("mezzanine.urls")),
 ]
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error
