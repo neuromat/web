@@ -1,9 +1,9 @@
 from django.contrib import messages
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.forms.models import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from .forms import PostdocForm, ResearchForm
 from .models import Postdoc, PostdocFile, Research

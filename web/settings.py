@@ -1,9 +1,9 @@
 
 from __future__ import absolute_import, unicode_literals
 import os
+from pathlib import Path
 
-from django import VERSION as DJANGO_VERSION
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 ######################
@@ -87,7 +87,7 @@ EXTRA_MODEL_FIELDS = (
     ),
 )
 
-# Se    tting to turn on featured images for blog posts. Defaults to False.
+# Setting to turn on featured images for blog posts. Defaults to False.
 BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the django-modeltranslation will be added to the
@@ -103,7 +103,7 @@ BLOG_SLUG = "content"
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -112,7 +112,7 @@ ALLOWED_HOSTS = []
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
@@ -122,12 +122,16 @@ USE_TZ = True
 LANGUAGE_CODE = "en"
 
 # Supported languages
+#LANGUAGES = (
+#    ("en", _("English")),
+#    ("pt-br", _("Portugues")),
+#)
 LANGUAGES = (
-    ('en', _('English')),
-    ('pt-br', _('Portugues')),
+    ("en", _("English")),
 )
 
-MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'pt-br')
+#MODELTRANSLATION_FALLBACK_LANGUAGES = ("en", "pt-br")
+MODELTRANSLATION_FALLBACK_LANGUAGES = {"default": ("en",),}
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
@@ -141,6 +145,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
+# USE_I18N = True
 USE_I18N = True
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
@@ -177,9 +182,10 @@ DATABASES = {
 #########
 
 # Full filesystem path to the project.
-PROJECT_APP_PATH = os.path.dirname(os.path.abspath(__file__))
-PROJECT_APP = os.path.basename(PROJECT_APP_PATH)
-PROJECT_ROOT = BASE_DIR = os.path.dirname(PROJECT_APP_PATH)
+BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = BASE_DIR
+PROJECT_APP = BASE_DIR.name
+PROJECT_APP_PATH = BASE_DIR / PROJECT_APP
 
 # Every cache key will get prefixed with this value - here we set it to
 # the name of the directory the project is in to try and use something
@@ -194,30 +200,36 @@ STATIC_URL = "/static/"
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT = BASE_DIR / "static-root"
+
+APPEND_SLASH = False
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = STATIC_URL + "media/"
+# MEDIA_URL = STATIC_URL + "media/"
+MEDIA_URL = "/media/"
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "%s.urls" % PROJECT_APP
 
 # Specify path for translation files
-LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
+# LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             os.path.join(PROJECT_ROOT, "templates"),
-            os.path.join(PROJECT_ROOT, 'application/templates/application'),
-            os.path.join(PROJECT_ROOT, 'newsletter/templates/newsletter'),
+            os.path.join(PROJECT_ROOT, "application/templates/application"),
+            os.path.join(PROJECT_ROOT, "newsletter/templates/newsletter"),
         ],
         "OPTIONS": {
             "context_processors": [
@@ -244,9 +256,6 @@ TEMPLATES = [
     },
 ]
 
-if DJANGO_VERSION < (1, 9):
-    del TEMPLATES[0]["OPTIONS"]["builtins"]
-
 
 ################
 # APPLICATIONS #
@@ -256,6 +265,7 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    "django.contrib.messages",
     "django.contrib.redirects",
     "django.contrib.sessions",
     "django.contrib.sites",
@@ -281,14 +291,12 @@ INSTALLED_APPS = (
 MIDDLEWARE = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
 
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
 
     "mezzanine.core.request.CurrentRequestMiddleware",
     "mezzanine.core.middleware.RedirectFallbackMiddleware",
@@ -297,10 +305,6 @@ MIDDLEWARE = (
     "mezzanine.pages.middleware.PageMiddleware",
     "mezzanine.core.middleware.FetchFromCacheMiddleware",
 )
-
-if DJANGO_VERSION < (1, 10):
-    MIDDLEWARE_CLASSES = MIDDLEWARE
-    del MIDDLEWARE
 
 
 # Store these package names here as they may change in the future since
@@ -336,9 +340,9 @@ OPTIONAL_APPS = (
 f = os.path.join(PROJECT_APP_PATH, "local_settings.py")
 if os.path.exists(f):
     import sys
-    import imp
+    from types import ModuleType
     module_name = "%s.local_settings" % PROJECT_APP
-    module = imp.new_module(module_name)
+    module = ModuleType(module_name)
     module.__file__ = f
     sys.modules[module_name] = module
     exec(open(f, "rb").read())
@@ -360,3 +364,5 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

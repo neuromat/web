@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import re_path
 
 from application import views
 
 
 urlpatterns = [
-    url("^new/$", views.postdoc, name="postdoc"),
+    re_path("^new/$", views.postdoc, name="postdoc"),
 ]
